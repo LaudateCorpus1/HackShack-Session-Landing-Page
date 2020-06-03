@@ -11,15 +11,18 @@ const Layout = ({ children, background }) => {
         size: 'cover',
         position: 'fixed',
       }}
-      height={{ min: '100%' }}
-      width={{ min: '500px' }}
+      style={{
+        height: '900px',
+        minHeight: '100%',
+        minWidth: '1425px',
+      }}
       justify="between"
     >
       <Box>
         <Header />
         <Box direction="row">
           <SideNav />
-          <Box>{children}</Box>
+          {children}
         </Box>
       </Box>
       <Footer />
