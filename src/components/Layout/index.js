@@ -11,9 +11,7 @@ const Layout = ({ children, background }) => {
         size: 'cover',
         position: 'fixed',
       }}
-      style={{
-        minHeight: '100%',
-      }}
+      height={{ min: '100%' }}
       justify="between"
     >
       <Box>

@@ -5,8 +5,8 @@ import { Box, Button, Heading } from 'grommet';
 
 const getNavColor = (active, hover) => {
   if (active) return 'white';
-  if (hover) return 'green';
-  return 'brand';
+  if (hover) return 'white';
+  return 'rgba(255, 255, 255, 0.3)';
 };
 
 const NavButton = ({ active, to, history, children }) => {
