@@ -12,9 +12,7 @@ const Layout = ({ children, background }) => {
         position: 'fixed',
       }}
       style={{
-        height: '900px',
         minHeight: '100%',
-        minWidth: '1425px',
       }}
       justify="between"
     >
