@@ -37,7 +37,7 @@ const DesktopLayout = () => (
 );
 
 const MobileLayout = () => (
-  <Box align="center" gap="small">
+  <Box align="center" gap="large">
     <Box height="225px">
       <Image
         fit="contain"
@@ -47,16 +47,16 @@ const MobileLayout = () => (
     </Box>
     <Box margin={{ bottom: 'small' }}>
       <Box>
-        <Text size="medium" color="#FFFFFF">
+        <Text size="large" color="#FFFFFF">
           Welcome to the underbelly of HPE Discover,
         </Text>
-        <Text size="medium" color="#FFFFFF">
+        <Text size="large" color="#FFFFFF">
           welcome to the Dev HackShack. Events, talks,
         </Text>
-        <Text size="medium" color="#FFFFFF">
+        <Text size="large" color="#FFFFFF">
           and games for the folks that make the awesome
         </Text>
-        <Text size="medium" color="#FFFFFF">
+        <Text size="large" color="#FFFFFF">
           possible. Come on in and see who’s home!
         </Text>
       </Box>
