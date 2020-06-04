@@ -7,11 +7,11 @@ export const Card = ({ children, ...rest }) => {
     <Box
       width='500px'
       round="small"
-      height="624px"
+      height="610px"
       overflow="hidden"
       {...rest}
     >
-      <Box fill pad="medium">
+      <Box fill>
         {children}
       </Box>
     </Box>
