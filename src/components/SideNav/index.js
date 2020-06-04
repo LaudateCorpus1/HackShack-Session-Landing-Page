@@ -50,9 +50,10 @@ export const SideNav = ({ location, history }) => (
     >
       SCHEDULE
     </NavButton>
+    {/* Take out EZMERAL for now until announced
     <NavButton history={history} active={location.pathname === '/#'} to="#">
       HPE EZMERAL
-    </NavButton>
+    </NavButton> */}
     {/* Take out Replays for now
     <NavButton
       history={history}

@@ -5,7 +5,8 @@ import { Box } from 'grommet';
 export const CommunityImage = ({ background, children, ...rest }) => {
   return (
     <Box
-      pad={{ left: 'large', top: 'large' }}
+      pad={{ left: 'medium' }}
+      margin={{top: 'large'}}
       height="small"
       width="small"
       alignSelf="start"

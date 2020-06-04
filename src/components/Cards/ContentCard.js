@@ -28,11 +28,11 @@ export const ContentCards = ({
       )}
       <Box
         pad={{ horizontal: 'medium', bottom: 'medium' }}
-        justify="evenly"
-        basis="60%"
+        justify="between"
+        basis={image && image ? "60%" : 'none'}
         fill
       >
-        <Box justify="evenly">
+        <Box fill={logo && logo ? true : false}>
           <Heading margin={{ top: 'medium', bottom: 'small' }} level={2}>
             {title}
           </Heading>
