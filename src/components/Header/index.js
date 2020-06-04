@@ -1,38 +1,20 @@
-/* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
-import React from 'react';
-import { Box, Text, Header as HeaderGrommet, Image } from 'grommet';
+import React, { useContext } from 'react';
+import {
+  Box,
+  Header as HeaderGrommet,
+  Image,
+  ResponsiveContext,
+} from 'grommet';
 
 export const Header = () => {
+  const size = useContext(ResponsiveContext);
+  const iconSize = size === 'small' ? '192px' : '228px';
   return (
-    <HeaderGrommet
-      align="center"
-      direction="row"
-      flex={false}
-      justify="between"
-      gap="medium"
-      height="xsmall"
-      fill="horizontal"
-      pad="medium"
-    >
-      <Box
-        alignSelf="start"
-        align="center"
-        justify="center"
-        direction="row"
-        gap="small"
-      >
-        <Box height="xxsmall" width="xxsmall">
-          <Image
-            fit="contain"
-            size="small"
-            src="https://us-central1-grommet-designer.cloudfunctions.net/images/lozzi-hpe-com/developer-logo.png"
-          />
-        </Box>
-        <Box align="center" justify="center" direction="row" gap="xsmall">
-          <Text weight="bold">HPE</Text>
-          <Text>Developer</Text>
-        </Box>
+    <HeaderGrommet justify="between">
+      <Box width={iconSize}>
+        <Image fit="contain" src="/img/hpe-dve-lockup.svg" />
       </Box>
+      <Box>links go here</Box>
     </HeaderGrommet>
   );
 };
