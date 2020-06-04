@@ -7,7 +7,7 @@ import eventSchedule from '../../ScheduleData/hpe-discover-events.json';
 
 const Schedule = () => {
   return (
-    <Layout background="/img/schedule-background.svg">
+    <Layout background="/img/schedule-background.png">
       <Heading margin={{ bottom: 'none' }} color="text-strong">
         SCHEDULE
       </Heading>
