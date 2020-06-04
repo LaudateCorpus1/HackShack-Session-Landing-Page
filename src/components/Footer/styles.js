@@ -7,10 +7,6 @@ export const StyledAnchor = styled(Anchor)`
 
 export const FooterContainer = styled(Box)`
   white-space: nowrap;
-  flex-direction: row;
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
-  }
 `;
 
 export default { StyledAnchor, FooterContainer };

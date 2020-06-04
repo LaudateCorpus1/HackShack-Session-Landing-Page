@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 import { Box } from 'grommet';
 
-export const FooterContainer = styled(Box)`
-  white-space: nowrap;
-  flex-direction: row;
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
-  }
+const ResponsiveLayout = styled(Box)`
+  min-width: ${props => props.viewport.minWidth};
 `;
 
-export default { FooterContainer };
+export { ResponsiveLayout };

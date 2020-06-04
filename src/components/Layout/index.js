@@ -1,28 +1,44 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box } from 'grommet';
+import { Box, ResponsiveContext } from 'grommet';
+import { ResponsiveLayout } from './styles';
 import { Footer, Header, SideNav } from '../index';
 
+const handleViewport = size => {
+  switch (size) {
+    case 'small':
+      return { minWidth: '460px' };
+
+    default:
+      return { minWidth: '1500px' };
+  }
+};
+
 const Layout = ({ children, background }) => {
+  const size = useContext(ResponsiveContext);
+  const viewport = handleViewport(size);
+
   return (
-    <Box
+    <ResponsiveLayout
+      viewport={viewport}
       background={{
         image: `url(${background})`,
         size: 'cover',
         position: 'fixed',
       }}
-      height={{ min: '100%' }}
+      width="100%"
+      height="100%"
       justify="between"
     >
       <Box>
         <Header />
         <Box direction="row">
-          <SideNav />
+          {size !== 'small' && <SideNav />}
           {children}
         </Box>
       </Box>
       <Footer />
-    </Box>
+    </ResponsiveLayout>
   );
 };
 
