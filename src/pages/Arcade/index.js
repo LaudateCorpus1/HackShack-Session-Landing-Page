@@ -11,6 +11,8 @@ const Arcade = () => {
         {arcadeContent.map(content => (
           <ContentCards
             title={content.title}
+            alt={content.alt}
+            background={content.background}
             image={content.image}
             desc={content.desc}
             label={content.label}
