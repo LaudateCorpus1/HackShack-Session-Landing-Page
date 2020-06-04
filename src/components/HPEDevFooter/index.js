@@ -15,7 +15,7 @@ export const HPEDevFooter = () => {
       align="center"
       justify="between"
       border="top"
-      pad={{ left: 'medium', right: 'medium', top: 'small', bottom: 'small' }}
+      pad={{ left: '24px', right: '24px', top: '12px', bottom: '12px' }}
       style={{ whiteSpace: 'nowrap' }}
     >
       <Box direction="row" align="center" gap="small">

@@ -4,7 +4,7 @@ import { Layout, ButtonSplit } from '../../components/index';
 
 const Home = () => {
   return (
-    <Box style={{ minHeight: '900px', minWidth: '1425px', height: '100%' }}>
+    <Box style={{ minHeight: '900px', minWidth: '1500px', height: '100%' }}>
       <Layout background="/img/hack-shack-home-background.png">
         <Box
           align="center"
@@ -23,7 +23,7 @@ const Home = () => {
             style={{
               position: 'absolute',
               top: '-132px',
-              right: '27%',
+              right: '37%',
             }}
           >
             <Image
@@ -37,7 +37,7 @@ const Home = () => {
               transform: 'rotate(-10deg)',
               position: 'absolute',
               top: '219px',
-              left: '11%',
+              left: '0',
               whiteSpace: 'nowrap',
             }}
           >
@@ -62,7 +62,7 @@ const Home = () => {
               transform: 'rotate(-10deg) ',
               position: 'absolute',
               top: '449px',
-              left: '5%',
+              left: '-5%',
             }}
           >
             <ButtonSplit to="https://developer.hpe.com">

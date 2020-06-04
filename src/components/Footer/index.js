@@ -28,7 +28,7 @@ export const Footer = () => {
       <HPEDevFooter />
       <FooterContainer
         align="center"
-        pad={{ left: 'small', right: 'small' }}
+        pad={{ left: '12px', right: '12px' }}
         background="#FFFFFF"
         justify="between"
       >

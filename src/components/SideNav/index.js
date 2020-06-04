@@ -42,8 +42,8 @@ export const SideNav = ({ location, history }) => (
   <Box
     align="start"
     gap="xsmall"
-    margin={{ left: 'xlarge', top: 'large' }}
-    width={{ min: '200px' }}
+    margin={{ left: '96px', top: '48px' }}
+    width={{ min: '250px' }}
   >
     <NavButton history={history} active={location.pathname === '/'} to="/">
       HACK SHACK
