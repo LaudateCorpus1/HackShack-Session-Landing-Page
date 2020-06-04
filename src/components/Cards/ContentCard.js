@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Heading, Text, Image } from 'grommet';
+import { Link } from 'react-router-dom';
 import { CardImage, Card, CommunityImage } from './index';
 
 export const ContentCards = ({
@@ -11,6 +12,7 @@ export const ContentCards = ({
   link,
   label,
   logo,
+  path,
   alt,
 }) => {
   return (
@@ -29,7 +31,7 @@ export const ContentCards = ({
       <Box
         pad={{ horizontal: 'medium', bottom: 'medium' }}
         justify="between"
-        basis={image && image ? "60%" : 'none'}
+        basis={image && image ? '60%' : 'none'}
         fill
       >
         <Box fill={logo && logo ? true : false}>
@@ -38,18 +40,33 @@ export const ContentCards = ({
           </Heading>
           <Text size="xlarge">{desc}</Text>
         </Box>
-        <Button
-          margin={{ vertical: 'small' }}
-          alignSelf="start"
-          href={link}
-          secondary
-          label={
-            <Box pad="xsmall">
-              <Text color="text-strong">{label}</Text>
-            </Box>
-          }
-          target="_blank"
-        ></Button>
+        {path && path ? (
+          <Link to={{ pathname: path }}>
+            <Button
+              margin={{ vertical: 'small' }}
+              alignSelf="start"
+              label={
+                <Box pad="xsmall">
+                  <Text color="text-strong">{label}</Text>
+                </Box>
+              }
+              primary
+            ></Button>
+          </Link>
+        ) : (
+          <Button
+            margin={{ vertical: 'small' }}
+            alignSelf="start"
+            label={
+              <Box pad="xsmall">
+                <Text color="text-strong">{label}</Text>
+              </Box>
+            }
+            href={link}
+            target="_blank"
+            primary
+          ></Button>
+        )}
       </Box>
     </Card>
   );
