@@ -75,7 +75,7 @@ export const arcadeContent = [
     alt: 'admin ticket',
     title: 'PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES',
     desc: 'Learn more about the rules and requirments to the contest.',
-    link: 'https://developer.hpe.com/newsletter-signup',
+    link: '/competiton',
     label: 'Arcade Contest',
     background: 'rgba(0, 86, 122, 0.8);',
   },

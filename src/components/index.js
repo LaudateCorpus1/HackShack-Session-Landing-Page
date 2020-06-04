@@ -6,6 +6,7 @@ import HPEDevFooter from './HPEDevFooter';
 import Layout from './Layout';
 import Leaderboard from './Leaderboard';
 import SideNav from './SideNav';
+import SubPageHeader from './SubPageHeaders';
 
 export {
   ButtonSplit,
@@ -16,4 +17,5 @@ export {
   Layout,
   Leaderboard,
   SideNav,
+  SubPageHeader,
 };

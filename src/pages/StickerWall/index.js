@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box, Heading, Button, Image } from 'grommet';
-import { FormPreviousLink } from 'grommet-icons';
-import { Layout } from '../../components/index';
+import { Box, Image } from 'grommet';
+import { Layout, SubPageHeader } from '../../components/index';
 import { StyledBox } from './styles';
 
 // stickers list
@@ -45,31 +44,15 @@ const listStickerBoxes1 = stickers.map(stickerName => (
 
 const StickerWall = () => {
   return (
-    <Layout background="/img/hack-shack-home-background.png">
-      <Box
-        direction="column"
-        align="start"
-        gap="medium"
-        pad={{ left: 'xlarge', right: 'xlarge', bottom: 'medium' }}
-      >
-        <Box align="start">
-          <Button
-            icon={<FormPreviousLink />}
-            label="Back to Arcade"
-            href="/arcade"
-          ></Button>
-        </Box>
-        <Box background={{ color: '#263040' }} pad="large" round="small">
-          <Box align="start">
-            <Heading level="3" size="medium" margin="none" textAlign="start">
-              HPE DEV STICKER WALL
-            </Heading>
-          </Box>
-          <StyledBox flex={false} width="xlarge">
+    <Layout background="/img/stickers-background.svg">
+      <SubPageHeader title="STICKERS AND ART">
+        <Box width="1200" background={{ color: '#263040' }} pad="large" round="small">
+          <Box align="start"></Box>
+          <StyledBox flex={false}>
             {listStickerBoxes1}
           </StyledBox>
         </Box>
-      </Box>
+      </SubPageHeader>
     </Layout>
   );
 };
