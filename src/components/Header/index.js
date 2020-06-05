@@ -7,7 +7,6 @@ import {
   Image,
   ResponsiveContext,
   Layer,
-  Form,
 } from 'grommet';
 import { Menu, Close } from 'grommet-icons';
 import { ButtonSplit, SideNav } from '../index';
