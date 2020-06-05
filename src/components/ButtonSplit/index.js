@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Box, Stack, Text } from 'grommet';
 import { MainButton, PinkBox, TealBox } from './styles';
@@ -13,15 +12,11 @@ export const ButtonSplit = ({ to, children }) => {
       {children}
     </Text>
   );
-  const history = useHistory();
   return (
     <MainButton
       plain
       href={to}
-      onClick={e => {
-        e.preventDefault();
-        history.push(to);
-      }}
+      target="_blank"
       onMouseOver={() => setHover(true)}
       onFocus={() => setHover(true)}
       onMouseOut={() => setHover(false)}
