@@ -7,6 +7,7 @@ import {
   Image,
   ResponsiveContext,
   Layer,
+  Anchor,
 } from 'grommet';
 import { Menu, Close } from 'grommet-icons';
 import { ButtonSplit, SideNav } from '../index';
@@ -21,10 +22,12 @@ export const Header = () => {
   }, [size]);
 
   return (
-    <HeaderGrommet justify="between" align="center">
-      <Box width={iconSize}>
-        <Image fit="contain" src="/img/hpe-dve-lockup.svg" />
-      </Box>
+    <HeaderGrommet pad="medium" justify="between" align="center">
+      <Anchor href="https://www.hpe.com/us/en/discover.html" target="_blank">
+        <Box width={iconSize}>
+          <Image fit="contain" src="/img/hpe-dve-lockup.svg" />
+        </Box>
+      </Anchor>
       {size === 'small' && (
         <Box direction="row" align="center">
           <Text color="#FFFFFF">MENU</Text>
