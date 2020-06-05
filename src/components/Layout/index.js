@@ -9,14 +9,13 @@ const handleViewport = size => {
     case 'small':
       return { minWidth: '460px', minHeight: '700px' };
     default:
-      return { minWidth: '1500px', minHeight: '900px' };
+      return { minWidth: '1500px', minHeight: '975px' };
   }
 };
 
 const Layout = ({ children, background }) => {
   const size = useContext(ResponsiveContext);
   const viewport = handleViewport(size);
-
   return (
     <ResponsiveLayout
       viewport={viewport}
@@ -25,8 +24,6 @@ const Layout = ({ children, background }) => {
         size: 'cover',
         position: 'fixed',
       }}
-      width="100%"
-      height="100%"
       justify="between"
     >
       <Box>
