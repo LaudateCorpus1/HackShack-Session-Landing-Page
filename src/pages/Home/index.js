@@ -73,7 +73,7 @@ const Home = () => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Layout background="/img/hack-shack-home-background.png">
+    <Layout background="/img/hack-shack-home-background.png" page="Home">
       {size !== 'small' ? <DesktopLayout /> : <MobileLayout />}
     </Layout>
   );
