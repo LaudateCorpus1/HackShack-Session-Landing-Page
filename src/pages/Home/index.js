@@ -15,16 +15,16 @@ const DesktopLayout = () => (
     <TextWrapper>
       <Box>
         <Text size="xxlarge" color="#FFFFFF">
-          Welcome to the underbelly of HPE Discover,
+          Welcome to the Hack Shack. Come in to
         </Text>
         <Text size="xxlarge" color="#FFFFFF">
-          welcome to the Dev HackShack. Events, talks,
+          collaborate and learn from others in Technology
         </Text>
         <Text size="xxlarge" color="#FFFFFF">
-          and games for the folks that make the awesome
+          Workshops and Sessions or compete for elite
         </Text>
         <Text size="xxlarge" color="#FFFFFF">
-          possible. Come on in and see who’s home!
+          gaming status playing Hack Shack Attack!
         </Text>
       </Box>
     </TextWrapper>
