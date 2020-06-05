@@ -7,7 +7,7 @@ import { Heading } from 'grommet';
 
 const Community = () => {
   return (
-    <Layout background="/img/community-background.svg">
+    <Layout background="/img/community-background.png">
       <Heading color="text-strong" margin={{ bottom: 'large' }}>
         COMMUNITY
       </Heading>
