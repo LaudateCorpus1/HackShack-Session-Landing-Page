@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Text } from 'grommet';
+import React, { useContext } from 'react';
+import { Box, Text, ResponsiveContext } from 'grommet';
 import { HPEDevFooter } from '../index';
 import { StyledAnchor, FooterContainer } from './styles';
 
@@ -23,6 +23,10 @@ const footerLinks = [
 ];
 
 export const Footer = () => {
+  const size = useContext(ResponsiveContext);
+  const dir = size === 'small' ? 'column' : 'row';
+  const fontSize = size === 'small' ? '14px' : '18px';
+
   return (
     <Box>
       <HPEDevFooter />
@@ -31,9 +35,10 @@ export const Footer = () => {
         pad={{ left: 'small', right: 'small' }}
         background="#FFFFFF"
         justify="between"
+        direction={dir}
       >
         <Box>
-          <Text size="small">
+          <Text size={fontSize}>
             &copy; 2020 Hewlett Packard Enterprise Development LP
           </Text>
         </Box>
@@ -47,7 +52,7 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Text size="small">{label}</Text>
+                <Text size={fontSize}>{label}</Text>
               </StyledAnchor>
             );
           })}

@@ -1,38 +1,52 @@
-/* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
-import React from 'react';
-import { Box, Text, Header as HeaderGrommet, Image } from 'grommet';
+import React, { useContext, useState, useEffect } from 'react';
+import {
+  Box,
+  Button,
+  Text,
+  Header as HeaderGrommet,
+  Image,
+  ResponsiveContext,
+  Layer,
+} from 'grommet';
+import { Menu, Close } from 'grommet-icons';
+import { ButtonSplit, SideNav } from '../index';
 
 export const Header = () => {
+  const [layer, setLayer] = useState(false);
+  const size = useContext(ResponsiveContext);
+  const iconSize = size === 'small' ? '192px' : '228px';
+
+  useEffect(() => {
+    if (size !== 'small') setLayer(false);
+  }, [size]);
+
   return (
-    <HeaderGrommet
-      align="center"
-      direction="row"
-      flex={false}
-      justify="between"
-      gap="medium"
-      height="xsmall"
-      fill="horizontal"
-      pad="medium"
-    >
-      <Box
-        alignSelf="start"
-        align="center"
-        justify="center"
-        direction="row"
-        gap="small"
-      >
-        <Box height="xxsmall" width="xxsmall">
-          <Image
-            fit="contain"
-            size="small"
-            src="https://us-central1-grommet-designer.cloudfunctions.net/images/lozzi-hpe-com/developer-logo.png"
-          />
-        </Box>
-        <Box align="center" justify="center" direction="row" gap="xsmall">
-          <Text weight="bold">HPE</Text>
-          <Text>Developer</Text>
-        </Box>
+    <HeaderGrommet justify="between" align="center">
+      <Box width={iconSize}>
+        <Image fit="contain" src="/img/hpe-dve-lockup.svg" />
       </Box>
+      {size === 'small' && (
+        <Box direction="row" align="center">
+          <Text color="#FFFFFF">MENU</Text>
+          <Button icon={<Menu />} onClick={e => setLayer(true)} />
+          {layer && (
+            <Layer>
+              <Box pad={{ top: 'xlarge', right: 'large' }}>
+                <Box direction="row" align="center" justify="end">
+                  <Text color="#FFFFFF">CLOSE</Text>
+                  <Button icon={<Close />} onClick={() => setLayer(false)} />
+                </Box>
+                <Box align="start" gap="large" pad="xlarge">
+                  <SideNav />
+                  <ButtonSplit to="https://developer.hpe.com">
+                    Register for HPE Discover
+                  </ButtonSplit>
+                </Box>
+              </Box>
+            </Layer>
+          )}
+        </Box>
+      )}
     </HeaderGrommet>
   );
 };
