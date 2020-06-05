@@ -30,7 +30,11 @@ const Layout = ({ children, background, page }) => {
       <Box>
         <Header />
         <Box direction="row">
-          {size !== 'small' && <SideNav />}
+          {size !== 'small' && (
+            <Box margin={{ top: 'xlarge', left: 'large' }}>
+              <SideNav />{' '}
+            </Box>
+          )}
           {children}
         </Box>
       </Box>
