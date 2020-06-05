@@ -78,6 +78,13 @@ export const SideNav = ({ location, history }) => (
     >
       ARCADE
     </NavButton>
+    <NavButton
+      history={history}
+      active={location.pathname === '/register'}
+      to="/register"
+    >
+      REGISTER
+    </NavButton>
   </Box>
 );
 

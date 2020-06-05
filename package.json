@@ -5,6 +5,7 @@
   "dependencies": {
     "@ion-phaser/core": "^1.2.3",
     "@ion-phaser/react": "^1.2.2",
+    "axios": "^0.19.2",
     "dotenv": "^8.0.0",
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "grommet-icons": "^4.4.0",

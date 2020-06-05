@@ -13,6 +13,8 @@ export const Header = () => {
       height="xsmall"
       fill="horizontal"
       pad="medium"
+      id="header1"
+      className="header1"
     >
       <Box
         alignSelf="start"

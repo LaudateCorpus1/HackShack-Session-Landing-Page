@@ -24,7 +24,7 @@ const footerLinks = [
 
 export const Footer = () => {
   return (
-    <Box>
+    <Box id="footer1">
       <HPEDevFooter />
       <FooterContainer
         align="center"

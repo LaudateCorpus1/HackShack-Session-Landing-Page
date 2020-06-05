@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Grommet } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import { Home, Community, Arcade, StickerWall, Schedule } from './pages/index';
+import Register from './pages/Register';
 
 const App = () => {
   return (
@@ -23,6 +24,9 @@ const App = () => {
           </Route>
           <Route path="/stickerwall">
             <StickerWall />
+          </Route>
+          <Route path="/register">
+            <Register />
           </Route>
         </Switch>
       </Router>
