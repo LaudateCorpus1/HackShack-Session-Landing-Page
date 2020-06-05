@@ -24,7 +24,7 @@ export const Header = () => {
   return (
     <HeaderGrommet pad="medium" justify="between" align="center">
       <Box width={iconSize}>
-        <Anchor href="https://www.hpe.com/us/en/discover.html">
+        <Anchor href="https://www.hpe.com/us/en/discover.html" target="_blank">
           <Image fit="contain" src="/img/hpe-dve-lockup.svg" />
         </Anchor>
       </Box>
