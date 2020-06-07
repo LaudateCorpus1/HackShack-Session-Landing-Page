@@ -5,7 +5,7 @@
     "title": "AI 101, Convolutional Neural Network (CNN) for MNIST",
     "desc": "Whether its facial recognition or self-driving cars, CNNs are used everywhere. Join this hands-on workshop to learn how to implement a simple CNN for a Modified National Institute of Standards and Technology database (MNIST). Using an MNIST dataset (70,000 pictures of hand-written digits) you’ll learn how to build a simple CNN and train it to solve a real problem with Keras (a deep learning library for Python.) On completion, you’ll be able to predict a digit, given a picture of hand-written digits with 99% accuracy.",
     "presenter": "Hana Malha",
-    "role": "Developer",
+    "role": "Head of Advanced AI Solutions & Technologies",
     "week": "1"
   },
   {
