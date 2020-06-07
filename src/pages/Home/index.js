@@ -37,34 +37,38 @@ const DesktopLayout = () => (
 );
 
 const MobileLayout = () => (
-  <Box align="center" gap="large">
-    <Box height="225px">
+  <Box align="center">
+    <Box height="200px">
       <Image
         fit="contain"
         src="/img/hack-shack-dve-logo.svg"
         alt="Hack Shack"
       />
     </Box>
-    <Box margin={{ bottom: 'small' }}>
+    <Box
+      margin={{ bottom: 'small' }}
+      style={{ transform: 'rotate(-10deg)' }}
+      gap="large"
+    >
       <Box>
-        <Text size="large" color="#FFFFFF">
+        <Text size="medium" color="#FFFFFF">
           Welcome to the underbelly of HPE Discover,
         </Text>
-        <Text size="large" color="#FFFFFF">
-          welcome to the Dev HackShack. Events, talks,
+        <Text size="medium" color="#FFFFFF">
+          welcome to the Dev HackShack. Events, talks, and
         </Text>
-        <Text size="large" color="#FFFFFF">
-          and games for the folks that make the awesome
+        <Text size="medium" color="#FFFFFF">
+          games for the folks that make the awesome
         </Text>
-        <Text size="large" color="#FFFFFF">
+        <Text size="medium" color="#FFFFFF">
           possible. Come on in and see who’s home!
         </Text>
       </Box>
-    </Box>
-    <Box>
-      <ButtonSplit to="https://developer.hpe.com">
-        Visit HPE Developer
-      </ButtonSplit>
+      <Box alignSelf="end">
+        <ButtonSplit to="https://developer.hpe.com">
+          Visit HPE Developer
+        </ButtonSplit>
+      </Box>
     </Box>
   </Box>
 );

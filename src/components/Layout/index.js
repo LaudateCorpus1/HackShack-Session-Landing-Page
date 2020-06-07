@@ -7,7 +7,7 @@ import { Footer, Header, SideNav } from '../index';
 const handleViewport = size => {
   switch (size) {
     case 'small':
-      return { minWidth: '460px', minHeight: '700px' };
+      return { minWidth: '400px', minHeight: '750px' };
     default:
       return { minWidth: '1500px', minHeight: '900px' };
   }
@@ -46,6 +46,7 @@ const Layout = ({ children, background, page }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   background: PropTypes.string.isRequired,
+  page: PropTypes.string,
 };
 
 export default Layout;

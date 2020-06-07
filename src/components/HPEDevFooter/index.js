@@ -11,41 +11,50 @@ const footerLinks = [
 
 export const HPEDevFooter = () => {
   const size = useContext(ResponsiveContext);
-  const dir = size === 'small' ? 'column' : 'row';
-  const fontSize = size === 'small' ? '16px' : '22px';
-  const iconSize = size === 'small' ? '34px' : '48px';
+  const fontSize = size === 'small' ? '20px' : '22px';
+  const iconSize = size === 'small' ? '40px' : '48px';
 
   return (
     <FooterContainer
-      direction={dir}
-      align="center"
+      direction="row"
+      align="start"
       justify="between"
       border="top"
-      pad={{ left: 'small', right: 'small', top: 'xsmall', bottom: 'xsmall' }}
+      pad={size === 'small' ? 'medium' : 'small'}
     >
-      <Box direction="row" align="center" gap="small">
+      <Box direction="row" gap="small" align="center">
         <Box width={iconSize} height={iconSize}>
           <Image fit="contain" src="./img/hpeDevLogo.svg" />
         </Box>
-        <Text size={fontSize}>
+        <Text size={fontSize} color="#FFFFFF">
           <Text weight="bold" size={fontSize}>
             HPE{' '}
           </Text>
           Developer
         </Text>
       </Box>
-      <Box gap="xsmall" direction="row">
-        {footerLinks.map(link => {
-          const { label, href } = link;
-          return (
-            <Button key={label} href={href} target="_blank">
-              <Text color="#FFFFFF" size={fontSize}>
-                {label}
-              </Text>
-            </Button>
-          );
-        })}
-      </Box>
+      {size === 'small' ? (
+        <Box gap="xsmall" direction="row">
+          <Button href="#" target="_blank">
+            <Text color="#FFFFFF" size={fontSize}>
+              Learn More
+            </Text>
+          </Button>
+        </Box>
+      ) : (
+        <Box gap="xsmall" direction="row">
+          {footerLinks.map(link => {
+            const { label, href } = link;
+            return (
+              <Button key={label} href={href} target="_blank">
+                <Text color="#FFFFFF" size={fontSize}>
+                  {label}
+                </Text>
+              </Button>
+            );
+          })}
+        </Box>
+      )}
     </FooterContainer>
   );
 };
