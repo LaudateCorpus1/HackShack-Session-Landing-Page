@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Heading, Text, Image } from 'grommet';
+import { Box, Button, Heading, Text, Image, ResponsiveContext } from 'grommet';
 import { Link } from 'react-router-dom';
 
 const Logo = ({ background, children, ...rest }) => {
+  const size = useContext(ResponsiveContext);
   return (
     <Box
       pad={{ left: 'medium' }}
       margin={{ top: 'large' }}
-      height="small"
-      width="small"
+      height={size === 'small' ? '124px' : '192px'}
       alignSelf="start"
       {...rest}
     >
@@ -31,11 +31,9 @@ const CardImage = ({ background, children, ...rest }) => {
   return (
     <Box
       background={background}
-      height="small"
       round="xsmall"
       overflow="hidden"
       basis="50%"
-      style={{ position: 'relative' }}
       {...rest}
     >
       {children}
@@ -60,8 +58,8 @@ const CardWrapper = ({ children, ...rest }) => {
       overflow="hidden"
       {...rest}
       style={{
-        minHeight: '610px',
-        minWidth: '576px',
+        minHeight: '510px',
+        minWidth: '366px',
         maxHeight: '610px',
         maxWidth: '576px',
       }}
@@ -86,6 +84,7 @@ const Card = ({
   path,
   alt,
 }) => {
+  const size = useContext(ResponsiveContext);
   return (
     <CardWrapper align="start" background={background}>
       {image && (
