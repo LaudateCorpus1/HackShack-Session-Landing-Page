@@ -1,8 +1,6 @@
 import React from 'react';
 import { Heading } from 'grommet';
-import { ContentCards } from '../../components/Cards';
-import { Layout } from '../../components/index';
-import { CardGrid } from '../../components/Cards';
+import { Layout, Card, CardGrid } from '../../components/index';
 import { arcadeContent } from '../../CardData/PageContent';
 
 const Arcade = () => {
@@ -13,7 +11,7 @@ const Arcade = () => {
       </Heading>
       <CardGrid>
         {arcadeContent.map(content => (
-          <ContentCards
+          <Card
             title={content.title}
             alt={content.alt}
             background={content.background}

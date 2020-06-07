@@ -1,8 +1,6 @@
 import React from 'react';
 import { Heading } from 'grommet';
-import { ScheduleCards } from '../../components/Cards';
-import { Layout } from '../../components/index';
-import { CardGrid } from '../../components/Cards';
+import { Layout, ScheduleCard, CardGrid } from '../../components/index';
 import eventSchedule from '../../ScheduleData/hpe-discover-events.json';
 
 const Schedule = () => {
@@ -31,7 +29,7 @@ const Schedule = () => {
             role,
             week,
           }) => (
-            <ScheduleCards
+            <ScheduleCard
               key={title}
               id={session_id}
               avatar={avatar}

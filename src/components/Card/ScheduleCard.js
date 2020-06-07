@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Heading, Text, Avatar } from 'grommet';
 
-export const ScheduleCards = ({
+const ScheduleCard = ({
   avatar,
   role,
   sessionType,
@@ -70,15 +70,14 @@ export const ScheduleCards = ({
           </Box>
         }
         secondary
-      ></Button>
+      />
     </Box>
   );
 };
 
-ScheduleCards.propTypes = {
+ScheduleCard.propTypes = {
   title: PropTypes.string,
-  image: PropTypes.string,
-  link: PropTypes.string,
-  label: PropTypes.string,
   desc: PropTypes.string,
 };
+
+export default ScheduleCard;
