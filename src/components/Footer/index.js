@@ -36,6 +36,7 @@ export const Footer = () => {
         justify="between"
         direction={dir}
         align="start"
+        gap="medium"
       >
         <Box>
           <Text size={fontSize}>

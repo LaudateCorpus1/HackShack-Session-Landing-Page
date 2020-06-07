@@ -6,7 +6,6 @@ import {
   Header as HeaderGrommet,
   Image,
   ResponsiveContext,
-  Layer,
   Anchor,
 } from 'grommet';
 import { Menu, Close } from 'grommet-icons';
