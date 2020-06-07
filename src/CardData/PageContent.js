@@ -52,7 +52,7 @@ export const communityContent = [
 
 export const arcadeContent = [
   {
-    image: '/img/hackshack-attack-welcome1.png',
+    image: '/img/attack-thumb.svg',
     alt: 'HackShack Logo',
     title: 'HACKSHACK SHACK ATTACK',
     desc:

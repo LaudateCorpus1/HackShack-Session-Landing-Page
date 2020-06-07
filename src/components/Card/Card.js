@@ -29,13 +29,7 @@ Logo.propTypes = {
 
 const CardImage = ({ background, children, ...rest }) => {
   return (
-    <Box
-      background={background}
-      round="xsmall"
-      overflow="hidden"
-      basis="50%"
-      {...rest}
-    >
+    <Box background={background} round="xsmall" {...rest} height="300px">
       {children}
     </Box>
   );
@@ -54,13 +48,13 @@ const CardWrapper = ({ children, ...rest }) => {
   return (
     <Box
       justify="between"
-      round="small"
+      round="medium"
       overflow="hidden"
       {...rest}
       style={{
         minHeight: '510px',
         minWidth: '366px',
-        maxHeight: '610px',
+        maxHeight: '694px',
         maxWidth: '576px',
       }}
     >
@@ -85,8 +79,9 @@ const Card = ({
   alt,
 }) => {
   const size = useContext(ResponsiveContext);
+
   return (
-    <CardWrapper align="start" background={background}>
+    <CardWrapper background={background}>
       {image && (
         <CardImage>
           <Image src={image} alt={alt} fit="cover" />
@@ -97,15 +92,15 @@ const Card = ({
           <Image src={logo} alt={alt} fit="contain" />
         </Logo>
       )}
-      <Box
-        pad={{ horizontal: 'medium', bottom: 'medium' }}
-        basis={image ? '60%' : 'none'}
-      >
+      <Box pad={{ horizontal: 'medium', bottom: 'medium' }}>
         <Box>
-          <Heading margin={{ top: 'medium', bottom: 'small' }} level={2}>
+          <Heading
+            margin={{ top: 'medium', bottom: 'small' }}
+            level={size === 'small' ? 3 : 2}
+          >
             {title}
           </Heading>
-          <Text size="xlarge">{desc}</Text>
+          <Text size={size === 'small' ? 'large' : 'xlarge'}>{desc}</Text>
         </Box>
       </Box>
       <Box margin="medium">

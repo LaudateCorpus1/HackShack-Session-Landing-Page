@@ -5,12 +5,10 @@ import { ResponsiveLayout } from './styles';
 import { Footer, Header, SideNav } from '../index';
 
 const handleViewport = size => {
-  switch (size) {
-    case 'small':
-      return { minWidth: '400px', minHeight: '750px' };
-    default:
-      return { minWidth: '1500px', minHeight: '900px' };
+  if (size === 'small') {
+    return { minWidth: '400px', minHeight: '750px' };
   }
+  return { minWidth: '1500px', minHeight: '900px' };
 };
 
 const Layout = ({ children, background, page }) => {

@@ -8,7 +8,6 @@ const CardGrid = ({ children, ...rest }) => {
       columns={size !== 'small' ? { count: 2, size: 'auto' } : 'auto'}
       rows={['auto']}
       gap="large"
-      justify="center"
       {...rest}
     >
       {children}
