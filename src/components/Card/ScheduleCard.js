@@ -19,8 +19,8 @@ const ScheduleCard = ({
       background={sessionType === 'Workshop' ? '#00567acc' : 'background'}
       style={{
         minHeight: '510px',
-        minWidth: '366px',
-        maxHeight: '694px',
+        minWidth: '336px',
+        maxHeight: '100%',
         maxWidth: '576px',
       }}
       round="small"
@@ -40,29 +40,32 @@ const ScheduleCard = ({
             Session ID: {id}
           </Box>
         </Box>
-        <Box pad={{ top: 'large' }} gap="small" direction="row">
-          {avatar ? (
-            <Avatar src={avatar} />
-          ) : (
-            <Avatar src="/img/defaultAvatar.svg" />
-          )}
-          <Box justify="center">
-            <Text>{presenter}</Text>
-            <Text>{role}</Text>
+        <Box direction="column">
+          <Box pad={{ top: 'large' }} gap="small" direction="row">
+            {avatar ? (
+              <Avatar src={avatar} />
+            ) : (
+              <Avatar src="/img/defaultAvatar.svg" />
+            )}
+            <Box justify="center">
+              <Text>{presenter}</Text>
+              <Text>{role}</Text>
+            </Box>
           </Box>
-        </Box>
-        <Box>
-          <Heading
-            margin={{ vertical: 'small' }}
-            level={size === 'small' ? 3 : 2}
-          >
+          <Heading margin={{ vertical: 'small' }} level={3}>
             {title}
           </Heading>
-          <Text size={size === 'small' ? 'large' : 'xlarge'}>{desc}</Text>
+        </Box>
+        <Box>
+          <Text
+            margin={{ bottom: 'large' }}
+            size={size === 'small' ? 'large' : 'xlarge'}
+          >
+            {desc}
+          </Text>
         </Box>
       </Box>
       <Button
-        margin={{ top: 'medium', bottom: 'small' }}
         alignSelf="start"
         href="https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US"
         target="_blank"
