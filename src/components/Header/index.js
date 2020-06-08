@@ -46,9 +46,6 @@ export const Header = () => {
                 </Box>
                 <Box align="start" gap="large" pad="xlarge">
                   <SideNav />
-                  <ButtonSplit to="https://developer.hpe.com">
-                    Register for HPE Discover
-                  </ButtonSplit>
                 </Box>
               </Box>
             </StyledLayer>

@@ -53,7 +53,7 @@ const CardWrapper = ({ children, ...rest }) => {
       {...rest}
       style={{
         minHeight: '510px',
-        minWidth: '366px',
+        minWidth: '336px',
         maxHeight: '694px',
         maxWidth: '576px',
       }}
