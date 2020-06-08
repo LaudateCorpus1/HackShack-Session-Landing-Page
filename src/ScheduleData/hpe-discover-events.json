@@ -5,7 +5,7 @@
     "title": "AI 101, Convolutional Neural Network (CNN) for MNIST",
     "desc": "Whether its facial recognition or self-driving cars, CNNs are used everywhere. Join this hands-on workshop to learn how to implement a simple CNN for a Modified National Institute of Standards and Technology database (MNIST). Using an MNIST dataset (70,000 pictures of hand-written digits) you’ll learn how to build a simple CNN and train it to solve a real problem with Keras (a deep learning library for Python.) On completion, you’ll be able to predict a digit, given a picture of hand-written digits with 99% accuracy.",
     "presenter": "Hana Malha",
-    "role": "Developer",
+    "role": "Head of Advanced AI Solutions & Technologies",
     "week": "1"
   },
   {
@@ -21,9 +21,11 @@
   {
     "session_id": "W486",
     "session_type": "Workshop",
+    "avatar": "/img/chris-hpecp.jpg",
     "title": "Hack Shack: Automate Apps With the HPE Container Platform",
     "desc": "IT administrators are frequently challenged to stand up hardware and software environments. These requests can be time-consuming and confusing for non-technical teams to deploy. By implementing the HPE Container Platform with its easy-to-use APIs, new clusters and software applications can be created automatically with specified resources. Join this hands-on workshop to learn how the HPE Container Platform APIs make it easier to configure apps and compute resources, along with how to pull detailed usage reports for chargeback/showback.",
     "presenter": "Chris Crawford",
+    "role": "Solutions Architect",
     "week": "1"
   },
   {
@@ -49,10 +51,11 @@
   {
     "session_id": "W481",
     "session_type": "Workshop",
-    "avatar": "/img/Joe.png",
+    "avatar": "/img/joe-aruba.jpg",
     "title": "Hack Shack: Use Aruba API Yourself",
     "desc": "Get your automation game on with Aruba APIs in this Hands-on Lab session covering Aruba’s wired and wireless portfolio. In this workshop, you’ll learn to manage, configure and automate Aruba products using their REST APIs, and move away from slow and error-prone CLI (command line interface) work. We’re offering a collection of labs tailored to varying skill levels, from coding new-comers to hardcore Pythonistas and everyone in-between. No experience required.s",
     "presenter": "Joe Neville",
+    "role": "Aruba Strategist",
     "week": "1"
   },
   {
