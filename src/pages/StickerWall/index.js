@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Heading, Button, Image } from 'grommet';
-import { FormPreviousLink } from 'grommet-icons';
+import { Previous } from 'grommet-icons';
 import { Layout } from '../../components/index';
 import { StyledBox } from './styles';
 
@@ -54,17 +54,17 @@ const StickerWall = () => {
       >
         <Box align="start">
           <Button
-            icon={<FormPreviousLink />}
+            icon={<Previous />}
             label="Back to Arcade"
             href="/arcade"
           ></Button>
         </Box>
+        <Box align="start">
+          <Heading level="3" size="medium" margin="none" textAlign="start">
+            STICKERS AND ART
+          </Heading>
+        </Box>
         <Box background={{ color: '#263040' }} pad="large" round="small">
-          <Box align="start">
-            <Heading level="3" size="medium" margin="none" textAlign="start">
-              HPE DEV STICKER WALL
-            </Heading>
-          </Box>
           <StyledBox flex={false} width="xlarge">
             {listStickerBoxes1}
           </StyledBox>

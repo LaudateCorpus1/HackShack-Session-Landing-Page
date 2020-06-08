@@ -50,7 +50,7 @@ export const ContentCards = ({
                   <Text color="text-strong">{label}</Text>
                 </Box>
               }
-              primary
+              secondary
             ></Button>
           </Link>
         ) : (
@@ -64,7 +64,7 @@ export const ContentCards = ({
             }
             href={link}
             target="_blank"
-            primary
+            secondary
           ></Button>
         )}
       </Box>
