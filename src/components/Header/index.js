@@ -6,11 +6,11 @@ import {
   Header as HeaderGrommet,
   Image,
   ResponsiveContext,
-  Layer,
   Anchor,
 } from 'grommet';
 import { Menu, Close } from 'grommet-icons';
 import { ButtonSplit, SideNav } from '../index';
+import { StyledLayer } from './styles';
 
 export const Header = () => {
   const [layer, setLayer] = useState(false);
@@ -31,11 +31,16 @@ export const Header = () => {
       {size === 'small' && (
         <Box direction="row" align="center">
           <Text color="#FFFFFF">MENU</Text>
-          <Button icon={<Menu />} onClick={e => setLayer(true)} />
+          <Button icon={<Menu />} onClick={() => setLayer(true)} />
           {layer && (
-            <Layer>
+            <StyledLayer>
               <Box pad={{ top: 'xlarge', right: 'large' }}>
-                <Box direction="row" align="center" justify="end">
+                <Box
+                  direction="row"
+                  align="center"
+                  justify="end"
+                  margin={{ bottom: 'xlarge' }}
+                >
                   <Text color="#FFFFFF">CLOSE</Text>
                   <Button icon={<Close />} onClick={() => setLayer(false)} />
                 </Box>
@@ -46,7 +51,7 @@ export const Header = () => {
                   </ButtonSplit>
                 </Box>
               </Box>
-            </Layer>
+            </StyledLayer>
           )}
         </Box>
       )}

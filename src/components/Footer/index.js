@@ -5,15 +5,15 @@ import { StyledAnchor, FooterContainer } from './styles';
 
 const footerLinks = [
   {
-    label: 'Privacy Policy | ',
+    label: 'Privacy Policy',
     href: 'https://www.hpe.com/us/en/legal/privacy.html',
   },
   {
-    label: 'Cookies | ',
+    label: 'Cookies',
     href: 'https://www.hpe.com/us/en/legal/privacy.html#datacollection',
   },
   {
-    label: 'Terms of Use | ',
+    label: 'Terms of Use',
     href: 'https://www.hpe.com/us/en/about/legal/terms-of-use.html',
   },
   {
@@ -31,19 +31,20 @@ export const Footer = () => {
     <Box>
       <HPEDevFooter />
       <FooterContainer
-        align="center"
-        pad={{ left: 'small', right: 'small' }}
+        pad={size === 'small' ? 'medium' : 'small'}
         background="#FFFFFF"
         justify="between"
         direction={dir}
+        align="start"
+        gap="medium"
       >
         <Box>
           <Text size={fontSize}>
             &copy; 2020 Hewlett Packard Enterprise Development LP
           </Text>
         </Box>
-        <Box direction="row" gap="xxsmall">
-          {footerLinks.map(link => {
+        <Box direction={dir} gap="xxsmall">
+          {footerLinks.map((link, index) => {
             const { label, href } = link;
             return (
               <StyledAnchor
@@ -52,7 +53,16 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Text size={fontSize}>{label}</Text>
+                <Box direction="row" gap="xxsmall">
+                  <Text size={fontSize} weight="bold">
+                    {label}
+                  </Text>
+                  <Text size={fontSize}>
+                    {footerLinks.Length - 1 !== index &&
+                      size !== 'small' &&
+                      '|'}
+                  </Text>
+                </Box>
               </StyledAnchor>
             );
           })}

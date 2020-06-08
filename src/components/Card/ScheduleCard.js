@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Heading, Text, Avatar } from 'grommet';
+import { Box, Button, Heading, Text, Avatar, ResponsiveContext } from 'grommet';
 
-export const ScheduleCards = ({
+const ScheduleCard = ({
   avatar,
   role,
   sessionType,
@@ -11,38 +11,37 @@ export const ScheduleCards = ({
   desc,
   id,
 }) => {
+  const size = useContext(ResponsiveContext);
   return (
     <Box
       pad="large"
+      justify="between"
       background={sessionType === 'Workshop' ? '#00567acc' : 'background'}
-      width="576px"
+      style={{
+        minHeight: '510px',
+        minWidth: '366px',
+        maxHeight: '694px',
+        maxWidth: '576px',
+      }}
       round="small"
       overflow="hidden"
     >
-      <Box
-        align="center"
-        fill="horizontal"
-        flex={false}
-        justify="between"
-        direction="row"
-      >
-        <Box
-          pad={{ vertical: 'xsmall', horizontal: 'medium' }}
-          background="background-contrast"
-          round="large"
-          alignSelf="center"
-        >
-          {' '}
-          {sessionType}
+      <Box direction="column">
+        <Box align="center" justify="between" direction="row">
+          <Box
+            pad={{ vertical: 'xsmall', horizontal: 'medium' }}
+            background="background-contrast"
+            round="large"
+            alignSelf="center"
+          >
+            {sessionType}
+          </Box>
+          <Box direction="row" round="large">
+            Session ID: {id}
+          </Box>
         </Box>
-        <Box direction="row" round="large">
-          {' '}
-          Session ID: {id}
-        </Box>
-      </Box>
-      <Box fill justify="evenly">
         <Box pad={{ top: 'large' }} gap="small" direction="row">
-          {avatar && avatar ? (
+          {avatar ? (
             <Avatar src={avatar} />
           ) : (
             <Avatar src="/img/defaultAvatar.svg" />
@@ -53,10 +52,13 @@ export const ScheduleCards = ({
           </Box>
         </Box>
         <Box>
-          <Heading margin={{ vertical: 'small' }} level={2}>
+          <Heading
+            margin={{ vertical: 'small' }}
+            level={size === 'small' ? 3 : 2}
+          >
             {title}
           </Heading>
-          <Text size="xlarge">{desc}</Text>
+          <Text size={size === 'small' ? 'large' : 'xlarge'}>{desc}</Text>
         </Box>
       </Box>
       <Button
@@ -70,15 +72,14 @@ export const ScheduleCards = ({
           </Box>
         }
         secondary
-      ></Button>
+      />
     </Box>
   );
 };
 
-ScheduleCards.propTypes = {
+ScheduleCard.propTypes = {
   title: PropTypes.string,
-  image: PropTypes.string,
-  link: PropTypes.string,
-  label: PropTypes.string,
   desc: PropTypes.string,
 };
+
+export default ScheduleCard;

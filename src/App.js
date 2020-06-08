@@ -32,7 +32,7 @@ const App = () => {
           <Route path="/community">
             <Community />
           </Route>
-          <Route exact path="/schedule">
+          <Route path="/schedule">
             <Schedule />
           </Route>
           <Route path="/arcade">
