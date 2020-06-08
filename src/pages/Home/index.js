@@ -52,16 +52,16 @@ const MobileLayout = () => (
     >
       <Box>
         <Text size="medium" color="#FFFFFF">
-          Welcome to the underbelly of HPE Discover,
+          Welcome to the Hack Shack. Come in to
         </Text>
         <Text size="medium" color="#FFFFFF">
-          welcome to the Dev HackShack. Events, talks, and
+          collaborate and learn from others in Technology
         </Text>
         <Text size="medium" color="#FFFFFF">
-          games for the folks that make the awesome
+          Workshops and Sessions or compete for elite
         </Text>
         <Text size="medium" color="#FFFFFF">
-          possible. Come on in and see who’s home!
+          gaming status playing Hack Shack Attack!
         </Text>
       </Box>
       <Box alignSelf="end">
