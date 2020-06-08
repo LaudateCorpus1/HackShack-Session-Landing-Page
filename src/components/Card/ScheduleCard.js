@@ -23,7 +23,7 @@ const ScheduleCard = ({
         maxHeight: '100%',
         maxWidth: '576px',
       }}
-      round="small"
+      round="medium"
       overflow="hidden"
     >
       <Box direction="column">
