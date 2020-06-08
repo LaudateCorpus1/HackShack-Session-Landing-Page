@@ -114,7 +114,7 @@ const Card = ({
                   <Text color="text-strong">{label}</Text>
                 </Box>
               }
-              primary
+              secondary
             />
           </Link>
         ) : (
@@ -128,7 +128,7 @@ const Card = ({
             }
             href={link}
             target="_blank"
-            primary
+            secondary
           />
         )}
       </Box>
