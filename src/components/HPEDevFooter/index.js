@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { Box, Text, Image, Button, ResponsiveContext } from 'grommet';
-import { FooterContainer } from './styles';
+import { Box, Text, Image, ResponsiveContext, Button } from 'grommet';
+import { FooterWrapper } from '../Footer/styles';
 
 const footerLinks = [
   { label: 'Platforms', href: 'https://developer.hpe.com/platforms' },
@@ -15,7 +15,7 @@ export const HPEDevFooter = () => {
   const iconSize = size === 'small' ? '40px' : '48px';
 
   return (
-    <FooterContainer
+    <FooterWrapper
       direction="row"
       align="start"
       justify="between"
@@ -34,20 +34,29 @@ export const HPEDevFooter = () => {
         </Text>
       </Box>
       {size === 'small' ? (
-        <Box gap="xsmall" direction="row">
-          <Button href="#" target="_blank">
-            <Text color="#FFFFFF" size={fontSize}>
+        <Box gap="xsmall" direction="row" alignSelf="center">
+          <Button
+            href="https://hpedev.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Text color="#FFFFFF" size={fontSize} weight={900}>
               Learn More
             </Text>
           </Button>
         </Box>
       ) : (
-        <Box gap="xsmall" direction="row">
+        <Box gap="medium" direction="row" alignSelf="center">
           {footerLinks.map(link => {
             const { label, href } = link;
             return (
-              <Button key={label} href={href} target="_blank">
-                <Text color="#FFFFFF" size={fontSize}>
+              <Button
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Text color="#FFFFFF" size={fontSize} weight={900}>
                   {label}
                 </Text>
               </Button>
@@ -55,7 +64,7 @@ export const HPEDevFooter = () => {
           })}
         </Box>
       )}
-    </FooterContainer>
+    </FooterWrapper>
   );
 };
 export default HPEDevFooter;

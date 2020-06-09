@@ -20,7 +20,7 @@ const ScheduleCard = ({
       style={{
         minHeight: '510px',
         minWidth: '336px',
-        maxHeight: '100%',
+        height: '100%',
         maxWidth: '576px',
       }}
       round="medium"

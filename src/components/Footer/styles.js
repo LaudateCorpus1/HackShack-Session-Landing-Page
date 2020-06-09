@@ -5,8 +5,8 @@ const StyledAnchor = styled(Anchor)`
   text-decoration: none;
 `;
 
-const FooterContainer = styled(Box)`
+const FooterWrapper = styled(Box)`
   white-space: nowrap;
 `;
 
-export { StyledAnchor, FooterContainer };
+export { StyledAnchor, FooterWrapper };

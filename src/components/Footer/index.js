@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Box, Text, ResponsiveContext } from 'grommet';
 import { HPEDevFooter } from '../index';
-import { StyledAnchor, FooterContainer } from './styles';
+import { StyledAnchor, FooterWrapper } from './styles';
 
 const footerLinks = [
   {
@@ -30,7 +30,7 @@ export const Footer = () => {
   return (
     <Box>
       <HPEDevFooter />
-      <FooterContainer
+      <FooterWrapper
         pad={size === 'small' ? 'medium' : 'small'}
         background="#FFFFFF"
         justify="between"
@@ -54,20 +54,18 @@ export const Footer = () => {
                 rel="noopener noreferrer"
               >
                 <Box direction="row" gap="xxsmall">
-                  <Text size={fontSize} weight="bold">
+                  <Text size={fontSize} weight={900}>
                     {label}
                   </Text>
-                  <Text size={fontSize}>
-                    {footerLinks.Length - 1 !== index &&
-                      size !== 'small' &&
-                      '|'}
-                  </Text>
+                  {footerLinks.length - 1 !== index && size !== 'small' && (
+                    <Text size={fontSize}>|</Text>
+                  )}
                 </Box>
               </StyledAnchor>
             );
           })}
         </Box>
-      </FooterContainer>
+      </FooterWrapper>
     </Box>
   );
 };

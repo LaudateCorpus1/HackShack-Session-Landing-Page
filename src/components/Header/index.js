@@ -1,4 +1,5 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -8,18 +9,15 @@ import {
   ResponsiveContext,
   Anchor,
 } from 'grommet';
-import { Menu, Close } from 'grommet-icons';
-import { ButtonSplit, SideNav } from '../index';
-import { StyledLayer } from './styles';
+import { Menu } from 'grommet-icons';
 
-export const Header = () => {
-  const [layer, setLayer] = useState(false);
+export const Header = ({ setLayer }) => {
   const size = useContext(ResponsiveContext);
   const iconSize = size === 'small' ? '192px' : '228px';
 
   useEffect(() => {
     if (size !== 'small') setLayer(false);
-  }, [size]);
+  }, [size, setLayer]);
 
   return (
     <HeaderGrommet pad="medium" justify="between" align="center">
@@ -32,27 +30,13 @@ export const Header = () => {
         <Box direction="row" align="center">
           <Text color="#FFFFFF">MENU</Text>
           <Button icon={<Menu />} onClick={() => setLayer(true)} />
-          {layer && (
-            <StyledLayer>
-              <Box pad={{ top: 'xlarge', right: 'large' }}>
-                <Box
-                  direction="row"
-                  align="center"
-                  justify="end"
-                  margin={{ bottom: 'xlarge' }}
-                >
-                  <Text color="#FFFFFF">CLOSE</Text>
-                  <Button icon={<Close />} onClick={() => setLayer(false)} />
-                </Box>
-                <Box align="start" gap="large" pad="xlarge">
-                  <SideNav />
-                </Box>
-              </Box>
-            </StyledLayer>
-          )}
         </Box>
       )}
     </HeaderGrommet>
   );
 };
 export default Header;
+
+Header.propTypes = {
+  setLayer: PropTypes.func,
+};

@@ -8,6 +8,9 @@ export const MainWrapper = styled(Box)`
   left: 50%;
   right: 50%;
   transform: translate(-50%, -50%);
+  @supports (-moz-appearance: none) {
+    transform: translate(-51%, -15%);
+  }
 `;
 
 export const LogoWrapper = styled(Box)`
