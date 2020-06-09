@@ -26,7 +26,7 @@ const ScheduleCard = ({
       round="medium"
       overflow="hidden"
     >
-      <Box direction="column" className="HELLO ONE">
+      <Box direction="column">
         <Box align="center" justify="between" direction="row">
           <Box
             pad={{ vertical: 'xsmall', horizontal: 'medium' }}
@@ -40,7 +40,7 @@ const ScheduleCard = ({
             Session ID: {id}
           </Box>
         </Box>
-        <Box direction="column" className="HELLO TWO">
+        <Box direction="column">
           <Box pad={{ top: 'large' }} gap="small" direction="row">
             {avatar ? (
               <Avatar src={avatar} />
