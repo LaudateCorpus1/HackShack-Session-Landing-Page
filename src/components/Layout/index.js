@@ -22,8 +22,8 @@ const Layout = ({ children, background, page }) => {
       viewport={viewport}
       background={{
         image: `url(${background})`,
-        size: 'cover',
-        position: 'fixed',
+        size: '100%',
+        position: 'top center',
       }}
       height={page === 'Home' ? '100%' : 'auto'}
       justify="between"

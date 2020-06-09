@@ -27,6 +27,7 @@ const App = () => {
       theme={customHpe}
       themeMode="dark"
       full
+      background="#151d29"
       style={{ overflowX: 'hidden' }}
     >
       <Router>

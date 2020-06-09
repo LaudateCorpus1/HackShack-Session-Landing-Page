@@ -36,7 +36,7 @@ const BoxImage = ({ stickers, ...props }) => {
 
 const StickerWall = () => {
   return (
-    <Layout background="/img/stickers-background.svg">
+    <Layout background="/img/stickers-background.jpg">
       <SubPageHeader title="STICKERS AND ART">
         <Box
           justify="between"
