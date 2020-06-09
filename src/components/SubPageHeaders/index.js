@@ -10,7 +10,7 @@ export const SubPageHeader = ({ children, title, ...rest }) => {
       align="start"
       width="xlarge"
       direction="column"
-      pad={{ left: 'xlarge', right: 'xlarge', bottom: 'medium' }}
+      direction="column" pad="xlarge"
       {...rest}
     >
       <Box align="start">
