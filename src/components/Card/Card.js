@@ -7,8 +7,6 @@ const Logo = ({ background, children, ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Box
-      pad={{ left: 'medium' }}
-      margin={{ top: 'large' }}
       height={size === 'small' ? '124px' : '192px'}
       alignSelf="start"
       {...rest}
@@ -47,7 +45,6 @@ CardImage.propTypes = {
 const CardWrapper = ({ children, ...rest }) => {
   return (
     <Box
-      justify="between"
       round="medium"
       overflow="hidden"
       {...rest}
@@ -81,7 +78,8 @@ const Card = ({
   const size = useContext(ResponsiveContext);
 
   return (
-    <CardWrapper background={background}>
+    /* Conditionally adjust padding based on image */
+    <CardWrapper pad="large" background={background}>
       {image && (
         <CardImage>
           <Image src={image} alt={alt} fit="cover" />
@@ -92,23 +90,27 @@ const Card = ({
           <Image src={logo} alt={alt} fit="contain" />
         </Logo>
       )}
-      <Box pad={{ horizontal: 'medium', bottom: 'medium' }}>
+      <Box>
         <Box>
           <Heading
             margin={{ top: 'medium', bottom: 'small' }}
             level={size === 'small' ? 3 : 2}
+            color="text-strong"
           >
             {title}
           </Heading>
-          <Text size={size === 'small' ? 'large' : 'xlarge'}>{desc}</Text>
+          <Text
+            color="text-strong"
+            size={size === 'small' ? 'large' : 'xlarge'}
+          >
+            {desc}
+          </Text>
         </Box>
       </Box>
-      <Box margin="medium">
+      <Box pad={{ top: 'medium' }} direction="row">
         {path ? (
           <Link to={{ pathname: path }}>
             <Button
-              margin={{ vertical: 'small' }}
-              alignSelf="start"
               label={
                 <Box pad="xsmall">
                   <Text color="text-strong">{label}</Text>
@@ -119,8 +121,6 @@ const Card = ({
           </Link>
         ) : (
           <Button
-            margin={{ vertical: 'small' }}
-            alignSelf="start"
             label={
               <Box pad="xsmall">
                 <Text color="text-strong">{label}</Text>
@@ -128,6 +128,7 @@ const Card = ({
             }
             href={link}
             target="_blank"
+            rel="noreferrer noopener"
             secondary
           />
         )}
