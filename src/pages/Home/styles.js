@@ -3,35 +3,29 @@ import { Box } from 'grommet';
 
 export const MainWrapper = styled(Box)`
   position: relative;
-  min-width: 800px;
-  max-width: 800px;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%);
-  @supports (-moz-appearance: none) {
-    transform: translate(-51%, -15%);
-  }
+  margin-top: -160px;
+  transform: rotate(-10deg);
 `;
 
 export const LogoWrapper = styled(Box)`
-  position: absolute;
-  top: -132px;
-  right: 37%;
+  max-width: 981px;
+  width: 100%;
 `;
 
 export const TextWrapper = styled(Box)`
-  transform: rotate(-10deg);
-  position: absolute;
-  top: 219px;
-  left: 0;
-  white-space: nowrap;
+  margin-top: -50px;
+  padding-left: 304px;
+
+  /* To be refined. */
+  @media (max-width: 900px) {
+    padding-left: 0;
+    padding-right: 10px;
+  }
 `;
 
 export const ButtonWrapper = styled(Box)`
-  transform: rotate(-10deg);
-  position: absolute;
-  top: 449px;
-  left: -5%;
+  padding-top: 31px;
+  margin-left: -170px;
 `;
 
 export default { MainWrapper, LogoWrapper, TextWrapper, ButtonWrapper };

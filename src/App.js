@@ -23,7 +23,12 @@ const customHpe = deepMerge(hpe, {
 
 const App = () => {
   return (
-    <Grommet theme={customHpe} themeMode="dark" full>
+    <Grommet
+      theme={customHpe}
+      themeMode="dark"
+      full
+      style={{ overflowX: 'hidden' }}
+    >
       <Router>
         <Switch>
           <Route exact path="/">
