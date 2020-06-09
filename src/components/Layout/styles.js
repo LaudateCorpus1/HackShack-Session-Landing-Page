@@ -1,9 +1,17 @@
 import styled from 'styled-components';
-import { Box } from 'grommet';
+import { Box, Layer } from 'grommet';
 
 const ResponsiveLayout = styled(Box)`
   min-width: ${props => props.viewport.minWidth};
   min-height: ${props => props.viewport.minHeight};
+  @supports (-moz-appearance: none) {
+    filter: ${props => (props.layer ? 'blur(15px)' : 'none')};
+  }
 `;
 
-export { ResponsiveLayout };
+const StyledLayer = styled(Layer)`
+  background-color: rgba(38, 48, 64, 0.8);
+  backdrop-filter: blur(15px);
+`;
+
+export { ResponsiveLayout, StyledLayer };

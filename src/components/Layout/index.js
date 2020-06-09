@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, ResponsiveContext } from 'grommet';
-import { ResponsiveLayout } from './styles';
+import { Box, ResponsiveContext, Text, Button } from 'grommet';
+import { Close } from 'grommet-icons';
+import { ResponsiveLayout, StyledLayer } from './styles';
 import { Footer, Header, SideNav } from '../index';
 
 const handleViewport = size => {
@@ -12,8 +13,10 @@ const handleViewport = size => {
 };
 
 const Layout = ({ children, background, page }) => {
+  const [layer, setLayer] = useState(false);
   const size = useContext(ResponsiveContext);
   const viewport = handleViewport(size);
+
   return (
     <ResponsiveLayout
       viewport={viewport}
@@ -24,9 +27,10 @@ const Layout = ({ children, background, page }) => {
       }}
       height={page === 'Home' ? '100%' : 'auto'}
       justify="between"
+      layer={layer}
     >
       <Box>
-        <Header />
+        <Header setLayer={setLayer} />
         <Box direction="row">
           {size !== 'small' && (
             <Box margin={{ top: 'xlarge', left: 'large' }}>
@@ -37,6 +41,24 @@ const Layout = ({ children, background, page }) => {
         </Box>
       </Box>
       <Footer />
+      {layer && (
+        <StyledLayer>
+          <Box pad={{ top: 'xlarge', right: 'large' }}>
+            <Box
+              direction="row"
+              align="center"
+              justify="end"
+              margin={{ bottom: 'xlarge' }}
+            >
+              <Text color="#FFFFFF">CLOSE</Text>
+              <Button icon={<Close />} onClick={() => setLayer(false)} />
+            </Box>
+            <Box align="start" gap="large" pad="xlarge">
+              <SideNav />
+            </Box>
+          </Box>
+        </StyledLayer>
+      )}
     </ResponsiveLayout>
   );
 };
