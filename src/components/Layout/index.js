@@ -9,7 +9,7 @@ const handleViewport = size => {
   if (size === 'small') {
     return { minWidth: '400px', minHeight: '750px' };
   }
-  return { minWidth: '100%', minHeight: '900px' };
+  return { minWidth: '100%', minHeight: '100%' };
 };
 
 const Layout = ({ children, background, page }) => {
@@ -25,7 +25,8 @@ const Layout = ({ children, background, page }) => {
         size: '100%',
         position: 'top center',
       }}
-      height={page === 'Home' ? '100%' : 'auto'}
+      /* Do we need this? */
+      /* height={page === 'Home' ? '100%' : 'auto'} */
       justify="between"
       layer={layer}
     >
