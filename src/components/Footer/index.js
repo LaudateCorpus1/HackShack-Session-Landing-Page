@@ -54,14 +54,12 @@ export const Footer = () => {
                 rel="noopener noreferrer"
               >
                 <Box direction="row" gap="xxsmall">
-                  <Text size={fontSize} weight="bold">
+                  <Text size={fontSize} weight={900}>
                     {label}
                   </Text>
-                  <Text size={fontSize}>
-                    {footerLinks.Length - 1 !== index &&
-                      size !== 'small' &&
-                      '|'}
-                  </Text>
+                  {footerLinks.length - 1 !== index && size !== 'small' && (
+                    <Text size={fontSize}>|</Text>
+                  )}
                 </Box>
               </StyledAnchor>
             );

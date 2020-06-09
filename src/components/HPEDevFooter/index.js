@@ -40,7 +40,7 @@ export const HPEDevFooter = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Text color="#FFFFFF" size={fontSize} weight="900">
+            <Text color="#FFFFFF" size={fontSize} weight={900}>
               Learn More
             </Text>
           </StyledAnchor>
@@ -56,7 +56,7 @@ export const HPEDevFooter = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Text color="#FFFFFF" size={fontSize} weight="900">
+                <Text color="#FFFFFF" size={fontSize} weight={900}>
                   {label}
                 </Text>
               </StyledAnchor>
