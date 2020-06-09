@@ -7,6 +7,7 @@ import Layout from './Layout';
 import Leaderboard from './Leaderboard';
 import SideNav from './SideNav';
 import { Card, CardGrid, ScheduleCard } from './Card';
+import SubPageHeader from './SubPageHeaders';
 
 export {
   ButtonSplit,
@@ -20,4 +21,5 @@ export {
   Leaderboard,
   ScheduleCard,
   SideNav,
+  SubPageHeader,
 };
