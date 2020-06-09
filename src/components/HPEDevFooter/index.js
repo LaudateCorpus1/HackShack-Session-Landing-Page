@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { Box, Text, Image, ResponsiveContext } from 'grommet';
-import { FooterWrapper, StyledAnchor } from '../Footer/styles';
+import { Box, Text, Image, ResponsiveContext, Button } from 'grommet';
+import { FooterWrapper } from '../Footer/styles';
 
 const footerLinks = [
   { label: 'Platforms', href: 'https://developer.hpe.com/platforms' },
@@ -35,7 +35,7 @@ export const HPEDevFooter = () => {
       </Box>
       {size === 'small' ? (
         <Box gap="xsmall" direction="row" alignSelf="center">
-          <StyledAnchor
+          <Button
             href="https://hpedev.io"
             target="_blank"
             rel="noopener noreferrer"
@@ -43,14 +43,14 @@ export const HPEDevFooter = () => {
             <Text color="#FFFFFF" size={fontSize} weight={900}>
               Learn More
             </Text>
-          </StyledAnchor>
+          </Button>
         </Box>
       ) : (
         <Box gap="medium" direction="row" alignSelf="center">
           {footerLinks.map(link => {
             const { label, href } = link;
             return (
-              <StyledAnchor
+              <Button
                 key={label}
                 href={href}
                 target="_blank"
@@ -59,7 +59,7 @@ export const HPEDevFooter = () => {
                 <Text color="#FFFFFF" size={fontSize} weight={900}>
                   {label}
                 </Text>
-              </StyledAnchor>
+              </Button>
             );
           })}
         </Box>
