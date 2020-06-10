@@ -36,16 +36,17 @@ export const communityContent = [
     label: 'Follow us in Twitter',
     background: 'background',
   },
-  {
-    logo: '/img/ezmeral1.svg',
-    alt: 'Ezmeral Logo',
-    title: 'HPE EZMERAL DATA FABRIC ACADEMY',
-    desc:
-      'Game rules, sed do eiusmod tempor incididunt ut Game rules, sed do eiusmod tempor incididunt ut',
-    link: 'https://learn.mapr.com/',
-    label: 'Go to the Academy',
-    background: '#00567acc',
-  },
+  // To be included in Week of June 22 2020
+  // {
+  //   logo: '/img/ezmeral1.svg',
+  //   alt: 'Ezmeral Logo',
+  //   title: 'HPE EZMERAL DATA FABRIC ACADEMY',
+  //   desc:
+  //     'Game rules, sed do eiusmod tempor incididunt ut Game rules, sed do eiusmod tempor incididunt ut',
+  //   link: 'https://learn.mapr.com/',
+  //   label: 'Go to the Academy',
+  //   background: '#00567acc',
+  // },
 ];
 
 export const arcadeContent = [
