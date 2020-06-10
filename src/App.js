@@ -16,10 +16,10 @@ const customHpe = deepMerge(hpe, {
   global: {
     breakpoints: {
       small: {
-        value: 600,
+        value: 990,
       },
       medium: {
-        value: 900,
+        value: 990,
       },
       large: {
         value: 1500,
@@ -30,7 +30,13 @@ const customHpe = deepMerge(hpe, {
 
 const App = () => {
   return (
-    <Grommet theme={customHpe} themeMode="dark" full>
+    <Grommet
+      theme={customHpe}
+      themeMode="dark"
+      full
+      background="#151d29"
+      style={{ overflowX: 'hidden' }}
+    >
       <Router>
         <Switch>
           <Route exact path="/">

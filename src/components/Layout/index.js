@@ -9,7 +9,7 @@ const handleViewport = size => {
   if (size === 'small') {
     return { minWidth: '400px', minHeight: '750px' };
   }
-  return { minWidth: '1500px', minHeight: '900px' };
+  return { minWidth: '100%', minHeight: '100%' };
 };
 
 const Layout = ({ children, background, page }) => {
@@ -22,8 +22,8 @@ const Layout = ({ children, background, page }) => {
       viewport={viewport}
       background={{
         image: `url(${background})`,
-        size: 'cover',
-        position: 'fixed',
+        size: '100%',
+        position: 'top center',
       }}
       height={page === 'Home' ? '100%' : 'auto'}
       justify="between"

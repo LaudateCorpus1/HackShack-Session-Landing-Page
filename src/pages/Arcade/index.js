@@ -5,7 +5,7 @@ import { arcadeContent } from '../../CardData/PageContent';
 
 const Arcade = () => {
   return (
-    <Layout background="/img/hack-shack-home-background.png">
+    <Layout background="/img/arcade-background.jpg">
       <Box direction="column" pad="xlarge">
         <Heading color="text-strong" margin={{ bottom: 'large', top: 'none' }}>
           ARCADE
