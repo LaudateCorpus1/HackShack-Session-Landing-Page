@@ -6,7 +6,6 @@ import eventSchedule from '../../ScheduleData/hpe-discover-events.json';
 const Schedule = () => {
   return (
     <Layout background="/img/schedule-background.png">
-      <Box direction="column" pad="xlarge">
         <Heading color="text-strong" margin={{ top: 'none', bottom: 'none' }}>
           SCHEDULE
         </Heading>
@@ -43,7 +42,6 @@ const Schedule = () => {
             ),
           )}
         </CardGrid>
-      </Box>
     </Layout>
   );
 };

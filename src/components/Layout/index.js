@@ -37,7 +37,14 @@ const Layout = ({ children, background, page }) => {
               <SideNav />{' '}
             </Box>
           )}
-          {children}
+          <Box
+            align={size !== 'small' ? 'start' : 'center'}
+            fill="horizontal"
+            direction="column"
+            pad="xlarge"
+          >
+            {children}
+          </Box>
         </Box>
       </Box>
       <Footer />
