@@ -4,12 +4,12 @@ import { Box } from 'grommet';
 const slideIn = keyframes`
   0% {
     opacity: 0;
-    transform: translateX(10px);
+    transform: translateY(10px);
   }
 
   100% {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateY(0px);
   }
 `;
 
