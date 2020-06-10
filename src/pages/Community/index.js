@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Box } from 'grommet';
+import { Heading } from 'grommet';
 import { Layout, Card, CardGrid } from '../../components/index';
 import { communityContent } from '../../CardData/PageContent';
 
