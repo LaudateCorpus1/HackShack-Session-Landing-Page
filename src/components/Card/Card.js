@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Heading, Text, Image, ResponsiveContext } from 'grommet';
 import { Link } from 'react-router-dom';
+import { MainCards } from './styles';
 
 const Logo = ({ background, children, ...rest }) => {
   const size = useContext(ResponsiveContext);
@@ -44,7 +45,7 @@ CardImage.propTypes = {
 
 const CardWrapper = ({ children, ...rest }) => {
   return (
-    <Box
+    <MainCards
       round="medium"
       overflow="hidden"
       {...rest}
@@ -56,7 +57,7 @@ const CardWrapper = ({ children, ...rest }) => {
       }}
     >
       {children}
-    </Box>
+    </MainCards>
   );
 };
 
