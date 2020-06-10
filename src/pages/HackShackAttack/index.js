@@ -2,6 +2,7 @@
 import React from 'react';
 import { IonPhaser } from '@ion-phaser/react';
 import Phaser from 'phaser';
+import { GameWrapper } from '../../components/index';
 import BootScene from './scenes/BootScene';
 import PreloaderScene from './scenes/PreloaderScene';
 import TitleScene from './scenes/TitleScene';
@@ -14,7 +15,6 @@ import BackToTitleScene from './scenes/BackToTitleScene';
 import ThankYouScene from './scenes/ThankYouScene';
 import ProfanityErrorScene from './scenes/ProfanityErrorScene';
 import SplashScene from './scenes/SplashScene';
-
 class Game extends Phaser.Scene {
   create() {
     this.scene.add('Boot', BootScene);
@@ -59,11 +59,13 @@ const HackShackAttack = () => {
     },
   };
   const { game, initialize } = gameConfig;
-  return (
-    <div id="phaser-game">
-      <IonPhaser game={game} initialize={initialize} />
-    </div>
-  );
+  return <GameWrapper>Hello</GameWrapper>;
 };
 
 export default HackShackAttack;
+
+{
+  /* <div id="phaser-game">
+<IonPhaser game={game} initialize={initialize} />
+</div> */
+}

@@ -3,7 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Grommet } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
-import { Home, Community, Arcade, StickerWall, Schedule } from './pages/index';
+import {
+  Home,
+  Community,
+  Arcade,
+  StickerWall,
+  Schedule,
+  HackShackAttack,
+} from './pages/index';
 
 const customHpe = deepMerge(hpe, {
   global: {
@@ -40,6 +47,9 @@ const App = () => {
           </Route>
           <Route path="/stickerwall">
             <StickerWall />
+          </Route>
+          <Route path="/hackshackattack">
+            <HackShackAttack />
           </Route>
         </Switch>
       </Router>
