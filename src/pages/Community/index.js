@@ -1,14 +1,17 @@
 import React from 'react';
 import { Heading } from 'grommet';
 import { Layout, Card, CardGrid } from '../../components/index';
+import { MainTitle } from '../Schedule/styles';
 import { communityContent } from '../../CardData/PageContent';
 
 const Community = () => {
   return (
     <Layout background="/img/community-background.png">
-      <Heading color="text-strong" margin={{ bottom: 'large', top: 'none' }}>
-        COMMUNITY
-      </Heading>
+      <MainTitle>
+        <Heading color="text-strong" margin={{ bottom: 'large', top: 'none' }}>
+          COMMUNITY
+        </Heading>
+      </MainTitle>
       <CardGrid>
         {communityContent.map(content => (
           <Card
