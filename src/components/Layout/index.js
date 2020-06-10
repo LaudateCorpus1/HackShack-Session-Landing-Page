@@ -7,7 +7,7 @@ import { Footer, Header, SideNav } from '../index';
 
 const handleViewport = size => {
   if (size === 'small') {
-    return { minWidth: '400px', minHeight: '750px' };
+    return { minWidth: '366px', minHeight: '750px' };
   }
   return { minWidth: '100%', minHeight: '100%' };
 };
