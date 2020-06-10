@@ -1,19 +1,19 @@
-import React from 'react';
-import { Box, Text } from 'grommet';
+import React, { useContext } from 'react';
+import { Box, Text, ResponsiveContext } from 'grommet';
 import { HPEDevFooter } from '../index';
-import { StyledAnchor, FooterContainer } from './styles';
+import { StyledAnchor, FooterWrapper } from './styles';
 
 const footerLinks = [
   {
-    label: 'Privacy Policy | ',
+    label: 'Privacy Policy',
     href: 'https://www.hpe.com/us/en/legal/privacy.html',
   },
   {
-    label: 'Cookies | ',
+    label: 'Cookies',
     href: 'https://www.hpe.com/us/en/legal/privacy.html#datacollection',
   },
   {
-    label: 'Terms of Use | ',
+    label: 'Terms of Use',
     href: 'https://www.hpe.com/us/en/about/legal/terms-of-use.html',
   },
   {
@@ -23,22 +23,28 @@ const footerLinks = [
 ];
 
 export const Footer = () => {
+  const size = useContext(ResponsiveContext);
+  const dir = size === 'small' ? 'column' : 'row';
+  const fontSize = size === 'small' ? '14px' : '18px';
+
   return (
     <Box id="footer1">
       <HPEDevFooter />
-      <FooterContainer
-        align="center"
-        pad={{ left: 'small', right: 'small' }}
+      <FooterWrapper
+        pad={size === 'small' ? 'medium' : 'small'}
         background="#FFFFFF"
         justify="between"
+        direction={dir}
+        align="start"
+        gap="medium"
       >
         <Box>
-          <Text size="small">
+          <Text size={fontSize}>
             &copy; 2020 Hewlett Packard Enterprise Development LP
           </Text>
         </Box>
-        <Box direction="row" gap="xxsmall">
-          {footerLinks.map(link => {
+        <Box direction={dir} gap="xxsmall">
+          {footerLinks.map((link, index) => {
             const { label, href } = link;
             return (
               <StyledAnchor
@@ -47,12 +53,19 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Text size="small">{label}</Text>
+                <Box direction="row" gap="xxsmall">
+                  <Text size={fontSize} weight={900}>
+                    {label}
+                  </Text>
+                  {footerLinks.length - 1 !== index && size !== 'small' && (
+                    <Text size={fontSize}>|</Text>
+                  )}
+                </Box>
               </StyledAnchor>
             );
           })}
         </Box>
-      </FooterContainer>
+      </FooterWrapper>
     </Box>
   );
 };

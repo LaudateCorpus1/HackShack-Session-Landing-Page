@@ -1,30 +1,31 @@
 import React from 'react';
-import { ContentCards } from '../../components/Cards';
-import { Layout } from '../../components/index';
-import { CardGrid } from '../../components/Cards';
+import { Heading, Box } from 'grommet';
+import { Layout, Card, CardGrid } from '../../components/index';
 import { communityContent } from '../../CardData/PageContent';
-import { Heading } from 'grommet';
 
 const Community = () => {
+  console.log('HELLO');
   return (
-    <Layout background="/img/community-background.svg">
-      <Heading color="text-strong" margin={{ bottom: 'large' }}>
-        COMMUNITY
-      </Heading>
-      <CardGrid>
-        {communityContent.map(content => (
-          <ContentCards
-            key={content.title}
-            alt={content.alt}
-            background={content.background}
-            title={content.title}
-            logo={content.logo}
-            desc={content.desc}
-            label={content.label}
-            link={content.link}
-          />
-        ))}
-      </CardGrid>
+    <Layout background="/img/community-background.png">
+      <Box direction="column" pad="xlarge">
+        <Heading color="text-strong" margin={{ bottom: 'large', top: 'none' }}>
+          COMMUNITY
+        </Heading>
+        <CardGrid>
+          {communityContent.map(content => (
+            <Card
+              key={content.title}
+              alt={content.alt}
+              background={content.background}
+              title={content.title}
+              logo={content.logo}
+              desc={content.desc}
+              label={content.label}
+              link={content.link}
+            />
+          ))}
+        </CardGrid>
+      </Box>
     </Layout>
   );
 };
