@@ -79,8 +79,7 @@ const Card = ({
   const size = useContext(ResponsiveContext);
 
   return (
-    /* Conditionally adjust padding based on image */
-    <CardWrapper pad="large" background={background}>
+    <CardWrapper pad={logo ? 'large' : 'none'} background={background}>
       {image && (
         <CardImage>
           <Image src={image} alt={alt} fit="cover" />
@@ -91,7 +90,11 @@ const Card = ({
           <Image src={logo} alt={alt} fit="contain" />
         </Logo>
       )}
-      <Box>
+      <Box
+        pad={
+          image ? { top: 'none', bottom: 'large', horizontal: 'large' } : 'none'
+        }
+      >
         <Box>
           <Heading
             margin={{ top: 'medium', bottom: 'small' }}
@@ -107,32 +110,32 @@ const Card = ({
             {desc}
           </Text>
         </Box>
-      </Box>
-      <Box pad={{ top: 'medium' }} direction="row">
-        {path ? (
-          <Link to={{ pathname: path }}>
+        <Box pad={{ top: 'medium' }} direction="row">
+          {path ? (
+            <Link to={{ pathname: path }}>
+              <Button
+                label={
+                  <Box pad="xsmall">
+                    <Text color="text-strong">{label}</Text>
+                  </Box>
+                }
+                secondary
+              />
+            </Link>
+          ) : (
             <Button
               label={
                 <Box pad="xsmall">
                   <Text color="text-strong">{label}</Text>
                 </Box>
               }
+              href={link}
+              target="_blank"
+              rel="noreferrer noopener"
               secondary
             />
-          </Link>
-        ) : (
-          <Button
-            label={
-              <Box pad="xsmall">
-                <Text color="text-strong">{label}</Text>
-              </Box>
-            }
-            href={link}
-            target="_blank"
-            rel="noreferrer noopener"
-            secondary
-          />
-        )}
+          )}
+        </Box>
       </Box>
     </CardWrapper>
   );

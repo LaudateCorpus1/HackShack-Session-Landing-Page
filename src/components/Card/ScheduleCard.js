@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { MainCards } from './styles';
 import { Box, Button, Heading, Text, Avatar, ResponsiveContext } from 'grommet';
 
 const ScheduleCard = ({
@@ -13,7 +14,7 @@ const ScheduleCard = ({
 }) => {
   const size = useContext(ResponsiveContext);
   return (
-    <Box
+    <MainCards
       pad="large"
       justify="between"
       background={sessionType === 'Workshop' ? '#00567acc' : 'background'}
@@ -76,7 +77,7 @@ const ScheduleCard = ({
         }
         secondary
       />
-    </Box>
+    </MainCards>
   );
 };
 
