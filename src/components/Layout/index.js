@@ -25,6 +25,7 @@ const Layout = ({ children, background, page }) => {
         size: '100%',
         position: 'top center',
       }}
+      {...console.log(page === 'home' || size === 'small')}
       justify="between"
       layer={layer}
     >

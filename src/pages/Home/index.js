@@ -79,14 +79,18 @@ const DesktopLayout = () => (
           <Text size="large" color="black">
             help you get acquainted!
           </Text>
-          <Anchor
-            margin={{ top: 'small' }}
-            alignSelf="end"
-            color="black"
-            size="large"
-            href="#"
-            label="Watch Now"
-          ></Anchor>
+          <Box gap="small" alignSelf="end" direction="row">
+            <Anchor
+              margin={{ top: 'small' }}
+              color="black"
+              size="large"
+              href="#"
+              label="Watch Now"
+            />
+            <Box width="48px" height="48px">
+              <Image src={'/img/play-button.png'}></Image>
+            </Box>
+          </Box>
         </Box>
       </Stack>
     </Box>
