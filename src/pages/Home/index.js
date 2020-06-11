@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Text, Image, ResponsiveContext, Stack } from 'grommet';
+import { Box, Text, Image, ResponsiveContext, Stack, Anchor } from 'grommet';
 import { Card } from '../../components/Card';
 import { Layout, ButtonSplit } from '../../components/index';
 import {
@@ -79,6 +79,14 @@ const DesktopLayout = () => (
           <Text size="large" color="black">
             help you get acquainted!
           </Text>
+          <Anchor
+            margin={{ top: 'small' }}
+            alignSelf="end"
+            color="black"
+            size="large"
+            href="#"
+            label="Watch Now"
+          ></Anchor>
         </Box>
       </Stack>
     </Box>
