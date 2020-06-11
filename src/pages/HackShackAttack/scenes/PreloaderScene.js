@@ -39,7 +39,7 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
-    this.add.text(0, 0, '', { fontFamily: 'ArcadeClassic' });
+    this.add.text(0, 0, '', { fontFamily: 'Kemco' });
     const { width, height } = this.cameras.main;
 
     // display progress bar
@@ -288,7 +288,7 @@ export default class PreloaderScene extends Phaser.Scene {
   ready() {
     this.readyCount += 1;
     if (this.readyCount === 2) {
-      this.scene.start('BackToTitle');
+      this.scene.start('Title');
     }
   }
 }

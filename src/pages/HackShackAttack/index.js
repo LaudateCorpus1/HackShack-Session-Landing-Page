@@ -38,17 +38,17 @@ const HackShackAttack = () => {
   const gameConfig = {
     initialize: true,
     game: {
+      width: 1366,
+      height: 768,
       parent: 'phaser-game',
       type: Phaser.AUTO,
-      width: 800,
-      height: 600,
       input: {
         gamepad: true,
         queue: true,
       },
       scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH,
-        scale: Phaser.Scale.RESIZE,
+        mode: Phaser.Scale.ENVELOP,
       },
       pixelArt: true,
       physics: {
@@ -63,14 +63,9 @@ const HackShackAttack = () => {
   };
   const { game, initialize } = gameConfig;
   return (
-    <Box
-      height="100%"
-      width="100%"
-      style={{ position: 'relative', minHeight: '900px', minWidth: '900px' }}
-    >
+    <Box fill style={{ position: 'relative', minHeight: '1000px' }}>
       <Box
-        height="100%"
-        width="100%"
+        fill
         background={{
           image: 'url(/img/hackshack-attack-background.png)',
           size: 'cover',
@@ -82,10 +77,15 @@ const HackShackAttack = () => {
         }}
       />
       <Box
+        fill
         id="phaser-game"
-        height="100%"
-        width="100%"
-        style={{ position: 'absolute' }}
+        style={{
+          position: 'absolute',
+          minWidth: '1366',
+          minHeight: '768',
+          maxWidth: '1366',
+          maxHeight: '768',
+        }}
       >
         <IonPhaser game={game} initialize={initialize} />
       </Box>
