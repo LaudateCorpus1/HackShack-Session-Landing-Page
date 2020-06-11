@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Text, Image, ResponsiveContext } from 'grommet';
+import { Box, Text, Image, ResponsiveContext, Stack } from 'grommet';
 import { Card } from '../../components/Card';
 import { Layout, ButtonSplit } from '../../components/index';
 import {
@@ -67,7 +67,20 @@ const DesktopLayout = () => (
       height="493px"
       width="618px"
     >
-      <Image src="/img/quotegremlin.png"></Image>
+      <Stack alignSelf="center" anchor="top-left">
+        <Image src="/img/quotegremlin.png"></Image>
+        <Box margin={{ top: '80px', left: '80px' }}>
+          <Text size="large" color="black">
+            New to HPE Dev Hack Shack ?
+          </Text>
+          <Text size="large" color="black">
+            Watch our Virtual Tour to
+          </Text>
+          <Text size="large" color="black">
+            help you get acquainted!
+          </Text>
+        </Box>
+      </Stack>
     </Box>
   </Box>
 );
