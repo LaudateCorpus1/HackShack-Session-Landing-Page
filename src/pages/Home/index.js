@@ -1,11 +1,18 @@
 import React, { useContext } from 'react';
 import { Box, Text, Image, ResponsiveContext } from 'grommet';
+import { Card } from '../../components/Card';
 import { Layout, ButtonSplit } from '../../components/index';
-import { MainWrapper, LogoWrapper, TextWrapper, ButtonWrapper } from './styles';
+import {
+  MainWrapper,
+  LogoWrapper,
+  TextWrapper,
+  ButtonWrapper,
+  CardWrapper,
+} from './styles';
 
 const DesktopLayout = () => (
   <Box height="100%" width="100%">
-    <MainWrapper align="center" width="100%" height="100%">
+    <MainWrapper align="center">
       <LogoWrapper>
         <Image
           fit="contain"
@@ -35,6 +42,33 @@ const DesktopLayout = () => (
         </ButtonSplit>
       </ButtonWrapper>
     </MainWrapper>
+    <CardWrapper alignSelf="end" gap="large" margin="xlarge" direction="row">
+      {' '}
+      <Card
+        title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
+        desc="Learn more about the rules and requirments to the contest."
+        link="https://developer.hpe.com/"
+        background="background"
+        label="Join the Contest"
+        margin={{ top: '120px' }}
+      ></Card>
+      <Card
+        title="LEARN MORE ABOUT HPE EZMERAL PLATFORM"
+        desc="Learn more about the rules and requirments to the contest"
+        link="https://developer.hpe.com/"
+        background="rgba(0, 86, 122, 0.8);"
+        label="See the HPE Ezmeral Sessions"
+        margin={{ bottom: '120px' }}
+      ></Card>
+    </CardWrapper>
+    <Box
+      margin={{ bottom: 'xlarge', right: 'xlarge' }}
+      alignSelf="end"
+      height="493px"
+      width="618px"
+    >
+      <Image src="/img/quotegremlin.png"></Image>
+    </Box>
   </Box>
 );
 
