@@ -70,6 +70,7 @@ const Card = ({
   title,
   desc,
   link,
+  margin,
   label,
   logo,
   path,
@@ -79,7 +80,7 @@ const Card = ({
 
   return (
     /* Conditionally adjust padding based on image */
-    <CardWrapper pad="large" background={background}>
+    <CardWrapper margin={margin} pad="large" background={background}>
       {image && (
         <CardImage>
           <Image src={image} alt={alt} fit="cover" />
