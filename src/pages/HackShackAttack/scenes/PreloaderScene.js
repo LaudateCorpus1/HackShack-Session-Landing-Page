@@ -53,6 +53,7 @@ export default class PreloaderScene extends Phaser.Scene {
       y: height / 2 - 50,
       text: 'Loading...',
       style: {
+        fontFamily: 'Kemco',
         font: '20px monospace',
         fill: '#FFFFFF',
       },
@@ -65,6 +66,7 @@ export default class PreloaderScene extends Phaser.Scene {
       y: height / 2 - 5,
       text: '0%',
       style: {
+        fontFamily: 'Kemco',
         font: '18px monospace',
         fill: '#FFFFFF',
       },
@@ -288,7 +290,7 @@ export default class PreloaderScene extends Phaser.Scene {
   ready() {
     this.readyCount += 1;
     if (this.readyCount === 2) {
-      this.scene.start('Title');
+      this.scene.start('GameOver');
     }
   }
 }

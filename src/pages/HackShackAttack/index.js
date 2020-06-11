@@ -63,7 +63,7 @@ const HackShackAttack = () => {
   };
   const { game, initialize } = gameConfig;
   return (
-    <Box fill style={{ position: 'relative', minHeight: '1000px' }}>
+    <Box fill style={{ position: 'relative', minHeight: '1100px' }}>
       <Box
         fill
         background={{
