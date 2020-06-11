@@ -131,6 +131,66 @@ const MobileLayout = () => (
         </ButtonSplit>
       </Box>
     </Box>
+    <Box
+      alignSelf="end"
+      gap="large"
+      margin={{ horizontal: 'xlarge', vertical: 'medium' }}
+      direction="column"
+    >
+      {' '}
+      <Card
+        title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
+        desc="Learn more about the rules and requirments to the contest."
+        link="https://developer.hpe.com/"
+        background="background"
+        label="Join the Contest"
+      ></Card>
+      <Card
+        title="LEARN MORE ABOUT HPE EZMERAL PLATFORM"
+        desc="Learn more about the rules and requirments to the contest"
+        link="https://developer.hpe.com/"
+        background="rgba(0, 86, 122, 0.8);"
+        label="See the HPE Ezmeral Sessions"
+      ></Card>
+    </Box>
+    <Box
+      margin={{ vertical: 'xlarge', horizontal: 'small' }}
+      alignSelf="end"
+      height="493px"
+      width="380px"
+    >
+      <Stack alignSelf="center" anchor="top-left">
+        <Box width="medium" height="small">
+          <Image src="/img/quotegremlin.png"></Image>
+        </Box>
+        <Box margin={{ top: '60px', left: '40px' }}>
+          <Text size="small" color="black">
+            New to HPE Dev
+          </Text>
+          <Text size="small" color="black">
+            Hack Shack ?
+          </Text>
+          <Text size="small" color="black">
+            Watch our Virtual Tour to
+          </Text>
+          <Text size="small" color="black">
+            help you get acquainted!
+          </Text>
+          <Box gap="small" alignSelf="end" direction="row">
+            <Anchor
+              margin={{ top: 'small' }}
+              color="black"
+              size="small"
+              href="#"
+              label="Watch Now"
+            />
+            <Box width="32px" height="32px">
+              <Image src={'/img/play-button.png'}></Image>
+            </Box>
+          </Box>
+        </Box>
+      </Stack>
+    </Box>
   </Box>
 );
 
