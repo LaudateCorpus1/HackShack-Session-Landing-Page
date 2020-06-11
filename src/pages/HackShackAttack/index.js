@@ -1,8 +1,8 @@
 /* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 import React from 'react';
 import { IonPhaser } from '@ion-phaser/react';
+import { Box } from 'grommet';
 import Phaser from 'phaser';
-import { GameWrapper } from '../../components/index';
 import BootScene from './scenes/BootScene';
 import PreloaderScene from './scenes/PreloaderScene';
 import TitleScene from './scenes/TitleScene';
@@ -15,6 +15,7 @@ import BackToTitleScene from './scenes/BackToTitleScene';
 import ThankYouScene from './scenes/ThankYouScene';
 import ProfanityErrorScene from './scenes/ProfanityErrorScene';
 import SplashScene from './scenes/SplashScene';
+
 class Game extends Phaser.Scene {
   create() {
     this.scene.add('Boot', BootScene);
@@ -39,13 +40,15 @@ const HackShackAttack = () => {
     game: {
       parent: 'phaser-game',
       type: Phaser.AUTO,
+      width: 800,
+      height: 600,
       input: {
         gamepad: true,
         queue: true,
       },
       scale: {
-        mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
+        scale: Phaser.Scale.RESIZE,
       },
       pixelArt: true,
       physics: {
@@ -59,13 +62,35 @@ const HackShackAttack = () => {
     },
   };
   const { game, initialize } = gameConfig;
-  return <GameWrapper>Hello</GameWrapper>;
+  return (
+    <Box
+      height="100%"
+      width="100%"
+      style={{ position: 'relative', minHeight: '900px', minWidth: '900px' }}
+    >
+      <Box
+        height="100%"
+        width="100%"
+        background={{
+          image: 'url(/img/hackshack-attack-background.png)',
+          size: 'cover',
+          position: 'top center',
+        }}
+        style={{
+          position: 'absolute',
+          zIndex: 1,
+        }}
+      />
+      <Box
+        id="phaser-game"
+        height="100%"
+        width="100%"
+        style={{ position: 'absolute' }}
+      >
+        <IonPhaser game={game} initialize={initialize} />
+      </Box>
+    </Box>
+  );
 };
 
 export default HackShackAttack;
-
-{
-  /* <div id="phaser-game">
-<IonPhaser game={game} initialize={initialize} />
-</div> */
-}
