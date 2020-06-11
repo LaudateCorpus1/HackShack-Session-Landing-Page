@@ -25,7 +25,6 @@ const Layout = ({ children, background, page }) => {
         size: '100%',
         position: 'top center',
       }}
-      height={page === 'Home' ? '100%' : 'auto'}
       justify="between"
       layer={layer}
     >
