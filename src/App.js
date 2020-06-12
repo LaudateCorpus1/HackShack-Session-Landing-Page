@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { Grommet } from 'grommet';
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
+import { throwError } from 'rxjs';
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 import {
@@ -66,7 +69,7 @@ const App = () => {
       background="#151d29"
       style={{ overflowX: 'hidden' }}
     >
-      <Router>
+      <Router history={history}>
         <Switch>
           <Route exact path="/">
             <Home />
