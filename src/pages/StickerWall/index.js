@@ -144,22 +144,26 @@ const StickerWall = () => {
               ))}
               <StyledSmallAnchor href="/img/devlogo.png" download>
                 <ImageWrapper
-                  height="80px"
+                  height="150px"
                   background={{
                     image: 'url(/img/grommet-icon.png)',
                   }}
                 >
                   {' '}
+                  <Box justify="end" fill="vertical" alignSelf="end">
+                    {<Monitor size="small" />}
+                  </Box>
                 </ImageWrapper>
               </StyledSmallAnchor>
             </Box>
             <Box direction="row">
               <BoxImage
                 background="#82FFF2"
-                icon={<Monitor size="small" />}
+                icon={<User size="small" />}
                 stickers={'/img/gremlinhat.png'}
                 height="150px"
-              ></BoxImage>
+              >
+              </BoxImage>
               <StyledLargeAnchor href="/img/ezmeralbackground.png" download>
                 <ImageWrapper
                   height="150px"
@@ -168,6 +172,9 @@ const StickerWall = () => {
                   }}
                 >
                   {' '}
+                  <Box justify="end" fill="vertical" alignSelf="end">
+                    {<Monitor size="small" />}
+                  </Box>
                 </ImageWrapper>
               </StyledLargeAnchor>
               <BoxImageLarge
@@ -177,7 +184,11 @@ const StickerWall = () => {
               ></BoxImageLarge>
             </Box>
             <Box direction="row">
-              <BoxImage height="150px" stickers={'/img/devlogo.png'}></BoxImage>
+              <BoxImage
+                height="150px"
+                icon={<User size="small" />}
+                stickers={'/img/devlogo.png'}
+              ></BoxImage>
               <StyledLargeAnchor href="/img/2gremlins.png" download>
                 <ImageWrapper
                   height="150px"
@@ -186,6 +197,9 @@ const StickerWall = () => {
                   }}
                 >
                   {' '}
+                  <Box justify="end" fill="vertical" alignSelf="end">
+                    {<Monitor size="small" />}
+                  </Box>
                 </ImageWrapper>
               </StyledLargeAnchor>
               <StyledLargeAnchor href="/img/hack-shack-house.png" download>
@@ -196,6 +210,9 @@ const StickerWall = () => {
                   }}
                 >
                   {' '}
+                  <Box justify="end" fill="vertical" alignSelf="end">
+                    {<Monitor size="small" />}
+                  </Box>
                 </ImageWrapper>
               </StyledLargeAnchor>
             </Box>
@@ -209,6 +226,7 @@ const StickerWall = () => {
               <BoxImage
                 height="150px"
                 stickers={'/img/dev-thumb.png'}
+                icon={<User size="small" />}
               ></BoxImage>
               <StyledSmallAnchor download href="/img/design.png">
                 {' '}
@@ -219,6 +237,9 @@ const StickerWall = () => {
                   }}
                 >
                   {' '}
+                  <Box justify="end" fill="vertical" alignSelf="end">
+                    {<Monitor size="small" />}
+                  </Box>
                 </ImageWrapper>
               </StyledSmallAnchor>
               <StyledSmallAnchor download href="/img/heart.png">
@@ -230,6 +251,9 @@ const StickerWall = () => {
                   }}
                 >
                   {' '}
+                  <Box justify="end" fill="vertical" alignSelf="end">
+                    {<User size="small" />}
+                  </Box>
                 </ImageWrapper>
               </StyledSmallAnchor>
             </Box>
@@ -277,6 +301,9 @@ const StickerWall = () => {
                   }}
                 >
                   {' '}
+                  <Box justify="end" fill="vertical" alignSelf="end">
+                    {<Monitor size="small" />}
+                  </Box>
                 </ImageWrapper>
               </StyledLargeAnchor>
             </Box>
@@ -316,6 +343,9 @@ const StickerWall = () => {
                 }}
               >
                 {' '}
+                <Box justify="end" fill="vertical" alignSelf="end">
+                  {<Monitor size="small" />}
+                </Box>
               </ImageWrapper>
             </StyledLargeAnchor>
             <Box direction="row">
@@ -327,6 +357,9 @@ const StickerWall = () => {
                   }}
                 >
                   {' '}
+                  <Box justify="end" fill="vertical" alignSelf="end">
+                    {<Monitor size="small" />}
+                  </Box>
                 </ImageWrapper>
               </StyledSmallAnchor>
               <BoxImage
@@ -356,6 +389,9 @@ const StickerWall = () => {
                   }}
                 >
                   {' '}
+                  <Box justify="end" fill="vertical" alignSelf="end">
+                    {<Monitor size="small" />}
+                  </Box>
                 </ImageWrapper>
               </StyledLargeAnchor>
             </Box>
@@ -376,6 +412,9 @@ const StickerWall = () => {
                   }}
                 >
                   {' '}
+                  <Box justify="end" fill="vertical" alignSelf="end">
+                    {<Monitor size="small" />}
+                  </Box>
                 </ImageWrapper>
               </StyledSmallAnchor>
               <StyledSmallAnchor download href="/img/heart.png">
@@ -387,6 +426,9 @@ const StickerWall = () => {
                   }}
                 >
                   {' '}
+                  <Box justify="end" fill="vertical" alignSelf="end">
+                    {<User size="small" />}
+                  </Box>
                 </ImageWrapper>
               </StyledSmallAnchor>
             </Box>
