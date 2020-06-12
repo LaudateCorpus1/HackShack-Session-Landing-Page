@@ -1,39 +1,70 @@
-import React from 'react';
-import { Box, Text, Image, Button } from 'grommet';
+import React, { useContext } from 'react';
+import { Box, Text, Image, ResponsiveContext, Button } from 'grommet';
+import { FooterWrapper } from '../Footer/styles';
+
+const footerLinks = [
+  { label: 'Platforms', href: 'https://developer.hpe.com/platforms' },
+  { label: 'Open Source', href: 'https://developer.hpe.com/projects' },
+  { label: 'Community', href: 'https://developer.hpe.com/community' },
+  { label: 'Events', href: 'https://developer.hpe.com/events' },
+];
 
 export const HPEDevFooter = () => {
-  const footerLinks = [
-    { label: 'Platforms', href: 'https://developer.hpe.com/platforms' },
-    { label: 'Open Source', href: 'https://developer.hpe.com/projects' },
-    { label: 'Community', href: 'https://developer.hpe.com/community' },
-    { label: 'Events', href: 'https://developer.hpe.com/events' },
-  ];
+  const size = useContext(ResponsiveContext);
+  const fontSize = size === 'small' ? '20px' : '22px';
+  const iconSize = size === 'small' ? '40px' : '48px';
 
   return (
-    <Box align="center" direction="row" justify="between" border="top">
-      <Box direction="row" align="center" gap="small" margin="small">
-        <Box width="xxsmall" height="xxsmall">
-          <Image
-            fit="contain"
-            src="https://us-central1-grommet-designer.cloudfunctions.net/images/lozzi-hpe-com/developer-logo.png"
-          />
+    <FooterWrapper
+      direction="row"
+      align="start"
+      justify="between"
+      border="top"
+      pad={size === 'small' ? 'medium' : 'small'}
+    >
+      <Box direction="row" gap="small" align="center">
+        <Box width={iconSize} height={iconSize}>
+          <Image fit="contain" src="./img/hpeDevLogo.svg" />
         </Box>
-        <Text>
-          <Text weight="bold">HPE </Text>
+        <Text size={fontSize} color="#FFFFFF">
+          <Text weight="bold" size={fontSize}>
+            HPE{' '}
+          </Text>
           Developer
         </Text>
       </Box>
-      <Box gap="xsmall" direction="row">
-        {footerLinks.map(link => (
+      {size === 'small' ? (
+        <Box gap="xsmall" direction="row" alignSelf="center">
           <Button
-            key={link.label}
-            label={link.label}
-            href={link.href}
+            href="https://hpedev.io"
             target="_blank"
-          />
-        ))}
-      </Box>
-    </Box>
+            rel="noopener noreferrer"
+          >
+            <Text color="#FFFFFF" size={fontSize} weight={900}>
+              Learn More
+            </Text>
+          </Button>
+        </Box>
+      ) : (
+        <Box gap="medium" direction="row" alignSelf="center">
+          {footerLinks.map(link => {
+            const { label, href } = link;
+            return (
+              <Button
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Text color="#FFFFFF" size={fontSize} weight={900}>
+                  {label}
+                </Text>
+              </Button>
+            );
+          })}
+        </Box>
+      )}
+    </FooterWrapper>
   );
 };
 export default HPEDevFooter;

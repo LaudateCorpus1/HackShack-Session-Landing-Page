@@ -2,10 +2,31 @@ import React, { useEffect } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { Grommet } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
-import { Home, Community, Arcade } from './pages/index';
-import ReactGA from 'react-ga';
-import { createBrowserHistory } from 'history';
-import { throwError } from 'rxjs';
+import { deepMerge } from 'grommet/utils';
+import {
+  Home,
+  Community,
+  Arcade,
+  StickerWall,
+  Schedule,
+  HackShackAttack,
+} from './pages/index';
+
+const customHpe = deepMerge(hpe, {
+  global: {
+    breakpoints: {
+      small: {
+        value: 990,
+      },
+      medium: {
+        value: 990,
+      },
+      large: {
+        value: 1500,
+      },
+    },
+  },
+});
 
 const App = () => {
   let gtagId;
@@ -38,17 +59,32 @@ const App = () => {
     }
   }, []);
   return (
-    <Grommet theme={hpe} themeMode="dark" full>
-      <Router history={history}>
+    <Grommet
+      theme={customHpe}
+      themeMode="dark"
+      full
+      background="#151d29"
+      style={{ overflowX: 'hidden' }}
+    >
+      <Router>
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/community">
+          <Route path="/community">
             <Community />
           </Route>
-          <Route exact path="/arcade">
+          <Route path="/schedule">
+            <Schedule />
+          </Route>
+          <Route path="/arcade">
             <Arcade />
+          </Route>
+          <Route path="/stickerwall">
+            <StickerWall />
+          </Route>
+          <Route path="/hackshackattack">
+            <HackShackAttack />
           </Route>
         </Switch>
       </Router>

@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { Box, Button, Heading } from 'grommet';
+import { Box, Button, Heading, ResponsiveContext } from 'grommet';
 
 const getNavColor = (active, hover) => {
   if (active) return 'white';
-  if (hover) return 'green';
-  return 'brand';
+  if (hover) return 'white';
+  return 'rgba(255, 255, 255, 0.3)';
 };
 
 const NavButton = ({ active, to, history, children }) => {
   const [hover, setHover] = useState(false);
+  const size = useContext(ResponsiveContext);
   return (
     <Button
       plain
@@ -22,7 +23,11 @@ const NavButton = ({ active, to, history, children }) => {
       onMouseOut={() => setHover(false)}
       onBlur={() => setHover(false)}
     >
-      <Heading margin="none" size="small" color={getNavColor(active, hover)}>
+      <Heading
+        margin="none"
+        size={size === 'small' ? 'medium' : 'small'}
+        color={getNavColor(active, hover)}
+      >
         {children}
       </Heading>
     </Button>
@@ -39,9 +44,9 @@ NavButton.propTypes = {
 };
 
 export const SideNav = ({ location, history }) => (
-  <Box pad={{left: 'xlarge'}} align="start" gap="xsmall">
+  <Box align="start" gap="xsmall" width={{ min: '250px' }}>
     <NavButton history={history} active={location.pathname === '/'} to="/">
-      HOME
+      HACK SHACK
     </NavButton>
     <NavButton
       history={history}
@@ -50,16 +55,18 @@ export const SideNav = ({ location, history }) => (
     >
       SCHEDULE
     </NavButton>
+    {/* Take out EZMERAL for now until announced
     <NavButton history={history} active={location.pathname === '/#'} to="#">
       HPE EZMERAL
-    </NavButton>
+    </NavButton> */}
+    {/* Take out Replays for now
     <NavButton
       history={history}
       active={location.pathname === '/replays'}
       to="/replays"
     >
       REPLAYS
-    </NavButton>
+    </NavButton> */}
     <NavButton
       history={history}
       active={location.pathname === '/community'}

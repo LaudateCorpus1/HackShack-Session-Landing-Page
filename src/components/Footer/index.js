@@ -1,50 +1,71 @@
-import React from 'react';
-import { Box, Text, Anchor } from 'grommet';
+import React, { useContext } from 'react';
+import { Box, Text, ResponsiveContext } from 'grommet';
 import { HPEDevFooter } from '../index';
-import { StyledFooter } from './styles';
+import { StyledAnchor, FooterWrapper } from './styles';
+
+const footerLinks = [
+  {
+    label: 'Privacy Policy',
+    href: 'https://www.hpe.com/us/en/legal/privacy.html',
+  },
+  {
+    label: 'Cookies',
+    href: 'https://www.hpe.com/us/en/legal/privacy.html#datacollection',
+  },
+  {
+    label: 'Terms of Use',
+    href: 'https://www.hpe.com/us/en/about/legal/terms-of-use.html',
+  },
+  {
+    label: 'Do Not Sell My Personal Information',
+    href: 'https://www.hpe.com/us/en/privacy/personal-information.html',
+  },
+];
 
 export const Footer = () => {
-  const footerLinks = [
-    {
-      label: 'Privacy Policy |',
-      href: 'https://www.hpe.com/us/en/legal/privacy.html',
-    },
-    {
-      label: 'Cookies |',
-      href: 'https://www.hpe.com/us/en/legal/privacy.html#datacollection',
-    },
-    {
-      label: 'Terms of Use |',
-      href: 'https://www.hpe.com/us/en/about/legal/terms-of-use.html',
-    },
-    {
-      label: 'Do Not Sell My Personal Information',
-      href: 'https://www.hpe.com/us/en/privacy/personal-information.html',
-    },
-  ];
+  const size = useContext(ResponsiveContext);
+  const dir = size === 'small' ? 'column' : 'row';
+  const fontSize = size === 'small' ? '14px' : '18px';
+
   return (
     <Box>
       <HPEDevFooter />
-      <StyledFooter
-        pad={{ left: 'medium', right: 'medium' }}
-        background="white"
+      <FooterWrapper
+        pad={size === 'small' ? 'medium' : 'small'}
+        background="#FFFFFF"
+        justify="between"
+        direction={dir}
+        align="start"
+        gap="medium"
       >
-        <Box gap="xsmall">
-          <Text size="small">
+        <Box>
+          <Text size={fontSize}>
             &copy; 2020 Hewlett Packard Enterprise Development LP
           </Text>
         </Box>
-        <Box direction="row" gap="xsmall" pad="small" wrap>
-          {footerLinks.map(link => (
-            <Anchor
-              key={link.label}
-              label={link.label}
-              href={link.href}
-              target="_blank"
-            ></Anchor>
-          ))}
+        <Box direction={dir} gap="xxsmall">
+          {footerLinks.map((link, index) => {
+            const { label, href } = link;
+            return (
+              <StyledAnchor
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Box direction="row" gap="xxsmall">
+                  <Text size={fontSize} weight={900}>
+                    {label}
+                  </Text>
+                  {footerLinks.length - 1 !== index && size !== 'small' && (
+                    <Text size={fontSize}>|</Text>
+                  )}
+                </Box>
+              </StyledAnchor>
+            );
+          })}
         </Box>
-      </StyledFooter>
+      </FooterWrapper>
     </Box>
   );
 };

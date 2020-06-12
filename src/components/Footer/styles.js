@@ -1,10 +1,12 @@
 import styled from 'styled-components';
-import { Footer } from 'grommet';
+import { Anchor, Box } from 'grommet';
 
-export const StyledFooter = styled(Footer)`
-  a {
-    text-decoration: none;
-  }
+const StyledAnchor = styled(Anchor)`
+  text-decoration: none;
 `;
 
-export default StyledFooter;
+const FooterWrapper = styled(Box)`
+  white-space: nowrap;
+`;
+
+export { StyledAnchor, FooterWrapper };

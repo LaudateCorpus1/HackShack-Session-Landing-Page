@@ -1,23 +1,30 @@
 import React from 'react';
-import { ContentCards } from '../../components/Cards';
-import { Layout } from '../../components/index';
-import { CardGrid } from '../../components/Cards';
-import { arcadeContent } from '../../data/PageContent';
+import { Heading, Box } from 'grommet';
+import { Layout, Card, CardGrid } from '../../components/index';
+import { arcadeContent } from '../../data/CardData/PageContent';
 
 const Arcade = () => {
   return (
-    <Layout background="/img/hack-shack-home-background.png">
-      <CardGrid>
-        {arcadeContent.map(content => (
-          <ContentCards
-            title={content.title}
-            image={content.image}
-            desc={content.desc}
-            label={content.label}
-            link={content.link}
-          />
-        ))}
-      </CardGrid>
+    <Layout background="/img/arcade-background.jpg">
+      <Box direction="column" pad="xlarge">
+        <Heading color="text-strong" margin={{ bottom: 'large', top: 'none' }}>
+          ARCADE
+        </Heading>
+        <CardGrid>
+          {arcadeContent.map(content => (
+            <Card
+              title={content.title}
+              alt={content.alt}
+              background={content.background}
+              image={content.image}
+              desc={content.desc}
+              label={content.label}
+              link={content.link}
+              path={content.path}
+            />
+          ))}
+        </CardGrid>
+      </Box>
     </Layout>
   );
 };
