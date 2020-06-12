@@ -56,7 +56,7 @@ export const arcadeContent = [
     title: 'HACK SHACK ATTACK',
     desc:
       'Think SmashTV and Robotron, but much more awesome! Compete for top scores and bragging rights!',
-    link: 'https://slack.hpedev.io/',
+    path: '/hackshackattack',
     label: 'Play the Game',
     background: 'background',
   },

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading, Box } from 'grommet';
 import { Layout, Card, CardGrid } from '../../components/index';
-import { arcadeContent } from '../../CardData/PageContent';
+import { arcadeContent } from '../../data/CardData/PageContent';
 
 const Arcade = () => {
   return (
