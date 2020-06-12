@@ -1,6 +1,7 @@
 /* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 import React from 'react';
 import { IonPhaser } from '@ion-phaser/react';
+import styled from 'styled-components';
 import { Box } from 'grommet';
 import Phaser from 'phaser';
 import BootScene from './scenes/BootScene';
@@ -34,6 +35,15 @@ class Game extends Phaser.Scene {
   }
 }
 
+const GameContainer = styled(Box)`
+  position: relative;
+  min-height: 1100px;
+`;
+const BackgroundWrapper = styled(Box)`
+  position: absolute;
+  z-index: 10;
+`;
+
 const HackShackAttack = () => {
   const gameConfig = {
     initialize: true,
@@ -63,33 +73,19 @@ const HackShackAttack = () => {
   };
   const { game, initialize } = gameConfig;
   return (
-    <Box fill style={{ position: 'relative', minHeight: '1100px' }}>
-      <Box
+    <GameContainer fill>
+      <BackgroundWrapper
         fill
         background={{
           image: 'url(/img/hackshack-attack-background.png)',
           size: 'cover',
           position: 'top center',
         }}
-        style={{
-          position: 'absolute',
-          zIndex: 1,
-        }}
       />
-      <Box
-        fill
-        id="phaser-game"
-        style={{
-          position: 'absolute',
-          minWidth: '1366',
-          minHeight: '768',
-          maxWidth: '1366',
-          maxHeight: '768',
-        }}
-      >
+      <Box fill id="phaser-game">
         <IonPhaser game={game} initialize={initialize} />
       </Box>
-    </Box>
+    </GameContainer>
   );
 };
 
