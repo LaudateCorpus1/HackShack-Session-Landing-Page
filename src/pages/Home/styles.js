@@ -66,4 +66,8 @@ export const ButtonWrapper = styled(Box)`
   animation-delay: 0.7s;
 `;
 
+export const CardWrapper = styled(Box)`
+  transform: rotate(-10deg);
+`;
+
 export default { MainWrapper, LogoWrapper, TextWrapper, ButtonWrapper };

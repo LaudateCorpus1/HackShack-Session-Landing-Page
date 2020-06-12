@@ -6,20 +6,18 @@ import { FormPreviousLink } from 'grommet-icons';
 
 export const SubPageHeader = ({ children, title, ...rest }) => {
   return (
-    <Box
-      align="start"
-      width="xlarge"
-      direction="column"
-      direction="column" pad="xlarge"
-      {...rest}
-    >
+    <Box align="start" width="xlarge" direction="column" pad="xlarge" {...rest}>
       <Box align="start">
         <Button
           icon={<FormPreviousLink />}
           label="Back to Arcade"
           href="/arcade"
         ></Button>
-        <Heading color="text-strong" level="1" margin={{ bottom: 'large', top: 'none' }}>
+        <Heading
+          color="text-strong"
+          level="1"
+          margin={{ bottom: 'large', top: 'none' }}
+        >
           {title}
         </Heading>
       </Box>

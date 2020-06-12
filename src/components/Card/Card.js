@@ -71,6 +71,7 @@ const Card = ({
   title,
   desc,
   link,
+  margin,
   label,
   logo,
   path,

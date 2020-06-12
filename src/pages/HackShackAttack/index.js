@@ -1,11 +1,12 @@
 /* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 import React from 'react';
 import { IonPhaser } from '@ion-phaser/react';
+import styled from 'styled-components';
+import { Box } from 'grommet';
 import Phaser from 'phaser';
 import BootScene from './scenes/BootScene';
 import PreloaderScene from './scenes/PreloaderScene';
 import TitleScene from './scenes/TitleScene';
-import AttractModeScene from './scenes/AttractModeScene';
 import GameScene from './scenes/GameScene';
 import GameOverScene from './scenes/GameOverScene';
 import HighScoreScene from './scenes/HighScoreScene';
@@ -20,7 +21,6 @@ class Game extends Phaser.Scene {
     this.scene.add('Boot', BootScene);
     this.scene.add('Preloader', PreloaderScene);
     this.scene.add('Title', TitleScene);
-    this.scene.add('AttractMode', AttractModeScene);
     this.scene.add('Game', GameScene);
     this.scene.add('GameOver', GameOverScene);
     this.scene.add('HighScore', HighScoreScene);
@@ -33,10 +33,21 @@ class Game extends Phaser.Scene {
   }
 }
 
+const GameContainer = styled(Box)`
+  position: relative;
+  min-height: 1100px;
+`;
+const BackgroundWrapper = styled(Box)`
+  position: absolute;
+  z-index: 10;
+`;
+
 const HackShackAttack = () => {
   const gameConfig = {
     initialize: true,
     game: {
+      width: 1366,
+      height: 768,
       parent: 'phaser-game',
       type: Phaser.AUTO,
       input: {
@@ -44,8 +55,8 @@ const HackShackAttack = () => {
         queue: true,
       },
       scale: {
-        mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
+        mode: Phaser.Scale.ENVELOP,
       },
       pixelArt: true,
       physics: {
@@ -60,9 +71,19 @@ const HackShackAttack = () => {
   };
   const { game, initialize } = gameConfig;
   return (
-    <div id="phaser-game">
-      <IonPhaser game={game} initialize={initialize} />
-    </div>
+    <GameContainer fill>
+      <BackgroundWrapper
+        fill
+        background={{
+          image: 'url(/img/hackshack-attack-background.png)',
+          size: 'cover',
+          position: 'top center',
+        }}
+      />
+      <Box fill id="phaser-game">
+        <IonPhaser game={game} initialize={initialize} />
+      </Box>
+    </GameContainer>
   );
 };
 

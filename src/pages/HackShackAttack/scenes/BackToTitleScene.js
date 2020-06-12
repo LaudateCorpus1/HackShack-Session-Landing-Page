@@ -110,51 +110,48 @@ export default class BackToTitleScene extends Phaser.Scene {
     this.submitSelectionBox = this.add
       .graphics()
       .fillStyle(0xffffff, 1)
-      .fillRoundedRect(this.width / 3 - 80, this.height / 2 + 70, 200, 80);
+      .fillRoundedRect(this.width / 2 - 230, this.height / 2 - 40, 180, 70);
 
     // cancel select box
     this.cancelSelectionBox = this.add
       .graphics()
       .fillStyle(0xffffff, 1)
-      .fillRoundedRect(this.width / 2 + 20, this.height / 2 + 70, 200, 80);
+      .fillRoundedRect(this.width / 2 + 40, this.height / 2 - 40, 180, 70);
     this.cancelSelectionBox.visible = false;
-
     // submit and cancel buttons
     this.submitButton = this.add
-      .text(this.width / 3 - 35, this.height / 2 + 75, 'Yes', {
-        fontFamily: 'ArcadeClassic',
-        fontSize: '60px',
+      .text(this.width / 3 + 40, this.height / 2 - 28, 'Yes', {
+        fontFamily: 'Kemco',
+        fontSize: '40px',
       })
       .setTint(0x000000)
       .setInteractive();
-
     this.cancelButton = this.add
-      .text(this.width / 2 + 85, this.height / 2 + 75, 'No', {
-        fontFamily: 'ArcadeClassic',
-        fontSize: '60px',
+      .text(this.width / 2 + 95, this.height / 2 - 28, 'No', {
+        fontFamily: 'Kemco',
+        fontSize: '40px',
       })
       .setTint(0xffffff)
       .setInteractive();
-
     this.message1 = this.add.text(
-      this.width / 2 - 280,
+      this.width / 2 - 300,
       this.height / 2 - 180,
       'Cancel submitting',
-      { fontFamily: 'ArcadeClassic', fontSize: '60px' },
+      { fontFamily: 'Kemco', fontSize: '42px' },
     );
     this.message2 = this.add.text(
-      this.width / 2 - 180,
-      this.height / 2 - 100,
+      this.width / 2 - 200,
+      this.height / 2 - 130,
       'your score?',
-      { fontFamily: 'ArcadeClassic', fontSize: '60px' },
+      { fontFamily: 'Kemco', fontSize: '42px' },
     );
 
     this.background = this.add
-      .sprite(this.width / 2, this.height / 2, 'highscoreBG')
-      .setScale(6.2, 9);
+      .sprite(this.width / 2, this.height / 2 - 90, 'highscoreBG')
+      .setScale(5.1, 5.2);
     this.eyes = this.add
       .sprite(this.width / 2, this.height / 2 - 120, 'highscoreEyes')
-      .setScale(5);
+      .setScale(4);
   }
 
   createAnimations() {
