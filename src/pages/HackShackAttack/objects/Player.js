@@ -9,7 +9,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.lives = 3;
     this.immune = false;
 
-    this.setScale(0.45);
+    this.setScale(0.4);
 
     this.playerFlicker = this.scene.tweens.add({
       targets: this,
@@ -49,7 +49,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   onHit(damage, livesText) {
     if (this.immune === false) {
       this.lives -= damage;
-      livesText.setText(`Lives: ${this.lives}`);
+      livesText.setText(`Lives:${this.lives}`);
       this.scene.cameras.main.shake(120);
       this.immune = true;
 
@@ -61,7 +61,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       });
     }
     if (this.lives <= 0) {
-      livesText.setText('Lives: 0');
+      livesText.setText('Lives:0');
       this.disableBody();
       this.scene.events.emit('gameover');
     }

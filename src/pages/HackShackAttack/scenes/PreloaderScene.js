@@ -1,33 +1,47 @@
 /* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 import Phaser from 'phaser';
 
-// font and highscore assets
-const rubImg = 'http://u.cubeupload.com/radlad/p05fOU.png';
-const endImg = 'http://u.cubeupload.com/radlad/p05fOU.png';
-
 // tiles
-const map = 'http://u.cubeupload.com/radlad/Tmk1qL.png';
+const map =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/playfield.png';
 
 // logos
-const gameLogo = 'http://u.cubeupload.com/radlad/LIa21m.png';
-const hpeDevLogo = 'http://u.cubeupload.com/radlad/HEB49q.png';
+const gameLogo =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/attack-marquee.png';
+const hpeDevLogo =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/hpe-dev-logo.png';
 
 // sprites
-const playerAvatar = 'http://u.cubeupload.com/radlad/Jjcgzo.png';
-const player = 'http://u.cubeupload.com/radlad/Bp8xBK.png';
-const devPowerUp = 'http://u.cubeupload.com/radlad/zNUmOq.png';
-const bullet = 'http://u.cubeupload.com/radlad/lJfGpA.png';
-const itBug = 'http://u.cubeupload.com/radlad/nmHhAF.png';
-const itMonster = 'http://u.cubeupload.com/radlad/Ii2OQ1.png';
-const devGameOver = 'http://u.cubeupload.com/radlad/9NxC7e.png';
-const dizzyAnim = 'http://u.cubeupload.com/radlad/vP6hPM.png';
-const highscoreBG = 'http://u.cubeupload.com/radlad/pdlBK1.png';
-const itMonsterPoof = 'http://u.cubeupload.com/radlad/u53STA.png';
-const bugDeath = 'http://u.cubeupload.com/radlad/yRBfhP.png';
-const explosion = 'http://u.cubeupload.com/radlad/yPbEs8.png';
-const highscoreEyes = 'http://u.cubeupload.com/radlad/yJ0LSn.png';
-const powerUpCollect = 'http://u.cubeupload.com/radlad/mmZ4OK.png';
-const winners = 'http://u.cubeupload.com/radlad/Slb9QD.png';
+const playerAvatar =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/player1-avatar.png';
+const player =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/player1-dev.png';
+const devPowerUp =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/dev-powerup.png';
+const bullet =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/bullets-pellets.png';
+const itBug =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/it-bug.png';
+const itMonster =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/it-monster.png';
+const devGameOver =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/dev-gameover.png';
+const dizzyAnim =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/dizzyanim.png';
+const highscoreBG =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/highscorebg.png';
+const itMonsterPoof =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/it-monsterPoof.png';
+const bugDeath =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/bugDeath.png';
+const explosion =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/explosion.png';
+const highscoreEyes =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/highscoreeyes.png';
+const powerUpCollect =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/powerUpCollect.png';
+const winners =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/winners.png';
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
@@ -39,7 +53,7 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
-    this.add.text(0, 0, '', { fontFamily: 'ArcadeClassic' });
+    this.add.text(0, 0, '', { fontFamily: 'Kemco' });
     const { width, height } = this.cameras.main;
 
     // display progress bar
@@ -53,6 +67,7 @@ export default class PreloaderScene extends Phaser.Scene {
       y: height / 2 - 50,
       text: 'Loading...',
       style: {
+        fontFamily: 'Kemco',
         font: '20px monospace',
         fill: '#FFFFFF',
       },
@@ -65,6 +80,7 @@ export default class PreloaderScene extends Phaser.Scene {
       y: height / 2 - 5,
       text: '0%',
       style: {
+        fontFamily: 'Kemco',
         font: '18px monospace',
         fill: '#FFFFFF',
       },
@@ -104,9 +120,6 @@ export default class PreloaderScene extends Phaser.Scene {
     });
     // timed event for logo
     this.timedEvent = this.time.delayedCall(1, this.ready, [], this);
-    // input panel
-    this.load.image('rub', rubImg);
-    this.load.image('end', endImg);
 
     // sprites
     this.load.image('map', map);
@@ -288,7 +301,7 @@ export default class PreloaderScene extends Phaser.Scene {
   ready() {
     this.readyCount += 1;
     if (this.readyCount === 2) {
-      this.scene.start('BackToTitle');
+      this.scene.start('Title');
     }
   }
 }

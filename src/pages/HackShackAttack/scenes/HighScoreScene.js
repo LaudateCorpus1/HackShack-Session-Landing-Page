@@ -18,7 +18,7 @@ export default class HighScoreScene extends Phaser.Scene {
     this.chars = [
       ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
       ['K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'],
-      ['U', 'V', 'W', 'X', 'Y', 'Z', '.', ' ', 'DEL', 'SUB'],
+      ['U', 'V', 'W', 'X', 'Y', 'Z', '.', '@', 'DEL', 'SUB'],
     ];
     this.score = data.score;
     this.text = undefined;
@@ -144,74 +144,66 @@ export default class HighScoreScene extends Phaser.Scene {
 
   createHighScoreMenu() {
     const inputText =
-      'A      B      C      D      E      F      G      H      I      J\n\nK      L      M      N      O      P      Q      R      S      T\n\nU      V      W      X      Y      Z';
+      'A B C D E F G H I J\n\nK L M N O P Q R S T\n\nU V W X Y Z . @';
     this.text = this.add
-      .text(this.width / 2, this.height / 2 - 100, inputText, {
-        fontFamily: 'ArcadeClassic',
-        fontSize: '70px',
+      .text(this.width / 2, this.height / 2 - 140, inputText, {
+        fontFamily: 'Kemco',
+        fontSize: '42px',
       })
       .setOrigin(0.5, 0.5)
       .setInteractive();
 
-    this.add.text(this.text.x + 125, this.text.y + 85, '.', {
-      fontFamily: 'ArcadeClassic',
-      fontSize: '70px',
+    this.add.text(this.text.x + 205, this.text.y + 74, 'DEL', {
+      fontFamily: 'Kemco',
+      fontSize: '20px',
     });
-    this.add.text(this.text.x + 195, this.text.y + 120, 'spc', {
-      fontFamily: 'ArcadeClassic',
-      fontSize: '40px',
-    });
-    this.add.text(this.text.x + 290, this.text.y + 120, 'del', {
-      fontFamily: 'ArcadeClassic',
-      fontSize: '40px',
-    });
-    this.add.text(this.text.x + 380, this.text.y + 120, 'end', {
-      fontFamily: 'ArcadeClassic',
-      fontSize: '40px',
+    this.add.text(this.text.x + 270, this.text.y + 74, 'SUB', {
+      fontFamily: 'Kemco',
+      fontSize: '20px',
     });
 
     this.block = this.add
       .graphics()
       .fillStyle(0xffffff, 1)
-      .fillRect(this.text.x / 2 - 183, this.text.y / 2 + 48, 45, 8);
+      .fillRect(this.text.x / 2 + 25, this.text.y / 2 + 68, 38, 6);
 
     this.add
-      .text(100, 470, 'INITIALS', {
-        fontFamily: 'ArcadeClassic',
-        fontSize: '40px',
+      .text(300, 360, 'Initials', {
+        fontFamily: 'Kemco',
+        fontSize: '20px',
       })
       .setTint(0xff1fdc83);
     this.add
-      .text(100, 570, 'EMAIL', {
-        fontFamily: 'ArcadeClassic',
-        fontSize: '40px',
+      .text(300, 420, 'Email', {
+        fontFamily: 'Kemco',
+        fontSize: '20px',
       })
       .setTint(0xff1fdc83);
 
     this.initialText = this.add
-      .text(100, 520, '', { fontFamily: 'ArcadeClassic', fontSize: '40px' })
+      .text(315, 385, '', { fontFamily: 'Kemco', fontSize: '22px' })
       .setTint(0xffffff);
     this.nameText = this.add
-      .text(100, 620, '', { fontFamily: 'ArcadeClassic', fontSize: '40px' })
+      .text(315, 445, '', { fontFamily: 'Kemco', fontSize: '22px' })
       .setTint(0xffffff);
 
     this.initialsCursor = this.add
       .graphics()
       .fillStyle(0xffffff, 1)
-      .fillRect(this.initialText.x, this.initialText.y + 35, 22, 3);
+      .fillRect(this.initialText.x, this.initialText.y + 20, 16, 3);
 
     this.nameCursor = this.add
       .graphics()
       .fillStyle(0xffffff, 1)
-      .fillRect(this.nameText.x, this.nameText.y + 35, 22, 3);
+      .fillRect(this.nameText.x, this.nameText.y + 20, 16, 3);
     this.nameCursor.visible = false;
 
     this.background = this.add
-      .sprite(this.width / 2, this.height / 2, 'highscoreBG')
-      .setScale(6.2, 9);
+      .sprite(this.width / 2, this.height / 2 - 90, 'highscoreBG')
+      .setScale(5.1, 5.2);
     this.eyes = this.add
       .sprite(this.width / 2, this.height / 2 - 120, 'highscoreEyes')
-      .setScale(5);
+      .setScale(4);
   }
 
   createAnimations() {
@@ -269,40 +261,40 @@ export default class HighScoreScene extends Phaser.Scene {
   moveLeft() {
     if (this.cursor.x > 0) {
       this.cursor.x -= 1;
-      this.block.x -= 92;
+      this.block.x -= 65.5;
     } else {
       this.cursor.x = 9;
-      this.block.x += 92 * 9;
+      this.block.x += 65.5 * 9;
     }
   }
 
   moveRight() {
     if (this.cursor.x < 9) {
       this.cursor.x += 1;
-      this.block.x += 92;
+      this.block.x += 65.5;
     } else {
       this.cursor.x = 0;
-      this.block.x -= 92 * 9;
+      this.block.x -= 65.5 * 9;
     }
   }
 
   moveUp() {
     if (this.cursor.y > 0) {
       this.cursor.y -= 1;
-      this.block.y -= 126;
+      this.block.y -= 76;
     } else {
       this.cursor.y = 2;
-      this.block.y += 126 * 2;
+      this.block.y += 76 * 2;
     }
   }
 
   moveDown() {
     if (this.cursor.y < 2) {
       this.cursor.y += 1;
-      this.block.y += 126;
+      this.block.y += 76;
     } else {
       this.cursor.y = 0;
-      this.block.y -= 126 * 2;
+      this.block.y -= 76 * 2;
     }
   }
 
@@ -365,11 +357,11 @@ export default class HighScoreScene extends Phaser.Scene {
       this.nameCursor.visible = false;
       this.initialsCursor.visible = true;
       this.events.emit('updateInitials', this.initials);
-      this.initialsCursor.x -= 22;
+      this.initialsCursor.x -= 17.2;
     } else if (initialLength > 0 && nameLength > 0) {
       this.name = this.name.substr(0, nameLength - 1);
       this.events.emit('updateName', this.name);
-      this.nameCursor.x -= 22;
+      this.nameCursor.x -= 17.2;
     } else if (initialLength === 0) {
       this.resetScene();
       this.background.play('closeMouth');
@@ -395,11 +387,11 @@ export default class HighScoreScene extends Phaser.Scene {
     ) {
       this.nameCursor.visible = false;
       this.initialsCursor.visible = true;
-      this.initialsCursor.x -= 22;
+      this.initialsCursor.x -= 17.2;
       this.initials = this.initials.substr(0, initialLength - 1);
       this.events.emit('updateInitials', this.initials);
     } else if (x === 8 && y === 2 && initialLength > 0 && nameLength > 0) {
-      this.nameCursor.x -= 22;
+      this.nameCursor.x -= 17.2;
       this.name = this.name.substr(0, nameLength - 1);
       this.events.emit('updateName', this.name);
     } else if (initialLength < this.initLimit) {
@@ -407,7 +399,7 @@ export default class HighScoreScene extends Phaser.Scene {
       this.initialsCursor.visible = true;
       if (this.chars[y][x] !== 'DEL' && this.chars[y][x] !== 'SUB') {
         this.initials = this.initials.concat(this.chars[y][x]);
-        this.initialsCursor.x += 22;
+        this.initialsCursor.x += 17.2;
         this.events.emit('updateInitials', this.initials);
       }
     } else if (
@@ -418,7 +410,7 @@ export default class HighScoreScene extends Phaser.Scene {
       this.initialsCursor.visible = false;
       if (this.chars[y][x] !== 'DEL' && this.chars[y][x] !== 'SUB') {
         this.name = this.name.concat(this.chars[y][x]);
-        this.nameCursor.x += 22;
+        this.nameCursor.x += 17.2;
         this.events.emit('updateName', this.name);
       }
     }
