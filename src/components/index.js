@@ -1,7 +1,6 @@
 import ButtonSplit from './ButtonSplit';
 import DevLogo from './DevLogo';
 import Footer from './Footer';
-import GameWrapper from './GameWrapper';
 import Header from './Header';
 import HPEDevFooter from './HPEDevFooter';
 import Layout from './Layout';
@@ -16,7 +15,6 @@ export {
   CardGrid,
   DevLogo,
   Footer,
-  GameWrapper,
   Header,
   HPEDevFooter,
   Layout,
