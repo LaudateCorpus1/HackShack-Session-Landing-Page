@@ -28,7 +28,7 @@ export default class ItMonster extends Phaser.Physics.Arcade.Sprite {
   kill() {
     this.poof = this.scene.add
       .sprite(this.x, this.y, 'itMonsterPoof')
-      .setScale(1.5)
+      .setScale(1.2)
       .play('poof');
     this.setActive(false);
     this.setVisible(false);

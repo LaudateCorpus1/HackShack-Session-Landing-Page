@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading, Box } from 'grommet';
 import { Layout, ScheduleCard, CardGrid } from '../../components/index';
-import eventSchedule from '../../ScheduleData/hpe-discover-events.json';
+import eventSchedule from '../../data/ScheduleData/hpe-discover-events.json';
 
 const Schedule = () => {
   return (

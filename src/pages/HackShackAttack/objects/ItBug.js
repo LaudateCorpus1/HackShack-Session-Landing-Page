@@ -23,7 +23,7 @@ export default class ItBug extends Phaser.Physics.Arcade.Sprite {
     if (this.hp <= 0) {
       this.death = this.scene.add
         .sprite(this.x, this.y, 'monsterDeath')
-        .setScale(1.5)
+        .setScale(1.2)
         .play('death');
       this.setActive(false);
       this.setVisible(false);
@@ -35,7 +35,7 @@ export default class ItBug extends Phaser.Physics.Arcade.Sprite {
   kill() {
     this.death = this.scene.add
       .sprite(this.x, this.y, 'monsterDeath')
-      .setScale(1.5)
+      .setScale(1.2)
       .play('death');
     this.setActive(false);
     this.setVisible(false);

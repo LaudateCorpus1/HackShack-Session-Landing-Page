@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading, Box } from 'grommet';
 import { Layout, Card, CardGrid } from '../../components/index';
-import { communityContent } from '../../CardData/PageContent';
+import { communityContent } from '../../data/CardData/PageContent';
 
 const Community = () => {
   console.log('HELLO');
