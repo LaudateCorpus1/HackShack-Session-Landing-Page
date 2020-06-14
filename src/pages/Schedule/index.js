@@ -28,6 +28,7 @@ const Schedule = () => {
               presenter,
               desc,
               role,
+              link,
               week,
             }) => (
               <ScheduleCard
@@ -39,6 +40,7 @@ const Schedule = () => {
                 title={title}
                 presenter={presenter}
                 desc={desc.slice(0, 220) + '...'}
+                sessionLink={link}
               />
             ),
           )}

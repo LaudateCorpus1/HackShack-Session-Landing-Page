@@ -10,6 +10,7 @@ const ScheduleCard = ({
   title,
   desc,
   id,
+  sessionLink,
 }) => {
   const size = useContext(ResponsiveContext);
   return (
@@ -67,7 +68,7 @@ const ScheduleCard = ({
       </Box>
       <Button
         alignSelf="start"
-        href="https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US"
+        href={sessionLink}
         target="_blank"
         label={
           <Box pad="xsmall">
