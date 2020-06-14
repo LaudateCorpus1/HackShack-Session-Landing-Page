@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
-import { Box, Text, Image, ResponsiveContext, Button } from 'grommet';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Box, Text, Image, Button } from 'grommet';
 import { FooterWrapper } from '../Footer/styles';
 
 const footerLinks = [
@@ -9,8 +10,7 @@ const footerLinks = [
   { label: 'Events', href: 'https://developer.hpe.com/events' },
 ];
 
-export const HPEDevFooter = () => {
-  const size = useContext(ResponsiveContext);
+export const HPEDevFooter = ({ size }) => {
   const fontSize = size === 'small' ? '20px' : '22px';
   const iconSize = size === 'small' ? '40px' : '48px';
 
@@ -67,4 +67,9 @@ export const HPEDevFooter = () => {
     </FooterWrapper>
   );
 };
+
+HPEDevFooter.propTypes = {
+  size: PropTypes.string,
+};
+
 export default HPEDevFooter;

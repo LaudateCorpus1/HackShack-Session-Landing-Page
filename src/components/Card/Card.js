@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Heading, Text, Image, ResponsiveContext } from 'grommet';
+import { Box, Button, Heading, Text, Image as GrommetImage } from 'grommet';
 import { Link } from 'react-router-dom';
 import { MainCards } from './styles';
 
-const Logo = ({ background, children, ...rest }) => {
-  const size = useContext(ResponsiveContext);
+const Logo = ({ background, children, size, ...rest }) => {
   return (
     <Box
       height={size === 'small' ? '124px' : '192px'}
@@ -22,11 +21,12 @@ Logo.defaultProps = {
 };
 
 Logo.propTypes = {
-  children: PropTypes.node,
   background: PropTypes.string,
+  children: PropTypes.node,
+  size: PropTypes.string,
 };
 
-const CardImage = ({ background, children, ...rest }) => {
+const Image = ({ background, children, ...rest }) => {
   return (
     <Box background={background} round="xsmall" {...rest} height="300px">
       {children}
@@ -34,11 +34,11 @@ const CardImage = ({ background, children, ...rest }) => {
   );
 };
 
-CardImage.defaultProps = {
+Image.defaultProps = {
   background: 'background-back',
 };
 
-CardImage.propTypes = {
+Image.propTypes = {
   children: PropTypes.node,
   background: PropTypes.string,
 };
@@ -66,29 +66,32 @@ CardWrapper.propTypes = {
 };
 
 const Card = ({
+  alt,
   background,
+  desc,
   image,
   title,
-  desc,
-  link,
-  margin,
   label,
+  link,
   logo,
+  margin,
   path,
-  alt,
+  size,
 }) => {
-  const size = useContext(ResponsiveContext);
-
   return (
-    <CardWrapper pad={logo ? 'large' : 'none'} background={background}>
+    <CardWrapper
+      margin={margin}
+      pad={image ? 'none' : 'large'}
+      background={background}
+    >
       {image && (
-        <CardImage>
-          <Image src={image} alt={alt} fit="cover" />
-        </CardImage>
+        <Image>
+          <GrommetImage src={image} alt={alt} fit="cover" />
+        </Image>
       )}
       {logo && (
         <Logo>
-          <Image src={logo} alt={alt} fit="contain" />
+          <GrommetImage src={logo} alt={alt} fit="contain" />
         </Logo>
       )}
       <Box
@@ -143,15 +146,17 @@ const Card = ({
 };
 
 Card.propTypes = {
-  title: PropTypes.string,
-  background: PropTypes.string,
-  path: PropTypes.string,
   alt: PropTypes.string,
-  image: PropTypes.string,
-  logo: PropTypes.string,
-  link: PropTypes.string,
-  label: PropTypes.string,
+  background: PropTypes.string,
   desc: PropTypes.string,
+  image: PropTypes.string,
+  label: PropTypes.string,
+  link: PropTypes.string,
+  logo: PropTypes.string,
+  margin: PropTypes.object,
+  path: PropTypes.string,
+  title: PropTypes.string,
+  size: PropTypes.string,
 };
 
 export default Card;

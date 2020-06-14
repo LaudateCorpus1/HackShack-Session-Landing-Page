@@ -1,4 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, {
+  Children,
+  cloneElement,
+  isValidElement,
+  useContext,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import { Box, ResponsiveContext, Text, Button } from 'grommet';
 import { Close } from 'grommet-icons';
@@ -12,11 +18,18 @@ const handleViewport = size => {
   return { minWidth: '100%', minHeight: '100%' };
 };
 
-const Layout = ({ children, background, page }) => {
+const Layout = ({ children, background }) => {
   const [layer, setLayer] = useState(false);
   const size = useContext(ResponsiveContext);
   const viewport = handleViewport(size);
 
+  const childrenWithProps = Children.map(children, child => {
+    if (isValidElement(child)) {
+      return cloneElement(child, { size });
+    }
+
+    return child;
+  });
   return (
     <ResponsiveLayout
       viewport={viewport}
@@ -29,11 +42,11 @@ const Layout = ({ children, background, page }) => {
       layer={layer}
     >
       <Box>
-        <Header setLayer={setLayer} />
+        <Header setLayer={setLayer} size={size} />
         <Box direction="row">
           {size !== 'small' && (
             <Box margin={{ top: 'xlarge', left: 'large' }}>
-              <SideNav />{' '}
+              <SideNav size={size} />
             </Box>
           )}
           <Box
@@ -42,11 +55,11 @@ const Layout = ({ children, background, page }) => {
             direction="column"
             pad="xlarge"
           >
-            {children}
+            {childrenWithProps}
           </Box>
         </Box>
       </Box>
-      <Footer />
+      <Footer size={size} />
       {layer && (
         <StyledLayer>
           <Box pad={{ top: 'xlarge', right: 'large' }}>
@@ -60,7 +73,7 @@ const Layout = ({ children, background, page }) => {
               <Button icon={<Close />} onClick={() => setLayer(false)} />
             </Box>
             <Box align="start" gap="large" pad="xlarge">
-              <SideNav />
+              <SideNav size={size} />
             </Box>
           </Box>
         </StyledLayer>
@@ -72,7 +85,6 @@ const Layout = ({ children, background, page }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   background: PropTypes.string.isRequired,
-  page: PropTypes.string,
 };
 
 export default Layout;

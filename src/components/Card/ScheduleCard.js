@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { Box, Button, Heading, Text, Avatar } from 'grommet';
 import PropTypes from 'prop-types';
 import { MainCards } from './styles';
-import { Box, Button, Heading, Text, Avatar, ResponsiveContext } from 'grommet';
 
 const ScheduleCard = ({
   avatar,
-  role,
-  sessionType,
-  presenter,
-  title,
   desc,
   id,
+  presenter,
+  role,
+  sessionType,
+  size,
+  title,
 }) => {
-  const size = useContext(ResponsiveContext);
   return (
     <MainCards
       pad="large"

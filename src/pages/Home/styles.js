@@ -26,7 +26,6 @@ const slideIn = keyframes`
 `;
 
 export const MainWrapper = styled(Box)`
-  position: relative;
   margin-top: -160px;
   transform: rotate(-10deg);
 `;
@@ -48,12 +47,6 @@ export const TextWrapper = styled(Box)`
   animation: ${slideIn} 0.6s ease-out;
   animation-fill-mode: forwards;
   animation-delay: 0.5s;
-
-  /* To be refined. */
-  @media (max-width: 900px) {
-    padding-left: 0;
-    padding-right: 10px;
-  }
 `;
 
 export const ButtonWrapper = styled(Box)`
@@ -64,10 +57,6 @@ export const ButtonWrapper = styled(Box)`
   animation: ${slideIn} 0.3s ease-out;
   animation-fill-mode: forwards;
   animation-delay: 0.7s;
-`;
-
-export const CardWrapper = styled(Box)`
-  transform: rotate(-10deg);
 `;
 
 export default { MainWrapper, LogoWrapper, TextWrapper, ButtonWrapper };

@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
-import { Box, Text, ResponsiveContext } from 'grommet';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Box, Text } from 'grommet';
 import { HPEDevFooter } from '../index';
 import { StyledAnchor, FooterWrapper } from './styles';
 
@@ -22,14 +23,13 @@ const footerLinks = [
   },
 ];
 
-export const Footer = () => {
-  const size = useContext(ResponsiveContext);
+export const Footer = ({ size }) => {
   const dir = size === 'small' ? 'column' : 'row';
   const fontSize = size === 'small' ? '14px' : '18px';
 
   return (
     <Box>
-      <HPEDevFooter />
+      <HPEDevFooter size={size} />
       <FooterWrapper
         pad={size === 'small' ? 'medium' : 'small'}
         background="#FFFFFF"
@@ -69,4 +69,9 @@ export const Footer = () => {
     </Box>
   );
 };
+
+Footer.propTypes = {
+  size: PropTypes.string,
+};
+
 export default Footer;
