@@ -1,8 +1,8 @@
 import React from 'react';
 import { Heading } from 'grommet';
 import { Layout, Card, CardGrid } from '../../components/index';
+import { communityContent } from '../../data/CardData/PageContent';
 import { MainTitle } from '../Schedule/styles';
-import { communityContent } from '../../CardData/PageContent';
 
 const Community = () => {
   return (

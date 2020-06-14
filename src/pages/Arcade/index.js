@@ -1,8 +1,8 @@
 import React from 'react';
 import { Heading } from 'grommet';
 import { Layout, Card, CardGrid } from '../../components/index';
+import { arcadeContent } from '../../data/CardData/PageContent';
 import { MainTitle } from '../Schedule/styles';
-import { arcadeContent } from '../../CardData/PageContent';
 
 const Arcade = () => {
   return (
