@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Heading, Text, Image as GrommetImage } from 'grommet';
 import { Link } from 'react-router-dom';
-import { MainCards } from './styles';
+import { StyledCard } from './styles';
 
 const Logo = ({ background, children, size, ...rest }) => {
   return (
@@ -45,19 +45,9 @@ Image.propTypes = {
 
 const CardWrapper = ({ children, ...rest }) => {
   return (
-    <MainCards
-      round="medium"
-      overflow="hidden"
-      {...rest}
-      style={{
-        minHeight: '510px',
-        minWidth: '336px',
-        maxHeight: '694px',
-        maxWidth: '576px',
-      }}
-    >
+    <StyledCard round="medium" overflow="hidden" {...rest} height="100%">
       {children}
-    </MainCards>
+    </StyledCard>
   );
 };
 
