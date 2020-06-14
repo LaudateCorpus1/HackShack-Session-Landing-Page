@@ -2,7 +2,7 @@ export const communityContent = [
   {
     logo: '/img/SlackLogo1.svg',
     alt: 'Slack Logo',
-    title: 'JOIN US ON THE HPE DEVELOPER SLACK',
+    title: 'CONNECT ON THE HPE DEVELOPER SLACK CHANNEL',
     desc: 'Got questions or just want to chat with other devs who work at HPE?',
     link: 'https://slack.hpedev.io/',
     label: 'Join the Slack Team',
@@ -30,10 +30,10 @@ export const communityContent = [
   {
     logo: '/img/Twitter.svg',
     alt: 'Twitter Logo',
-    title: 'FOLLOW US IN TWITTER',
+    title: 'FOLLOW US ON TWITTER',
     desc: 'Keep current on the latest dev news.',
     link: 'https://twitter.com/hashtag/hpedevcom?src=hash',
-    label: 'Follow us in Twitter',
+    label: 'Follow us on Twitter',
     background: 'background',
   },
   // To be included in Week of June 22 2020
@@ -53,7 +53,7 @@ export const arcadeContent = [
   {
     image: '/img/attack-thumb.svg',
     alt: 'HackShack Logo',
-    title: 'HACK SHACK ATTACK',
+    title: 'HACK SHACK ATTACK!',
     desc:
       'Think SmashTV and Robotron, but much more awesome! Compete for top scores and bragging rights!',
     path: '/hackshackattack',
@@ -70,13 +70,14 @@ export const arcadeContent = [
     label: 'Grab some Art',
     background: 'background',
   },
-  {
-    image: '/img/adminTicket.svg',
-    alt: 'admin ticket',
-    title: 'PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES',
-    desc: 'Learn more about the rules and requirements to the contest.',
-    link: 'https://developer.hpe.com/newsletter-signup',
-    label: 'Arcade Contest',
-    background: 'rgba(0, 86, 122, 0.8);',
-  },
+  // To be included in Week of June 22 2020
+  // {
+  //   image: '/img/adminTicket.svg',
+  //   alt: 'admin ticket',
+  //   title: 'PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES',
+  //   desc: 'Learn more about the rules and requirements to the contest.',
+  //   link: 'https://developer.hpe.com/newsletter-signup',
+  //   label: 'Arcade Contest',
+  //   background: 'rgba(0, 86, 122, 0.8);',
+  // },
 ];
