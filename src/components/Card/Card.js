@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Heading, Text, Image, ResponsiveContext } from 'grommet';
+import { Box, Button, Heading, Text, Image as GrommetImage } from 'grommet';
 import { Link } from 'react-router-dom';
+import { CardWrapper } from './styles';
 
-const Logo = ({ background, children, ...rest }) => {
-  const size = useContext(ResponsiveContext);
+const Logo = ({ background, children, size, ...rest }) => {
   return (
     <Box
       height={size === 'small' ? '124px' : '192px'}
@@ -21,11 +21,12 @@ Logo.defaultProps = {
 };
 
 Logo.propTypes = {
-  children: PropTypes.node,
   background: PropTypes.string,
+  children: PropTypes.node,
+  size: PropTypes.string,
 };
 
-const CardImage = ({ background, children, ...rest }) => {
+const Image = ({ background, children, ...rest }) => {
   return (
     <Box background={background} round="xsmall" {...rest} height="300px">
       {children}
@@ -33,68 +34,55 @@ const CardImage = ({ background, children, ...rest }) => {
   );
 };
 
-CardImage.defaultProps = {
+Image.defaultProps = {
   background: 'background-back',
 };
 
-CardImage.propTypes = {
+Image.propTypes = {
   children: PropTypes.node,
   background: PropTypes.string,
 };
 
-const CardWrapper = ({ children, ...rest }) => {
-  return (
-    <Box
-      round="medium"
-      overflow="hidden"
-      {...rest}
-      style={{
-        minHeight: '510px',
-        minWidth: '336px',
-        maxHeight: '694px',
-        maxWidth: '576px',
-      }}
-    >
-      {children}
-    </Box>
-  );
-};
-
-CardWrapper.propTypes = {
-  children: PropTypes.node,
-};
-
 const Card = ({
+  alt,
   background,
+  desc,
   image,
   title,
-  desc,
-  link,
   label,
+  link,
   logo,
+  margin,
   path,
-  alt,
+  size,
 }) => {
-  const size = useContext(ResponsiveContext);
-
   return (
-    /* Conditionally adjust padding based on image */
-    <CardWrapper pad="large" background={background}>
+    <CardWrapper
+      margin={margin}
+      pad={image ? 'none' : 'large'}
+      background={background}
+      round="medium"
+      overflow="hidden"
+    >
       {image && (
-        <CardImage>
-          <Image src={image} alt={alt} fit="cover" />
-        </CardImage>
+        <Image>
+          <GrommetImage src={image} alt={alt} fit="cover" />
+        </Image>
       )}
       {logo && (
         <Logo>
-          <Image src={logo} alt={alt} fit="contain" />
+          <GrommetImage src={logo} alt={alt} fit="contain" />
         </Logo>
       )}
-      <Box>
+      <Box
+        pad={
+          image ? { top: 'none', bottom: 'large', horizontal: 'large' } : 'none'
+        }
+      >
         <Box>
           <Heading
             margin={{ top: 'medium', bottom: 'small' }}
-            level={size === 'small' ? 3 : 2}
+            level={size === 'small' ? 4 : 2}
             color="text-strong"
           >
             {title}
@@ -106,47 +94,49 @@ const Card = ({
             {desc}
           </Text>
         </Box>
-      </Box>
-      <Box pad={{ top: 'medium' }} direction="row">
-        {path ? (
-          <Link to={{ pathname: path }}>
+        <Box pad={{ top: 'medium' }} direction="row">
+          {path ? (
+            <Link to={{ pathname: path }}>
+              <Button
+                label={
+                  <Box pad="xsmall">
+                    <Text color="text-strong">{label}</Text>
+                  </Box>
+                }
+                secondary
+              />
+            </Link>
+          ) : (
             <Button
               label={
                 <Box pad="xsmall">
                   <Text color="text-strong">{label}</Text>
                 </Box>
               }
+              href={link}
+              target="_blank"
+              rel="noreferrer noopener"
               secondary
             />
-          </Link>
-        ) : (
-          <Button
-            label={
-              <Box pad="xsmall">
-                <Text color="text-strong">{label}</Text>
-              </Box>
-            }
-            href={link}
-            target="_blank"
-            rel="noreferrer noopener"
-            secondary
-          />
-        )}
+          )}
+        </Box>
       </Box>
     </CardWrapper>
   );
 };
 
 Card.propTypes = {
-  title: PropTypes.string,
-  background: PropTypes.string,
-  path: PropTypes.string,
   alt: PropTypes.string,
-  image: PropTypes.string,
-  logo: PropTypes.string,
-  link: PropTypes.string,
-  label: PropTypes.string,
+  background: PropTypes.string,
   desc: PropTypes.string,
+  image: PropTypes.string,
+  label: PropTypes.string,
+  link: PropTypes.string,
+  logo: PropTypes.string,
+  margin: PropTypes.object,
+  path: PropTypes.string,
+  title: PropTypes.string,
+  size: PropTypes.string,
 };
 
 export default Card;
