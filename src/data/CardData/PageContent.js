@@ -70,13 +70,13 @@ export const arcadeContent = [
     label: 'Grab some Art',
     background: 'background',
   },
-  {
-    image: '/img/Arcade/score.png',
-    alt: 'admin ticket',
-    title: 'PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES',
-    desc: 'Learn more about the rules and requirements to the contest.',
-    link: 'https://developer.hpe.com/newsletter-signup',
-    label: 'Arcade Contest',
-    background: 'rgba(0, 86, 122, 0.8);',
-  },
+  // {
+  //   image: '/img/Arcade/score.png',
+  //   alt: 'admin ticket',
+  //   title: 'PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES',
+  //   desc: 'Learn more about the rules and requirements to the contest.',
+  //   link: 'https://developer.hpe.com/newsletter-signup',
+  //   label: 'Arcade Contest',
+  //   background: 'rgba(0, 86, 122, 0.8);',
+  // },
 ];
