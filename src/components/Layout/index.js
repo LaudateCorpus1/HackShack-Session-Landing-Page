@@ -11,17 +11,9 @@ import { Close } from 'grommet-icons';
 import { ResponsiveLayout, StyledLayer } from './styles';
 import { Footer, Header, SideNav } from '../index';
 
-const handleViewport = size => {
-  if (size === 'small') {
-    return { minWidth: '366px', minHeight: '750px' };
-  }
-  return { minWidth: '100%', minHeight: '100%' };
-};
-
-const Layout = ({ children, background, page }) => {
+const Layout = ({ children, background }) => {
   const [layer, setLayer] = useState(false);
   const size = useContext(ResponsiveContext);
-  const viewport = handleViewport(size);
 
   const childrenWithProps = Children.map(children, child => {
     if (isValidElement(child)) {
@@ -32,15 +24,12 @@ const Layout = ({ children, background, page }) => {
   });
   return (
     <ResponsiveLayout
-      viewport={viewport}
       background={{
         image: `url(${background})`,
         size: '100%',
         position: 'top center',
       }}
       justify="between"
-      // height taken out once cards on home page are put back
-      height={page === 'Home' ? '100%' : 'auto'}
       layer={layer}
     >
       <Box>

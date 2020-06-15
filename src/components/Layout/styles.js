@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { Box, Layer } from 'grommet';
 
 const ResponsiveLayout = styled(Box)`
-  min-width: ${props => props.viewport.minWidth};
-  min-height: ${props => props.viewport.minHeight};
+  min-width: 366px;
+  min-height: 100%;
   @supports (-moz-appearance: none) {
     filter: ${props => (props.layer ? 'blur(15px)' : 'none')};
   }

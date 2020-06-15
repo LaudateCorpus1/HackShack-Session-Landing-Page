@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Text, Image, ResponsiveContext, Anchor } from 'grommet';
-import { Layout, ButtonSplit } from '../../components/index';
+import { Layout, ButtonSplit, Card } from '../../components/index';
 import {
   ButtonWrapper,
   CardWrapper,
@@ -27,14 +27,13 @@ const Content = () => {
         gaming status playing Hack Shack Attack!
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        Check out this week in the 
-        {" "}
-        <Anchor         
-        target="_blank"
-        rel="noopener noreferrer" 
-        href="https://vimeo.com/429291098" 
-        label="Hack Shack Video">
-        </Anchor>
+        Check out this week in the
+        <Anchor
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://vimeo.com/429291098"
+          label="Hack Shack Video"
+        />
       </Text>
     </TextWrapper>
   );
@@ -44,10 +43,7 @@ const Home = () => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Layout
-      background="/img/BackgroundImages/hack-shack-home-background.png"
-      page="Home"
-    >
+    <Layout background="/img/BackgroundImages/hack-shack-home-background.png">
       <Box height="100%" width="100%">
         <MainWrapper align="center">
           <LogoWrapper>
@@ -65,8 +61,8 @@ const Home = () => {
             </ButtonSplit>
           </ButtonWrapper>
         </MainWrapper>
-        {/* Take out for soft launch 
-        <CardWrapper gap="large">
+
+        {/*         <CardWrapper gap="large">
           <Card
             title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
             desc="Learn more about the rules and requirments to the contest."
