@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { Box } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 const slideIn = keyframes`
   0% {
@@ -25,4 +25,11 @@ const CardWrapper = styled(Box)`
   }
 `;
 
-export { CardWrapper };
+const StyledGrid = styled(Grid)`
+  grid: auto / auto;
+  @media (min-width: 1300px) {
+    grid: auto / auto auto;
+  }
+`;
+
+export { CardWrapper, StyledGrid };

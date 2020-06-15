@@ -1,6 +1,6 @@
 import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
-import { Grid, ThemeContext } from 'grommet';
+import { StyledGrid } from './styles';
 
 const CardGrid = ({ children, size, ...rest }) => {
   const childrenWithProps = Children.map(children, child => {
@@ -11,17 +11,9 @@ const CardGrid = ({ children, size, ...rest }) => {
     return child;
   });
   return (
-    <Grid
-      columns={size !== 'small' ? { count: 2, size: 'auto' } : 'auto'}
-      rows={['auto']}
-      gap="large"
-      {...rest}
-    >
-      <ThemeContext.Consumer>
-        {props => console.log(props)}
-      </ThemeContext.Consumer>
+    <StyledGrid gap="large" {...rest}>
       {childrenWithProps}
-    </Grid>
+    </StyledGrid>
   );
 };
 
