@@ -75,7 +75,7 @@ const HackShackAttack = () => {
       <BackgroundWrapper
         fill
         background={{
-          image: 'url(/img/hackshack-attack-background.png)',
+          image: 'url(/img/BackgroundImages/hackshack-attack-background.png)',
           size: 'cover',
           position: 'top center',
         }}

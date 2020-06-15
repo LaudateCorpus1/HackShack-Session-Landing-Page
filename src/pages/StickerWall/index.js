@@ -7,39 +7,39 @@ import { Layout, SubPageHeader } from '../../components/index';
 // stickers list
 const Row1 = [
   {
-    img: '/img/metalhand.png',
+    img: '/img/StickerPage/metalhand.png',
     icon: <Monitor size="small" />,
     backgroundColor: 'background-contrast',
   },
   {
-    img: '/img/gremlinrockin.png',
+    img: '/img/StickerPage/gremlinrockin.png',
     icon: <Monitor size="small" />,
     backgroundColor: '#FFBC44',
   },
   {
-    img: '/img/grommet-sticker.png',
+    img: '/img/StickerPage/grommet-sticker.png',
     icon: <Monitor size="small" />,
     backgroundColor: '#FFFFFF',
   },
-  { img: '/img/it-monster.png', icon: <User size="small" /> },
-  { img: '/img/ezmeral.png', icon: <User size="small" /> },
+  { img: '/img/StickerPage/it-monster.png', icon: <User size="small" /> },
+  { img: '/img/StickerPage/ezmeral.png', icon: <User size="small" /> },
 ];
 
 const Row2 = [
-  { img: '/img/hpedevlogo.png', icon: <Monitor size="small" /> },
-  { img: '/img/gremlin.png', icon: <User size="small" /> },
+  { img: '/img/StickerPage/hpedevlogo.png', icon: <Monitor size="small" /> },
+  { img: '/img/StickerPage/gremlin.png', icon: <User size="small" /> },
 ];
 
 const Row6 = [
   {
-    img: '/img/ResearchDesignDev.png',
+    img: '/img/StickerPage/ResearchDesignDev.png',
     backgroundColor: 'white',
     icon: <Monitor size="small" />,
   },
-  { img: '/img/designedwlove.png', icon: <Monitor size="small" /> },
+  { img: '/img/StickerPage/designedwlove.png', icon: <Monitor size="small" /> },
 ];
 
-//Image wrapper
+// Image wrapper
 
 const ImageWrapper = ({ children, height, ...props }) => (
   <Box
@@ -50,7 +50,6 @@ const ImageWrapper = ({ children, height, ...props }) => (
     style={{ borderRadius: '12px' }}
     {...props}
   >
-    {' '}
     {children}
   </Box>
 );
@@ -60,7 +59,7 @@ const BoxImage = ({ icon, stickers, backgroundColor, height, ...props }) => {
   return (
     <StyledSmallAnchor href={stickers} download>
       <Box
-        background={backgroundColor ? backgroundColor : '#263040'}
+        background={backgroundColor || '#263040'}
         id={stickers}
         key={stickers}
         pad={{ horizontal: 'small', bottom: 'small', top: 'medium' }}
@@ -93,7 +92,7 @@ const BoxImageLarge = ({
         border
         height={height}
         style={{ borderRadius: '12px' }}
-        background={backgroundColor ? backgroundColor : '#263040'}
+        background={backgroundColor || '#263040'}
         {...props}
         id={stickers}
         key={stickers}
@@ -108,7 +107,7 @@ const BoxImageLarge = ({
 const StickerWall = () => {
   const size = useContext(ResponsiveContext);
   return (
-    <Layout background="/img/stickers-background.jpg">
+    <Layout background="/img/BackgroundImages/stickers-background.jpg">
       <SubPageHeader title="STICKERS AND ART">
         {size !== 'small' && (
           <Box
@@ -125,33 +124,32 @@ const StickerWall = () => {
                   background={stickers.backgroundColor}
                   icon={stickers.icon}
                   stickers={stickers.img}
-                ></BoxImage>
+                />
               ))}
             </Box>
             <Box direction="row">
               <BoxImageLarge
                 height="150px"
-                stickers={'/img/06-HackShack.png'}
+                stickers="/img/StickerPage/06-HackShack.png"
                 background="#4F5F76"
                 icon={<Monitor size="small" />}
-              ></BoxImageLarge>
+              />
               {Row2.map(stickers => (
                 <BoxImage
                   height="150px"
                   stickers={stickers.img}
                   icon={stickers.icon}
-                ></BoxImage>
+                />
               ))}
-              <StyledSmallAnchor href="/img/devlogo.png" download>
+              <StyledSmallAnchor href="/img/StickerPage/devlogo.png" download>
                 <ImageWrapper
                   height="150px"
                   background={{
-                    image: 'url(/img/grommet-icon.png)',
+                    image: 'url(/img/StickerPage/grommet-icon.png)',
                   }}
                 >
-                  {' '}
                   <Box justify="end" fill="vertical" alignSelf="end">
-                    {<Monitor size="small" />}
+                    <Monitor size="small" />
                   </Box>
                 </ImageWrapper>
               </StyledSmallAnchor>
@@ -160,58 +158,60 @@ const StickerWall = () => {
               <BoxImage
                 background="#82FFF2"
                 icon={<User size="small" />}
-                stickers={'/img/gremlinhat.png'}
+                stickers="/img/StickerPage/gremlinhat.png"
                 height="150px"
+              />
+              <StyledLargeAnchor
+                href="/img/StickerPage/ezmeralbackground.png"
+                download
               >
-              </BoxImage>
-              <StyledLargeAnchor href="/img/ezmeralbackground.png" download>
                 <ImageWrapper
                   height="150px"
                   background={{
-                    image: 'url(/img/ezmeralbackground.png)',
+                    image: 'url(/img/StickerPage/ezmeralbackground.png)',
                   }}
                 >
-                  {' '}
                   <Box justify="end" fill="vertical" alignSelf="end">
-                    {<Monitor size="small" />}
+                    <Monitor size="small" />
                   </Box>
                 </ImageWrapper>
               </StyledLargeAnchor>
               <BoxImageLarge
                 height="150px"
-                stickers={'/img/letshackshack.png'}
+                stickers="/img/StickerPage/letshackshack.png"
                 icon={<Monitor size="small" />}
-              ></BoxImageLarge>
+              />
             </Box>
             <Box direction="row">
               <BoxImage
                 height="150px"
                 icon={<User size="small" />}
-                stickers={'/img/devlogo.png'}
-              ></BoxImage>
-              <StyledLargeAnchor href="/img/2gremlins.png" download>
+                stickers="/img/StickerPage/devlogo.png"
+              />
+              <StyledLargeAnchor href="/img/StickerPage/2gremlins.png" download>
                 <ImageWrapper
                   height="150px"
                   background={{
-                    image: 'url(/img/2gremlins.png)',
+                    image: 'url(/img/StickerPage/2gremlins.png)',
                   }}
                 >
-                  {' '}
                   <Box justify="end" fill="vertical" alignSelf="end">
-                    {<Monitor size="small" />}
+                    <Monitor size="small" />
                   </Box>
                 </ImageWrapper>
               </StyledLargeAnchor>
-              <StyledLargeAnchor href="/img/hack-shack-house.png" download>
+              <StyledLargeAnchor
+                href="/img/StickerPage/hack-shack-house.png"
+                download
+              >
                 <ImageWrapper
                   height="150px"
                   background={{
-                    image: 'url(/img/hack-shack-house.png)',
+                    image: 'url(/img/StickerPage/hack-shack-house.png)',
                   }}
                 >
-                  {' '}
                   <Box justify="end" fill="vertical" alignSelf="end">
-                    {<Monitor size="small" />}
+                    <Monitor size="small" />
                   </Box>
                 </ImageWrapper>
               </StyledLargeAnchor>
@@ -219,40 +219,36 @@ const StickerWall = () => {
             <Box direction="row">
               <BoxImageLarge
                 height="150px"
-                stickers={'/img/attack-marquee.svg'}
+                stickers="/img/StickerPage/attack-marquee.svg"
                 icon={<Monitor size="small" />}
                 background="black"
-              ></BoxImageLarge>
+              />
               <BoxImage
                 height="150px"
-                stickers={'/img/dev-thumb.png'}
+                stickers="/img/StickerPage/dev-thumb.png"
                 icon={<User size="small" />}
-              ></BoxImage>
-              <StyledSmallAnchor download href="/img/design.png">
-                {' '}
+              />
+              <StyledSmallAnchor download href="/img/StickerPage/design.png">
                 <ImageWrapper
                   height="150px"
                   background={{
-                    image: 'url(/img/design.png)',
+                    image: 'url(/img/StickerPage/design.png)',
                   }}
                 >
-                  {' '}
                   <Box justify="end" fill="vertical" alignSelf="end">
-                    {<Monitor size="small" />}
+                    <Monitor size="small" />
                   </Box>
                 </ImageWrapper>
               </StyledSmallAnchor>
-              <StyledSmallAnchor download href="/img/heart.png">
-                {' '}
+              <StyledSmallAnchor download href="/img/StickerPage/heart.png">
                 <ImageWrapper
                   height="150px"
                   background={{
-                    image: 'url(/img/heart.png)',
+                    image: 'url(/img/StickerPage/heart.png)',
                   }}
                 >
-                  {' '}
                   <Box justify="end" fill="vertical" alignSelf="end">
-                    {<User size="small" />}
+                    <User size="small" />
                   </Box>
                 </ImageWrapper>
               </StyledSmallAnchor>
@@ -261,15 +257,15 @@ const StickerWall = () => {
               <BoxImage
                 height="150px"
                 icon={<Monitor size="small" />}
-                stickers={'/img/itmonsterattack.png'}
-              ></BoxImage>
+                stickers={'/img/StickerPage/itmonsterattack.png'}
+              />
               {Row6.map(stickers => (
                 <BoxImageLarge
                   height="150px"
                   icon={stickers.icon}
                   background={stickers.backgroundColor}
                   stickers={stickers.img}
-                ></BoxImageLarge>
+                />
               ))}
             </Box>
           </Box>
@@ -289,20 +285,22 @@ const StickerWall = () => {
                   background={stickers.backgroundColor}
                   icon={stickers.icon}
                   stickers={stickers.img}
-                ></BoxImage>
+                />
               ))}
             </Box>
             <Box direction="row">
-              <StyledLargeAnchor href="/img/ezmeralbackground.png" download>
+              <StyledLargeAnchor
+                href="/img/StickerPage/ezmeralbackground.png"
+                download
+              >
                 <ImageWrapper
                   height="80px"
                   background={{
-                    image: 'url(/img/ezmeralbackground.png)',
+                    image: 'url(/img/StickerPage/ezmeralbackground.png)',
                   }}
                 >
-                  {' '}
                   <Box justify="end" fill="vertical" alignSelf="end">
-                    {<Monitor size="small" />}
+                    <Monitor size="small" />
                   </Box>
                 </ImageWrapper>
               </StyledLargeAnchor>
@@ -314,16 +312,16 @@ const StickerWall = () => {
                   background={stickers.backgroundColor}
                   icon={stickers.icon}
                   stickers={stickers.img}
-                ></BoxImage>
+                />
               ))}
             </Box>
             <Box direction="row">
               <BoxImageLarge
                 height="80px"
-                stickers={'/img/06-HackShack.png'}
+                stickers="/img/StickerPage/06-HackShack.png"
                 background="#4F5F76"
                 icon={<Monitor size="small" />}
-              ></BoxImageLarge>
+              />
             </Box>
             <Box direction="row">
               {Row2.map(stickers => (
@@ -332,65 +330,68 @@ const StickerWall = () => {
                   background={stickers.backgroundColor}
                   icon={stickers.icon}
                   stickers={stickers.img}
-                ></BoxImage>
+                />
               ))}
             </Box>
-            <StyledLargeAnchor href="/img/hack-shack-house.png" download>
+            <StyledLargeAnchor
+              href="/img/StickerPage/hack-shack-house.png"
+              download
+            >
               <ImageWrapper
                 height="80px"
                 background={{
-                  image: 'url(/img/hack-shack-house.png)',
+                  image: 'url(/img/StickerPage/hack-shack-house.png)',
                 }}
               >
-                {' '}
                 <Box justify="end" fill="vertical" alignSelf="end">
-                  {<Monitor size="small" />}
+                  <Monitor size="small" />
                 </Box>
               </ImageWrapper>
             </StyledLargeAnchor>
             <Box direction="row">
-              <StyledSmallAnchor href="/img/grommet-icon.png" download>
+              <StyledSmallAnchor
+                href="/img/StickerPage/grommet-icon.png"
+                download
+              >
                 <ImageWrapper
                   height="80px"
                   background={{
-                    image: 'url(/img/grommet-icon.png)',
+                    image: 'url(/img/StickerPage/grommet-icon.png)',
                   }}
                 >
-                  {' '}
                   <Box justify="end" fill="vertical" alignSelf="end">
-                    {<Monitor size="small" />}
+                    <Monitor size="small" />
                   </Box>
                 </ImageWrapper>
               </StyledSmallAnchor>
               <BoxImage
                 height="80px"
                 icon={<User size="small" />}
-                stickers={'/img/ezmeral.png'}
-              ></BoxImage>
+                stickers="/img/StickerPage/ezmeral.png"
+              />
             </Box>
             <Box direction="row">
               <BoxImage
                 height="80px"
                 icon={<User size="small" />}
-                stickers={'/img/devlogo.png'}
-              ></BoxImage>
+                stickers="/img/StickerPage/devlogo.png"
+              />
               <BoxImage
                 height="80px"
                 icon={<User size="small" />}
-                stickers={'/img/gremlinhat.png'}
-              ></BoxImage>
+                stickers="/img/StickerPage/gremlinhat.png"
+              />
             </Box>
             <Box direction="row">
-              <StyledLargeAnchor href="/img/2gremlins.png" download>
+              <StyledLargeAnchor href="/img/StickerPage/2gremlins.png" download>
                 <ImageWrapper
                   height="80px"
                   background={{
-                    image: 'url(/img/2gremlins.png)',
+                    image: 'url(/img/StickerPage/2gremlins.png)',
                   }}
                 >
-                  {' '}
                   <Box justify="end" fill="vertical" alignSelf="end">
-                    {<Monitor size="small" />}
+                    <Monitor size="small" />
                   </Box>
                 </ImageWrapper>
               </StyledLargeAnchor>
@@ -398,36 +399,32 @@ const StickerWall = () => {
             <Box direction="row">
               <BoxImageLarge
                 height="80px"
-                stickers={'/img/letshackshack.png'}
+                stickers="/img/StickerPage/letshackshack.png"
                 icon={<Monitor size="small" />}
-              ></BoxImageLarge>
+              />
             </Box>
             <Box direction="row">
-              <StyledSmallAnchor download href="/img/design.png">
-                {' '}
+              <StyledSmallAnchor download href="/img/StickerPage/design.png">
                 <ImageWrapper
                   height="80px"
                   background={{
-                    image: 'url(/img/design.png)',
+                    image: 'url(/img/StickerPage/design.png)',
                   }}
                 >
-                  {' '}
                   <Box justify="end" fill="vertical" alignSelf="end">
-                    {<Monitor size="small" />}
+                    <Monitor size="small" />
                   </Box>
                 </ImageWrapper>
               </StyledSmallAnchor>
-              <StyledSmallAnchor download href="/img/heart.png">
-                {' '}
+              <StyledSmallAnchor download href="/img/StickerPage/heart.png">
                 <ImageWrapper
                   height="80px"
                   background={{
-                    image: 'url(/img/heart.png)',
+                    image: 'url(/img/StickerPage/heart.png)',
                   }}
                 >
-                  {' '}
                   <Box justify="end" fill="vertical" alignSelf="end">
-                    {<User size="small" />}
+                    <User size="small" />
                   </Box>
                 </ImageWrapper>
               </StyledSmallAnchor>
@@ -435,37 +432,37 @@ const StickerWall = () => {
             <Box direction="row">
               <BoxImageLarge
                 height="80px"
-                stickers={'/img/attack-marquee.svg'}
+                stickers="/img/StickerPage/attack-marquee.svg"
                 icon={<Monitor size="small" />}
                 background="black"
-              ></BoxImageLarge>
+              />
             </Box>
             <Box direction="row">
               <BoxImage
                 height="80px"
                 icon={<Monitor size="small" />}
-                stickers={'/img/itmonsterattack.png'}
-              ></BoxImage>
+                stickers="/img/StickerPage/itmonsterattack.png"
+              />
               <BoxImage
                 height="80px"
                 icon={<User size="small" />}
-                stickers={'/img/dev-thumb.png'}
-              ></BoxImage>
+                stickers="/img/StickerPage/dev-thumb.png"
+              />
             </Box>
             <Box direction="row">
               <BoxImageLarge
                 height="80px"
-                stickers={'/img/ResearchDesignDev.png'}
+                stickers="/img/StickerPage/ResearchDesignDev.png"
                 background="white"
                 icon={<Monitor size="small" />}
-              ></BoxImageLarge>
+              />
             </Box>
             <Box direction="row">
               <BoxImageLarge
                 height="80px"
-                stickers={'/img/designedwlove.png'}
+                stickers="/img/StickerPage/designedwlove.png"
                 icon={<Monitor size="small" />}
-              ></BoxImageLarge>
+              />
             </Box>
           </Box>
         )}

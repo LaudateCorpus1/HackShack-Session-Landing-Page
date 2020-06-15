@@ -1,6 +1,6 @@
 export const communityContent = [
   {
-    logo: '/img/SlackLogo1.svg',
+    logo: '/img/Community/slacklogo.png',
     alt: 'Slack Logo',
     title: 'CONNECT ON THE HPE DEVELOPER SLACK CHANNEL',
     desc: 'Got questions or just want to chat with other devs who work at HPE?',
@@ -9,7 +9,7 @@ export const communityContent = [
     background: 'background',
   },
   {
-    logo: '/img/developerLogo.svg',
+    logo: '/img/Community/dev-thumb.png',
     alt: 'Dev Logo',
     title: 'JOIN THE HPE DEVELOPER COMMUNITY',
     desc: 'Want an inside track on HPE to get the latest dev tips and tricks? ',
@@ -18,7 +18,7 @@ export const communityContent = [
     background: '#00567acc',
   },
   {
-    logo: '/img/developerLogo.svg',
+    logo: '/img/Community/dev-thumb.png',
     alt: 'Dev Logo',
     title: 'GET THE HPE DEVELOPER NEWSLETTER',
     desc: 'Want to read more about industry trends for developers? ',
@@ -28,7 +28,7 @@ export const communityContent = [
     background: '#00567acc',
   },
   {
-    logo: '/img/Twitter.svg',
+    logo: '/img/Community/twitter.png',
     alt: 'Twitter Logo',
     title: 'FOLLOW US ON TWITTER',
     desc: 'Keep current on the latest dev news.',
@@ -51,7 +51,7 @@ export const communityContent = [
 
 export const arcadeContent = [
   {
-    image: '/img/attack-thumb.svg',
+    image: '/img/Arcade/hackshack-welcome.png',
     alt: 'HackShack Logo',
     title: 'HACK SHACK ATTACK!',
     desc:
@@ -61,7 +61,7 @@ export const arcadeContent = [
     background: 'background',
   },
   {
-    image: '/img/gremlin1.svg',
+    image: '/img/Arcade/rockingGremlin.png',
     alt: 'Gremlin',
     title: 'COOL DEV ART AND STICKERWARE',
     desc:
@@ -70,14 +70,13 @@ export const arcadeContent = [
     label: 'Grab some Art',
     background: 'background',
   },
-  // To be included in Week of June 22 2020
-  // {
-  //   image: '/img/adminTicket.svg',
-  //   alt: 'admin ticket',
-  //   title: 'PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES',
-  //   desc: 'Learn more about the rules and requirements to the contest.',
-  //   link: 'https://developer.hpe.com/newsletter-signup',
-  //   label: 'Arcade Contest',
-  //   background: 'rgba(0, 86, 122, 0.8);',
-  // },
+  {
+    image: '/img/Arcade/score.png',
+    alt: 'admin ticket',
+    title: 'PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES',
+    desc: 'Learn more about the rules and requirements to the contest.',
+    link: 'https://developer.hpe.com/newsletter-signup',
+    label: 'Arcade Contest',
+    background: 'rgba(0, 86, 122, 0.8);',
+  },
 ];
