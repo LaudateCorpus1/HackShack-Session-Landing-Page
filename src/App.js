@@ -28,15 +28,15 @@ const customHpe = deepMerge(hpe, {
 const App = () => {
   let gtagId;
   let gaDebug;
-  if (process.env.NODE_ENV === 'production') {
-    gtagId = 'UA-108944070-5';
+  if (process.env.REACT_APP_NODE_ENV === 'production') {
+    gtagId = process.env.REACT_APP_GOOGLE_ANALYTICS_ID;
     gaDebug = false;
-  } else if (process.env.NODE_ENV === 'development') {
+  } else if (process.env.REACT_APP_NODE_ENV === 'development') {
     gtagId = 'UA-NNNNNN-N';
     gaDebug = false;
   } else {
     throwError(
-      "NODE_ENV not set to 'production' nor 'development'." +
+      "REACT_APP_NODE_ENV not set to 'production' nor 'development'." +
         'Google Analytics tracking will not be initialized.',
     );
   }
