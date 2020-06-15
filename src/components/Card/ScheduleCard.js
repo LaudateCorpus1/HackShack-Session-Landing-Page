@@ -41,7 +41,7 @@ const ScheduleCard = ({
             {avatar ? (
               <Avatar src={avatar} />
             ) : (
-              <Avatar src="/img/defaultAvatar.svg" />
+              <Avatar src="/img/SpeakerImages/defaultAvatar.svg" />
             )}
             <Box justify="center">
               <Text>{presenter}</Text>

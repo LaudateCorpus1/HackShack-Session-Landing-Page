@@ -5,7 +5,7 @@ import { PageHeader } from '../../components/PageHeading';
 
 const Arcade = () => {
   return (
-    <Layout background="/img/arcade-background.jpg">
+    <Layout background="/img/BackgroundImages/arcade-background.jpg">
       <PageHeader title="ARCADE">
         <CardGrid>
           {arcadeContent.map(content => (

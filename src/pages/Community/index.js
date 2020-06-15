@@ -5,7 +5,7 @@ import { PageHeader } from '../../components/PageHeading';
 
 const Community = () => {
   return (
-    <Layout background="/img/community-background.png">
+    <Layout background="/img/BackgroundImages/community-background.png">
       <PageHeader title="Community">
         <CardGrid>
           {communityContent.map(content => (

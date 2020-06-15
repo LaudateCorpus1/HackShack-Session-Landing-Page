@@ -35,7 +35,10 @@ const Home = () => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Layout background="/img/hack-shack-home-background.png" page="Home">
+    <Layout
+      background="/img/BackgroundImages/hack-shack-home-background.png"
+      page="Home"
+    >
       <Box height="100%" width="100%">
         <MainWrapper align="center">
           <LogoWrapper>
