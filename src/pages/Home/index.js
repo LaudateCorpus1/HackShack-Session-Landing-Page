@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Text, Image, ResponsiveContext } from 'grommet';
-import { Card } from '../../components/Card';
+import { Box, Text, Image, ResponsiveContext, Anchor } from 'grommet';
 import { Layout, ButtonSplit } from '../../components/index';
 import {
   ButtonWrapper,
@@ -26,6 +25,16 @@ const Content = () => {
       </Text>
       <Text size={fontSize} color="#FFFFFF">
         gaming status playing Hack Shack Attack!
+      </Text>
+      <Text size={fontSize} color="#FFFFFF">
+        Check out this week in the 
+        {" "}
+        <Anchor         
+        target="_blank"
+        rel="noopener noreferrer" 
+        href="https://vimeo.com/429291098" 
+        label="Hack Shack Video">
+        </Anchor>
       </Text>
     </TextWrapper>
   );
@@ -56,6 +65,7 @@ const Home = () => {
             </ButtonSplit>
           </ButtonWrapper>
         </MainWrapper>
+        {/* Take out for soft launch 
         <CardWrapper gap="large">
           <Card
             title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
@@ -79,7 +89,7 @@ const Home = () => {
               size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }
             }
           />
-        </CardWrapper>
+        </CardWrapper> */}
       </Box>
     </Layout>
   );
