@@ -6,7 +6,7 @@ import { MainTitle } from './styles';
 
 export const PageHeader = ({ children, title, ...rest }) => {
   return (
-    <MainTitle align="start" width="xlarge" direction="column" {...rest}>
+    <MainTitle align="start" fill direction="column" {...rest}>
       <Box align="start">
         <Heading
           color="text-strong"

@@ -49,7 +49,7 @@ const Home = () => {
               alt="Hack Shack"
             />
           </LogoWrapper>
-          <Content></Content>
+          <Content />
           <ButtonWrapper>
             <ButtonSplit to="https://developer.hpe.com">
               Visit HPE Developer
