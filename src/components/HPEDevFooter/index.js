@@ -22,30 +22,24 @@ export const HPEDevFooter = ({ size }) => {
       border="top"
       pad={size === 'small' ? 'medium' : 'small'}
     >
-      <Box direction="row" gap="small" align="center">
-        <Box width={iconSize} height={iconSize}>
-          <Image fit="contain" src="./img/hpeDevLogo.svg" />
-        </Box>
-        <Text size={fontSize} color="#FFFFFF">
-          <Text weight="bold" size={fontSize}>
-            HPE{' '}
-          </Text>
-          Developer
-        </Text>
-      </Box>
-      {size === 'small' ? (
-        <Box gap="xsmall" direction="row" alignSelf="center">
-          <Button
-            href="https://hpedev.io"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Text color="#FFFFFF" size={fontSize} weight={900}>
-              Learn More
+      <Button
+        href="https://hpedev.io/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Box direction="row" gap="small" align="center">
+          <Box width={iconSize} height={iconSize}>
+            <Image fit="contain" src="./img/hpeDevLogo.svg" />
+          </Box>
+          <Text size={fontSize} color="#FFFFFF">
+            <Text weight="bold" size={fontSize}>
+              HPE{' '}
             </Text>
-          </Button>
+            Developer
+          </Text>
         </Box>
-      ) : (
+      </Button>
+      {size !== 'small' && (
         <Box gap="medium" direction="row" alignSelf="center">
           {footerLinks.map(link => {
             const { label, href } = link;

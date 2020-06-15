@@ -9,6 +9,7 @@ const ScheduleCard = ({
   id,
   presenter,
   role,
+  sessionLink,
   sessionType,
   size,
   title,
@@ -62,8 +63,9 @@ const ScheduleCard = ({
       </Box>
       <Button
         alignSelf="start"
-        href="https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US"
+        href={sessionLink}
         target="_blank"
+        rel="noreferrer noopener"
         label={
           <Box pad="xsmall">
             <Text color="text-strong">Learn more</Text>

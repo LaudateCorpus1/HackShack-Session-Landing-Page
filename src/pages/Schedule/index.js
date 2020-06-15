@@ -23,24 +23,25 @@ const Schedule = () => {
       <CardGrid>
         {eventSchedule.map(
           ({
-            session_id,
-            session_type,
             avatar,
-            title,
-            presenter,
             desc,
+            link,
+            presenter,
             role,
-            week,
+            sessionId,
+            sessionType,
+            title,
           }) => (
             <ScheduleCard
-              key={title}
-              id={session_id}
               avatar={avatar}
-              role={role}
-              sessionType={session_type}
-              title={title}
+              desc={`${desc.slice(0, 220)}...`}
+              id={sessionId}
+              key={title}
               presenter={presenter}
-              desc={desc.slice(0, 220) + '...'}
+              role={role}
+              sessionLink={link}
+              sessionType={sessionType}
+              title={title}
             />
           ),
         )}
