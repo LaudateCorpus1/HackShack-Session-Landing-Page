@@ -6,7 +6,7 @@ import { MainTitle } from './styles';
 
 const Schedule = () => {
   return (
-    <Layout background="/img/schedule-background.png">
+    <Layout background="/img/BackgroundImages/schedule-background.png">
       <MainTitle>
         <Heading color="text-strong" margin={{ top: 'none', bottom: 'none' }}>
           SCHEDULE

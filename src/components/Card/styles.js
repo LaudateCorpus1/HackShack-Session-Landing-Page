@@ -30,6 +30,12 @@ const StyledGrid = styled(Grid)`
   @media (min-width: 1300px) {
     grid: auto / auto auto;
   }
+  @media (min-width: 2000px) {
+    grid: auto / auto auto auto;
+  }
+  @media (min-width: 2500px) {
+    grid: auto / auto auto auto auto;
+  }
 `;
 
 export { CardWrapper, StyledGrid };

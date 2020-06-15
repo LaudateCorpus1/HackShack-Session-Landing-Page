@@ -10,12 +10,35 @@ import {
   TextWrapper,
 } from './styles';
 
-const Home = () => {
+const Content = () => {
   const size = useContext(ResponsiveContext);
   const fontSize = size === 'small' ? '4vw' : '2.5vw';
+  return (
+    <TextWrapper>
+      <Text size={fontSize} color="#FFFFFF">
+        Welcome to the Hack Shack. Come in to
+      </Text>
+      <Text size={fontSize} color="#FFFFFF">
+        collaborate and learn from others in Technology
+      </Text>
+      <Text size={fontSize} color="#FFFFFF">
+        Workshops and Sessions or compete for elite
+      </Text>
+      <Text size={fontSize} color="#FFFFFF">
+        gaming status playing Hack Shack Attack!
+      </Text>
+    </TextWrapper>
+  );
+};
+
+const Home = () => {
+  const size = useContext(ResponsiveContext);
 
   return (
-    <Layout background="/img/hack-shack-home-background.png" page="Home">
+    <Layout
+      background="/img/BackgroundImages/hack-shack-home-background.png"
+      page="Home"
+    >
       <Box height="100%" width="100%">
         <MainWrapper align="center">
           <LogoWrapper>
@@ -26,20 +49,7 @@ const Home = () => {
               alt="Hack Shack"
             />
           </LogoWrapper>
-          <TextWrapper>
-            <Text size={fontSize} color="#FFFFFF">
-              Welcome to the Hack Shack. Come in to
-            </Text>
-            <Text size={fontSize} color="#FFFFFF">
-              collaborate and learn from others in Technology
-            </Text>
-            <Text size={fontSize} color="#FFFFFF">
-              Workshops and Sessions or compete for elite
-            </Text>
-            <Text size={fontSize} color="#FFFFFF">
-              gaming status playing Hack Shack Attack!
-            </Text>
-          </TextWrapper>
+          <Content />
           <ButtonWrapper>
             <ButtonSplit to="https://developer.hpe.com">
               Visit HPE Developer
