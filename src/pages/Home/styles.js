@@ -25,38 +25,64 @@ const slideIn = keyframes`
   }
 `;
 
-export const MainWrapper = styled(Box)`
-  margin-top: -160px;
+const MainWrapper = styled(Box)`
+  margin-top: 0px;
   transform: rotate(-10deg);
+  @media (min-width: 900px) {
+    margin-top: -200px;
+  }
 `;
 
-export const LogoWrapper = styled(Box)`
-  max-width: 981px;
+const LogoWrapper = styled(Box)`
   width: 100%;
+  max-width: 981px;
   opacity: 0;
   animation: ${slideUp} 0.5s ease-out;
   animation-fill-mode: forwards;
   animation-delay: 0.25s;
+  @media (min-width: 900px) {
+    min-width: 600px;
+  }
 `;
 
-export const TextWrapper = styled(Box)`
-  margin-top: -50px;
-  padding-left: 304px;
+const TextWrapper = styled(Box)`
+  padding-left: 0%;
   opacity: 0;
-
+  white-space: nowrap;
   animation: ${slideIn} 0.6s ease-out;
   animation-fill-mode: forwards;
   animation-delay: 0.5s;
+  @media (min-width: 900px) {
+    padding-left: 30%;
+  }
 `;
 
-export const ButtonWrapper = styled(Box)`
+const ButtonWrapper = styled(Box)`
   padding-top: 31px;
-  margin-left: -170px;
+  margin-left: 0px;
   opacity: 0;
-
   animation: ${slideIn} 0.3s ease-out;
   animation-fill-mode: forwards;
   animation-delay: 0.7s;
+  @media (min-width: 900px) {
+    margin-left: -170px;
+  }
 `;
 
-export default { MainWrapper, LogoWrapper, TextWrapper, ButtonWrapper };
+const CardWrapper = styled(Box)`
+  flex-direction: column;
+  align-self: center;
+  margin: 96px 0px 0px 0px;
+  @media (min-width: 900px) {
+    transform: rotate(-10deg);
+    margin: 0px;
+    flex-direction: column;
+  }
+  @media (min-width: 1200px) {
+    align-self: end;
+    flex-direction: row;
+    margin: 96px 96px 96px 0px;
+  }
+`;
+
+export { ButtonWrapper, CardWrapper, LogoWrapper, MainWrapper, TextWrapper };

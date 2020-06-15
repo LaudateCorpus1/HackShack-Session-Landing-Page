@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Heading, Text, Image as GrommetImage } from 'grommet';
 import { Link } from 'react-router-dom';
-import { StyledCard } from './styles';
+import { CardWrapper } from './styles';
 
 const Logo = ({ background, children, size, ...rest }) => {
   return (
@@ -43,18 +43,6 @@ Image.propTypes = {
   background: PropTypes.string,
 };
 
-const CardWrapper = ({ children, ...rest }) => {
-  return (
-    <StyledCard round="medium" overflow="hidden" {...rest} height="100%">
-      {children}
-    </StyledCard>
-  );
-};
-
-CardWrapper.propTypes = {
-  children: PropTypes.node,
-};
-
 const Card = ({
   alt,
   background,
@@ -73,6 +61,8 @@ const Card = ({
       margin={margin}
       pad={image ? 'none' : 'large'}
       background={background}
+      round="medium"
+      overflow="hidden"
     >
       {image && (
         <Image>
@@ -92,7 +82,7 @@ const Card = ({
         <Box>
           <Heading
             margin={{ top: 'medium', bottom: 'small' }}
-            level={size === 'small' ? 3 : 2}
+            level={size === 'small' ? 4 : 2}
             color="text-strong"
           >
             {title}

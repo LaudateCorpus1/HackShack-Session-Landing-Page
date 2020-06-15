@@ -13,13 +13,16 @@ const slideIn = keyframes`
   }
 `;
 
-const StyledCard = styled(Box)`
+const CardWrapper = styled(Box)`
   opacity: 0;
   animation: ${slideIn} 0.8s ease-out;
   animation-fill-mode: forwards;
   animation-delay: 0.25s;
-  min-width: 336px;
   max-width: 576px;
+  width: 100%;
+  @media (min-width: 900px) {
+    min-width: 366px;
+  }
 `;
 
-export { StyledCard };
+export { CardWrapper };

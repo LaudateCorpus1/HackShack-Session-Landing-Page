@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Heading, Text, Avatar } from 'grommet';
 import PropTypes from 'prop-types';
-import { StyledCard } from './styles';
+import { CardWrapper } from './styles';
 
 const ScheduleCard = ({
   avatar,
@@ -14,7 +14,7 @@ const ScheduleCard = ({
   title,
 }) => {
   return (
-    <StyledCard
+    <CardWrapper
       pad="large"
       justify="between"
       background={sessionType === 'Workshop' ? '#00567acc' : 'background'}
@@ -71,7 +71,7 @@ const ScheduleCard = ({
         }
         secondary
       />
-    </StyledCard>
+    </CardWrapper>
   );
 };
 

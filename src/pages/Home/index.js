@@ -2,48 +2,62 @@ import React, { useContext } from 'react';
 import { Box, Text, Image, ResponsiveContext } from 'grommet';
 import { Card } from '../../components/Card';
 import { Layout, ButtonSplit } from '../../components/index';
-import { MainWrapper, LogoWrapper, TextWrapper, ButtonWrapper } from './styles';
+import {
+  ButtonWrapper,
+  CardWrapper,
+  LogoWrapper,
+  MainWrapper,
+  TextWrapper,
+} from './styles';
 
-const DesktopLayout = () => {
+const Home = () => {
+  const size = useContext(ResponsiveContext);
+  const fontSize = size === 'small' ? '4vw' : '2.5vw';
+
   return (
-    <Box height="100%" width="100%">
-      <MainWrapper align="center">
-        <LogoWrapper>
-          <Image
-            fit="contain"
-            src="/img/hack-shack-dve-logo.png"
-            alt="Hack Shack"
-          />
-        </LogoWrapper>
-        <TextWrapper>
-          <Box>
-            <Text size="xxlarge" color="#FFFFFF">
+    <Layout background="/img/hack-shack-home-background.png" page="Home">
+      <Box height="100%" width="100%">
+        <MainWrapper align="center">
+          <LogoWrapper>
+            <Image
+              width="100%"
+              fit="cover"
+              src="/img/hack-shack-dve-logo.png"
+              alt="Hack Shack"
+            />
+          </LogoWrapper>
+          <TextWrapper>
+            <Text size={fontSize} color="#FFFFFF">
               Welcome to the Hack Shack. Come in to
             </Text>
-            <Text size="xxlarge" color="#FFFFFF">
+            <Text size={fontSize} color="#FFFFFF">
               collaborate and learn from others in Technology
             </Text>
-            <Text size="xxlarge" color="#FFFFFF">
+            <Text size={fontSize} color="#FFFFFF">
               Workshops and Sessions or compete for elite
             </Text>
-            <Text size="xxlarge" color="#FFFFFF">
+            <Text size={fontSize} color="#FFFFFF">
               gaming status playing Hack Shack Attack!
             </Text>
-          </Box>
-        </TextWrapper>
-        <ButtonWrapper>
-          <ButtonSplit to="https://developer.hpe.com">
-            Visit HPE Developer
-          </ButtonSplit>
-        </ButtonWrapper>
-        <Box alignSelf="end" gap="large" margin="xlarge" direction="row">
+          </TextWrapper>
+          <ButtonWrapper>
+            <ButtonSplit to="https://developer.hpe.com">
+              Visit HPE Developer
+            </ButtonSplit>
+          </ButtonWrapper>
+        </MainWrapper>
+        <CardWrapper gap="large">
           <Card
             title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
             desc="Learn more about the rules and requirments to the contest."
             link="https://developer.hpe.com/"
             background="background"
             label="Join the Contest"
-            margin={{ top: '120px' }}
+            margin={
+              size === 'small'
+                ? { top: '0px', right: '0px' }
+                : { top: 'xlarge', right: 'large' }
+            }
           />
           <Card
             title="LEARN MORE ABOUT HPE EZMERAL PLATFORM"
@@ -51,74 +65,12 @@ const DesktopLayout = () => {
             link="https://developer.hpe.com/"
             background="rgba(0, 86, 122, 0.8);"
             label="See the HPE Ezmeral Sessions"
-            margin={{ bottom: '120px' }}
+            margin={
+              size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }
+            }
           />
-        </Box>
-      </MainWrapper>
-    </Box>
-  );
-};
-
-const MobileLayout = () => {
-  return (
-    <Box align="center">
-      <Box height="200px">
-        <Image
-          fit="contain"
-          src="/img/hack-shack-dve-logo.svg"
-          alt="Hack Shack"
-        />
+        </CardWrapper>
       </Box>
-      <Box
-        margin={{ bottom: 'small' }}
-        style={{ transform: 'rotate(-10deg)' }}
-        gap="large"
-      >
-        <Box>
-          <Text size="medium" color="#FFFFFF">
-            Welcome to the Hack Shack. Come in to
-          </Text>
-          <Text size="medium" color="#FFFFFF">
-            collaborate and learn from others in Technology
-          </Text>
-          <Text size="medium" color="#FFFFFF">
-            Workshops and Sessions or compete for elite
-          </Text>
-          <Text size="medium" color="#FFFFFF">
-            gaming status playing Hack Shack Attack!
-          </Text>
-        </Box>
-        <Box alignSelf="end">
-          <ButtonSplit to="https://developer.hpe.com">
-            Visit HPE Developer
-          </ButtonSplit>
-        </Box>
-      </Box>
-      <Box alignSelf="center" gap="large" direction="column" margin="large">
-        <Card
-          title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
-          desc="Learn more about the rules and requirments to the contest."
-          link="https://developer.hpe.com/"
-          background="background"
-          label="Join the Contest"
-        />
-        <Card
-          title="LEARN MORE ABOUT HPE EZMERAL PLATFORM"
-          desc="Learn more about the rules and requirments to the contest"
-          link="https://developer.hpe.com/"
-          background="rgba(0, 86, 122, 0.8);"
-          label="See the HPE Ezmeral Sessions"
-        />
-      </Box>
-    </Box>
-  );
-};
-
-const Home = () => {
-  const size = useContext(ResponsiveContext);
-  return (
-    <Layout background="/img/hack-shack-home-background.png" page="Home">
-      {size !== 'small' ? <DesktopLayout /> : <MobileLayout />}
     </Layout>
   );
 };

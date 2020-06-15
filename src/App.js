@@ -19,13 +19,7 @@ const customHpe = deepMerge(hpe, {
   global: {
     breakpoints: {
       small: {
-        value: 700,
-      },
-      medium: {
         value: 900,
-      },
-      large: {
-        value: 1200,
       },
     },
   },
