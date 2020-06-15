@@ -1,46 +1,12 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Image, Stack, ResponsiveContext } from 'grommet';
 import { Monitor, User } from 'grommet-icons';
+import { Row1, Row2, Row6 } from './stickers';
 import { StyledSmallAnchor, StyledLargeAnchor } from './styles';
 import { Layout, SubPageHeader } from '../../components/index';
 
-// stickers list
-const Row1 = [
-  {
-    img: '/img/StickerPage/metalhand.png',
-    icon: <Monitor size="small" />,
-    backgroundColor: 'background-contrast',
-  },
-  {
-    img: '/img/StickerPage/gremlinrockin.png',
-    icon: <Monitor size="small" />,
-    backgroundColor: '#FFBC44',
-  },
-  {
-    img: '/img/StickerPage/grommet-sticker.png',
-    icon: <Monitor size="small" />,
-    backgroundColor: '#FFFFFF',
-  },
-  { img: '/img/StickerPage/it-monster.png', icon: <User size="small" /> },
-  { img: '/img/StickerPage/ezmeral.png', icon: <User size="small" /> },
-];
-
-const Row2 = [
-  { img: '/img/StickerPage/hpedevlogo.png', icon: <Monitor size="small" /> },
-  { img: '/img/StickerPage/gremlin.png', icon: <User size="small" /> },
-];
-
-const Row6 = [
-  {
-    img: '/img/StickerPage/ResearchDesignDev.png',
-    backgroundColor: 'white',
-    icon: <Monitor size="small" />,
-  },
-  { img: '/img/StickerPage/designedwlove.png', icon: <Monitor size="small" /> },
-];
-
 // Image wrapper
-
 const ImageWrapper = ({ children, height, ...props }) => (
   <Box
     pad={{ horizontal: 'small', bottom: 'small', top: 'medium' }}
@@ -53,6 +19,12 @@ const ImageWrapper = ({ children, height, ...props }) => (
     {children}
   </Box>
 );
+
+ImageWrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+  height: PropTypes.string,
+};
+
 
 // Create box for each sticker small images
 const BoxImage = ({ icon, stickers, backgroundColor, height, ...props }) => {
@@ -74,6 +46,14 @@ const BoxImage = ({ icon, stickers, backgroundColor, height, ...props }) => {
       </Box>
     </StyledSmallAnchor>
   );
+};
+
+BoxImage.propTypes = {
+  children: PropTypes.node.isRequired,
+  icon: PropTypes.object,
+  backgroundColor: PropTypes.string,
+  stickers: PropTypes.object,
+  height: PropTypes.string,
 };
 
 // Create box for each sticker small images
@@ -102,6 +82,14 @@ const BoxImageLarge = ({
       </Box>
     </StyledLargeAnchor>
   );
+};
+
+BoxImageLarge.propTypes = {
+  children: PropTypes.node.isRequired,
+  icon: PropTypes.object,
+  backgroundColor: PropTypes.string,
+  stickers: PropTypes.object,
+  height: PropTypes.string,
 };
 
 const StickerWall = () => {
@@ -162,18 +150,20 @@ const StickerWall = () => {
                 height="150px"
               />
               <StyledLargeAnchor
-                href="/img/StickerPage/ezmeralbackground.png"
+                // href="/img/StickerPage/ezmeralbackground.png"
                 download
               >
                 <ImageWrapper
                   height="150px"
-                  background={{
-                    image: 'url(/img/StickerPage/ezmeralbackground.png)',
-                  }}
+                  // replace background after ezmeral annouc
+                  background="background-contrast"
+                  // background={{
+                  //   image: 'url(/img/StickerPage/ezmeralbackground.png)',
+                  // }}
                 >
-                  <Box justify="end" fill="vertical" alignSelf="end">
+                  {/* <Box justify="end" fill="vertical" alignSelf="end">
                     <Monitor size="small" />
-                  </Box>
+                  </Box> */}
                 </ImageWrapper>
               </StyledLargeAnchor>
               <BoxImageLarge
@@ -257,7 +247,7 @@ const StickerWall = () => {
               <BoxImage
                 height="150px"
                 icon={<Monitor size="small" />}
-                stickers={'/img/StickerPage/itmonsterattack.png'}
+                stickers='/img/StickerPage/itmonsterattack.png'
               />
               {Row6.map(stickers => (
                 <BoxImageLarge
