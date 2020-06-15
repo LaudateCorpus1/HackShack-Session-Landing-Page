@@ -1,29 +1,24 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { Box, Button, Heading, Text, Avatar } from 'grommet';
 import PropTypes from 'prop-types';
-import { Box, Button, Heading, Text, Avatar, ResponsiveContext } from 'grommet';
+import { CardWrapper } from './styles';
 
 const ScheduleCard = ({
   avatar,
-  role,
-  sessionType,
-  presenter,
-  title,
   desc,
   id,
+  presenter,
+  role,
   sessionLink,
+  sessionType,
+  size,
+  title,
 }) => {
-  const size = useContext(ResponsiveContext);
   return (
-    <Box
+    <CardWrapper
       pad="large"
       justify="between"
       background={sessionType === 'Workshop' ? '#00567acc' : 'background'}
-      style={{
-        minHeight: '510px',
-        minWidth: '336px',
-        height: '100%',
-        maxWidth: '576px',
-      }}
       round="medium"
       overflow="hidden"
     >
@@ -70,6 +65,7 @@ const ScheduleCard = ({
         alignSelf="start"
         href={sessionLink}
         target="_blank"
+        rel="noreferrer noopener"
         label={
           <Box pad="xsmall">
             <Text color="text-strong">Learn more</Text>
@@ -77,7 +73,7 @@ const ScheduleCard = ({
         }
         secondary
       />
-    </Box>
+    </CardWrapper>
   );
 };
 
