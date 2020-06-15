@@ -2,7 +2,7 @@ export const communityContent = [
   {
     logo: '/img/Community/slacklogo.png',
     alt: 'Slack Logo',
-    title: 'JOIN US ON THE HPE DEVELOPER SLACK',
+    title: 'CONNECT ON THE HPE DEVELOPER SLACK CHANNEL',
     desc: 'Got questions or just want to chat with other devs who work at HPE?',
     link: 'https://slack.hpedev.io/',
     label: 'Join the Slack Team',
@@ -30,10 +30,10 @@ export const communityContent = [
   {
     logo: '/img/Community/twitter.png',
     alt: 'Twitter Logo',
-    title: 'FOLLOW US IN TWITTER',
+    title: 'FOLLOW US ON TWITTER',
     desc: 'Keep current on the latest dev news.',
     link: 'https://twitter.com/hashtag/hpedevcom?src=hash',
-    label: 'Follow us in Twitter',
+    label: 'Follow us on Twitter',
     background: 'background',
   },
   // To be included in Week of June 22 2020
@@ -53,7 +53,7 @@ export const arcadeContent = [
   {
     image: '/img/Arcade/hackshack-welcome.png',
     alt: 'HackShack Logo',
-    title: 'HACK SHACK ATTACK',
+    title: 'HACK SHACK ATTACK!',
     desc:
       'Think SmashTV and Robotron, but much more awesome! Compete for top scores and bragging rights!',
     path: '/hackshackattack',
