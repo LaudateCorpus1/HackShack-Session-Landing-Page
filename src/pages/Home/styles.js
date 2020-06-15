@@ -79,9 +79,9 @@ const CardWrapper = styled(Box)`
     flex-direction: column;
   }
   @media (min-width: 1200px) {
-    align-self: end;
+    align-self: flex-end;
     flex-direction: row;
-    margin: 96px 96px 96px 0px;
+    margin: 96px 0px 96px 0px;
   }
 `;
 
