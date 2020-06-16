@@ -2,7 +2,9 @@
 import React from 'react';
 import { IonPhaser } from '@ion-phaser/react';
 import styled from 'styled-components';
-import { Box } from 'grommet';
+import { Box, Button } from 'grommet';
+import { Link } from 'react-router-dom';
+import { FormPreviousLink } from 'grommet-icons';
 import Phaser from 'phaser';
 import BootScene from './scenes/BootScene';
 import PreloaderScene from './scenes/PreloaderScene';
@@ -79,7 +81,13 @@ const HackShackAttack = () => {
           size: 'cover',
           position: 'top center',
         }}
-      />
+      >
+        <Box margin="48px" alignSelf="start">
+          <Link to={{ pathname: '/arcade' }}>
+            <Button icon={<FormPreviousLink />} label="Back to Arcade" />
+          </Link>
+        </Box>
+      </BackgroundWrapper>
       <Box fill id="phaser-game">
         <IonPhaser game={game} initialize={initialize} />
       </Box>
