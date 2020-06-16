@@ -2,50 +2,30 @@
 import Phaser from 'phaser';
 
 // tiles
-const map =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/playfield.png';
+const map = '/assets/playfield.png';
 
 // logos
-const gameLogo =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/attack-marquee.png';
-const hpeDevLogo =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/hpe-dev-logo.png';
+const gameLogo = '/assets/attack-marquee.png';
+const hpeDevLogo = '/assets/hpe-dev-logo.png';
 
 // sprites
-const playerAvatar =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/player1-avatar.png';
-const player =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/player1-dev.png';
-const devPowerUp =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/dev-powerup.png';
-const bullet =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/bullets-pellets.png';
-const itBug =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/it-bug.png';
-const itMonster =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/it-monster.png';
-const devGameOver =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/dev-gameover.png';
-const dizzyAnim =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/dizzyanim.png';
-const highscoreBG =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/highscorebg.png';
-const itMonsterPoof =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/it-monsterPoof.png';
-const bugDeath =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/bugDeath.png';
-const explosion =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/explosion.png';
-const highscoreEyes =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/highscoreeyes.png';
-const powerUpCollect =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/powerUpCollect.png';
-const winners =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/winners.png';
-const keyboardControls =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/keyboard.png';
-const padControls =
-  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/controller.png';
+const playerAvatar = '/assets/player1-avatar.png';
+const player = '/assets/player1-dev.png';
+const devPowerUp = '/assets/dev-powerup.png';
+const bullet = '/assets/bullets-pellets.png';
+const itBug = '/assets/it-bug.png';
+const itMonster = '/assets/it-monster.png';
+const devGameOver = '/assets/dev-gameover.png';
+const dizzyAnim = '/assets/dizzyanim.png';
+const highscoreBG = '/assets/highscorebg.png';
+const itMonsterPoof = '/assets/it-monsterPoof.png';
+const bugDeath = '/assets/bugDeath.png';
+const explosion = '/assets/explosion.png';
+const highscoreEyes = '/assets/highscoreeyes.png';
+const powerUpCollect = '/assets/powerUpCollect.png';
+const winners = '/assets/winners.png';
+const keyboardControls = '/assets/keyboard.png';
+const padControls = '/assets/controller.png';
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
