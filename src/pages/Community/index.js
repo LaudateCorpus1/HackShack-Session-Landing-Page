@@ -1,16 +1,12 @@
 import React from 'react';
-import { Heading, Box } from 'grommet';
 import { Layout, Card, CardGrid } from '../../components/index';
-import { communityContent } from '../../CardData/PageContent';
+import { communityContent } from '../../data/CardData/PageContent';
+import { PageHeader } from '../../components/PageHeading';
 
 const Community = () => {
-  console.log('HELLO');
   return (
-    <Layout background="/img/community-background.png">
-      <Box direction="column" pad="xlarge">
-        <Heading color="text-strong" margin={{ bottom: 'large', top: 'none' }}>
-          COMMUNITY
-        </Heading>
+    <Layout background="/img/BackgroundImages/community-background.png">
+      <PageHeader title="Community">
         <CardGrid>
           {communityContent.map(content => (
             <Card
@@ -25,7 +21,7 @@ const Community = () => {
             />
           ))}
         </CardGrid>
-      </Box>
+      </PageHeader>
     </Layout>
   );
 };

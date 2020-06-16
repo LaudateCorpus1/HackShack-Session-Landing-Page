@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -6,13 +6,11 @@ import {
   Text,
   Header as HeaderGrommet,
   Image,
-  ResponsiveContext,
   Anchor,
 } from 'grommet';
 import { Menu } from 'grommet-icons';
 
-export const Header = ({ setLayer }) => {
-  const size = useContext(ResponsiveContext);
+export const Header = ({ setLayer, size }) => {
   const iconSize = size === 'small' ? '192px' : '228px';
 
   useEffect(() => {
@@ -39,4 +37,5 @@ export default Header;
 
 Header.propTypes = {
   setLayer: PropTypes.func,
+  size: PropTypes.string,
 };

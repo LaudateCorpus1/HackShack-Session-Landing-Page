@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { Box, Button, Heading, ResponsiveContext } from 'grommet';
+import { Box, Button, Heading } from 'grommet';
 
 const getNavColor = (active, hover) => {
   if (active) return 'white';
@@ -9,9 +9,9 @@ const getNavColor = (active, hover) => {
   return 'rgba(255, 255, 255, 0.3)';
 };
 
-const NavButton = ({ active, to, history, children }) => {
+const NavButton = ({ active, to, history, children, size }) => {
   const [hover, setHover] = useState(false);
-  const size = useContext(ResponsiveContext);
+
   return (
     <Button
       plain
@@ -36,41 +36,37 @@ const NavButton = ({ active, to, history, children }) => {
 
 NavButton.propTypes = {
   active: PropTypes.bool.isRequired,
-  to: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+  to: PropTypes.string.isRequired,
+  size: PropTypes.string,
 };
 
-export const SideNav = ({ location, history }) => (
+const SideNav = ({ location, history, size }) => (
   <Box align="start" gap="xsmall" width={{ min: '250px' }}>
-    <NavButton history={history} active={location.pathname === '/'} to="/">
+    <NavButton
+      history={history}
+      active={location.pathname === '/'}
+      to="/"
+      size={size}
+    >
       HACK SHACK
     </NavButton>
     <NavButton
       history={history}
       active={location.pathname === '/schedule'}
       to="/schedule"
+      size={size}
     >
       SCHEDULE
     </NavButton>
-    {/* Take out EZMERAL for now until announced
-    <NavButton history={history} active={location.pathname === '/#'} to="#">
-      HPE EZMERAL
-    </NavButton> */}
-    {/* Take out Replays for now
-    <NavButton
-      history={history}
-      active={location.pathname === '/replays'}
-      to="/replays"
-    >
-      REPLAYS
-    </NavButton> */}
     <NavButton
       history={history}
       active={location.pathname === '/community'}
       to="/community"
+      size={size}
     >
       COMMUNITY
     </NavButton>
@@ -80,6 +76,7 @@ export const SideNav = ({ location, history }) => (
         location.pathname === '/arcade' || location.pathname === '/stickerwall'
       }
       to="/arcade"
+      size={size}
     >
       ARCADE
     </NavButton>
@@ -94,12 +91,26 @@ export const SideNav = ({ location, history }) => (
 );
 
 SideNav.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
+  size: PropTypes.string,
 };
 
 export default withRouter(SideNav);
+
+/* Take out EZMERAL for now until announced
+    <NavButton history={history} active={location.pathname === '/#'} to="#">
+      HPE EZMERAL
+    </NavButton> */
+/* Take out Replays for now
+    <NavButton
+      history={history}
+      active={location.pathname === '/replays'}
+      to="/replays"
+    >
+      REPLAYS
+    </NavButton> */

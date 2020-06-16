@@ -11,6 +11,8 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
 
     this.scene.physics.world.enable(this);
     this.scene.add.existing(this);
+
+    this.setScale(0.8);
   }
 
   update() {
@@ -105,7 +107,7 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
   onHit() {
     this.explosion = this.scene.add
       .sprite(this.x, this.y, 'explosion')
-      .setScale(0.8)
+      .setScale(0.6)
       .play('explode');
     this.disableBody();
     this.setActive(false);

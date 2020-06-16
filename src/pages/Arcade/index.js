@@ -1,15 +1,12 @@
 import React from 'react';
-import { Heading, Box } from 'grommet';
 import { Layout, Card, CardGrid } from '../../components/index';
-import { arcadeContent } from '../../CardData/PageContent';
+import { arcadeContent } from '../../data/CardData/PageContent';
+import { PageHeader } from '../../components/PageHeading';
 
 const Arcade = () => {
   return (
-    <Layout background="/img/hack-shack-home-background.png">
-      <Box direction="column" pad="xlarge">
-        <Heading color="text-strong" margin={{ bottom: 'large', top: 'none' }}>
-          ARCADE
-        </Heading>
+    <Layout background="/img/BackgroundImages/arcade-background.jpg">
+      <PageHeader title="ARCADE">
         <CardGrid>
           {arcadeContent.map(content => (
             <Card
@@ -24,7 +21,7 @@ const Arcade = () => {
             />
           ))}
         </CardGrid>
-      </Box>
+      </PageHeader>
     </Layout>
   );
 };

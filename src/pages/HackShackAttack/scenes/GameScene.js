@@ -31,8 +31,8 @@ export default class GameScene extends Phaser.Scene {
 
   create() {
     this.map = this.add
-      .sprite(this.width / 2, this.height / 2, 'map')
-      .setScale(0.85);
+      .sprite(this.width / 2, this.height / 2 - 90, 'map')
+      .setScale(0.55);
 
     this.fireKeys = this.input.keyboard.createCursorKeys();
     this.moveKeys = this.input.keyboard.addKeys({
@@ -44,8 +44,8 @@ export default class GameScene extends Phaser.Scene {
 
     this.startText = this.add
       .text(this.width / 2, this.height / 2 - 200, '', {
-        fontFamily: 'ArcadeClassic',
-        fontSize: '100px',
+        fontFamily: 'Kemco',
+        fontSize: '60px',
       })
       .setTint(0xffffff)
       .setOrigin(0.5, 0.5);
@@ -56,21 +56,21 @@ export default class GameScene extends Phaser.Scene {
     this.createPlayer();
     this.addCollisions();
     this.setupEvents();
-    this.physics.world.setBounds(0, 120, this.width, this.height - 122);
+    this.physics.world.setBounds(255, 120, this.width - 515, this.height - 322);
     this.playerAvatar = this.add
-      .sprite(this.width - 145, 23, 'playerAvatar')
-      .setScale(0.6)
+      .sprite(this.width - 465, 90, 'playerAvatar')
+      .setScale(0.45)
       .setDepth(1);
     this.scoreText = this.add
-      .text(20, 10, 'Score: 0', {
-        fontFamily: 'ArcadeClassic',
+      .text(290, 75, 'Score:0', {
+        fontFamily: 'Kemco',
         fontSize: '26px',
       })
       .setTint(0xffffff)
       .setDepth(1);
     this.livesText = this.add
-      .text(this.width - 120, 10, `Lives: ${this.player.lives}`, {
-        fontFamily: 'ArcadeClassic',
+      .text(this.width - 435, 75, `Lives:${this.player.lives}`, {
+        fontFamily: 'Kemco',
         fontSize: '26px',
       })
       .setTint(0xffffff)
@@ -98,7 +98,7 @@ export default class GameScene extends Phaser.Scene {
 
       this.powerUpCollect = this.add
         .sprite(this.player.x, this.player.y, 'powerUpCollect')
-        .setScale(0.5)
+        .setScale(0.4)
         .play('powerUpCollect');
 
       this.player.disableBody();
@@ -118,29 +118,29 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createWallsandBorders() {
-    this.doorLeft = this.physics.add.sprite(this.width / 2 - 55, -150);
+    this.doorLeft = this.physics.add.sprite(this.width / 2 - 40, -150);
     this.physics.add.existing(this.doorLeft);
     this.doorLeft.body.setSize(10, 600).setImmovable(true);
 
-    this.doorRight = this.physics.add.sprite(this.width / 2 + 55, -150);
+    this.doorRight = this.physics.add.sprite(this.width / 2 + 40, -150);
     this.physics.add.existing(this.doorRight);
     this.doorRight.body.setSize(10, 600).setImmovable(true);
 
     this.borderDark = this.add
       .graphics()
-      .fillStyle(0x11141a, 9)
-      .fillRect(0, this.height / 2 - 280, 25, this.height - 100)
-      .fillRect(this.width - 25, this.height / 2 - 280, 25, this.height - 100)
+      .fillStyle(0x11141a, 1)
+      .fillRect(0, this.height / 2 - 280, 280, this.height - 100)
+      .fillRect(this.width - 25, this.height / 2 - 280, -260, this.height - 100)
       .fillRect(this.width / 2 - 75, 0, 150, 75)
-      .fillRect(0, this.height - 50, this.width, 50)
+      .fillRect(0, this.height - 50, this.width, -190)
       .setDepth(2);
     this.borderLight = this.add
       .graphics()
       .fillStyle(0x11141a, 0.8)
-      .fillRect(0, this.height / 2 - 280, 55, this.height - 100)
-      .fillRect(this.width - 50, this.height / 2 - 280, 55, this.height - 100)
+      .fillRect(0, this.height / 2 - 280, 300, this.height - 100)
+      .fillRect(this.width - 50, this.height / 2 - 280, -260, this.height - 100)
       .fillRect(this.width / 2 - 75, 0, 150, 100)
-      .fillRect(0, this.height - 75, this.width, 75)
+      .fillRect(0, this.height - 75, this.width, -180)
       .setDepth(2);
   }
 
@@ -323,7 +323,7 @@ export default class GameScene extends Phaser.Scene {
         itBug
           .setActive(true)
           .setVisible(true)
-          .setScale(0.5)
+          .setScale(0.4)
           .enableBody()
           .setCircle(30, 18, 50)
           .spawn(coords.x, coords.y);
@@ -343,8 +343,8 @@ export default class GameScene extends Phaser.Scene {
         }
         if (powerUp) {
           this.powerUpCount = 1;
-          const x = Phaser.Math.Between(100, this.width - 100);
-          const y = Phaser.Math.Between(250, this.height - 100);
+          const x = Phaser.Math.Between(315, this.width - 330);
+          const y = Phaser.Math.Between(135, this.height - 275);
           powerUp
             .setActive(true)
             .setVisible(true)
@@ -372,10 +372,10 @@ export default class GameScene extends Phaser.Scene {
         itMonster
           .setActive(true)
           .setVisible(true)
-          .setScale(0.8)
+          .setScale(0.65)
           .setSize(75, 80)
           .enableBody()
-          .spawn(this.width / 2, -100);
+          .spawn(this.width / 2, 0);
         const newTime = Phaser.Math.Between(1800, 2800);
         this.spawnTimerMonster = time + newTime;
       }

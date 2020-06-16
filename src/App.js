@@ -1,31 +1,70 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
 import { Grommet } from 'grommet';
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
+import { throwError } from 'rxjs';
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
-import { Home, Community, Arcade, StickerWall, Schedule } from './pages/index';
-import Register from './pages/Register';
+import {
+  Home,
+  Community,
+  Arcade,
+  StickerWall,
+  Schedule,
+  HackShackAttack,
+  Register,
+} from './pages/index';
 
 const customHpe = deepMerge(hpe, {
   global: {
     breakpoints: {
       small: {
-        value: 600,
-      },
-      medium: {
         value: 900,
-      },
-      large: {
-        value: 1500,
       },
     },
   },
 });
 
 const App = () => {
+  let gtagId;
+  let gaDebug;
+  if (process.env.REACT_APP_NODE_ENV === 'production') {
+    gtagId = process.env.REACT_APP_GOOGLE_ANALYTICS_ID;
+    gaDebug = false;
+  } else if (process.env.REACT_APP_NODE_ENV === 'development') {
+    gtagId = 'UA-NNNNNN-N';
+    gaDebug = false;
+  } else {
+    throwError(
+      "REACT_APP_NODE_ENV not set to 'production' nor 'development'." +
+        'Google Analytics tracking will not be initialized.',
+    );
+  }
+  ReactGA.initialize(gtagId, {
+    debug: gaDebug,
+  });
+  const history = createBrowserHistory();
+  history.listen(location => {
+    ReactGA.set({ page: location.pathname });
+    ReactGA.pageview(location.pathname);
+  });
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const { location } = window;
+      ReactGA.set({ page: location.pathname });
+      ReactGA.pageview(location.pathname);
+    }
+  }, []);
   return (
-    <Grommet theme={customHpe} themeMode="dark" full>
-      <Router>
+    <Grommet
+      theme={customHpe}
+      themeMode="dark"
+      full
+      background="#151d29"
+      style={{ overflowX: 'hidden' }}
+    >
+      <Router history={history}>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -41,6 +80,9 @@ const App = () => {
           </Route>
           <Route path="/stickerwall">
             <StickerWall />
+          </Route>
+          <Route path="/hackshackattack">
+            <HackShackAttack />
           </Route>
           <Route path="/register">
             <Register />
