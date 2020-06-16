@@ -3,14 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Box, Button, Heading } from 'grommet';
-import { FormPreviousLink } from 'grommet-icons';
+import { Previous } from 'grommet-icons';
 
 export const SubPageHeader = ({ children, title, ...rest }) => {
   return (
     <Box align="start" width="xlarge" direction="column" {...rest}>
       <Box align="start">
         <Link to={{ pathname: '/arcade' }}>
-          <Button icon={<FormPreviousLink />} label="Back to Arcade" />
+          <Button icon={<Previous />} label="Back to Arcade" />
         </Link>
         <Heading
           color="text-strong"
