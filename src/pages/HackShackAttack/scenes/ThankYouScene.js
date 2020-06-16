@@ -34,15 +34,10 @@ export default class ThankYouScene extends Phaser.Scene {
 
   createThankYou() {
     this.add
-      .text(
-        this.width / 2 + 10,
-        this.height / 2 - 150,
-        'THANKS  FOR  PLAYING!',
-        {
-          fontFamily: 'Kemco',
-          fontSize: '42px',
-        },
-      )
+      .text(this.width / 2 + 10, this.height / 2 - 150, 'THANKS FOR PLAYING!', {
+        fontFamily: 'Kemco',
+        fontSize: '42px',
+      })
       .setTint(0xffffff)
       .setOrigin(0.5, 0.5);
 
@@ -50,7 +45,7 @@ export default class ThankYouScene extends Phaser.Scene {
       .text(
         this.width / 2 - 300,
         this.height / 2,
-        'Press  A  or  Enter  to  continue',
+        'Press A or Enter to continue',
         { fontFamily: 'Kemco', fontSize: '24px' },
       )
       .setTint(0xffffff);

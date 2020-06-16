@@ -7,6 +7,7 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   init() {
+    this.selection = 'start';
     this.gamepad = undefined;
     this.buttonPressed = false;
     this.stickPressed = false;
@@ -17,26 +18,41 @@ export default class TitleScene extends Phaser.Scene {
     this.countdown();
 
     // logo
-    this.gameLogo = this.add.sprite(0, 0, 'gameLogo').setScale(0.6);
-    this.centerObject(this.gameLogo, 0, 1.4);
-    this.hpeDevLogo = this.add.sprite(0, 0, 'hpeDevLogo').setScale(0.6);
+    this.gameLogo = this.add.sprite(0, 0, 'gameLogo').setScale(0.5);
+    this.centerObject(this.gameLogo, 0, 1.65);
+    this.hpeDevLogo = this.add.sprite(0, 0, 'hpeDevLogo').setScale(0.5);
     this.centerObject(this.hpeDevLogo, -1.6, 2.8);
     // start select box
     this.startSelectionBox = this.add
       .graphics()
       .fillStyle(0xffffff, 1)
-      .fillRoundedRect(0, 0, 280, 80);
-    this.centerObject(this.startSelectionBox, 1.42, -0.3);
+      .fillRoundedRect(0, 0, 190, 55);
+    this.centerObject(this.startSelectionBox, 0.9, 0.5);
     // start button
     this.startButton = this.add
       .text(0, 0, 'Start', {
         fontFamily: 'Kemco',
-        fontSize: '50px',
+        fontSize: '30px',
       })
       .setTint(0x000000)
       .setInteractive();
-    this.centerObject(this.startButton, 0.97, -0.4);
-
+    this.centerObject(this.startButton, 0.5, 0.38);
+    // hot to play select
+    this.controlsSelectionBox = this.add
+      .graphics()
+      .fillStyle(0xffffff, 1)
+      .fillRoundedRect(0, 0, 210, 55);
+    this.controlsSelectionBox.visible = false;
+    this.centerObject(this.controlsSelectionBox, 1, -0.2);
+    // how to play button
+    this.controlsButton = this.add
+      .text(this.width / 2 + 60, this.height / 2 - 108, 'Controls', {
+        fontFamily: 'Kemco',
+        fontSize: '30px',
+      })
+      .setTint(0xffffff)
+      .setInteractive();
+    this.centerObject(this.controlsButton, 0.85, -0.3);
     this.keyboardInputs();
   }
 
@@ -52,6 +68,8 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   keyboardInputs() {
+    this.upInput = this.input.keyboard.on('keyup_UP', this.onChange, this);
+    this.downInput = this.input.keyboard.on('keyup_DOWN', this.onChange, this);
     this.enterInput = this.input.keyboard.on(
       'keyup_ENTER',
       this.onSelect,
@@ -92,11 +110,46 @@ export default class TitleScene extends Phaser.Scene {
         this.buttonPressed = false;
       }
     }
+    // joystick
+    if (this.gamepad.leftStick.y === -6 && this.stickPressed === false) {
+      this.stickPressed = true;
+      this.onChange();
+    } else if (
+      this.gamepad.leftStick.y === 0.6 &&
+      this.stickPressed === false
+    ) {
+      this.stickPressed = true;
+      this.onChange();
+    }
+    if (this.gamepad.leftStick.y === 0) {
+      this.stickPressed = false;
+    }
+  }
+
+  onChange() {
+    if (this.selection === 'start') {
+      this.controlsSelectionBox.visible = true;
+      this.startSelectionBox.visible = false;
+      this.controlsButton.setTint(0x000000);
+      this.startButton.setTint(0xffffff);
+      this.selection = 'controls';
+    } else {
+      this.controlsSelectionBox.visible = false;
+      this.startSelectionBox.visible = true;
+      this.controlsButton.setTint(0xffffff);
+      this.startButton.setTint(0x000000);
+      this.selection = 'start';
+    }
   }
 
   onSelect() {
-    this.startScene = false;
-    this.scene.start('Game');
+    if (this.selection === 'start') {
+      this.startScene = false;
+      this.scene.start('Game');
+    } else if (this.selection === 'controls') {
+      this.startScene = false;
+      this.scene.start('HowToPlay');
+    }
   }
 
   centerObject(gameObject, offsetX = 0, offsetY = 0) {

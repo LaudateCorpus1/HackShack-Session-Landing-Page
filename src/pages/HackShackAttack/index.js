@@ -8,6 +8,7 @@ import { FormPreviousLink } from 'grommet-icons';
 import Phaser from 'phaser';
 import BootScene from './scenes/BootScene';
 import PreloaderScene from './scenes/PreloaderScene';
+import HowToPlayScene from './scenes/HowToPlay';
 import TitleScene from './scenes/TitleScene';
 import GameScene from './scenes/GameScene';
 import GameOverScene from './scenes/GameOverScene';
@@ -24,6 +25,7 @@ class Game extends Phaser.Scene {
     this.scene.add('Preloader', PreloaderScene);
     this.scene.add('Title', TitleScene);
     this.scene.add('Game', GameScene);
+    this.scene.add('HowToPlay', HowToPlayScene);
     this.scene.add('GameOver', GameOverScene);
     this.scene.add('HighScore', HighScoreScene);
     this.scene.add('BackToTitle', BackToTitleScene);

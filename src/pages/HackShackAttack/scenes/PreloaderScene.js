@@ -42,6 +42,10 @@ const powerUpCollect =
   'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/powerUpCollect.png';
 const winners =
   'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/winners.png';
+const keyboardControls =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/keyboard.png';
+const padControls =
+  'https://us-central1-grommet-designer.cloudfunctions.net/images/thebestpantsintown-gmail-com/controller.png';
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
@@ -131,6 +135,8 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('bullet', bullet);
     this.load.image('devGameOver', devGameOver);
     this.load.image('winners', winners);
+    this.load.image('keyboardControls', keyboardControls);
+    this.load.image('padControls', padControls);
 
     this.load.spritesheet('player', player, {
       frameWidth: 80,
