@@ -1,9 +1,12 @@
-/* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
+/* (C) Copyright 2020 Hewlett Packard Enterprise Development LP. */
 import styled from 'styled-components';
 import { Box } from 'grommet';
 
 export const LeaderboardLayout = styled(Box)`
-  height: 100vh;
+  @font-face {
+    font-family: 'ArcadeClassic';
+    src: url('/fonts/arcadeclassic.woff') format('woff');
+  }
   .outer {
     display: table;
     position: absolute;
@@ -22,28 +25,16 @@ export const LeaderboardLayout = styled(Box)`
     max-width: 1080px;
   }
   .highscore-title {
-    font-family: "ArcadeClassic";
+    font-family: 'ArcadeClassic';
     font-size: 100px;
-    text-shadow: 4px 4px #E08328;
-    @media (orientation: landscape) {
-      font-size: 60px;
-    }
+    text-shadow: 4px 4px #e08328;
   }
   .title-container {
     margin-bottom: 105px;
-    @media (orientation: landscape) {
-      margin-top: 23px;
-      margin-bottom: 23px;
-    }
   }
   .highscore-text {
-    font-family: "ArcadeClassic";
+    font-family: 'ArcadeClassic';
     font-size: 50px;
-    @media (orientation: landscape) {
-      font-size: 35px;
-      margin-top: 12px;
-      margin-bottom: 12px;
-    }
   }
 `;
 

@@ -1,43 +1,41 @@
-/* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
-import React from "react";
-import { Stack, Box, Image, Text } from "grommet";
-import { ImageContainer, LogoButton, BrickWall } from "./styles";
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import {
+  Box,
+  Button,
+  Text,
+  Header as HeaderGrommet,
+  Image,
+  Anchor,
+} from 'grommet';
+import { Menu } from 'grommet-icons';
 
-export const Header = () => (
-  <Stack anchor="center">
-    <BrickWall
-      fill
-      flex
-      background={{
-        image: "url(/img/BrickWallImage.png)"
-      }}
-    >
-      <ImageContainer alignSelf="center">
-        <img src="/img/HPETSS2020.png" alt="Hack Shack" />
-      </ImageContainer>
-      <LogoButton
-        href="https://developer.hpe.com/"
-        target="_blank"
-        margin={{ top: "medium", left: "medium" }}
-      >
-        <Box alignSelf="start" margin="medium" direction="row">
-          <Image src="/img/hpe-dev-logo.svg" />
-          <Text
-            size="xlarge"
-            margin={{ right: "xsmall", left: "small" }}
-            weight="bold"
-            color="light-1"
-            alignSelf="center"
-          >
-            HPE
-          </Text>
-          <Text size="xlarge" color="light-1" alignSelf="center">
-            Developer
-          </Text>
+export const Header = ({ setLayer, size }) => {
+  const iconSize = size === 'small' ? '192px' : '228px';
+
+  useEffect(() => {
+    if (size !== 'small') setLayer(false);
+  }, [size, setLayer]);
+
+  return (
+    <HeaderGrommet pad="medium" justify="between" align="center">
+      <Anchor href="https://www.hpe.com/us/en/discover.html" target="_blank">
+        <Box width={iconSize}>
+          <Image fit="contain" src="/img/hpe-dve-lockup.svg" />
         </Box>
-      </LogoButton>
-    </BrickWall>
-  </Stack>
-);
-
+      </Anchor>
+      {size === 'small' && (
+        <Box direction="row" align="center">
+          <Text color="#FFFFFF">MENU</Text>
+          <Button icon={<Menu />} onClick={() => setLayer(true)} />
+        </Box>
+      )}
+    </HeaderGrommet>
+  );
+};
 export default Header;
+
+Header.propTypes = {
+  setLayer: PropTypes.func,
+  size: PropTypes.string,
+};

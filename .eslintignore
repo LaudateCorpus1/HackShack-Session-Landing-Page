@@ -1,0 +1,12 @@
+node_modules/
+coverage/
+cypress/
+dist/
+build/
+prod/
+out/
+.next/
+.cache/
+public/
+yarn.lock
+package-lock.json
