@@ -11,7 +11,7 @@ import {
 
 const Content = () => {
   const size = useContext(ResponsiveContext);
-  const fontSize = size === 'small' ? '4vw' : '2.5vw';
+  const fontSize = size === 'small' ? '4vw' : '2.2vw';
   return (
     <TextWrapper>
       <Text size={fontSize} color="#FFFFFF">
@@ -27,12 +27,13 @@ const Content = () => {
         gaming status playing Hack Shack Attack!
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        Check out this week in the
+        Check out this week in the{' '}
         <Anchor
           target="_blank"
           rel="noopener noreferrer"
           href="https://vimeo.com/429291098"
           label="Hack Shack Video"
+          color="teal!"
         />
       </Text>
     </TextWrapper>

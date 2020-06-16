@@ -41,13 +41,11 @@ export default class GameOverScene extends Phaser.Scene {
       )
       .setTint(0xffffff)
       .setOrigin(0.5, 0.5);
-
     // submit select box
     this.submitSelectionBox = this.add
       .graphics()
       .fillStyle(0xffffff, 1)
       .fillRoundedRect(this.width / 2 - 260, this.height / 2 - 120, 220, 70);
-
     // cancel select box
     this.cancelSelectionBox = this.add
       .graphics()
