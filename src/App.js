@@ -84,7 +84,7 @@ const App = () => {
           <Route path="/hackshackattack">
             <HackShackAttack />
           </Route>
-          <Route path="/register">
+          <Route path="/challenge">
             <Register />
           </Route>
         </Switch>
