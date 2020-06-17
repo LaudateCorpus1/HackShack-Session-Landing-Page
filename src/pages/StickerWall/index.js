@@ -22,7 +22,7 @@ ImageWrapper.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-// Create box for each sticker small images
+// Create box for each sticker
 const BoxImage = ({
   icon,
   stickers,
