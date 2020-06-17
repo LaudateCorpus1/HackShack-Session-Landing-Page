@@ -1,5 +1,5 @@
 /* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IonPhaser } from '@ion-phaser/react';
 import styled from 'styled-components';
 import { Box, Button } from 'grommet';
@@ -49,6 +49,18 @@ const BackgroundWrapper = styled(Box)`
 `;
 
 const HackShackAttack = () => {
+  const preventScroll = e => {
+    if ([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+      e.preventDefault();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', preventScroll);
+    return () => {
+      window.removeEventListener('keydown', preventScroll);
+    };
+  }, []);
   const gameConfig = {
     initialize: true,
     game: {
@@ -75,6 +87,7 @@ const HackShackAttack = () => {
       scene: Game,
     },
   };
+
   const { game, initialize } = gameConfig;
   return (
     <GameContainer fill>

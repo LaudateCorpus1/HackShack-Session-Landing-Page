@@ -111,16 +111,6 @@ export default class LeaderboardScene extends Phaser.Scene {
   }
 
   createLeaderboard() {
-    /*     this.scoresCol1 = this.add
-      .text(
-        this.width / 2 - 300,
-        this.height / 2 - 210,
-        '1st ${this.hiScores.initials} ${this.hiScores.score}\n\n2nd Rad 400\n\n3rd Rad 400\n\n4th Rad 400\n\n5th Rad 400',
-        {
-          fontFamily: 'Kemco',
-          fontSize: '28px',
-        },
-      ) */
     this.first = this.add
       .text(
         this.width / 2 - 300,
