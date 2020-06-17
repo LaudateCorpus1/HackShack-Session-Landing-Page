@@ -112,22 +112,6 @@ const StickerRow = row => {
   });
 };
 
-const MobileStickerRow = row => {
-  const size = useContext(ResponsiveContext);
-  return row.map(stickers => {
-    return (
-      <BoxImage
-        height={size !== 'small' ? '150px' : '80px'}
-        img={stickers.img}
-        background={stickers.backgroundColor || stickers.backgroundImage}
-        icon={stickers.icon}
-        size={stickers.size}
-        stickers={stickers.img || stickers.backgroundImage}
-      />
-    );
-  });
-};
-
 const StickerWall = () => {
   const size = useContext(ResponsiveContext);
   return (
@@ -153,14 +137,14 @@ const StickerWall = () => {
           )}
           {size === 'small' && (
             <>
-              <Box direction="row">{MobileStickerRow(Row1.slice(0, 4))}</Box>
-              <Box direction="row">{MobileStickerRow(Row2.slice(0, 3))}</Box>
-              <Box direction="row">{MobileStickerRow(Row3.slice(0, 2))}</Box>
-              <Box direction="row">{MobileStickerRow(Row4.slice(0, 2))}</Box>
-              <Box direction="row">{MobileStickerRow(Row5.slice(0, 3))}</Box>
-              <Box direction="row">{MobileStickerRow(Row6.slice(0, 2))}</Box>
-              <Box direction="row">{MobileStickerRow(Row7.slice(0, 3))}</Box>
-              <Box direction="row">{MobileStickerRow(Row8.slice(0, 3))}</Box>
+              <Box direction="row">{StickerRow(Row1.slice(0, 4))}</Box>
+              <Box direction="row">{StickerRow(Row2.slice(0, 3))}</Box>
+              <Box direction="row">{StickerRow(Row3.slice(0, 2))}</Box>
+              <Box direction="row">{StickerRow(Row4.slice(0, 2))}</Box>
+              <Box direction="row">{StickerRow(Row5.slice(0, 3))}</Box>
+              <Box direction="row">{StickerRow(Row6.slice(0, 2))}</Box>
+              <Box direction="row">{StickerRow(Row7.slice(0, 3))}</Box>
+              <Box direction="row">{StickerRow(Row8.slice(0, 3))}</Box>
             </>
           )}
         </Box>
