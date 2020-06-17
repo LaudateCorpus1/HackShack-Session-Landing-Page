@@ -1,5 +1,6 @@
 /* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 import Phaser from 'phaser';
+import { API_URL } from '../config/config';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
@@ -7,11 +8,12 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   init() {
-    this.selection = 'start';
     this.gamepad = undefined;
     this.buttonPressed = false;
     this.stickPressed = false;
     this.startScene = false;
+    this.cursor = new Phaser.Math.Vector2();
+    this.selection = ['start', 'controls', 'leaderboard'];
   }
 
   create() {
@@ -22,6 +24,7 @@ export default class TitleScene extends Phaser.Scene {
     this.centerObject(this.gameLogo, 0, 1.65);
     this.hpeDevLogo = this.add.sprite(0, 0, 'hpeDevLogo').setScale(0.5);
     this.centerObject(this.hpeDevLogo, -1.6, 2.8);
+
     // start select box
     this.startSelectionBox = this.add
       .graphics()
@@ -37,13 +40,14 @@ export default class TitleScene extends Phaser.Scene {
       .setTint(0x000000)
       .setInteractive();
     this.centerObject(this.startButton, 0.5, 0.38);
-    // hot to play select
+
+    // how to play select
     this.controlsSelectionBox = this.add
       .graphics()
       .fillStyle(0xffffff, 1)
-      .fillRoundedRect(0, 0, 210, 55);
+      .fillRoundedRect(0, 0, 230, 55);
     this.controlsSelectionBox.visible = false;
-    this.centerObject(this.controlsSelectionBox, 1, -0.2);
+    this.centerObject(this.controlsSelectionBox, 1.1, 0);
     // how to play button
     this.controlsButton = this.add
       .text(this.width / 2 + 60, this.height / 2 - 108, 'Controls', {
@@ -52,7 +56,25 @@ export default class TitleScene extends Phaser.Scene {
       })
       .setTint(0xffffff)
       .setInteractive();
-    this.centerObject(this.controlsButton, 0.85, -0.3);
+    this.centerObject(this.controlsButton, 0.85, -0.12);
+
+    // leaderboard select
+    this.leaderboardSelectionBox = this.add
+      .graphics()
+      .fillStyle(0xffffff, 1)
+      .fillRoundedRect(0, 0, 290, 55);
+    this.leaderboardSelectionBox.visible = false;
+    this.centerObject(this.leaderboardSelectionBox, 1.38, -0.5);
+    // leaderboard button
+    this.leaderboardButton = this.add
+      .text(this.width / 2 + 60, this.height / 2 - 108, 'Leaderboard', {
+        fontFamily: 'Kemco',
+        fontSize: '30px',
+      })
+      .setTint(0xffffff)
+      .setInteractive();
+    this.centerObject(this.leaderboardButton, 1.2, -0.65);
+
     this.keyboardInputs();
   }
 
@@ -68,8 +90,8 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   keyboardInputs() {
-    this.upInput = this.input.keyboard.on('keyup_UP', this.onChange, this);
-    this.downInput = this.input.keyboard.on('keyup_DOWN', this.onChange, this);
+    this.upInput = this.input.keyboard.on('keyup_UP', this.moveUp, this);
+    this.downInput = this.input.keyboard.on('keyup_DOWN', this.moveDown, this);
     this.enterInput = this.input.keyboard.on(
       'keyup_ENTER',
       this.onSelect,
@@ -126,30 +148,97 @@ export default class TitleScene extends Phaser.Scene {
     }
   }
 
-  onChange() {
-    if (this.selection === 'start') {
-      this.controlsSelectionBox.visible = true;
-      this.startSelectionBox.visible = false;
-      this.controlsButton.setTint(0x000000);
-      this.startButton.setTint(0xffffff);
-      this.selection = 'controls';
-    } else {
-      this.controlsSelectionBox.visible = false;
-      this.startSelectionBox.visible = true;
-      this.controlsButton.setTint(0xffffff);
-      this.startButton.setTint(0x000000);
-      this.selection = 'start';
-    }
-  }
-
   onSelect() {
-    if (this.selection === 'start') {
+    const { x } = this.cursor;
+    if (this.selection[x] === 'start') {
       this.startScene = false;
       this.scene.start('Game');
-    } else if (this.selection === 'controls') {
+    }
+    if (this.selection[x] === 'controls') {
       this.startScene = false;
       this.scene.start('HowToPlay');
     }
+    if (this.selection[x] === 'leaderboard') {
+      this.startScene = false;
+      this.getLeaderboard();
+    }
+  }
+
+  moveUp() {
+    if (this.cursor.x === 0) {
+      this.cursor.x = 2;
+      this.startSelectionBox.visible = false;
+      this.startButton.setTint(0xffffff);
+      this.leaderboardSelectionBox.visible = true;
+      this.leaderboardButton.setTint(0x000000);
+      return;
+    }
+    if (this.cursor.x === 1) {
+      this.cursor.x = 0;
+      this.startSelectionBox.visible = true;
+      this.startButton.setTint(0x000000);
+      this.controlsSelectionBox.visible = false;
+      this.controlsButton.setTint(0xffffff);
+      return;
+    }
+    if (this.cursor.x === 2) {
+      this.cursor.x = 1;
+      this.controlsSelectionBox.visible = true;
+      this.controlsButton.setTint(0x000000);
+      this.leaderboardSelectionBox.visible = false;
+      this.leaderboardButton.setTint(0xffffff);
+    }
+  }
+
+  moveDown() {
+    if (this.cursor.x === 0) {
+      this.cursor.x = 1;
+      this.startSelectionBox.visible = false;
+      this.startButton.setTint(0xffffff);
+      this.controlsSelectionBox.visible = true;
+      this.controlsButton.setTint(0x000000);
+      return;
+    }
+    if (this.cursor.x === 1) {
+      this.cursor.x = 2;
+      this.controlsSelectionBox.visible = false;
+      this.controlsButton.setTint(0xffffff);
+      this.leaderboardSelectionBox.visible = true;
+      this.leaderboardButton.setTint(0x000000);
+      return;
+    }
+    if (this.cursor.x === 2) {
+      this.cursor.x = 0;
+      this.startSelectionBox.visible = true;
+      this.startButton.setTint(0x000000);
+      this.leaderboardSelectionBox.visible = false;
+      this.leaderboardButton.setTint(0xffffff);
+    }
+  }
+
+  getLeaderboard() {
+    this.loading = true;
+    return fetch(`${API_URL}/leaderboard`, {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        const sortedHiScores = data.sort((a, b) => b.score - a.score);
+        const len = sortedHiScores.length;
+        if (len < 10) {
+          for (let i = len + 1; i <= 10; i += 1) {
+            sortedHiScores.push({ score: '------', name: '------' });
+          }
+        }
+        const hiScores = sortedHiScores.slice(0, 10);
+        this.scene.start('Leaderboard', { data: hiScores });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   centerObject(gameObject, offsetX = 0, offsetY = 0) {

@@ -19,5 +19,4 @@ export const config = {
   },
 };
 
-export const API_URL =
-  'https://lv19.hpedev.io/.netlify/functions/api/user/create';
+export const API_URL = 'https://lv19.hpedev.io/.netlify/functions/api/user';
