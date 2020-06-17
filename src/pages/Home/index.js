@@ -1,13 +1,7 @@
 import React, { useContext } from 'react';
 import { Box, Text, Image, ResponsiveContext, Anchor } from 'grommet';
-import { Layout, ButtonSplit, Card } from '../../components/index';
-import {
-  ButtonWrapper,
-  CardWrapper,
-  LogoWrapper,
-  MainWrapper,
-  TextWrapper,
-} from './styles';
+import { Layout, ButtonSplit } from '../../components/index';
+import { ButtonWrapper, LogoWrapper, MainWrapper, TextWrapper } from './styles';
 
 const Content = () => {
   const size = useContext(ResponsiveContext);
@@ -41,8 +35,6 @@ const Content = () => {
 };
 
 const Home = () => {
-  const size = useContext(ResponsiveContext);
-
   return (
     <Layout background="/img/BackgroundImages/hack-shack-home-background.png">
       <Box height="100%" width="100%">
