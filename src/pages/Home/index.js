@@ -1,7 +1,13 @@
 import React, { useContext } from 'react';
 import { Box, Text, Image, ResponsiveContext, Anchor } from 'grommet';
 import { Layout, ButtonSplit } from '../../components/index';
-import { ButtonWrapper, LogoWrapper, MainWrapper, TextWrapper } from './styles';
+import {
+  ButtonWrapper,
+  // CardWrapper,
+  LogoWrapper,
+  MainWrapper,
+  TextWrapper,
+} from './styles';
 
 const Content = () => {
   const size = useContext(ResponsiveContext);
@@ -25,7 +31,7 @@ const Content = () => {
         <Anchor
           target="_blank"
           rel="noopener noreferrer"
-          href="https://vimeo.com/429291098"
+          href="https://vimeo.com/429478014"
           label="Hack Shack Video"
           color="teal!"
         />
@@ -35,6 +41,8 @@ const Content = () => {
 };
 
 const Home = () => {
+  // const size = useContext(ResponsiveContext);
+
   return (
     <Layout background="/img/BackgroundImages/hack-shack-home-background.png">
       <Box height="100%" width="100%">
