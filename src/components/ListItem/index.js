@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -8,9 +8,9 @@ import {
   Header,
   Paragraph,
   RadioButton,
-  Text
-} from "grommet";
-import { Close, StatusInfo } from "grommet-icons";
+  Text,
+} from 'grommet';
+import { Close, StatusInfo } from 'grommet-icons';
 
 const ListItem = props => {
   const [open, setOpen] = useState();
@@ -18,24 +18,24 @@ const ListItem = props => {
   let disabled = false;
 
   const onClose = () => setOpen(undefined);
-  if (props.workshopNameDesc.capacity <= 0) disabled = true;
+  if (props.challengeNameDesc.capacity <= 0) disabled = true;
 
   return (
     <Box direction="row" align="center" gap="small">
       <RadioButton
-        name={props.workshopNameDesc.name}
-        label={props.workshopNameDesc.name}
-        checked={props.workshopNameDesc.name === props.workshop}
+        name={props.challengeNameDesc.name}
+        label={props.challengeNameDesc.name}
+        checked={props.challengeNameDesc.name === props.challenge}
         disabled={disabled}
         onChange={event => {
           props.setFormValues(prevState => ({
             ...prevState,
-            workshop: props.workshopNameDesc.name,
-            jupyterWorkshop: props.workshopNameDesc.jupyterName
+            challenge: props.challengeNameDesc.name,
+            jupyterWorkshop: props.challengeNameDesc.notebook,
           }));
           props.setCustomError(prevState => ({
             ...prevState,
-            workshopErr: ""
+            workshopErr: '',
           }));
         }}
       />
@@ -54,7 +54,7 @@ const ListItem = props => {
             align="center"
             justify="center"
             pad="medium"
-            background={{ color: "background", dark: false }}
+            background={{ color: 'background', dark: false }}
           >
             <Header
               align="center"
@@ -64,7 +64,7 @@ const ListItem = props => {
               gap="medium"
             >
               <Heading margin="none" level="3">
-                {props.workshopNameDesc.name}
+                {props.challengeNameDesc.name}
               </Heading>
               <Button
                 icon={<Close />}
@@ -72,7 +72,7 @@ const ListItem = props => {
                 onClick={onClose}
               />
             </Header>
-            <Paragraph>{props.workshopNameDesc.description}</Paragraph>
+            <Paragraph>{props.challengeNameDesc.description}</Paragraph>
           </Box>
         </Layer>
       )}
@@ -81,10 +81,10 @@ const ListItem = props => {
 };
 
 ListItem.propTypes = {
-  workshopNameDesc: PropTypes.shape({
+  challengeNameDesc: PropTypes.shape({
     name: PropTypes.string,
-    description: PropTypes.string
-  })
+    description: PropTypes.string,
+  }),
 };
 
 export default ListItem;
