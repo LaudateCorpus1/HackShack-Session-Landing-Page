@@ -82,10 +82,10 @@ const SideNav = ({ location, history, size }) => (
     </NavButton>
     <NavButton
       history={history}
-      active={location.pathname === '/register'}
-      to="/register"
+      active={location.pathname === '/challenge'}
+      to="/challenge"
     >
-      REGISTER
+      CHALLENGE
     </NavButton>
   </Box>
 );
