@@ -1,80 +1,82 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import {
   Box,
   Form,
   FormField,
   TextInput,
   Button,
-  Header,
   Heading,
+  Header,
   Text,
   CheckBox,
   Anchor,
 } from 'grommet';
 import axios from 'axios';
-import { Layout, ListItem } from '../../components/index';
+import { ListItem, Layout } from '../../components';
 
-const Register = () => {
+const Register = props => {
   const defaultForm = {
     name: '',
     email: '',
     company: '',
-    workshop: '',
-    jupyterWorkshop: '',
+    challenge: '',
+    notebook: '',
     terms: false,
   };
   const defaultError = {
     nameErr: '',
     emailErr: '',
     companyErr: '',
-    workshopErr: '',
+    challengeErr: '',
     acceptTermsErr: '',
   };
+
   const [formValues, setFormValues] = useState(defaultForm);
   const [customError, setCustomError] = useState(defaultError);
   const [error, setError] = useState('');
   const [submitStatus, setSubmitStatus] = useState(false);
-  const [workshopNameDesc, setWorkshopNameDesc] = useState([]);
+  const [challengeNameDesc, setChallengeNameDesc] = useState([]);
 
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT;
-  const getWorkshopsApi = `${apiEndpoint}/api/workshops`;
-  const addCustomer = `${apiEndpoint}/api/customer/create`;
+  const getChallengesApi = `${apiEndpoint}/api/challenges`;
+  const addCustomer = `${apiEndpoint}/api/customer`;
 
   let formIsValid = false;
 
   useEffect(() => {
     let capacity = 0;
-    const getWorkshops = () => {
+    const getChallenges = () => {
       axios({
         method: 'GET',
-        url: getWorkshopsApi,
+        url: getChallengesApi,
       })
         .then(response => {
           let arr = [];
 
           // Map created
-          response.data.forEach(workshop => {
-            arr.push({ ...workshop });
-            if (workshop.capacity > 0) capacity += 1;
+          response.data.forEach(challenge => {
+            arr.push({ ...challenge });
+            if (challenge.capacity > 0) capacity += 1;
           });
-          setWorkshopNameDesc([...workshopNameDesc, ...arr]);
+          setChallengeNameDesc([...challengeNameDesc, ...arr]);
         })
         .then(() => {
           if (capacity <= 0)
             setError(
-              'Currently, workshops are Unavailable. Please try again in few hours',
+              'Currently, challenges are Unavailable. Please try again in few hours',
             );
         })
         .catch(error => {
           if (!error.response) {
             // network error
-            setError(`Error submitting ${getWorkshopsApi}.`);
+            setError(`Error submitting ${getChallengesApi}.`);
           } else {
             setError(error.response.data.message);
           }
         });
     };
-    getWorkshops();
+    getChallenges();
     // eslint-disable-next-line
   }, []);
 
@@ -180,18 +182,18 @@ const Register = () => {
   };
 
   //Workshop selection - required
-  const workshopValidation = async workshop => {
-    if (workshop) {
+  const challengeValidation = async challenge => {
+    if (challenge) {
       formIsValid = true;
       setCustomError(prevState => ({
         ...prevState,
-        workshopErr: '',
+        challengeErr: '',
       }));
     } else {
       formIsValid = false;
       setCustomError(prevState => ({
         ...prevState,
-        workshopErr: 'Please select a workshop',
+        challengeErr: 'Please select a challenge',
       }));
     }
   };
@@ -215,7 +217,7 @@ const Register = () => {
 
   const handleValidation = async () => {
     //Workshop - required
-    await workshopValidation(formValues.workshop);
+    await challengeValidation(formValues.challenge);
     await acceptTermsValidation(formValues.terms);
   };
 
@@ -248,8 +250,9 @@ const Register = () => {
         });
     }
   };
+
   return (
-    <Layout background="/img/schedule-background.svg">
+    <Layout background="/img/BackgroundImages/schedule-background.png">
       <Box
         align="start"
         border
@@ -257,7 +260,7 @@ const Register = () => {
         justify="start"
         gap="medium"
         pad={{ horizontal: 'medium', vertical: 'medium' }}
-        background="dark-1"
+        background="#263040"
       >
         <Header
           direction="column"
@@ -268,7 +271,7 @@ const Register = () => {
           <Heading level={3} margin="none">
             Register
           </Heading>
-          <Text>for a HPE Hack Shack workshop</Text>
+          <Text>for a HPE Discover Hack Shack Challenge</Text>
         </Header>
         <Box
           // Padding used to prevent focus from being cutoff
@@ -320,19 +323,19 @@ const Register = () => {
                 }}
               />
             </FormField>
-            <FormField label="Workshops" error={customError.workshopErr}>
+            <FormField label="Challenges" error={customError.challengeErr}>
               <Box pad="xsmall" gap="xsmall">
-                {workshopNameDesc &&
-                  workshopNameDesc.length &&
-                  workshopNameDesc.map(workshopData => (
+                {challengeNameDesc &&
+                  challengeNameDesc.length &&
+                  challengeNameDesc.map(workshopData => (
                     <ListItem
                       key={workshopData.name}
-                      workshopNameDesc={workshopData}
+                      challengeNameDesc={workshopData}
                       setFormValues={setFormValues}
                       // setJupyterWorkshop={setJupyterWorkshop}
                       setCustomError={setCustomError}
-                      workshop={formValues.workshop}
-                      // jupyterWorkshop={formValues.jupyterWorkshop}
+                      challenge={formValues.challenge}
+                      // notebook={formValues.notebook}
                     />
                   ))}
               </Box>
@@ -393,8 +396,16 @@ const Register = () => {
           </Form>
         </Box>
       </Box>
+
+      {submitStatus && (
+        <Redirect
+          to={{
+            pathname: '/success',
+            state: formValues,
+          }}
+        />
+      )}
     </Layout>
   );
 };
-
 export default Register;
