@@ -1,5 +1,6 @@
 [
     {
+    "sessionId": "T492",
     "sessionType": "Challenge",
     "avatar": "/img/SpeakerImages/Didier.png",
     "title": "The container Challenge",
@@ -10,6 +11,7 @@
     "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US"
     },
     {
+    "sessionId": "T492",
     "sessionType": "Challenge",
     "avatar": "/img/SpeakerImages/Francois.png",
     "title": "The Redfish Challenge",
@@ -20,6 +22,7 @@
     "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US"
     },
     {
+    "sessionId": "T492",
     "sessionType": "Challenge",
     "avatar": "/img/SpeakerImages/Didier.png",
     "title": "The Grommet Challenge",
@@ -30,6 +33,7 @@
     "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US"
     },
     {
+    "sessionId": "T492",
     "sessionType": "Challenge",
     "avatar": "/img/SpeakerImages/defaultAvatar.svg",
     "title": "The HPE OneView Challenge",

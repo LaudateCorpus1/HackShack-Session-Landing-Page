@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Box, Button, Heading, Text, Avatar } from 'grommet';
 import PropTypes from 'prop-types';
 import { CardWrapper } from './styles';
-
 const ScheduleCard = ({
   avatar,
   desc,
@@ -61,25 +61,38 @@ const ScheduleCard = ({
           </Text>
         </Box>
       </Box>
-      <Button
-        alignSelf="start"
-        href={sessionLink}
-        target="_blank"
-        rel="noreferrer noopener"
-        label={
-          <Box pad="xsmall">
-            <Text color="text-strong">Learn more</Text>
-          </Box>
-        }
-        secondary
-      />
+      <Box direction="row" gap="medium">
+        <Button
+          alignSelf="start"
+          href={sessionLink}
+          target="_blank"
+          rel="noreferrer noopener"
+          label={
+            <Box pad="xsmall">
+              <Text color="text-strong">Learn more</Text>
+            </Box>
+          }
+          secondary
+        />
+        {sessionLink && (
+          <Link to={{ pathname: '/challenge' }}>
+            <Button
+              alignSelf="start"
+              label={
+                <Box pad="xsmall">
+                  <Text color="text-strong">Register</Text>
+                </Box>
+              }
+              secondary
+            />
+          </Link>
+        )}
+      </Box>
     </CardWrapper>
   );
 };
-
 ScheduleCard.propTypes = {
   title: PropTypes.string,
   desc: PropTypes.string,
 };
-
 export default ScheduleCard;

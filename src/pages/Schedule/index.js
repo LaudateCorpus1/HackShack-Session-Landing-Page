@@ -67,14 +67,15 @@ const Schedule = () => {
             desc,
             link,
             presenter,
-            role, // sessionId,
+            role,
+            sessionId,
             sessionType,
             title,
           }) => (
             <ScheduleCard
               avatar={avatar}
               desc={`${desc.slice(0, 220)}...`}
-              // id={sessionId}
+              id={sessionId}
               key={title}
               presenter={presenter}
               role={role}
