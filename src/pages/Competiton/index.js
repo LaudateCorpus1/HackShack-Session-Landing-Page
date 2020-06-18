@@ -16,15 +16,15 @@ const Competiton = () => {
           </Link>
         </Box>
         <Heading margin={{ top: 'large', bottom: 'small' }} color="text-strong">
-          Contest deadline and fine print
+          Contest rules, times to compete and prizes
         </Heading>
-        <Heading
+        {/* <Heading
           margin={{ top: 'none', bottom: 'large' }}
           level={2}
           color="text-strong"
         >
           1:1 Rules of the game
-        </Heading>
+        </Heading> */}
         <Text size="xlarge">
           NO PURCHASE NECESSARY & PURCHASE WILL NOT INCREASE CHANCE OF WINNING.
           OPEN ONLY TO HPE Discover Virtual Experience event 2020 ATTENDEES AT
@@ -79,7 +79,8 @@ const Competiton = () => {
             highest scoring player will be declared the winner and be awarded a
             gift certificate
           </strong>{' '}
-          (valued at approximately $100).
+          (valued at approximately $100). All winners will be notified by email
+          no later than the following Monday of each period.
         </Text>
         <br></br>
         <Text size="xlarge">
