@@ -73,7 +73,9 @@ const SideNav = ({ location, history, size }) => (
     <NavButton
       history={history}
       active={
-        location.pathname === '/arcade' || location.pathname === '/stickerwall'
+        location.pathname === '/arcade' ||
+        location.pathname === '/stickerwall' ||
+        location.pathname === '/competiton'
       }
       to="/arcade"
       size={size}
