@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Box, Button, Image, Heading, Text } from 'grommet';
 import { Layout, SubPageHeader } from '../../components/index';
 
@@ -10,7 +11,9 @@ const Competiton = () => {
           <Image src="/img/attack-marquee.svg"></Image>
         </Box>
         <Box pad={{ vertical: 'medium' }} align="start">
-          <Button primary label="Play the Game"></Button>
+          <Link to="/hackshackattack">
+            <Button primary label="Play the Game"></Button>
+          </Link>
         </Box>
         <Heading margin={{ top: 'large', bottom: 'small' }} color="text-strong">
           Contest deadline and fine print
