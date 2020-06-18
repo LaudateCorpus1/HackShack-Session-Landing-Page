@@ -4,7 +4,7 @@ import { IonPhaser } from '@ion-phaser/react';
 import styled from 'styled-components';
 import { Box, Button, Layer, Image, Text, Anchor, CheckBox } from 'grommet';
 import { Link } from 'react-router-dom';
-import { FormPreviousLink } from 'grommet-icons';
+import { Previous } from 'grommet-icons';
 import Phaser from 'phaser';
 import BootScene from './scenes/BootScene';
 import PreloaderScene from './scenes/PreloaderScene';
@@ -100,7 +100,7 @@ const TermsLayer = ({ setAccepted }) => {
     <Layer>
       <Box alignSelf="end" pad="small">
         <Link to={{ pathname: '/arcade' }}>
-          <Button icon={<FormPreviousLink />} label="Back to Arcade" />
+          <Button icon={<Previous />} label="Back to Arcade" />
         </Link>
       </Box>
       <Box direction="column" pad="large" gap="medium" align="start">
@@ -183,7 +183,7 @@ const HackShackAttack = () => {
       >
         <Box margin="48px" alignSelf="start">
           <Link to={{ pathname: '/arcade' }}>
-            <Button icon={<FormPreviousLink />} label="Back to Arcade" />
+            <Button icon={<Previous />} label="Back to Arcade" />
           </Link>
         </Box>
       </BackgroundWrapper>
