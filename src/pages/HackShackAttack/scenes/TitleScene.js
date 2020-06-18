@@ -217,7 +217,6 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   getLeaderboard() {
-    console.log(navigator.userAgent);
     this.loading = true;
     return fetch(`${API_URL}/leaderboard`, {
       method: 'GET',
