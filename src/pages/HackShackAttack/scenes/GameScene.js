@@ -233,7 +233,7 @@ export default class GameScene extends Phaser.Scene {
         this.physics.moveToObject,
         this.physics,
         this.player,
-        200,
+        150,
       );
 
       Phaser.Utils.Array.Each(
@@ -241,7 +241,7 @@ export default class GameScene extends Phaser.Scene {
         this.physics.moveToObject,
         this.physics,
         this.player,
-        125,
+        100,
       );
     } else {
       this.spawnTimerBug = time;
