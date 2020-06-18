@@ -1,18 +1,16 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Image, Stack, ResponsiveContext } from 'grommet';
-import { Monitor, User } from 'grommet-icons';
-import { Row1, Row2, Row6 } from './stickers';
+import { Row1, Row2, Row3, Row4, Row5, Row6, Row7, Row8 } from './stickers';
 import { StyledSmallAnchor, StyledLargeAnchor } from './styles';
 import { Layout, SubPageHeader } from '../../components/index';
 
 // Image wrapper
-const ImageWrapper = ({ children, height, ...props }) => (
+const ImageWrapper = ({ children, ...props }) => (
   <Box
     pad={{ horizontal: 'small', bottom: 'small', top: 'medium' }}
     margin={{ right: 'medium', bottom: 'medium' }}
     border
-    height={height}
     style={{ borderRadius: '12px' }}
     {...props}
   >
@@ -22,73 +20,96 @@ const ImageWrapper = ({ children, height, ...props }) => (
 
 ImageWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  height: PropTypes.string,
 };
 
-// Create box for each sticker small images
-const BoxImage = ({ icon, stickers, backgroundColor, height, ...props }) => {
-  return (
-    <StyledSmallAnchor href={stickers} download>
-      <Box
-        background={backgroundColor || '#263040'}
-        id={stickers}
-        key={stickers}
-        pad={{ horizontal: 'small', bottom: 'small', top: 'medium' }}
-        margin={{ right: 'medium', bottom: 'medium' }}
-        border
-        height={height}
-        style={{ borderRadius: '12px' }}
-        {...props}
-      >
-        <Image fit="contain" src={stickers} />
-        <Stack alignSelf="end">{icon}</Stack>
-      </Box>
-    </StyledSmallAnchor>
-  );
-};
-
-BoxImage.propTypes = {
-  children: PropTypes.node.isRequired,
-  icon: PropTypes.object,
-  backgroundColor: PropTypes.string,
-  stickers: PropTypes.object,
-  height: PropTypes.string,
-};
-
-// Create box for each sticker small images
-const BoxImageLarge = ({
-  stickers,
+// Create box for each sticker
+const BoxImage = ({
   icon,
+  stickers,
   backgroundColor,
+  backgroundImage,
+  img,
+  size,
   height,
   ...props
 }) => {
   return (
-    <StyledLargeAnchor href={stickers} download>
-      <Box
-        pad={{ horizontal: 'small', bottom: 'small', top: 'medium' }}
-        margin={{ right: 'medium', bottom: 'medium' }}
-        border
-        height={height}
-        style={{ borderRadius: '12px' }}
-        background={backgroundColor || '#263040'}
-        {...props}
-        id={stickers}
-        key={stickers}
-      >
-        <Image fit="contain" src={stickers} />
-        <Stack alignSelf="end">{icon}</Stack>
-      </Box>
-    </StyledLargeAnchor>
+    <>
+      {size && (
+        <StyledLargeAnchor href={stickers} download>
+          <ImageWrapper
+            background={backgroundColor || backgroundImage}
+            height={height}
+            id={stickers}
+            key={stickers}
+            {...props}
+          >
+            {img && (
+              <Box fill>
+                <Image fit="contain" src={img} />
+                <Stack alignSelf="end">{icon}</Stack>
+              </Box>
+            )}
+            {!img && (
+              <Box justify="end" fill="vertical" alignSelf="end">
+                {icon}
+              </Box>
+            )}
+          </ImageWrapper>
+        </StyledLargeAnchor>
+      )}
+      {!size && (
+        <StyledSmallAnchor href={stickers} download>
+          <ImageWrapper
+            background={backgroundColor || backgroundImage}
+            height={height}
+            id={stickers}
+            key={stickers}
+            {...props}
+          >
+            {img && (
+              <Box fill>
+                <Image fit="contain" src={img} />
+                <Stack alignSelf="end">{icon}</Stack>
+              </Box>
+            )}
+            {!img && (
+              <Box justify="end" fill="vertical" alignSelf="end">
+                {icon}
+              </Box>
+            )}
+          </ImageWrapper>
+        </StyledSmallAnchor>
+      )}
+    </>
   );
 };
 
-BoxImageLarge.propTypes = {
+BoxImage.propTypes = {
+  size: PropTypes.string,
   children: PropTypes.node.isRequired,
   icon: PropTypes.object,
   backgroundColor: PropTypes.string,
   stickers: PropTypes.object,
+  img: PropTypes.string,
+  backgroundImage: PropTypes.string,
   height: PropTypes.string,
+};
+
+const StickerRow = row => {
+  const size = useContext(ResponsiveContext);
+  return row.map(stickers => {
+    return (
+      <BoxImage
+        height={size !== 'small' ? '150px' : '80px'}
+        img={stickers.img}
+        background={stickers.backgroundColor || stickers.backgroundImage}
+        icon={stickers.icon}
+        size={stickers.size}
+        stickers={stickers.img || stickers.backgroundImage}
+      />
+    );
+  });
 };
 
 const StickerWall = () => {
@@ -96,365 +117,37 @@ const StickerWall = () => {
   return (
     <Layout background="/img/BackgroundImages/stickers-background.jpg">
       <SubPageHeader title="STICKERS AND ART">
-        {size !== 'small' && (
-          <Box
-            justify="between"
-            background={{ color: '#263040' }}
-            pad="large"
-            round="small"
-            width={{ min: '680px' }}
-          >
-            <Box direction="row">
-              {Row1.map(stickers => (
-                <BoxImage
-                  height="150px"
-                  background={stickers.backgroundColor}
-                  icon={stickers.icon}
-                  stickers={stickers.img}
-                />
-              ))}
-            </Box>
-            <Box direction="row">
-              <BoxImageLarge
-                height="150px"
-                stickers="/img/StickerPage/06-HackShack.png"
-                background="#4F5F76"
-                icon={<Monitor size="small" />}
-              />
-              {Row2.map(stickers => (
-                <BoxImage
-                  height="150px"
-                  stickers={stickers.img}
-                  icon={stickers.icon}
-                />
-              ))}
-              <StyledSmallAnchor href="/img/StickerPage/devlogo.png" download>
-                <ImageWrapper
-                  height="150px"
-                  background={{
-                    image: 'url(/img/StickerPage/grommet-icon.png)',
-                  }}
-                >
-                  <Box justify="end" fill="vertical" alignSelf="end">
-                    <Monitor size="small" />
-                  </Box>
-                </ImageWrapper>
-              </StyledSmallAnchor>
-            </Box>
-            <Box direction="row">
-              <BoxImage
-                background="#82FFF2"
-                icon={<User size="small" />}
-                stickers="/img/StickerPage/gremlinhat.png"
-                height="150px"
-              />
-              <StyledLargeAnchor
-                // href="/img/StickerPage/ezmeralbackground.png"
-                download
-              >
-                <ImageWrapper
-                  height="150px"
-                  // replace background after ezmeral annouc
-                  background="background-contrast"
-                  // background={{
-                  //   image: 'url(/img/StickerPage/ezmeralbackground.png)',
-                  // }}
-                >
-                  {/* <Box justify="end" fill="vertical" alignSelf="end">
-                    <Monitor size="small" />
-                  </Box> */}
-                </ImageWrapper>
-              </StyledLargeAnchor>
-              <BoxImageLarge
-                height="150px"
-                stickers="/img/StickerPage/letshackshack.png"
-                icon={<Monitor size="small" />}
-              />
-            </Box>
-            <Box direction="row">
-              <BoxImage
-                height="150px"
-                icon={<User size="small" />}
-                stickers="/img/StickerPage/devlogo.png"
-              />
-              <StyledLargeAnchor href="/img/StickerPage/2gremlins.png" download>
-                <ImageWrapper
-                  height="150px"
-                  background={{
-                    image: 'url(/img/StickerPage/2gremlins.png)',
-                  }}
-                >
-                  <Box justify="end" fill="vertical" alignSelf="end">
-                    <Monitor size="small" />
-                  </Box>
-                </ImageWrapper>
-              </StyledLargeAnchor>
-              <StyledLargeAnchor
-                href="/img/StickerPage/hack-shack-house.png"
-                download
-              >
-                <ImageWrapper
-                  height="150px"
-                  background={{
-                    image: 'url(/img/StickerPage/hack-shack-house.png)',
-                  }}
-                >
-                  <Box justify="end" fill="vertical" alignSelf="end">
-                    <Monitor size="small" />
-                  </Box>
-                </ImageWrapper>
-              </StyledLargeAnchor>
-            </Box>
-            <Box direction="row">
-              <BoxImageLarge
-                height="150px"
-                stickers="/img/StickerPage/attack-marquee.svg"
-                icon={<Monitor size="small" />}
-                background="black"
-              />
-              <BoxImage
-                height="150px"
-                stickers="/img/StickerPage/dev-thumb.png"
-                icon={<User size="small" />}
-              />
-              <StyledSmallAnchor download href="/img/StickerPage/design.png">
-                <ImageWrapper
-                  height="150px"
-                  background={{
-                    image: 'url(/img/StickerPage/design.png)',
-                  }}
-                >
-                  <Box justify="end" fill="vertical" alignSelf="end">
-                    <Monitor size="small" />
-                  </Box>
-                </ImageWrapper>
-              </StyledSmallAnchor>
-              <StyledSmallAnchor download href="/img/StickerPage/heart.png">
-                <ImageWrapper
-                  height="150px"
-                  background={{
-                    image: 'url(/img/StickerPage/heart.png)',
-                  }}
-                >
-                  <Box justify="end" fill="vertical" alignSelf="end">
-                    <User size="small" />
-                  </Box>
-                </ImageWrapper>
-              </StyledSmallAnchor>
-            </Box>
-            <Box direction="row">
-              <BoxImage
-                height="150px"
-                icon={<Monitor size="small" />}
-                stickers="/img/StickerPage/itmonsterattack.png"
-              />
-              {Row6.map(stickers => (
-                <BoxImageLarge
-                  height="150px"
-                  icon={stickers.icon}
-                  background={stickers.backgroundColor}
-                  stickers={stickers.img}
-                />
-              ))}
-            </Box>
-          </Box>
-        )}
-        {size === 'small' && (
-          <Box
-            justify="between"
-            background={{ color: '#263040' }}
-            pad="large"
-            round="small"
-            alignSelf="center"
-          >
-            <Box direction="row">
-              {Row1.slice(0, 2).map(stickers => (
-                <BoxImage
-                  height="80px"
-                  background={stickers.backgroundColor}
-                  icon={stickers.icon}
-                  stickers={stickers.img}
-                />
-              ))}
-            </Box>
-            <Box direction="row">
-              <StyledLargeAnchor
-                href="/img/StickerPage/ezmeralbackground.png"
-                download
-              >
-                <ImageWrapper
-                  height="80px"
-                  background={{
-                    image: 'url(/img/StickerPage/ezmeralbackground.png)',
-                  }}
-                >
-                  <Box justify="end" fill="vertical" alignSelf="end">
-                    <Monitor size="small" />
-                  </Box>
-                </ImageWrapper>
-              </StyledLargeAnchor>
-            </Box>
-            <Box direction="row">
-              {Row1.slice(2, 4).map(stickers => (
-                <BoxImage
-                  height="80px"
-                  background={stickers.backgroundColor}
-                  icon={stickers.icon}
-                  stickers={stickers.img}
-                />
-              ))}
-            </Box>
-            <Box direction="row">
-              <BoxImageLarge
-                height="80px"
-                stickers="/img/StickerPage/06-HackShack.png"
-                background="#4F5F76"
-                icon={<Monitor size="small" />}
-              />
-            </Box>
-            <Box direction="row">
-              {Row2.map(stickers => (
-                <BoxImage
-                  height="80px"
-                  background={stickers.backgroundColor}
-                  icon={stickers.icon}
-                  stickers={stickers.img}
-                />
-              ))}
-            </Box>
-            <StyledLargeAnchor
-              href="/img/StickerPage/hack-shack-house.png"
-              download
-            >
-              <ImageWrapper
-                height="80px"
-                background={{
-                  image: 'url(/img/StickerPage/hack-shack-house.png)',
-                }}
-              >
-                <Box justify="end" fill="vertical" alignSelf="end">
-                  <Monitor size="small" />
-                </Box>
-              </ImageWrapper>
-            </StyledLargeAnchor>
-            <Box direction="row">
-              <StyledSmallAnchor
-                href="/img/StickerPage/grommet-icon.png"
-                download
-              >
-                <ImageWrapper
-                  height="80px"
-                  background={{
-                    image: 'url(/img/StickerPage/grommet-icon.png)',
-                  }}
-                >
-                  <Box justify="end" fill="vertical" alignSelf="end">
-                    <Monitor size="small" />
-                  </Box>
-                </ImageWrapper>
-              </StyledSmallAnchor>
-              <BoxImage
-                height="80px"
-                icon={<User size="small" />}
-                stickers="/img/StickerPage/ezmeral.png"
-              />
-            </Box>
-            <Box direction="row">
-              <BoxImage
-                height="80px"
-                icon={<User size="small" />}
-                stickers="/img/StickerPage/devlogo.png"
-              />
-              <BoxImage
-                height="80px"
-                icon={<User size="small" />}
-                stickers="/img/StickerPage/gremlinhat.png"
-              />
-            </Box>
-            <Box direction="row">
-              <StyledLargeAnchor href="/img/StickerPage/2gremlins.png" download>
-                <ImageWrapper
-                  height="80px"
-                  background={{
-                    image: 'url(/img/StickerPage/2gremlins.png)',
-                  }}
-                >
-                  <Box justify="end" fill="vertical" alignSelf="end">
-                    <Monitor size="small" />
-                  </Box>
-                </ImageWrapper>
-              </StyledLargeAnchor>
-            </Box>
-            <Box direction="row">
-              <BoxImageLarge
-                height="80px"
-                stickers="/img/StickerPage/letshackshack.png"
-                icon={<Monitor size="small" />}
-              />
-            </Box>
-            <Box direction="row">
-              <StyledSmallAnchor download href="/img/StickerPage/design.png">
-                <ImageWrapper
-                  height="80px"
-                  background={{
-                    image: 'url(/img/StickerPage/design.png)',
-                  }}
-                >
-                  <Box justify="end" fill="vertical" alignSelf="end">
-                    <Monitor size="small" />
-                  </Box>
-                </ImageWrapper>
-              </StyledSmallAnchor>
-              <StyledSmallAnchor download href="/img/StickerPage/heart.png">
-                <ImageWrapper
-                  height="80px"
-                  background={{
-                    image: 'url(/img/StickerPage/heart.png)',
-                  }}
-                >
-                  <Box justify="end" fill="vertical" alignSelf="end">
-                    <User size="small" />
-                  </Box>
-                </ImageWrapper>
-              </StyledSmallAnchor>
-            </Box>
-            <Box direction="row">
-              <BoxImageLarge
-                height="80px"
-                stickers="/img/StickerPage/attack-marquee.svg"
-                icon={<Monitor size="small" />}
-                background="black"
-              />
-            </Box>
-            <Box direction="row">
-              <BoxImage
-                height="80px"
-                icon={<Monitor size="small" />}
-                stickers="/img/StickerPage/itmonsterattack.png"
-              />
-              <BoxImage
-                height="80px"
-                icon={<User size="small" />}
-                stickers="/img/StickerPage/dev-thumb.png"
-              />
-            </Box>
-            <Box direction="row">
-              <BoxImageLarge
-                height="80px"
-                stickers="/img/StickerPage/ResearchDesignDev.png"
-                background="white"
-                icon={<Monitor size="small" />}
-              />
-            </Box>
-            <Box direction="row">
-              <BoxImageLarge
-                height="80px"
-                stickers="/img/StickerPage/designedwlove.png"
-                icon={<Monitor size="small" />}
-              />
-            </Box>
-          </Box>
-        )}
+        <Box
+          justify="between"
+          background={{ color: '#263040' }}
+          pad="large"
+          round="small"
+          alignSelf={size === 'small' ? 'center' : undefined}
+          width={size !== 'small' ? { min: '680px' } : { min: '380px' }}
+        >
+          {size !== 'small' && (
+            <>
+              <Box direction="row">{StickerRow(Row1)}</Box>
+              <Box direction="row">{StickerRow(Row2)}</Box>
+              <Box direction="row">{StickerRow(Row3)}</Box>
+              <Box direction="row">{StickerRow(Row4)}</Box>
+              <Box direction="row">{StickerRow(Row5)}</Box>
+              <Box direction="row">{StickerRow(Row6)}</Box>
+            </>
+          )}
+          {size === 'small' && (
+            <>
+              <Box direction="row">{StickerRow(Row1.slice(0, 4))}</Box>
+              <Box direction="row">{StickerRow(Row2.slice(0, 3))}</Box>
+              <Box direction="row">{StickerRow(Row3.slice(0, 2))}</Box>
+              <Box direction="row">{StickerRow(Row4.slice(0, 2))}</Box>
+              <Box direction="row">{StickerRow(Row5.slice(0, 3))}</Box>
+              <Box direction="row">{StickerRow(Row6.slice(0, 2))}</Box>
+              <Box direction="row">{StickerRow(Row7.slice(0, 3))}</Box>
+              <Box direction="row">{StickerRow(Row8.slice(0, 3))}</Box>
+            </>
+          )}
+        </Box>
       </SubPageHeader>
     </Layout>
   );
