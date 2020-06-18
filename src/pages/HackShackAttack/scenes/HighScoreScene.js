@@ -8,6 +8,7 @@ export default class HighScoreScene extends Phaser.Scene {
   }
 
   init(data = 300) {
+    console.log(data);
     this.gamepad = undefined;
     this.animationTimer = undefined;
     this.buttonPressed = false;
@@ -309,7 +310,7 @@ export default class HighScoreScene extends Phaser.Scene {
   submitUserData(initials, name, score) {
     this.loading = true;
     const data = { initials, name, score };
-    return fetch(API_URL, {
+    return fetch(`${API_URL}/create`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

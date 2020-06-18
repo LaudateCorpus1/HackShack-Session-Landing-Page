@@ -179,7 +179,7 @@ export default class GameOverScene extends Phaser.Scene {
       this.scene.start('HighScore', { score: this.score });
     } else {
       this.startScene = false;
-      this.scene.start('Title');
+      this.scene.start('ThankYou');
     }
   }
 

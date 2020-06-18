@@ -10,6 +10,7 @@ const Arcade = () => {
         <CardGrid>
           {arcadeContent.map(content => (
             <Card
+              key={content.title}
               title={content.title}
               alt={content.alt}
               background={content.background}
