@@ -1,11 +1,15 @@
 /* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 import React from 'react';
 import { IonPhaser } from '@ion-phaser/react';
+import styled from 'styled-components';
+import { Box, Button } from 'grommet';
+import { Link } from 'react-router-dom';
+import { FormPreviousLink } from 'grommet-icons';
 import Phaser from 'phaser';
 import BootScene from './scenes/BootScene';
 import PreloaderScene from './scenes/PreloaderScene';
+import HowToPlayScene from './scenes/HowToPlay';
 import TitleScene from './scenes/TitleScene';
-import AttractModeScene from './scenes/AttractModeScene';
 import GameScene from './scenes/GameScene';
 import GameOverScene from './scenes/GameOverScene';
 import HighScoreScene from './scenes/HighScoreScene';
@@ -20,8 +24,8 @@ class Game extends Phaser.Scene {
     this.scene.add('Boot', BootScene);
     this.scene.add('Preloader', PreloaderScene);
     this.scene.add('Title', TitleScene);
-    this.scene.add('AttractMode', AttractModeScene);
     this.scene.add('Game', GameScene);
+    this.scene.add('HowToPlay', HowToPlayScene);
     this.scene.add('GameOver', GameOverScene);
     this.scene.add('HighScore', HighScoreScene);
     this.scene.add('BackToTitle', BackToTitleScene);
@@ -33,10 +37,21 @@ class Game extends Phaser.Scene {
   }
 }
 
+const GameContainer = styled(Box)`
+  position: relative;
+  min-height: 1100px;
+`;
+const BackgroundWrapper = styled(Box)`
+  position: absolute;
+  z-index: 10;
+`;
+
 const HackShackAttack = () => {
   const gameConfig = {
     initialize: true,
     game: {
+      width: 1366,
+      height: 768,
       parent: 'phaser-game',
       type: Phaser.AUTO,
       input: {
@@ -44,8 +59,8 @@ const HackShackAttack = () => {
         queue: true,
       },
       scale: {
-        mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
+        mode: Phaser.Scale.ENVELOP,
       },
       pixelArt: true,
       physics: {
@@ -60,9 +75,25 @@ const HackShackAttack = () => {
   };
   const { game, initialize } = gameConfig;
   return (
-    <div id="phaser-game">
-      <IonPhaser game={game} initialize={initialize} />
-    </div>
+    <GameContainer fill>
+      <BackgroundWrapper
+        fill
+        background={{
+          image: 'url(/img/BackgroundImages/hackshack-attack-background.png)',
+          size: 'cover',
+          position: 'top center',
+        }}
+      >
+        <Box margin="48px" alignSelf="start">
+          <Link to={{ pathname: '/arcade' }}>
+            <Button icon={<FormPreviousLink />} label="Back to Arcade" />
+          </Link>
+        </Box>
+      </BackgroundWrapper>
+      <Box fill id="phaser-game">
+        <IonPhaser game={game} initialize={initialize} />
+      </Box>
+    </GameContainer>
   );
 };
 

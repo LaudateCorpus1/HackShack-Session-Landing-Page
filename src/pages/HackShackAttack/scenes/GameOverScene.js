@@ -23,61 +23,58 @@ export default class GameOverScene extends Phaser.Scene {
     this.keyboardInputs();
 
     this.gameOverText = this.add
-      .text(this.width / 2, this.height / 2 - 300, 'GAME OVER', {
-        fontFamily: 'ArcadeClassic',
-        fontSize: '120px',
+      .text(this.width / 2, this.height / 2 - 250, 'GAME OVER', {
+        fontFamily: 'Kemco',
+        fontSize: '100px',
       })
       .setTint(0xffffff)
       .setOrigin(0.5, 0.5);
     this.scoreText = this.add
       .text(
-        this.width / 2 + 20,
-        this.height / 2 - 200,
+        this.width / 2,
+        this.height / 2 - 180,
         `You got ${this.score}pts!`,
         {
-          fontFamily: 'ArcadeClassic',
-          fontSize: '70px',
+          fontFamily: 'Kemco',
+          fontSize: '50px',
         },
       )
       .setTint(0xffffff)
       .setOrigin(0.5, 0.5);
-
     // submit select box
     this.submitSelectionBox = this.add
       .graphics()
       .fillStyle(0xffffff, 1)
-      .fillRoundedRect(this.width / 3 - 120, this.height / 2 - 70, 300, 80);
-
+      .fillRoundedRect(this.width / 2 - 260, this.height / 2 - 120, 220, 70);
     // cancel select box
     this.cancelSelectionBox = this.add
       .graphics()
       .fillStyle(0xffffff, 1)
-      .fillRoundedRect(this.width / 2 + 2, this.height / 2 - 70, 300, 80);
+      .fillRoundedRect(this.width / 2 + 40, this.height / 2 - 120, 220, 70);
     this.cancelSelectionBox.visible = false;
-
     // submit and cancel buttons
     this.submitButton = this.add
-      .text(this.width / 3 - 65, this.height / 2 - 60, 'Submit', {
-        fontFamily: 'ArcadeClassic',
-        fontSize: '60px',
+      .text(this.width / 3 - 15, this.height / 2 - 108, 'Submit', {
+        fontFamily: 'Kemco',
+        fontSize: '40px',
       })
       .setTint(0x000000)
       .setInteractive();
     this.cancelButton = this.add
-      .text(this.width / 2 + 55, this.height / 2 - 60, 'Cancel', {
-        fontFamily: 'ArcadeClassic',
-        fontSize: '60px',
+      .text(this.width / 2 + 60, this.height / 2 - 108, 'Cancel', {
+        fontFamily: 'Kemco',
+        fontSize: '40px',
       })
       .setTint(0xffffff)
       .setInteractive();
 
     // sprites
     this.devGameOver = this.add
-      .sprite(this.width / 2, this.height - 140, 'devGameOver')
-      .setScale(3);
+      .sprite(this.width / 2, this.height - 290, 'devGameOver')
+      .setScale(2);
     this.dizzy = this.add
-      .sprite(this.width / 2 + 15, this.height - 180, 'dizzyAnim')
-      .setScale(4.2)
+      .sprite(this.width / 2 + 10, this.height - 320, 'dizzyAnim')
+      .setScale(3)
       .play('dizzy');
   }
 

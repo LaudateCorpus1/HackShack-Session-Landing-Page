@@ -11,7 +11,6 @@ export default class TitleScene extends Phaser.Scene {
     this.gamepad = undefined;
     this.buttonPressed = false;
     this.stickPressed = false;
-
     this.startScene = false;
   }
 
@@ -19,41 +18,41 @@ export default class TitleScene extends Phaser.Scene {
     this.countdown();
 
     // logo
-    this.gameLogo = this.add.sprite(0, 0, 'gameLogo').setScale(0.7);
-    this.centerObject(this.gameLogo, 0, 1.2);
-    this.hpeDevLogo = this.add.sprite(0, 0, 'hpeDevLogo').setScale(1);
-    this.centerObject(this.hpeDevLogo, -2, 3);
+    this.gameLogo = this.add.sprite(0, 0, 'gameLogo').setScale(0.5);
+    this.centerObject(this.gameLogo, 0, 1.65);
+    this.hpeDevLogo = this.add.sprite(0, 0, 'hpeDevLogo').setScale(0.5);
+    this.centerObject(this.hpeDevLogo, -1.6, 2.8);
     // start select box
     this.startSelectionBox = this.add
       .graphics()
       .fillStyle(0xffffff, 1)
-      .fillRoundedRect(0, 0, 360, 80);
-    this.centerObject(this.startSelectionBox, 2, -0.95);
-    // attract select box
-    this.attractSelectionBox = this.add
-      .graphics()
-      .fillStyle(0xffffff, 1)
-      .fillRoundedRect(0, 0, 360, 80);
-    this.attractSelectionBox.visible = false;
-    this.centerObject(this.attractSelectionBox, 2, -2);
-    // play and attract buttons
+      .fillRoundedRect(0, 0, 190, 55);
+    this.centerObject(this.startSelectionBox, 0.9, 0.5);
+    // start button
     this.startButton = this.add
       .text(0, 0, 'Start', {
-        fontFamily: 'ArcadeClassic',
-        fontSize: '60px',
+        fontFamily: 'Kemco',
+        fontSize: '30px',
       })
       .setTint(0x000000)
       .setInteractive();
-    this.centerObject(this.startButton, 1, -1);
-    this.attractButton = this.add
-      .text(0, 0, 'High Scores', {
-        fontFamily: 'ArcadeClassic',
-        fontSize: '60px',
+    this.centerObject(this.startButton, 0.5, 0.38);
+    // hot to play select
+    this.controlsSelectionBox = this.add
+      .graphics()
+      .fillStyle(0xffffff, 1)
+      .fillRoundedRect(0, 0, 210, 55);
+    this.controlsSelectionBox.visible = false;
+    this.centerObject(this.controlsSelectionBox, 1, -0.2);
+    // how to play button
+    this.controlsButton = this.add
+      .text(this.width / 2 + 60, this.height / 2 - 108, 'Controls', {
+        fontFamily: 'Kemco',
+        fontSize: '30px',
       })
       .setTint(0xffffff)
       .setInteractive();
-    this.centerObject(this.attractButton, 1.85, -2.05);
-
+    this.centerObject(this.controlsButton, 0.85, -0.3);
     this.keyboardInputs();
   }
 
@@ -112,17 +111,12 @@ export default class TitleScene extends Phaser.Scene {
       }
     }
     // joystick
-    if (
-      this.gamepad.leftStick.y <= -0.6 &&
-      this.stickPressed === false &&
-      this.selection !== 'start'
-    ) {
+    if (this.gamepad.leftStick.y === -6 && this.stickPressed === false) {
       this.stickPressed = true;
       this.onChange();
     } else if (
-      this.gamepad.leftStick.y >= 0.6 &&
-      this.stickPressed === false &&
-      this.selection !== 'attract'
+      this.gamepad.leftStick.y === 0.6 &&
+      this.stickPressed === false
     ) {
       this.stickPressed = true;
       this.onChange();
@@ -134,15 +128,15 @@ export default class TitleScene extends Phaser.Scene {
 
   onChange() {
     if (this.selection === 'start') {
-      this.attractSelectionBox.visible = true;
+      this.controlsSelectionBox.visible = true;
       this.startSelectionBox.visible = false;
-      this.attractButton.setTint(0x000000);
+      this.controlsButton.setTint(0x000000);
       this.startButton.setTint(0xffffff);
-      this.selection = 'attract';
+      this.selection = 'controls';
     } else {
-      this.attractSelectionBox.visible = false;
+      this.controlsSelectionBox.visible = false;
       this.startSelectionBox.visible = true;
-      this.attractButton.setTint(0xffffff);
+      this.controlsButton.setTint(0xffffff);
       this.startButton.setTint(0x000000);
       this.selection = 'start';
     }
@@ -151,11 +145,10 @@ export default class TitleScene extends Phaser.Scene {
   onSelect() {
     if (this.selection === 'start') {
       this.startScene = false;
-
       this.scene.start('Game');
-    } else {
+    } else if (this.selection === 'controls') {
       this.startScene = false;
-      this.scene.start('AttractMode');
+      this.scene.start('HowToPlay');
     }
   }
 

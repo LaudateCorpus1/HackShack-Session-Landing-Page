@@ -1,40 +1,82 @@
-import React from 'react';
+import React, {
+  Children,
+  cloneElement,
+  isValidElement,
+  useContext,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
-import { Box } from 'grommet';
+import { Box, ResponsiveContext, Text, Button } from 'grommet';
+import { Close } from 'grommet-icons';
+import { ResponsiveLayout, StyledLayer } from './styles';
 import { Footer, Header, SideNav } from '../index';
 
 const Layout = ({ children, background }) => {
+  const [layer, setLayer] = useState(false);
+  const size = useContext(ResponsiveContext);
+
+  const childrenWithProps = Children.map(children, child => {
+    if (isValidElement(child)) {
+      return cloneElement(child, { size });
+    }
+
+    return child;
+  });
   return (
-    <Box
+    <ResponsiveLayout
       background={{
         image: `url(${background})`,
-        size: 'cover',
-        position: 'fixed',
+        size: '100%',
+        position: 'top center',
       }}
-      height={{ min: '100%' }}
-      width={{ min: '500px' }}
       justify="between"
+      layer={layer}
     >
       <Box>
-        <Header />
-        <Box
-          margin={{ horizontal: 'large', top: 'large', bottom: 'xlarge' }}
-          gap="xlarge"
-          direction="row"
-          pad={{ vertical: 'medium' }}
-        >
-          <SideNav />
-          <Box>{children}</Box>
+        <Header setLayer={setLayer} size={size} />
+        <Box direction="row">
+          {size !== 'small' && (
+            <Box margin={{ top: 'xlarge', left: 'large' }}>
+              <SideNav size={size} />
+            </Box>
+          )}
+          <Box
+            align={size !== 'small' ? 'start' : 'center'}
+            fill="horizontal"
+            direction="column"
+            pad="xlarge"
+          >
+            {childrenWithProps}
+          </Box>
         </Box>
       </Box>
-      <Footer />
-    </Box>
+      <Footer size={size} />
+      {layer && (
+        <StyledLayer>
+          <Box pad={{ top: 'xlarge', right: 'large' }}>
+            <Box
+              direction="row"
+              align="center"
+              justify="end"
+              margin={{ bottom: 'xlarge' }}
+            >
+              <Text color="#FFFFFF">CLOSE</Text>
+              <Button icon={<Close />} onClick={() => setLayer(false)} />
+            </Box>
+            <Box align="start" gap="large" pad="xlarge">
+              <SideNav size={size} />
+            </Box>
+          </Box>
+        </StyledLayer>
+      )}
+    </ResponsiveLayout>
   );
 };
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   background: PropTypes.string.isRequired,
+  page: PropTypes.string,
 };
 
 export default Layout;

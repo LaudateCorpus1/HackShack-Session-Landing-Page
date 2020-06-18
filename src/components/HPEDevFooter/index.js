@@ -1,43 +1,69 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, Text, Image, Button } from 'grommet';
-import { FooterContainer } from './styles';
+import { FooterWrapper } from '../Footer/styles';
 
-export const HPEDevFooter = () => {
-  const footerLinks = [
-    { label: 'Platforms', href: 'https://developer.hpe.com/platforms' },
-    { label: 'Open Source', href: 'https://developer.hpe.com/projects' },
-    { label: 'Community', href: 'https://developer.hpe.com/community' },
-    { label: 'Events', href: 'https://developer.hpe.com/events' },
-  ];
+const footerLinks = [
+  { label: 'Platforms', href: 'https://developer.hpe.com/platforms' },
+  { label: 'Open Source', href: 'https://developer.hpe.com/projects' },
+  { label: 'Community', href: 'https://developer.hpe.com/community' },
+  { label: 'Events', href: 'https://developer.hpe.com/events' },
+];
+
+export const HPEDevFooter = ({ size }) => {
+  const fontSize = size === 'small' ? '20px' : '22px';
+  const iconSize = size === 'small' ? '40px' : '48px';
 
   return (
-    <FooterContainer
-      align="center"
+    <FooterWrapper
+      direction="row"
+      align="start"
       justify="between"
       border="top"
-      pad={{ left: 'medium', right: 'medium', top: 'small', bottom: 'small' }}
-      style={{ whiteSpace: 'nowrap' }}
+      pad={size === 'small' ? 'medium' : 'small'}
     >
-      <Box direction="row" align="center" gap="small">
-        <Box width="xxsmall" height="xxsmall">
-          <Image fit="contain" src="./img/hpeDevLogo.svg" />
+      <Button
+        href="https://hpedev.io/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Box direction="row" gap="small" align="center">
+          <Box width={iconSize} height={iconSize}>
+            <Image fit="contain" src="./img/hpeDevLogo.svg" />
+          </Box>
+          <Text size={fontSize} color="#FFFFFF">
+            <Text weight="bold" size={fontSize}>
+              HPE{' '}
+            </Text>
+            Developer
+          </Text>
         </Box>
-        <Text>
-          <Text weight="bold">HPE </Text>
-          Developer
-        </Text>
-      </Box>
-      <Box gap="xsmall" direction="row">
-        {footerLinks.map(link => {
-          const { label, href } = link;
-          return (
-            <Button key={label} href={href} target="_blank">
-              <Text color="#FFFFFF">{label}</Text>
-            </Button>
-          );
-        })}
-      </Box>
-    </FooterContainer>
+      </Button>
+      {size !== 'small' && (
+        <Box gap="medium" direction="row" alignSelf="center">
+          {footerLinks.map(link => {
+            const { label, href } = link;
+            return (
+              <Button
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Text color="#FFFFFF" size={fontSize} weight={900}>
+                  {label}
+                </Text>
+              </Button>
+            );
+          })}
+        </Box>
+      )}
+    </FooterWrapper>
   );
 };
+
+HPEDevFooter.propTypes = {
+  size: PropTypes.string,
+};
+
 export default HPEDevFooter;

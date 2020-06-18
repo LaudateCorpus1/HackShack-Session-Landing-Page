@@ -1,39 +1,41 @@
-/* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
-import React from 'react';
-import { Box, Text, Header as HeaderGrommet, Image } from 'grommet';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import {
+  Box,
+  Button,
+  Text,
+  Header as HeaderGrommet,
+  Image,
+  Anchor,
+} from 'grommet';
+import { Menu } from 'grommet-icons';
 
-export const Header = () => {
+export const Header = ({ setLayer, size }) => {
+  const iconSize = size === 'small' ? '192px' : '228px';
+
+  useEffect(() => {
+    if (size !== 'small') setLayer(false);
+  }, [size, setLayer]);
+
   return (
-    <HeaderGrommet
-      align="center"
-      direction="row"
-      flex={false}
-      justify="between"
-      gap="medium"
-      height="xsmall"
-      fill="horizontal"
-      pad="medium"
-    >
-      <Box
-        alignSelf="start"
-        align="center"
-        justify="center"
-        direction="row"
-        gap="small"
-      >
-        <Box height="xxsmall" width="xxsmall">
-          <Image
-            fit="contain"
-            size="small"
-            src="https://us-central1-grommet-designer.cloudfunctions.net/images/lozzi-hpe-com/developer-logo.png"
-          />
+    <HeaderGrommet pad="medium" justify="between" align="center">
+      <Anchor href="https://www.hpe.com/us/en/discover.html" target="_blank">
+        <Box width={iconSize}>
+          <Image fit="contain" src="/img/hpe-dve-lockup.svg" />
         </Box>
-        <Box align="center" justify="center" direction="row" gap="xsmall">
-          <Text weight="bold">HPE</Text>
-          <Text>Developer</Text>
+      </Anchor>
+      {size === 'small' && (
+        <Box direction="row" align="center">
+          <Text color="#FFFFFF">MENU</Text>
+          <Button icon={<Menu />} onClick={() => setLayer(true)} />
         </Box>
-      </Box>
+      )}
     </HeaderGrommet>
   );
 };
 export default Header;
+
+Header.propTypes = {
+  setLayer: PropTypes.func,
+  size: PropTypes.string,
+};
