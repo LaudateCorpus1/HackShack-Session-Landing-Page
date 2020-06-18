@@ -89,6 +89,7 @@ const TermsLayer = ({ setAccepted }) => {
     if (checked) {
       setAccepted(true);
       setError(false);
+      localStorage.setItem('formData', JSON.stringify({ accepted: true }));
     } else {
       setError(true);
     }
@@ -161,6 +162,15 @@ const HackShackAttack = () => {
 
   useEffect(() => {
     window.addEventListener('keydown', preventScroll);
+
+    const data = localStorage.getItem('formData');
+    const parsedData = JSON.parse(data);
+    if (parsedData) {
+      if (parsedData.accepted) {
+        setAccepted(true);
+      }
+    }
+    console.log('data: ', JSON.parse(data));
     return () => {
       window.removeEventListener('keydown', preventScroll);
     };
