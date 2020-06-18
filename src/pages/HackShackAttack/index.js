@@ -170,7 +170,6 @@ const HackShackAttack = () => {
         setAccepted(true);
       }
     }
-    console.log('data: ', JSON.parse(data));
     return () => {
       window.removeEventListener('keydown', preventScroll);
     };
