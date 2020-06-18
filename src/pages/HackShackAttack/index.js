@@ -81,6 +81,7 @@ const preventScroll = e => {
     e.preventDefault();
   }
 };
+
 const TermsLayer = ({ setAccepted }) => {
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
@@ -161,8 +162,6 @@ const HackShackAttack = () => {
   const [accepted, setAccepted] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('keydown', preventScroll);
-
     const data = localStorage.getItem('formData');
     const parsedData = JSON.parse(data);
     if (parsedData) {
@@ -170,9 +169,6 @@ const HackShackAttack = () => {
         setAccepted(true);
       }
     }
-    return () => {
-      window.removeEventListener('keydown', preventScroll);
-    };
   }, []);
 
   return (
