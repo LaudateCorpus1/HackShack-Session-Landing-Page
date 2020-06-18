@@ -18,13 +18,6 @@ const Competiton = () => {
         <Heading margin={{ top: 'large', bottom: 'small' }} color="text-strong">
           Contest rules, times to compete and prizes
         </Heading>
-        {/* <Heading
-          margin={{ top: 'none', bottom: 'large' }}
-          level={2}
-          color="text-strong"
-        >
-          1:1 Rules of the game
-        </Heading> */}
         <Text size="xlarge">
           NO PURCHASE NECESSARY & PURCHASE WILL NOT INCREASE CHANCE OF WINNING.
           OPEN ONLY TO HPE Discover Virtual Experience event 2020 ATTENDEES AT
