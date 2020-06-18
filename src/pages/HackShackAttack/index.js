@@ -76,12 +76,6 @@ const BackgroundWrapper = styled(Box)`
   z-index: 10;
 `;
 
-const preventScroll = e => {
-  if ([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-    e.preventDefault();
-  }
-};
-
 const TermsLayer = ({ setAccepted }) => {
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
