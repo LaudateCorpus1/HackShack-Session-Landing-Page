@@ -65,7 +65,7 @@ const Home = () => {
             onClickOutside={onClose}
             onEsc={onClose}
           >
-            <Box pad={{ top: 'large', horizontal: 'large' }}>
+            <Box alignSelf="center" width="960px" pad={{ top: 'large' }}>
               <Button
                 alignSelf="end"
                 label={
