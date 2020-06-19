@@ -37,33 +37,38 @@ const NewsletterTC = () => {
           government, U.S. state/local government, or public higher education
           institution, or to any private or public K-12 educational institution,
           or library, not eligible. Entry constitutes agreement to rules & HPE’s
-          decisions. 
+          decisions. Eligibility and disqualification will be determined in
+          HPE’s sole discretion. 
         </Text>
         <br></br>
         <Text size="xlarge">
           HPE will select 3 names at random from those that have subscribed to
-          the HPE Developer Community monthly newsletter between June 23 through
+          the HPE Developer Community monthly newsletter between June 22 through
           July 31st 2020. Each winner will be{' '}
-          <strong> awarded a gift certificate</strong> (valued at approximately
-          $100). Winner(s) will be notified no later than Wednesday, August 5th
+          <strong> awarded a gift certificate</strong> ((valued at approximately
+          $50). Winner(s) will be notified no later than Wednesday, August 5th
           by HPE via email.
         </Text>
         <br></br>
         <Text size="xlarge">
           Each person is allowed to enter ONE EMAIL ADDRESS. Existing newsletter
-          subscribers are not eligible to win. All winners must have provided a
-          working email to be contacted by and for the gift certificate to be
-          sent to. Winner may have to sign and return an eligibility affidavit &
-          liability release, unless prohibited. If eligible winners fail to sign
-          and return required documents, prize may be forfeited. No
-          substitution, cash redemption or transfer of prizes. Taxes are
-          winner’s responsibility. Participants release and hold harmless HPE,
-          its subsidiaries, affiliates, and their officers, directors,
-          employees, agents from any claim arising out of entry or prize receipt
-          or use. All third party trademarks are the property of their
-          respective owners. Sponsor: Hewlett Packard Enterprise Company, 11445
-          Compaq Center Dr. W Houston, TX 77070 Use this address for inquiries,
-          requests to be removed from this mailing list, and winner’s list.
+          subscribers are not eligible to win.
+        </Text>
+        <br></br>
+        <Text size="xlarge">
+          All winners must have provided a working email to be contacted by and
+          for the gift certificate to be sent to. Winner may have to sign and
+          return an eligibility affidavit & liability release, unless
+          prohibited. If eligible winners fail to sign and return required
+          documents, prize may be forfeited. No substitution, cash redemption or
+          transfer of prizes. Taxes are winner’s responsibility. Participants
+          release and hold harmless HPE, its subsidiaries, affiliates, and their
+          officers, directors, employees, agents from any claim arising out of
+          entry or prize receipt or use. All third party trademarks are the
+          property of their respective owners. Sponsor: Hewlett Packard
+          Enterprise Company, 11445 Compaq Center Dr. W Houston, TX 77070 Use
+          this address for inquiries, requests to be removed from this mailing
+          list, and winner’s list.
         </Text>
       </Box>
     </Layout>
