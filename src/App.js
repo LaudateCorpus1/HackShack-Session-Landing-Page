@@ -14,6 +14,7 @@ import {
   Schedule,
   HackShackAttack,
   ContestPage,
+  NewsletterTC,
 } from './pages/index';
 
 const customHpe = deepMerge(hpe, {
@@ -86,6 +87,9 @@ const App = () => {
           </Route>
           <Route path="/hackshackattack">
             <HackShackAttack />
+          </Route>
+          <Route path="/newslettertermsconditions">
+            <NewsletterTC />
           </Route>
         </Switch>
       </Router>
