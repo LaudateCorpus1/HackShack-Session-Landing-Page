@@ -5,5 +5,15 @@ import Arcade from './Arcade';
 import Schedule from './Schedule';
 import StickerWall from './StickerWall';
 import ContestPage from './Competiton';
+import NewsletterTC from './NewsletterTC';
 
-export { Home, Schedule, HackShackAttack, Community, ContestPage, Arcade, StickerWall };
+export {
+  Home,
+  Schedule,
+  HackShackAttack,
+  Community,
+  ContestPage,
+  Arcade,
+  StickerWall,
+  NewsletterTC,
+};
