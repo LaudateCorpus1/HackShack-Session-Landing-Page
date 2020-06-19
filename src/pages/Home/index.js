@@ -1,12 +1,31 @@
-import React, { useContext } from 'react';
-import { Box, Text, Image, ResponsiveContext, Anchor } from 'grommet';
-import { Layout, ButtonSplit } from '../../components/index';
+import React, { useContext, useState } from 'react';
+import {
+  Box,
+  Text,
+  Image,
+  ResponsiveContext,
+  Anchor,
+  Button,
+  Stack,
+  Video,
+} from 'grommet';
+import { Close } from 'grommet-icons';
+import GremlinWave from '../../components/GremlinWave';
+import { Layout, ButtonSplit, Card } from '../../components/index';
 import {
   ButtonWrapper,
-  // CardWrapper,
+  CardWrapper,
   LogoWrapper,
   MainWrapper,
   TextWrapper,
+  StyledLayer,
+  StyledStack,
+  StyledBubble,
+  StyledGremlin,
+  StyledCard,
+  StyledTextBox,
+  StyledBoxText,
+  StyledPlayButton,
 } from './styles';
 
 const Content = () => {
@@ -26,26 +45,62 @@ const Content = () => {
       <Text size={fontSize} color="#FFFFFF">
         gaming status playing Hack Shack Attack!
       </Text>
-      <Text size={fontSize} color="#FFFFFF">
-        Check out this week in the{' '}
-        <Anchor
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://vimeo.com/429478014"
-          label="Hack Shack Video"
-          color="teal!"
-        />
-      </Text>
     </TextWrapper>
   );
 };
 
 const Home = () => {
-  // const size = useContext(ResponsiveContext);
+  const size = useContext(ResponsiveContext);
+  const [open, setOpen] = useState();
+  const onOpen = () => setOpen(true);
+  const onClose = () => setOpen(undefined);
 
   return (
     <Layout background="/img/BackgroundImages/hack-shack-home-background.png">
       <Box height="100%" width="100%">
+        {open && (
+          <StyledLayer
+            full
+            animation="fadeIn"
+            onClickOutside={onClose}
+            onEsc={onClose}
+          >
+            <Box pad={{ top: 'large', horizontal: 'large' }}>
+              <Button
+                alignSelf="end"
+                label={
+                  <Text weight="normal" color="white" size="xlarge">
+                    Close
+                  </Text>
+                }
+                reverse
+                icon={<Close size="medium" />}
+                onClick={onClose}
+              />
+            </Box>
+            <Box alignSelf="center">
+              <Video controls="over" autoPlay fit="cover">
+                <source
+                  key="video"
+                  src={
+                    size !== 'small'
+                      ? 'https://player.vimeo.com/external/430776646.sd.mp4?s=658b900014c931a8ace4fee90658d61fa5b7a133&profile_id=165&download=1'
+                      : 'https://player.vimeo.com/external/430776646.sd.mp4?s=658b900014c931a8ace4fee90658d61fa5b7a133&profile_id=164&download=1'
+                  }
+                  type="video/mp4"
+                />
+                <track
+                  key="cc"
+                  label="English"
+                  kind="subtitles"
+                  srcLang="en"
+                  src="/assets/small-en.vtt"
+                  default
+                />
+              </Video>
+            </Box>
+          </StyledLayer>
+        )}
         <MainWrapper align="center">
           <LogoWrapper>
             <Image
@@ -62,8 +117,63 @@ const Home = () => {
             </ButtonSplit>
           </ButtonWrapper>
         </MainWrapper>
-
-        {/*         <CardWrapper gap="large">
+        <StyledStack>
+          <Stack anchor="bottom" alignSelf="start">
+            <StyledGremlin>
+              <GremlinWave />
+            </StyledGremlin>
+            <StyledBubble>
+              <Image src="/img/quotebubble.png" />
+            </StyledBubble>
+            <StyledTextBox gap="small">
+              <StyledBoxText width="medium">
+                <Text size="large" color="#000000">
+                  New to the HPE DEV Hack Shack?
+                </Text>
+                <Text size="large" color="#000000">
+                  Watch This Week in the Hack Shack!
+                </Text>
+              </StyledBoxText>
+            </StyledTextBox>
+            <StyledPlayButton
+              gap="small"
+              alignSelf="end"
+              direction="row"
+              onClick={onOpen}
+            >
+              <Anchor
+                alignSelf="center"
+                color="#000000"
+                size="large"
+                label={
+                  <Box gap="xsmall" direction="row">
+                    <Text style={{ whiteSpace: 'nowrap' }} size="large">
+                      Watch Now
+                    </Text>
+                  </Box>
+                }
+              />
+              <Image
+                style={{ width: '38px', height: '38px' }}
+                src="/img/play-button.png"
+                margin={{ bottom: '4px' }}
+              />
+            </StyledPlayButton>
+          </Stack>
+        </StyledStack>
+        <CardWrapper gap="large">
+          <StyledCard>
+            <Card
+              title="New to the HPE DEV Hack Shack?"
+              desc="Watch This Week in the Hack Shack!"
+              background="rgba(0, 86, 122, 0.8);"
+              label="Watch Now"
+              link="https://vimeo.com/429478014"
+              margin={
+                size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }
+              }
+            />
+          </StyledCard>
           <Card
             title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
             desc="Learn more about the rules and requirments to the contest."
@@ -86,75 +196,10 @@ const Home = () => {
               size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }
             }
           />
-        </CardWrapper> */}
+        </CardWrapper>
       </Box>
     </Layout>
   );
 };
 
 export default Home;
-
-/* Grommet graphic       
-<Box margin={{ bottom: 'xlarge', right: 'xlarge' }} alignSelf="end">
-  <Stack alignSelf="center" anchor="top-left">
-    <Image src="/img/quotegremlin.png" />
-    <Box margin={{ top: '60px', left: '80px' }} gap="medium">
-      <Box>
-        <Text size="large" color="#000000">
-          New to HPE Dev Hack Shack?
-        </Text>
-        <Text size="large" color="#000000">
-          Watch our{' '}
-          <Anchor color="#000000" onClick={onOpen}>
-            Virtual Tour
-          </Anchor>{' '}
-          to
-        </Text>
-        <Text size="large" color="#000000">
-          help you get acquainted!
-        </Text>
-      </Box>
-      <Box gap="small" alignSelf="end" direction="row" onClick={onOpen}>
-        <Anchor
-          color="#000000"
-          size="large"
-          label="Watch Now"
-          margin={{ top: '12px' }}
-        />
-        <Box>
-          <Image src="/img/play-button.png" />
-        </Box>
-      </Box>
-    </Box>
-  </Stack>
-</Box> 
-*/
-
-/* Video Layer
-const VideoLayer = ({ onClose }) => (
-<Layer animation="fadeIn" onClickOutside={onClose} onEsc={onClose}>
-  <Box align="center" justify="center">
-    <Heading margin={{ top: 'none' }} level="3">
-      Virtual Tour
-    </Heading>
-    <Button icon={<Close size="medium" />} onClick={onClose} />
-    <Box border={{ color: '#ffffff', style: 'dashed', size: '2px' }}>
-      <Video autoPlay fit="cover">
-        <source
-          key="video"
-          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-          type="video/mp4"
-        />
-        <track
-          key="cc"
-          label="English"
-          kind="subtitles"
-          srcLang="en"
-          src="/assets/small-en.vtt"
-          default
-        />
-      </Video>
-    </Box>
-  </Box>
-</Layer>
-); */
