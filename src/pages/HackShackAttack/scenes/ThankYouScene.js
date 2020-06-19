@@ -43,7 +43,7 @@ export default class ThankYouScene extends Phaser.Scene {
 
     this.acceptText = this.add
       .text(
-        this.width / 2 - 300,
+        this.width / 2 - 260,
         this.height / 2,
         'Press A or Enter to continue',
         { fontFamily: 'Kemco', fontSize: '24px' },

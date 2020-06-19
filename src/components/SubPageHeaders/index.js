@@ -10,7 +10,11 @@ export const SubPageHeader = ({ children, title, ...rest }) => {
     <Box align="start" width="xlarge" direction="column" {...rest}>
       <Box align="start">
         <Link to={{ pathname: '/arcade' }}>
-          <Button color="white" icon={<Previous size="small" />} label="Back to Arcade" />
+          <Button
+            color="white"
+            icon={<Previous size="small" />}
+            label="Back to Arcade"
+          />
         </Link>
         <Heading
           color="text-strong"

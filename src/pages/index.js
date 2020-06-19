@@ -4,14 +4,16 @@ import Community from './Community';
 import Arcade from './Arcade';
 import Schedule from './Schedule';
 import StickerWall from './StickerWall';
-import Register from './Register';
+import Challenge from './Challenge';
+import ContestPage from './Competiton';
 
 export {
   Home,
+  Schedule,
   HackShackAttack,
   Community,
+  ContestPage,
   Arcade,
   StickerWall,
-  Schedule,
-  Register,
+  Challenge,
 };

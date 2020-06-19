@@ -13,7 +13,8 @@ import {
   StickerWall,
   Schedule,
   HackShackAttack,
-  Register,
+  Challenge,
+  ContestPage,
 } from './pages/index';
 
 const customHpe = deepMerge(hpe, {
@@ -81,11 +82,14 @@ const App = () => {
           <Route path="/stickerwall">
             <StickerWall />
           </Route>
+          <Route path="/competiton">
+            <ContestPage />
+          </Route>
           <Route path="/hackshackattack">
             <HackShackAttack />
           </Route>
           <Route path="/challenge">
-            <Register />
+            <Challenge />
           </Route>
         </Switch>
       </Router>

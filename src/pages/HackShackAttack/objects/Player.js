@@ -33,7 +33,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     if (this.body.velocity.x === 0 && this.body.velocity.y === 0) {
       this.anims.stop();
     }
-    this.constrainVelocity(this, 400);
+    this.constrainVelocity(this, 350);
     this.animateInvincibility();
   }
 
@@ -112,8 +112,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     if (gamepad.axes.length) {
       const x = gamepad.axes[0].getValue();
       const y = gamepad.axes[1].getValue();
-      this.setVelocityX(400 * x);
-      this.setVelocityY(400 * y);
+      this.setVelocityX(350 * x);
+      this.setVelocityY(350 * y);
       if (Math.abs(x) > Math.abs(y)) {
         if (x < 0) {
           this.play('playerLeft', true);
@@ -135,17 +135,17 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   onMoveKeyboard(moveKeys, fireKeys) {
     this.setVelocity(0);
     if (moveKeys.up.isDown) {
-      this.setVelocityY(-400);
+      this.setVelocityY(-350);
       this.play('playerUp', true);
     } else if (moveKeys.down.isDown) {
-      this.setVelocityY(400);
+      this.setVelocityY(350);
       this.play('playerDown', true);
     }
     if (moveKeys.left.isDown) {
-      this.setVelocityX(-400);
+      this.setVelocityX(-350);
       this.play('playerLeft', true);
     } else if (moveKeys.right.isDown) {
-      this.setVelocityX(400);
+      this.setVelocityX(350);
       this.play('playerRight', true);
     }
     this.handleAnimationKeyBoard(fireKeys);
