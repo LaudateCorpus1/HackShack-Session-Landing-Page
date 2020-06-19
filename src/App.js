@@ -81,7 +81,7 @@ const App = () => {
           <Route path="/stickerwall">
             <StickerWall />
           </Route>
-          <Route path="/competiton">
+          <Route path="/competition">
             <ContestPage />
           </Route>
           <Route path="/hackshackattack">
