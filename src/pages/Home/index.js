@@ -176,8 +176,8 @@ const Home = () => {
           </StyledCard>
           <Card
             title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
-            desc="Learn more about the rules and requirments to the contest."
-            link="https://developer.hpe.com/"
+            desc="Learn more about the rules and requirements to the contest."
+            path="/competition"
             background="background"
             label="Join the Contest"
             margin={
@@ -186,12 +186,22 @@ const Home = () => {
                 : { top: 'xlarge', right: 'large' }
             }
           />
-          <Card
-            title="LEARN MORE ABOUT HPE EZMERAL PLATFORM"
-            desc="Learn more about the rules and requirments to the contest"
-            link="https://developer.hpe.com/"
+          {/* <Card
+            title="INTRODUCING HPE EZMERAL"
+            desc="Run, manage, control and secure the apps, data and IT that run your business - from edge to cloud"
+            link="https://www.hpe.com/us/en/software/ezmeral.html"
             background="rgba(0, 86, 122, 0.8);"
-            label="See the HPE Ezmeral Sessions"
+            label="Learn more"
+            margin={
+              size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }
+            }
+          /> */}
+          <Card
+            title="GET THE HPE DEVELOPER NEWSLETTER"
+            desc="Want to read more about industry trends for developers?"
+            link="https://developer.hpe.com/event/hpe-discover-us-2020?listid=11647678"
+            background="rgba(0, 86, 122, 0.8);"
+            label="Get the Newsletter"
             margin={
               size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }
             }
