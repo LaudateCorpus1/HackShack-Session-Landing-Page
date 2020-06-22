@@ -192,7 +192,7 @@ const Home = () => {
             logo="/img/StickerPage/ezmeral.png"
             title="INTRODUCING HPE EZMERAL"
             desc="Run, manage, control and secure the apps, data and IT that run your business - from edge to cloud"
-            link="https://www.hpe.com/us/en/software/ezmeral.html"
+            link="https://www.hpe.com/us/en/ezmeral.html"
             background="rgba(0, 86, 122, 0.8);"
             label="Learn more"
             margin={
