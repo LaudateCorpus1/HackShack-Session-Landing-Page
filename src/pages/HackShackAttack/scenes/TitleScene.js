@@ -1,6 +1,5 @@
 /* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 import Phaser from 'phaser';
-import { API_URL } from '../config/config';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
@@ -217,25 +216,12 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   getLeaderboard() {
-    this.loading = true;
-    return fetch(`${API_URL}/leaderboard`, {
+    const { REACT_APP_NETLIFY_ENDPOINT } = process.env;
+    return fetch(`${REACT_APP_NETLIFY_ENDPOINT}/getLeaderboard`, {
       method: 'GET',
-      headers: {
-        'Content-type': 'application/json',
-      },
     })
       .then(res => res.json())
-      .then(data => {
-        const sortedHiScores = data.sort((a, b) => b.score - a.score);
-        const len = sortedHiScores.length;
-        if (len < 10) {
-          for (let i = len + 1; i <= 10; i += 1) {
-            sortedHiScores.push({ score: '------', name: '------' });
-          }
-        }
-        const hiScores = sortedHiScores.slice(0, 10);
-        this.scene.start('Leaderboard', { data: hiScores });
-      })
+      .then(data => this.scene.start('Leaderboard', { data }))
       .catch(err => {
         console.log(err);
       });
