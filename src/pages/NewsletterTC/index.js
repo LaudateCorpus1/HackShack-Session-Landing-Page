@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Button, Image, Heading, Text } from 'grommet';
-import { Layout } from '../../components/index';
 import { Previous } from 'grommet-icons';
+import { Layout } from '../../components/index';
 
 const NewsletterTC = () => {
   return (
-    <Layout background="/img/generic-background.svg">
+    <Layout background="/img/BackgroundImages/generic-background.png">
       <Box align="start" width="xlarge" direction="column">
         <Box align="start">
           <Button
@@ -25,7 +25,7 @@ const NewsletterTC = () => {
         </Box>
 
         <Box pad={{ vertical: 'medium' }}>
-          <Image src="img/Community/dev-thumb.png"></Image>
+          <Image src="img/Community/dev-thumb.png" />
         </Box>
         <Text size="xlarge">
           NO PURCHASE NECESSARY & PURCHASE WILL NOT INCREASE CHANCE OF WINNING.
@@ -40,7 +40,7 @@ const NewsletterTC = () => {
           decisions. Eligibility and disqualification will be determined in
           HPE’s sole discretion. 
         </Text>
-        <br></br>
+        <br />
         <Text size="xlarge">
           HPE will select 3 names at random from those that have subscribed to
           the HPE Developer Community monthly newsletter between June 22 through
@@ -49,12 +49,12 @@ const NewsletterTC = () => {
           $50). Winner(s) will be notified no later than Wednesday, August 5th
           by HPE via email.
         </Text>
-        <br></br>
+        <br />
         <Text size="xlarge">
           Each person is allowed to enter ONE EMAIL ADDRESS. Existing newsletter
           subscribers are not eligible to win.
         </Text>
-        <br></br>
+        <br />
         <Text size="xlarge">
           All winners must have provided a working email to be contacted by and
           for the gift certificate to be sent to. Winner may have to sign and

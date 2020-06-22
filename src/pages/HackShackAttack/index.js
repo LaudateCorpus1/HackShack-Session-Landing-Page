@@ -76,6 +76,7 @@ const BackgroundWrapper = styled(Box)`
   z-index: 10;
 `;
 
+// eslint-disable-next-line react/prop-types
 const TermsLayer = ({ setAccepted }) => {
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);

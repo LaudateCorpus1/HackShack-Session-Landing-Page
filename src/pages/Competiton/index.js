@@ -5,14 +5,14 @@ import { Layout, SubPageHeader } from '../../components/index';
 
 const Competiton = () => {
   return (
-    <Layout background="/img/generic-background.svg">
+    <Layout background="/img/BackgroundImages/generic-background.png">
       <SubPageHeader title="HACK SHACK ATTACK CONTEST RULES AND INFORMATION">
         <Box pad={{ vertical: 'medium' }}>
-          <Image src="/img/attack-marquee.svg"></Image>
+          <Image src="/img/attack-marquee.svg" />
         </Box>
         <Box pad={{ vertical: 'medium' }} align="start">
           <Link to="/hackshackattack">
-            <Button primary label="Play the Game"></Button>
+            <Button primary label="Play the Game" />
           </Link>
         </Box>
         <Heading margin={{ top: 'large', bottom: 'small' }} color="text-strong">
@@ -31,7 +31,7 @@ const Competiton = () => {
           decisions. Eligibility and disqualification will be determined in
           HPE’s sole discretion.
         </Text>
-        <br></br>
+        <br/>
         <Text size="xlarge">
           The Hack Shack Attack is a retro arcade-style game in which the player
           eliminates as many “IT monsters” and “IT bugs” as possible. The
@@ -79,7 +79,7 @@ const Competiton = () => {
           be the player who achieved their score first in time during the
           applicable game period.
         </Text>
-        <br></br>
+        <br/>
         <Text size="xlarge">
           All winners must provide a working email to be contacted by and for
           the gift certificate to be sent to. Winner may have to sign and return

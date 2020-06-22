@@ -76,7 +76,6 @@ const Layout = ({ children, background }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   background: PropTypes.string.isRequired,
-  page: PropTypes.string,
 };
 
 export default Layout;
