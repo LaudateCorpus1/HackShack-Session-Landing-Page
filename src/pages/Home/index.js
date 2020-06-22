@@ -164,6 +164,7 @@ const Home = () => {
         <CardWrapper gap="large">
           <StyledCard>
             <Card
+              logo="/img/StickerPage/gremlinrockin.png"
               title="New to the HPE DEV Hack Shack?"
               desc="Watch This Week in the Hack Shack!"
               background="rgba(0, 86, 122, 0.8);"
@@ -175,6 +176,7 @@ const Home = () => {
             />
           </StyledCard>
           <Card
+            image="/img/Arcade/hackshack-welcome.png"
             title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
             desc="Learn more about the rules and requirements to the contest."
             path="/competition"
@@ -187,6 +189,7 @@ const Home = () => {
             }
           />
           {/* <Card
+            logo="/img/StickerPage/ezmeral.png"
             title="INTRODUCING HPE EZMERAL"
             desc="Run, manage, control and secure the apps, data and IT that run your business - from edge to cloud"
             link="https://www.hpe.com/us/en/software/ezmeral.html"
@@ -197,6 +200,7 @@ const Home = () => {
             }
           /> */}
           <Card
+            logo="/img/Community/dev-thumb.png"
             title="GET THE HPE DEVELOPER NEWSLETTER"
             desc="Want to read more about industry trends for developers?"
             link="https://developer.hpe.com/event/hpe-discover-us-2020?listid=11647678"
