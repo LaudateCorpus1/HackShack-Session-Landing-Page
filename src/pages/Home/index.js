@@ -80,6 +80,21 @@ const Home = () => {
             title="LEARN MORE ABOUT HPE EZMERAL PLATFORM"
             desc="Learn more about the rules and requirments to the contest"
             link="https://developer.hpe.com/"
+            logo="/img/StickerPage/ezmeral.png"
+            title="INTRODUCING HPE EZMERAL"
+            desc="Run, manage, control and secure the apps, data and IT that run your business - from edge to cloud"
+            link="https://www.hpe.com/us/en/ezmeral.html"
+            background="rgba(0, 86, 122, 0.8);"
+            label="Learn more"
+            margin={
+              size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }
+            }
+          />
+          {/* <Card
+            logo="/img/Community/dev-thumb.png"
+            title="GET THE HPE DEVELOPER NEWSLETTER"
+            desc="Want to read more about industry trends for developers?"
+            link="https://developer.hpe.com/event/hpe-discover-us-2020?listid=11647678"
             background="rgba(0, 86, 122, 0.8);"
             label="See the HPE Ezmeral Sessions"
             margin={
