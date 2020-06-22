@@ -65,7 +65,10 @@ const Home = () => {
             onClickOutside={onClose}
             onEsc={onClose}
           >
-            <Box alignSelf="center" width="960px" pad={{ top: 'large' }}>
+            <Box
+              alignSelf="end"
+              pad={{ top: 'large', bottom: 'xsmall' }}
+            >
               <Button
                 alignSelf="end"
                 label={
@@ -82,11 +85,7 @@ const Home = () => {
               <Video controls="over" autoPlay fit="cover">
                 <source
                   key="video"
-                  src={
-                    size !== 'small'
-                      ? 'https://player.vimeo.com/external/430776646.sd.mp4?s=658b900014c931a8ace4fee90658d61fa5b7a133&profile_id=165&download=1'
-                      : 'https://player.vimeo.com/external/430776646.sd.mp4?s=658b900014c931a8ace4fee90658d61fa5b7a133&profile_id=164&download=1'
-                  }
+                  src="https://player.vimeo.com/external/430776646.hd.mp4?s=715fb97ce94445307bb7e5621581f8ac63cef10e&profile_id=175&download=1"
                   type="video/mp4"
                 />
                 <track
