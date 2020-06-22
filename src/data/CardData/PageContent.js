@@ -75,7 +75,7 @@ export const arcadeContent = [
     alt: 'admin ticket',
     title: 'PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES',
     desc: 'Learn more about the rules and requirements to the contest.',
-    path: '/competiton',
+    path: '/competition',
     label: 'Arcade Contest',
     background: 'rgba(0, 86, 122, 0.8);',
   },

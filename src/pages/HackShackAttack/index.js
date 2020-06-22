@@ -105,20 +105,18 @@ const TermsLayer = ({ setAccepted }) => {
           src="/assets/attack-marquee.png"
         />
         <Text style={{ fontFamily: 'Kemco' }} size="xxlarge" color="#ffffff">
-          By Playing in the Hack Shack Attack contest you agree to signing your
-          life over to HPE.
+          HPE may need to collect your email address if you are a high scoring
+          winner. Your email will not be used for any other purpose.
         </Text>
         <Text color="#ffffff">
           Read the full{' '}
-          <Anchor href="#" target="_blank" rel="noreferrer noopener">
+          <Anchor
+            href=" https://hackshack.hpedev.io/competition"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
             <Text color="#ffffff" weight={900}>
-              Terms
-            </Text>
-          </Anchor>{' '}
-          and{' '}
-          <Anchor href="#" target="_blank" rel="noreferrer noopener">
-            <Text color="#ffffff" weight={900}>
-              Conditions
+              Terms and Conditions
             </Text>
           </Anchor>{' '}
           that apply.
@@ -131,7 +129,7 @@ const TermsLayer = ({ setAccepted }) => {
             }}
           />
           <Text color="#ffffff" style={{ fontFamily: 'Kemco' }}>
-            I agree to the data that you're collecting.
+            I agree.
           </Text>
         </Box>
         {error && <Text>You must agree to play.</Text>}

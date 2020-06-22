@@ -6,8 +6,8 @@ import Schedule from './Schedule';
 import StickerWall from './StickerWall';
 import Challenge from './Challenge';
 import ContestPage from './Competiton';
-// import NewsletterTC from './NewsletterTC';
 import ChallengeTC from './ChallengeTC';
+import NewsletterTC from './NewsletterTC';
 
 export {
   Home,
@@ -18,6 +18,6 @@ export {
   Arcade,
   StickerWall,
   Challenge,
-  // NewsletterTC,
   ChallengeTC,
+  NewsletterTC,
 };
