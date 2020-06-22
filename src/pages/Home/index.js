@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Text,
@@ -59,10 +60,10 @@ const GrommetMascot = ({ setOpen }) => (
       <StyledTextBox gap="small">
         <StyledBoxText width="medium">
           <Text size="large" color="#000000">
-            New to the HPE DEV Hack Shack?
+            Watch This Week in
           </Text>
           <Text size="large" color="#000000">
-            Watch This Week in the Hack Shack!
+            the Hack Shack Video!
           </Text>
         </StyledBoxText>
       </StyledTextBox>
@@ -93,6 +94,11 @@ const GrommetMascot = ({ setOpen }) => (
     </Stack>
   </StyledStack>
 );
+
+GrommetMascot.propTypes = {
+  setOpen: PropTypes.func,
+};
+
 const Cards = ({ size }) => (
   <CardWrapper gap="large">
     {size === 'small' && (
@@ -102,7 +108,7 @@ const Cards = ({ size }) => (
         desc="Watch This Week in the Hack Shack!"
         background="rgba(0, 86, 122, 0.8);"
         label="Watch Now"
-        link="https://vimeo.com/429478014"
+        link="https://vimeo.com/430776646"
         margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
       />
     )}
@@ -139,6 +145,10 @@ const Cards = ({ size }) => (
     /> */}
   </CardWrapper>
 );
+
+Cards.propTypes = {
+  size: PropTypes.string,
+};
 
 const Home = () => {
   const size = useContext(ResponsiveContext);
