@@ -176,7 +176,7 @@ const Home = () => {
             />
           </StyledCard>
           <Card
-            image="/img/Arcade/hackshack-welcome.png"
+            image="/img/Arcade/score.png"
             title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
             desc="Learn more about the rules and requirements to the contest."
             path="/competition"
