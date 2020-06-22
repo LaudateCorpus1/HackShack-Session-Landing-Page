@@ -309,7 +309,7 @@ export default class HighScoreScene extends Phaser.Scene {
     this.loading = true;
     const data = { initials, name, score };
     const { REACT_APP_NETLIFY_ENDPOINT } = process.env;
-    return fetch(`${REACT_APP_NETLIFY_ENDPOINT}/poseLeaderboard`, {
+    return fetch(`${REACT_APP_NETLIFY_ENDPOINT}/postLeaderboard`, {
       method: 'POST',
       body: JSON.stringify(data),
     })
