@@ -10,7 +10,6 @@ import {
   Video,
 } from 'grommet';
 import { Close } from 'grommet-icons';
-import GremlinWave from '../../components/GremlinWave';
 import { Layout, ButtonSplit, Card } from '../../components/index';
 import {
   ButtonWrapper,
@@ -65,10 +64,7 @@ const Home = () => {
             onClickOutside={onClose}
             onEsc={onClose}
           >
-            <Box
-              alignSelf="end"
-              pad={{ top: 'large', bottom: 'xsmall' }}
-            >
+            <Box alignSelf="end" pad={{ top: 'large', bottom: 'xsmall' }}>
               <Button
                 alignSelf="end"
                 label={
@@ -119,7 +115,7 @@ const Home = () => {
         <StyledStack>
           <Stack anchor="bottom" alignSelf="start">
             <StyledGremlin>
-              <GremlinWave />
+              <Image src="/img/gremlinInBubble.png" />
             </StyledGremlin>
             <StyledBubble>
               <Image src="/img/quotebubble.png" />

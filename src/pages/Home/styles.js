@@ -78,12 +78,12 @@ const StyledStack = styled(Box)`
   margin-left: 0px;
   margin-top: -80px;
   @media (min-width: 800px) {
-    margin-left: -5px;
-    margin-top: 40px;
+    margin-left: 10px;
+    margin-bottom: 10px;
   }
   @media (min-width: 1200px) {
-    margin-left: -460px;
-    margin-top: -120px;
+    margin-left: -330px;
+    margin-top: -200px;
   }
 `;
 
@@ -91,7 +91,7 @@ const StyledGremlin = styled(Box)`
   width: 200px;
   margin-top: 100px;
   visibility: hidden;
-  @media (min-width: 800px) {
+  @media (min-width: 900px) {
     visibility: visible;
     height: 100%;
     width: 100%;
@@ -102,10 +102,10 @@ const StyledBubble = styled(Box)`
   margin-left: 290px;
   margin-bottom: 140px;
   visibility: hidden;
-  @media (min-width: 800px) {
+  @media (min-width: 900px) {
     visibility: visible;
-    margin-left: 630px;
-    margin-bottom: 280px;
+    margin-left: 540px;
+    margin-bottom: 120px;
     width: 420px;
   }
 `;
@@ -114,14 +114,14 @@ const StyledTextBox = styled(Box)`
   margin-left: 470px;
   margin-bottom: 260px;
   @media (min-width: 600px) {
-    margin-left: 720px;
-    margin-bottom: 430px;
+    margin-left: 630px;
+    margin-bottom: 270px;
   }
 `;
 
 const StyledCard = styled(Box)`
   visibility: visible;
-  @media (min-width: 800px) {
+  @media (min-width: 900px) {
     visibility: hidden;
   }
 `;
@@ -130,10 +130,10 @@ const StyledPlayButton = styled(Box)`
   margin-left: 290px;
   margin-bottom: 280px;
   visibility: hidden;
-  @media (min-width: 800px) {
+  @media (min-width: 900px) {
     visibility: visible;
-    margin-bottom: 380px;
-    margin-left: 750px;
+    margin-bottom: 220px;
+    margin-left: 660px;
   }
 `;
 
@@ -145,16 +145,16 @@ const StyledBoxText = styled(Box)`
 `;
 
 const CardWrapper = styled(Box)`
-  flex-direction: column;
+  flex-direction: row;
   align-self: center;
   margin-bottom: 48px;
-  margin-top: -500px;
+  margin-top: -420px;
   @media (min-width: 600px) {
-    margin-top: -480px;
+    margin-top: -400px;
     flex-direction: column;
   }
-  @media (min-width: 800px) {
-    margin-top: 20px;
+  @media (min-width: 900px) {
+    margin-top: -40px;
     margin-right: 140px;
     align-self: flex-end;
     flex-direction: row;

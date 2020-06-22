@@ -5,7 +5,7 @@ import './index.css';
 
 const GremlinWave = () => (
   <Box>
-    <svg id="gremlin" width="550" height="550" viewBox="0 0 730 600">
+    <svg id="gremlin" width="300" height="400" viewBox="0 0 730 600">
       <g id="body">
         <g id="shoulder">
           <path
