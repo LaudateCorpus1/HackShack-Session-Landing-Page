@@ -1,6 +1,5 @@
 /* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 import Phaser from 'phaser';
-import { API_URL } from '../config/config';
 
 import ItBug from '../objects/ItBug';
 import ItMonster from '../objects/ItMonster';
@@ -311,36 +310,7 @@ export default class GameScene extends Phaser.Scene {
     this.events.removeListener('gotPowerUp');
     this.cameras.main.fade(2000);
     this.loading = true;
-
-    return fetch(`${API_URL}/leaderboard`, {
-      method: 'GET',
-      headers: {
-        'Content-type': 'application/json',
-      },
-    })
-      .then(res => res.json())
-      .then(data => {
-        const sortedHiScores = data.sort((a, b) => b.score - a.score);
-        const len = sortedHiScores.length;
-        if (len < 10) {
-          for (let i = len + 1; i <= 10; i += 1) {
-            sortedHiScores.push({ score: '------', name: '------' });
-          }
-        }
-        const hiScores = sortedHiScores.slice(0, 10);
-        if (this.score > hiScores[9].score) {
-          this.cameras.main.on('camerafadeoutcomplete', () => {
-            this.scene.start('GameOver', { score: this.score });
-          });
-        } else {
-          this.cameras.main.on('camerafadeoutcomplete', () => {
-            this.scene.start('ThankYou');
-          });
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.getLeaderboard();
   }
 
   spawnitBug(time) {
@@ -434,6 +404,28 @@ export default class GameScene extends Phaser.Scene {
       default:
         return { x, y };
     }
+  }
+
+  getLeaderboard() {
+    const { REACT_APP_NETLIFY_ENDPOINT } = process.env;
+    return fetch(`${REACT_APP_NETLIFY_ENDPOINT}/getLeaderboard`, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (this.score > data[9].score) {
+          this.cameras.main.on('camerafadeoutcomplete', () => {
+            this.scene.start('GameOver', { score: this.score });
+          });
+        } else {
+          this.cameras.main.on('camerafadeoutcomplete', () => {
+            this.scene.start('ThankYou');
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   checkBulletCollision(bullet, enemy) {

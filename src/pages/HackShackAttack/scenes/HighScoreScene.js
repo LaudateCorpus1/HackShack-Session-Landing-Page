@@ -1,6 +1,5 @@
 /* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 import Phaser from 'phaser';
-import { API_URL } from '../config/config';
 
 export default class HighScoreScene extends Phaser.Scene {
   constructor() {
@@ -8,7 +7,6 @@ export default class HighScoreScene extends Phaser.Scene {
   }
 
   init(data = 300) {
-    console.log(data);
     this.gamepad = undefined;
     this.animationTimer = undefined;
     this.buttonPressed = false;
@@ -310,12 +308,10 @@ export default class HighScoreScene extends Phaser.Scene {
   submitUserData(initials, name, score) {
     this.loading = true;
     const data = { initials, name, score };
-    return fetch(`${API_URL}/create`, {
+    const { REACT_APP_NETLIFY_ENDPOINT } = process.env;
+    return fetch(`${REACT_APP_NETLIFY_ENDPOINT}/poseLeaderboard`, {
       method: 'POST',
       body: JSON.stringify(data),
-      headers: {
-        'Content-type': 'application/json',
-      },
     })
       .then(res => {
         if (res.status === 200) {
@@ -333,6 +329,13 @@ export default class HighScoreScene extends Phaser.Scene {
           });
         }
         if (res.status === 404) {
+          this.resetScene();
+          this.background.play('closeMouth');
+          this.background.on('animationcomplete', () => {
+            this.scene.start('Error', { score: this.score });
+          });
+        }
+        if (res.status === 400) {
           this.resetScene();
           this.background.play('closeMouth');
           this.background.on('animationcomplete', () => {
