@@ -28,7 +28,8 @@ const Competiton = () => {
           government, U.S. state/local government, or public higher education
           institution, or to any private or public K-12 educational institution,
           or library, not eligible. Entry constitutes agreement to rules & HPE’s
-          decisions.
+          decisions. Eligibility and disqualification will be determined in
+          HPE’s sole discretion.
         </Text>
         <br></br>
         <Text size="xlarge">
@@ -39,7 +40,7 @@ const Competiton = () => {
             {' '}
             will be declared the winner and be awarded a gift certificate
           </strong>{' '}
-          (valued at approximately $100).
+          (valued at approximately $50).
         </Text>
         <Text size="xlarge">
           The Hack Shack Attack game periods are as follows:
@@ -72,8 +73,11 @@ const Competiton = () => {
             highest scoring player will be declared the winner and be awarded a
             gift certificate
           </strong>{' '}
-          (valued at approximately $100). All winners will be notified by email
-          no later than the following Monday of each period.
+          (valued at approximately $50). All winners will be notified by email
+          no later than the following Monday of each period. In the event of a
+          tie affecting the determination of the highest score, the winner will
+          be the player who achieved their score first in time during the
+          applicable game period.
         </Text>
         <br></br>
         <Text size="xlarge">
