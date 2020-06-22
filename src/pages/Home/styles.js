@@ -148,9 +148,9 @@ const CardWrapper = styled(Box)`
   flex-direction: column;
   align-self: center;
   margin-bottom: 48px;
-  margin-top: -370px;
+  margin-top: -500px;
   @media (min-width: 600px) {
-    margin-top: -400px;
+    margin-top: -480px;
     flex-direction: column;
   }
   @media (min-width: 800px) {
