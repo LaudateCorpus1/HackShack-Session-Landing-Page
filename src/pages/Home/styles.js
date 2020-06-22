@@ -77,13 +77,13 @@ const StyledLayer = styled(Layer)`
 const StyledStack = styled(Box)`
   margin-left: 0px;
   margin-top: -80px;
-  @media (min-width: 800px) {
-    margin-left: 10px;
-    margin-bottom: 10px;
-  }
-  @media (min-width: 1200px) {
+  @media (min-width: 900px) {
     margin-left: -330px;
+    margin-bottom: -300px;
+  }
+  @media (min-width: 1500px) {
     margin-top: -200px;
+    margin-bottom: 0px;
   }
 `;
 
@@ -119,13 +119,6 @@ const StyledTextBox = styled(Box)`
   }
 `;
 
-const StyledCard = styled(Box)`
-  visibility: visible;
-  @media (min-width: 900px) {
-    visibility: hidden;
-  }
-`;
-
 const StyledPlayButton = styled(Box)`
   margin-left: 290px;
   margin-bottom: 280px;
@@ -145,25 +138,13 @@ const StyledBoxText = styled(Box)`
 `;
 
 const CardWrapper = styled(Box)`
-  flex-direction: row;
+  flex-direction: column;
   align-self: center;
   margin-bottom: 48px;
-  margin-top: -420px;
-  @media (min-width: 600px) {
-    margin-top: -400px;
-    flex-direction: column;
-  }
+  margin-top: 50px;
   @media (min-width: 900px) {
-    margin-top: -40px;
-    margin-right: 140px;
-    align-self: flex-end;
-    flex-direction: row;
-  }
-  @media (min-width: 1200px) {
-    margin-top: -130px;
-    transform: rotate(-10deg);
-    align-self: flex-end;
-    flex-direction: row;
+    align-self: center;
+    flex-direction: column;
   }
   @media (min-width: 1500px) {
     margin-top: -220px;
@@ -186,5 +167,4 @@ export {
   StyledTextBox,
   StyledBoxText,
   StyledPlayButton,
-  StyledCard,
 };
