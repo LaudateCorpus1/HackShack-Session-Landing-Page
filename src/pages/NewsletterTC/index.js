@@ -45,7 +45,7 @@ const NewsletterTC = () => {
           HPE will select 3 names at random from those that have subscribed to
           the HPE Developer Community monthly newsletter between June 22 through
           July 31st 2020. Each winner will be{' '}
-          <strong> awarded a gift certificate</strong> ((valued at approximately
+          <strong> awarded a gift certificate</strong> (valued at approximately
           $50). Winner(s) will be notified no later than Wednesday, August 5th
           by HPE via email.
         </Text>
