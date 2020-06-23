@@ -41,6 +41,7 @@ const Competiton = () => {
             will be declared the winner and be awarded a gift certificate
           </strong>{' '}
           (valued at approximately $50).
+          <br /> <br />
         </Text>
         <Text size="xlarge">
           The Hack Shack Attack game periods are as follows:

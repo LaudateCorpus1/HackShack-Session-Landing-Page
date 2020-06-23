@@ -22,11 +22,10 @@ export const Row1 = [
     img: '/img/StickerPage/it-monster.png',
     icon: <User size="small" />,
   },
-  // put hand twice for now
+  // take out after Ezmeral is announced
   {
-    img: '/img/StickerPage/metalhand.png',
-    icon: <Monitor size="small" />,
-    backgroundColor: 'background-contrast',
+    img: '/img/StickerPage/grommet-sticker-kisscut.png',
+    icon: <User size="small" />,
   },
   // put back in ezmeral picture
   //   {
@@ -63,9 +62,10 @@ export const Row3 = [
     img: '/img/StickerPage/gremlinhat.png',
   },
   {
-    // Take out backgroundColor and put back background Image
+    // Take out img and put back background Image & download
     // backgroundImage: 'url(/img/StickerPage/ezmeralbackground.png)',
-    backgroundColor: 'background-contrast',
+    // download: '/img/StickerPage/ezmeralbackground.png'
+    img: '/img/StickerPage/dev-sticker-light.png',
     icon: <Monitor size="small" />,
     size: 'large',
   },

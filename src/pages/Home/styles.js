@@ -114,7 +114,7 @@ const StyledTextBox = styled(Box)`
   margin-left: 470px;
   margin-bottom: 260px;
   @media (min-width: 600px) {
-    margin-left: 630px;
+    margin-left: 730px;
     margin-bottom: 270px;
   }
 `;
@@ -125,7 +125,7 @@ const StyledPlayButton = styled(Box)`
   visibility: hidden;
   @media (min-width: 900px) {
     visibility: visible;
-    margin-bottom: 220px;
+    margin-bottom: 230px;
     margin-left: 660px;
   }
 `;
