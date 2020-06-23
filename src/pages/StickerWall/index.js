@@ -34,7 +34,7 @@ const BoxImage = ({
   ...props
 }) => {
   return (
-    <>
+    <Box>
       {size && (
         <StyledLargeAnchor href={stickers} download>
           <ImageWrapper
@@ -81,26 +81,25 @@ const BoxImage = ({
           </ImageWrapper>
         </StyledSmallAnchor>
       )}
-    </>
+    </Box>
   );
 };
 
 BoxImage.propTypes = {
   size: PropTypes.string,
-  children: PropTypes.node.isRequired,
   icon: PropTypes.object,
   backgroundColor: PropTypes.string,
-  stickers: PropTypes.object,
+  stickers: PropTypes.string,
   img: PropTypes.string,
   backgroundImage: PropTypes.string,
   height: PropTypes.string,
 };
 
-const StickerRow = row => {
-  const size = useContext(ResponsiveContext);
-  return row.map(stickers => {
+const StickerRow = (row, size) => {
+  return row.map((stickers, index) => {
     return (
       <BoxImage
+        key={index}
         height={size !== 'small' ? '150px' : '80px'}
         img={stickers.img}
         background={stickers.backgroundColor || stickers.backgroundImage}
@@ -113,39 +112,46 @@ const StickerRow = row => {
 };
 
 const StickerWall = () => {
+  const mobileRow1 = [Row7[2], Row1[3]];
+  const mobileRow2 = [Row2[2], Row8[0]];
+  const mobileRow3 = [Row4[2], Row5[2]];
+  console.log(mobileRow1);
   const size = useContext(ResponsiveContext);
   return (
     <Layout background="/img/BackgroundImages/stickers-background.jpg">
       <SubPageHeader title="STICKERS AND ART">
         <Box
-          justify="between"
           background={{ color: '#263040' }}
           pad="large"
           round="small"
           alignSelf={size === 'small' ? 'center' : undefined}
-          width={size !== 'small' ? { min: '680px' } : { min: '380px' }}
+          width={size !== 'small' ? { min: '680px' } : { min: '280px' }}
         >
           {size !== 'small' && (
-            <>
-              <Box direction="row">{StickerRow(Row1)}</Box>
-              <Box direction="row">{StickerRow(Row2)}</Box>
-              <Box direction="row">{StickerRow(Row3)}</Box>
-              <Box direction="row">{StickerRow(Row4)}</Box>
-              <Box direction="row">{StickerRow(Row5)}</Box>
-              <Box direction="row">{StickerRow(Row6)}</Box>
-            </>
+            <Box>
+              <Box direction="row">{StickerRow(Row1, size)}</Box>
+              <Box direction="row">{StickerRow(Row2, size)}</Box>
+              <Box direction="row">{StickerRow(Row3, size)}</Box>
+              <Box direction="row">{StickerRow(Row4, size)}</Box>
+              <Box direction="row">{StickerRow(Row5, size)}</Box>
+              <Box direction="row">{StickerRow(Row6, size)}</Box>
+            </Box>
           )}
           {size === 'small' && (
-            <>
-              <Box direction="row">{StickerRow(Row1.slice(0, 4))}</Box>
-              <Box direction="row">{StickerRow(Row2.slice(0, 3))}</Box>
-              <Box direction="row">{StickerRow(Row3.slice(0, 2))}</Box>
-              <Box direction="row">{StickerRow(Row4.slice(0, 2))}</Box>
-              <Box direction="row">{StickerRow(Row5.slice(0, 3))}</Box>
-              <Box direction="row">{StickerRow(Row6.slice(0, 2))}</Box>
-              <Box direction="row">{StickerRow(Row7.slice(0, 3))}</Box>
-              <Box direction="row">{StickerRow(Row8.slice(0, 3))}</Box>
-            </>
+            <Box align="center">
+              <Box direction="row">{StickerRow(Row1.slice(0, 3), size)}</Box>
+              <Box direction="row">{StickerRow(Row2.slice(0, 2), size)}</Box>
+              <Box direction="row">{StickerRow(Row3.slice(0, 2), size)}</Box>
+              <Box direction="row">{StickerRow(Row4.slice(0, 2), size)}</Box>
+              <Box direction="row">{StickerRow(Row5.slice(0, 2), size)}</Box>
+              <Box direction="row">{StickerRow(Row6.slice(0, 2), size)}</Box>
+              <Box direction="row">{StickerRow(mobileRow1, size)}</Box>
+              <Box direction="row">{StickerRow(mobileRow2, size)}</Box>
+              <Box direction="row">{StickerRow(mobileRow3, size)}</Box>
+              <Box direction="row" alignSelf="start">
+                {StickerRow(Row7.slice(0, 2), size)}
+              </Box>
+            </Box>
           )}
         </Box>
       </SubPageHeader>
