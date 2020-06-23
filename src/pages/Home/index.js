@@ -125,7 +125,7 @@ const Cards = ({ size }) => (
           : { top: 'xlarge', right: 'large' }
       }
     />
-    <Card
+    {/* <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
       desc="Want to read more about industry trends for developers?"
@@ -133,16 +133,17 @@ const Cards = ({ size }) => (
       background="rgba(0, 86, 122, 0.8);"
       label="Get the Newsletter"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    />
-    {/* <Card
+    /> */}
+    <Card
       logo="/img/StickerPage/ezmeral.png"
       title="INTRODUCING HPE EZMERAL"
+      // eslint-disable-next-line max-len
       desc="Run, manage, control and secure the apps, data and IT that run your business - from edge to cloud"
       link="https://www.hpe.com/us/en/ezmeral.html"
       background="rgba(0, 86, 122, 0.8);"
       label="Learn more"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    /> */}
+    />
   </CardWrapper>
 );
 
