@@ -105,7 +105,7 @@ const StickerRow = (row, size) => {
         background={stickers.backgroundColor || stickers.backgroundImage}
         icon={stickers.icon}
         size={stickers.size}
-        stickers={stickers.img || stickers.backgroundImage}
+        stickers={stickers.img || stickers.download}
       />
     );
   });
