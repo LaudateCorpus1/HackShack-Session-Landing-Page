@@ -104,7 +104,6 @@ export default class HowToPlayScene extends Phaser.Scene {
 
   onSelect() {
     if (this.frame === 'keyboard') {
-      this.startScene = false;
       this.frame = 'controller';
       this.keyboardControls.visible = false;
       this.padControls.visible = true;
