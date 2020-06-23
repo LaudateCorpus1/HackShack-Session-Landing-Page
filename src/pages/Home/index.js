@@ -1,12 +1,30 @@
-import React, { useContext } from 'react';
-import { Box, Text, Image, ResponsiveContext, Anchor } from 'grommet';
-import { Layout, ButtonSplit } from '../../components/index';
+import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
+import {
+  Box,
+  Text,
+  Image,
+  ResponsiveContext,
+  Anchor,
+  Button,
+  Stack,
+  Video,
+} from 'grommet';
+import { Close } from 'grommet-icons';
+import { Layout, ButtonSplit, Card } from '../../components/index';
 import {
   ButtonWrapper,
-  // CardWrapper,
+  CardWrapper,
   LogoWrapper,
   MainWrapper,
   TextWrapper,
+  StyledLayer,
+  StyledStack,
+  StyledBubble,
+  StyledGremlin,
+  StyledTextBox,
+  StyledBoxText,
+  StyledPlayButton,
 } from './styles';
 
 const Content = () => {
@@ -26,26 +44,159 @@ const Content = () => {
       <Text size={fontSize} color="#FFFFFF">
         gaming status playing Hack Shack Attack!
       </Text>
-      <Text size={fontSize} color="#FFFFFF">
-        Check out this week in the{' '}
-        <Anchor
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://vimeo.com/429478014"
-          label="Hack Shack Video"
-          color="teal!"
-        />
-      </Text>
     </TextWrapper>
   );
 };
 
+const GrommetMascot = ({ setOpen }) => (
+  <StyledStack>
+    <Stack anchor="bottom" alignSelf="start">
+      <StyledGremlin>
+        <Image src="/img/gremlinInBubble.png" />
+      </StyledGremlin>
+      <StyledBubble>
+        <Image src="/img/quotebubble.png" />
+      </StyledBubble>
+      <StyledTextBox gap="small">
+        <StyledBoxText width="medium">
+          <Text size="large" color="#000000">
+            Watch This Week in
+          </Text>
+          <Text size="large" color="#000000">
+            the Hack Shack Video!
+          </Text>
+        </StyledBoxText>
+      </StyledTextBox>
+      <StyledPlayButton
+        gap="small"
+        alignSelf="end"
+        direction="row"
+        onClick={() => setOpen(true)}
+      >
+        <Anchor
+          alignSelf="center"
+          color="#000000"
+          size="large"
+          label={
+            <Box gap="xsmall" direction="row">
+              <Text style={{ whiteSpace: 'nowrap' }} size="large">
+                Watch Now
+              </Text>
+            </Box>
+          }
+        />
+        <Image
+          style={{ width: '38px', height: '38px' }}
+          src="/img/play-button.png"
+          margin={{ bottom: '4px' }}
+        />
+      </StyledPlayButton>
+    </Stack>
+  </StyledStack>
+);
+
+GrommetMascot.propTypes = {
+  setOpen: PropTypes.func,
+};
+
+const Cards = ({ size }) => (
+  <CardWrapper gap="large">
+    {size === 'small' && (
+      <Card
+        logo="/img/StickerPage/gremlin.png"
+        title="New to the HPE DEV Hack Shack?"
+        desc="Watch This Week in the Hack Shack!"
+        background="rgba(0, 86, 122, 0.8);"
+        label="Watch Now"
+        link="https://vimeo.com/430776646"
+        margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
+      />
+    )}
+    <Card
+      image="/img/Arcade/score.png"
+      title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
+      desc="Learn more about the rules and requirements to the contest."
+      path="/competition"
+      background="background"
+      label="Join the Contest"
+      margin={
+        size === 'small'
+          ? { top: '0px', right: '0px' }
+          : { top: 'xlarge', right: 'large' }
+      }
+    />
+    <Card
+      logo="/img/Community/dev-thumb.png"
+      title="GET THE HPE DEVELOPER NEWSLETTER"
+      desc="Want to read more about industry trends for developers?"
+      link="https://developer.hpe.com/event/hpe-discover-us-2020?listid=11647678"
+      background="rgba(0, 86, 122, 0.8);"
+      label="Get the Newsletter"
+      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
+    />
+    {/* <Card
+      logo="/img/StickerPage/ezmeral.png"
+      title="INTRODUCING HPE EZMERAL"
+      desc="Run, manage, control and secure the apps, data and IT that run your business - from edge to cloud"
+      link="https://www.hpe.com/us/en/ezmeral.html"
+      background="rgba(0, 86, 122, 0.8);"
+      label="Learn more"
+      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
+    /> */}
+  </CardWrapper>
+);
+
+Cards.propTypes = {
+  size: PropTypes.string,
+};
+
 const Home = () => {
-  // const size = useContext(ResponsiveContext);
+  const size = useContext(ResponsiveContext);
+  const [open, setOpen] = useState();
+  const onClose = () => setOpen(undefined);
 
   return (
     <Layout background="/img/BackgroundImages/hack-shack-home-background.png">
       <Box height="100%" width="100%">
+        {open && (
+          <StyledLayer
+            full
+            animation="fadeIn"
+            onClickOutside={onClose}
+            onEsc={onClose}
+          >
+            <Box alignSelf="end" pad={{ top: 'large', bottom: 'xsmall' }}>
+              <Button
+                alignSelf="end"
+                label={
+                  <Text weight="normal" color="white" size="xlarge">
+                    Close
+                  </Text>
+                }
+                reverse
+                icon={<Close size="medium" />}
+                onClick={onClose}
+              />
+            </Box>
+            <Box alignSelf="center">
+              <Video controls="over" autoPlay fit="cover">
+                <source
+                  key="video"
+                  src="https://player.vimeo.com/external/430776646.hd.mp4?s=715fb97ce94445307bb7e5621581f8ac63cef10e&profile_id=175&download=1"
+                  type="video/mp4"
+                />
+                <track
+                  key="cc"
+                  label="English"
+                  kind="subtitles"
+                  srcLang="en"
+                  src="/assets/small-en.vtt"
+                  default
+                />
+              </Video>
+            </Box>
+          </StyledLayer>
+        )}
         <MainWrapper align="center">
           <LogoWrapper>
             <Image
@@ -62,114 +213,11 @@ const Home = () => {
             </ButtonSplit>
           </ButtonWrapper>
         </MainWrapper>
-
-        {/*         <CardWrapper gap="large">
-          <Card
-            title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
-            desc="Learn more about the rules and requirments to the contest."
-            link="https://developer.hpe.com/"
-            background="background"
-            label="Join the Contest"
-            margin={
-              size === 'small'
-                ? { top: '0px', right: '0px' }
-                : { top: 'xlarge', right: 'large' }
-            }
-          />
-          <Card
-            title="LEARN MORE ABOUT HPE EZMERAL PLATFORM"
-            desc="Learn more about the rules and requirments to the contest"
-            link="https://developer.hpe.com/"
-            logo="/img/StickerPage/ezmeral.png"
-            title="INTRODUCING HPE EZMERAL"
-            desc="Run, manage, control and secure the apps, data and IT that run your business - from edge to cloud"
-            link="https://www.hpe.com/us/en/ezmeral.html"
-            background="rgba(0, 86, 122, 0.8);"
-            label="Learn more"
-            margin={
-              size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }
-            }
-          />
-          {/* <Card
-            logo="/img/Community/dev-thumb.png"
-            title="GET THE HPE DEVELOPER NEWSLETTER"
-            desc="Want to read more about industry trends for developers?"
-            link="https://developer.hpe.com/event/hpe-discover-us-2020?listid=11647678"
-            background="rgba(0, 86, 122, 0.8);"
-            label="See the HPE Ezmeral Sessions"
-            margin={
-              size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }
-            }
-          />
-        </CardWrapper> */}
+        {size !== 'small' && <GrommetMascot setOpen={setOpen} />}
+        <Cards size={size} />
       </Box>
     </Layout>
   );
 };
 
 export default Home;
-
-/* Grommet graphic       
-<Box margin={{ bottom: 'xlarge', right: 'xlarge' }} alignSelf="end">
-  <Stack alignSelf="center" anchor="top-left">
-    <Image src="/img/quotegremlin.png" />
-    <Box margin={{ top: '60px', left: '80px' }} gap="medium">
-      <Box>
-        <Text size="large" color="#000000">
-          New to HPE Dev Hack Shack?
-        </Text>
-        <Text size="large" color="#000000">
-          Watch our{' '}
-          <Anchor color="#000000" onClick={onOpen}>
-            Virtual Tour
-          </Anchor>{' '}
-          to
-        </Text>
-        <Text size="large" color="#000000">
-          help you get acquainted!
-        </Text>
-      </Box>
-      <Box gap="small" alignSelf="end" direction="row" onClick={onOpen}>
-        <Anchor
-          color="#000000"
-          size="large"
-          label="Watch Now"
-          margin={{ top: '12px' }}
-        />
-        <Box>
-          <Image src="/img/play-button.png" />
-        </Box>
-      </Box>
-    </Box>
-  </Stack>
-</Box> 
-*/
-
-/* Video Layer
-const VideoLayer = ({ onClose }) => (
-<Layer animation="fadeIn" onClickOutside={onClose} onEsc={onClose}>
-  <Box align="center" justify="center">
-    <Heading margin={{ top: 'none' }} level="3">
-      Virtual Tour
-    </Heading>
-    <Button icon={<Close size="medium" />} onClick={onClose} />
-    <Box border={{ color: '#ffffff', style: 'dashed', size: '2px' }}>
-      <Video autoPlay fit="cover">
-        <source
-          key="video"
-          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-          type="video/mp4"
-        />
-        <track
-          key="cc"
-          label="English"
-          kind="subtitles"
-          srcLang="en"
-          src="/assets/small-en.vtt"
-          default
-        />
-      </Video>
-    </Box>
-  </Box>
-</Layer>
-); */

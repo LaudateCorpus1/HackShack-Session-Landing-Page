@@ -11,6 +11,7 @@
     "grommet-icons": "^4.4.0",
     "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/NEXT-stable",
     "moment": "^2.25.3",
+    "netlify-lambda": "^1.6.3",
     "phaser": "^3.23.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -24,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lambda:serve": "netlify-lambda serve functions",
+    "lambda:build": "netlify-lambda build functions"
   },
   "eslintConfig": {
     "extends": "react-app"
