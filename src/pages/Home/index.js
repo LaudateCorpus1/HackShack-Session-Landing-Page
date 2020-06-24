@@ -117,7 +117,7 @@ const Cards = ({ size }) => (
       title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
       desc="Learn more about the rules and requirements to the contest."
       path="/competition"
-      background="background"
+      background="rgba(0, 86, 122, 0.8);"
       label="Join the Contest"
       margin={
         size === 'small'
@@ -134,13 +134,24 @@ const Cards = ({ size }) => (
       label="Get the Newsletter"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
     /> */}
-    <Card
+    {/* <Card
       logo="/img/StickerPage/ezmeral.png"
       title="INTRODUCING HPE EZMERAL"
       // eslint-disable-next-line max-len
-      desc="Run, manage, control and secure the apps, data and IT that run your business - from edge to cloud"
+      desc="Run, manage, control and secure the apps,
+      data and IT that run your business - from edge to cloud"
       link="https://www.hpe.com/us/en/ezmeral.html"
       background="rgba(0, 86, 122, 0.8);"
+      label="Learn more"
+      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
+    /> */}
+    <Card
+      logo="/img/StickerPage/letshackshack.png"
+      title="Hack Shack coding challenges"
+      desc="Feeling competitive? Here's a great way to show off your coding
+      chops and compete for cool prizes. Find out how"
+      link="https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US"
+      background="background"
       label="Learn more"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
     />
