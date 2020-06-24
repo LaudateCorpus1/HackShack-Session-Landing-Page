@@ -1,8 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, Button, Image, Heading, Text } from 'grommet';
-import { Layout } from '../../components/index';
 import { Previous } from 'grommet-icons';
 import { Link } from 'react-router-dom';
+import { Layout } from '../../components/index';
+
+const TableColumns = ({ Row1, Row2 }) => {
+  return (
+    <Box fill="horizontal" direction="row">
+      <Box pad="small" basis="1/2" border>
+        <Text size="xlarge">{Row1}</Text>
+      </Box>
+      <Box pad="small" basis="1/2" border>
+        <Text size="xlarge">{Row2}</Text>
+      </Box>
+    </Box>
+  );
+};
+
+TableColumns.propTypes = {
+  Row1: PropTypes.string,
+  Row2: PropTypes.string,
+};
+
 const ChallengeTC = () => {
   return (
     <Layout background="/img/generic-background.svg">
@@ -24,7 +44,7 @@ const ChallengeTC = () => {
           </Heading>
         </Box>
         <Box pad={{ vertical: 'medium' }}>
-          <Image src="img/Community/dev-thumb.png"></Image>
+          <Image src="img/Community/dev-thumb.png" />
         </Box>
         <Text size="xlarge">
           NO PURCHASE NECESSARY & PURCHASE WILL NOT INCREASE CHANCE OF WINNING.
@@ -42,86 +62,47 @@ const ChallengeTC = () => {
           2020 at 9.30 and ending July 30th, 2020 at 4.00 PM PSD and creating a
           project from any one of the following challenges: 
         </Text>
-        <br></br>
+        <br />
         <Box direction="column">
-          <Box width="medium" direction="row">
-            <Box border>
-              <Text size="xlarge">Session</Text>
-            </Box>
-            <Box border>
-              <Text size="xlarge">Project defined as:</Text>
-            </Box>
-          </Box>
-          <Box width="medium" direction="row">
-            <Box border>
-              <Text size="xlarge">
-                Hack Shack Challenge: Deploy your app in a Kubernetes cluster
-              </Text>
-            </Box>
-            <Box border>
-              <Text size="xlarge">
-                In this challenge, you’ll package an application in a container
-                and create the necessary Kubernetes artifacts to publish it in a
-                Kubernetes cluster managed by HPE Container Platform. The
-                challenge will be considered successful when the app is up and
-                running in that environment. You can use the application you
-                developed in the Grommet Challenge, or we can provide you with
-                one.
-              </Text>
-            </Box>
-          </Box>
-          <Box width="medium" direction="row">
-            <Box border>
-              <Text size="xlarge">
-                Hack Shack Challenge: Use Redfish to streamline queries
-              </Text>
-            </Box>
-            <Box border>
-              <Text size="xlarge">
-                In this challenge, you’ll leverage the Redfish REST API to
-                create a scripted version of system information where you would
-                list items, like devices and serial numbers, in a single query.
-                You‘ll have a choice between using simple bash, PowerShell, or
-                Python to achieve your goal.
-              </Text>
-            </Box>
-          </Box>
-          <Box direction="row">
-            <Box border>
-              <Text size="xlarge">
-                Hack Shack Challenge: Use PowerShell to code a OneView API-based
-                report
-              </Text>
-            </Box>
-            <Box border>
-              <Text size="xlarge">
-                In this challenge, you’ll leverage the provided HPE OneView
+          <TableColumns Row1="Session" Row2="Project defined as:" />
+          <TableColumns
+            Row1="Hack Shack Challenge: Deploy your app in a Kubernetes cluster"
+            Row2="In this challenge, you’ll package an application in a
+            container and create the necessary Kubernetes artifacts to
+            publish it in a Kubernetes cluster managed by HPE Container
+            Platform. The challenge will be considered successful when
+            the app is up and running in that environment. You can
+            use the application you developed in the Grommet Challenge,
+            or we can provide you with one."
+          />
+          <TableColumns
+            Row1="Hack Shack Challenge: Use Redfish to streamline queries"
+            Row2="In this challenge, you’ll leverage the Redfish REST API to
+          create a scripted version of system information where you would
+          list items, like devices and serial numbers, in a single query.
+          You‘ll have a choice between using simple bash, PowerShell, or
+          Python to achieve your goal."
+          />
+          <TableColumns
+            Row1="Hack Shack Challenge: Use PowerShell to code a OneView
+             API-based report"
+            Row2="In this challenge, you’ll leverage the provided HPE OneView
                 PowerShell library to create a PowerShell-coded API-based report
                 that provides a list of relevant items. You’ll make use of a
                 Jupyter notebook, a PowerShell kernel, some documentation, and a
-                good deal of creativity!
-              </Text>
-            </Box>
-          </Box>
-          <Box direction="row">
-            <Box border>
-              <Text size="xlarge">
-                Hack Shack Challenge: Design your App with Grommet Designer
-              </Text>
-            </Box>
-            <Box border>
-              <Text size="xlarge">
-                In this challenge, you’ll learn what Grommet and Grommet
-                Designer are and how to use them to easily design your own app.
-                Start with a basic design supplied by Grommet Designer, generate
-                code from your design, push it to GitHub, and deploy in Netlify.
-                Use your design and coding skills to enhance the application.
-                Beginner, expert designers and developers are all welcome.
-              </Text>
-            </Box>
-          </Box>
+                good deal of creativity!"
+          />
+          <TableColumns
+            Row1="Hack Shack Challenge: Design your App with Grommet Designer"
+            Row2="In this challenge, you’ll learn what Grommet and Grommet
+          Designer are and how to use them to easily design your own app.
+          Start with a basic design supplied by Grommet Designer, generate
+          code from your design, push it to GitHub, and deploy in Netlify.
+          Use your design and coding skills to enhance the application.
+          Beginner, expert designers and developers are all welcome."
+          />
         </Box>
-        <Text size="xlarge">
+        <Text margin={{ top: 'medium' }} size="xlarge">
           Winners will be chosen by a panel of 3 HPE judges based on the
           following criteria: 40% Usefulness of application; 20% Technical
           achievement; 20% Originality; and 20% Completeness. One entry per
@@ -134,26 +115,26 @@ const ChallengeTC = () => {
           documents, prize may be forfeited. No substitution, cash redemption or
           transfer of prizes. Taxes are winner’s responsibility.
         </Text>
-        <br></br>
+        <br />
         <Text size="xlarge">
           <strong>Category winners:</strong> All 1st place category winners will
           be awarded with a $50 gift certificate. No substitution, cash
           redemption or transfer of prizes. Taxes are winner’s responsibility.
         </Text>
-        <br></br>
+        <br />
         <Text size="xlarge">
           <strong>Overall category winner:</strong> The overall category winner
           will be awarded with a $50 gift certificate. No substitution, cash
           redemption or transfer of prizes. Taxes are winner’s responsibility.
         </Text>
-        <br></br>
+        <br />
         <Text size="xlarge">
           Odds of winning depend on number of entries. Entrants release and hold
           harmless HPE, its subsidiaries, affiliates, and their officers,
           directors, employees, agents from any claim arising out of entry or
           prize receipt or use.
         </Text>
-        <br></br>
+        <br />
         <Text size="xlarge">
           By participating in the HPE HackShack Challenges participants
           represent and warrant that he/she have the full power and authority to
