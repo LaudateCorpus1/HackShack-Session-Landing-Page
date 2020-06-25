@@ -132,15 +132,12 @@ export default class TitleScene extends Phaser.Scene {
       }
     }
     // joystick
-    if (this.gamepad.leftStick.y === -6 && this.stickPressed === false) {
+    if (this.gamepad.leftStick.y <= -0.6 && this.stickPressed === false) {
       this.stickPressed = true;
-      this.onChange();
-    } else if (
-      this.gamepad.leftStick.y === 0.6 &&
-      this.stickPressed === false
-    ) {
+      this.moveUp();
+    } else if (this.gamepad.leftStick.y >= 0.6 && this.stickPressed === false) {
       this.stickPressed = true;
-      this.onChange();
+      this.moveDown();
     }
     if (this.gamepad.leftStick.y === 0) {
       this.stickPressed = false;

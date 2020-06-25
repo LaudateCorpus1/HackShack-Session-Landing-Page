@@ -31,7 +31,7 @@ const ListItem = props => {
           props.setFormValues(prevState => ({
             ...prevState,
             challenge: props.challengeNameDesc.name,
-            jupyterWorkshop: props.challengeNameDesc.notebook,
+            notebook: props.challengeNameDesc.notebook,
           }));
           props.setCustomError(prevState => ({
             ...prevState,

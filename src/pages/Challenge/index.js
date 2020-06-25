@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import {
   Box,
   Form,
@@ -269,7 +269,7 @@ const Challenge = props => {
           pad={{ horizontal: 'xxsmall' }}
         >
           <Heading level={3} margin="none">
-            Register
+            Signup
           </Heading>
           <Text>for a HPE Discover Hack Shack Challenge</Text>
         </Header>
@@ -351,14 +351,11 @@ const Challenge = props => {
                 // required
                 label={
                   <Text>
-                    I accept the HPE{' '}
-                    <Anchor
-                      label="Terms of Use"
-                      href="https://www.hpe.com/us/en/about/legal/terms-of-use.html"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    />{' '}
-                    and{' '}
+                    I accept the HackShack Challenge{' '}
+                    <Link to={{ pathname: '/challengetermsconditions' }}>
+                      <Anchor label="Terms and Conditions" />
+                    </Link>{' '}
+                    and HPE{' '}
                     <Anchor
                       label="Privacy Policy"
                       href="https://www.hpe.com/us/en/legal/privacy.html"
@@ -388,7 +385,7 @@ const Challenge = props => {
 
             <Button
               alignSelf="center"
-              label="Register"
+              label="Signup"
               type="submit"
               // hoverIndicator={true}
               primary

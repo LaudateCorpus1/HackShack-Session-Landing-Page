@@ -9,6 +9,7 @@ import SideNav from './SideNav';
 import ListItem from './ListItem';
 import { Card, CardGrid, ScheduleCard } from './Card';
 import SubPageHeader from './SubPageHeaders';
+import Success from './Success';
 
 export {
   ButtonSplit,
@@ -24,4 +25,5 @@ export {
   SideNav,
   ListItem,
   SubPageHeader,
+  Success,
 };

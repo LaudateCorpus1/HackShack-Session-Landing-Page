@@ -17,6 +17,7 @@ import {
   ContestPage,
   NewsletterTC,
   ChallengeTC,
+  SuccessPage,
 } from './pages/index';
 
 const customHpe = deepMerge(hpe, {
@@ -99,6 +100,7 @@ const App = () => {
           <Route path="/newslettertermsconditions">
             <NewsletterTC />
           </Route>
+          <Route path="/success" render={props => <SuccessPage {...props} />} />
         </Switch>
       </Router>
     </Grommet>

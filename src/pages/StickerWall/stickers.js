@@ -23,15 +23,15 @@ export const Row1 = [
     icon: <User size="small" />,
   },
   // take out after Ezmeral is announced
+  //   {
+  //     img: '/img/StickerPage/grommet-sticker-kisscut.png',
+  //     icon: <User size="small" />,
+  //   },
+  // put back in ezmeral picture
   {
-    img: '/img/StickerPage/grommet-sticker-kisscut.png',
+    img: '/img/StickerPage/ezmeral.png',
     icon: <User size="small" />,
   },
-  // put back in ezmeral picture
-  //   {
-  //     // img: '/img/StickerPage/ezmeral.png',
-  //     // icon: <User size="small" />,
-  // },
 ];
 
 export const Row2 = [
@@ -63,11 +63,13 @@ export const Row3 = [
   },
   {
     // Take out img and put back background Image & download
-    // backgroundImage: 'url(/img/StickerPage/ezmeralbackground.png)',
-    // download: '/img/StickerPage/ezmeralbackground.png'
-    img: '/img/StickerPage/dev-sticker-light.png',
+    backgroundImage: 'url(/img/StickerPage/ezmeralbackground.png)',
+    download: '/img/StickerPage/ezmeralbackground.png',
     icon: <Monitor size="small" />,
     size: 'large',
+    // img: '/img/StickerPage/dev-sticker-light.png',
+    // icon: <Monitor size="small" />,
+    // size: 'large',
   },
   {
     img: '/img/StickerPage/letshackshack.png',
@@ -83,11 +85,13 @@ export const Row4 = [
   },
   {
     backgroundImage: 'url(/img/StickerPage/2gremlins.png)',
+    download: '/img/StickerPage/2gremlins.png',
     icon: <Monitor size="small" />,
     size: 'large',
   },
   {
     backgroundImage: 'url(/img/StickerPage/hack-shack-house.png)',
+    download: '/img/StickerPage/hack-shack-house.png',
     icon: <Monitor size="small" />,
     size: 'large',
   },
@@ -106,10 +110,12 @@ export const Row5 = [
   },
   {
     backgroundImage: 'url(/img/StickerPage/design.png)',
+    download: '/img/StickerPage/design.png',
     icon: <Monitor size="small" />,
   },
   {
     backgroundImage: 'url(/img/StickerPage/heart.png)',
+    download: '/img/StickerPage/heart.png',
     icon: <User size="small" />,
   },
 ];
@@ -141,6 +147,7 @@ export const Row7 = [
   },
   {
     backgroundImage: 'url(/img/StickerPage/heart.png)',
+    download: '/img/StickerPage/heart.png',
     icon: <User size="small" />,
   },
   {
@@ -158,6 +165,7 @@ export const Row8 = [
   },
   {
     backgroundImage: 'url(/img/StickerPage/hack-shack-house.png)',
+    download: '/img/StickerPage/hack-shack-house.png',
     icon: <Monitor size="small" />,
     size: 'large',
   },

@@ -8,6 +8,7 @@ import Challenge from './Challenge';
 import ContestPage from './Competiton';
 import ChallengeTC from './ChallengeTC';
 import NewsletterTC from './NewsletterTC';
+import SuccessPage from './Success';
 
 export {
   Home,
@@ -20,4 +21,5 @@ export {
   Challenge,
   ChallengeTC,
   NewsletterTC,
+  SuccessPage,
 };
