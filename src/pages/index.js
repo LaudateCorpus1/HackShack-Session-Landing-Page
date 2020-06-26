@@ -6,9 +6,9 @@ import Schedule from './Schedule';
 import StickerWall from './StickerWall';
 import Challenge from './Challenge';
 import ContestPage from './Competiton';
-import ChallengeTC from './ChallengeTC';
 import NewsletterTC from './NewsletterTC';
 import SuccessPage from './Success';
+import ChallengeTC from './ChallengeTC';
 
 export {
   Home,

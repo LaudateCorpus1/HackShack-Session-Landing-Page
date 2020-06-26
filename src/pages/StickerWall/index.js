@@ -115,7 +115,6 @@ const StickerWall = () => {
   const mobileRow1 = [Row7[2], Row1[3]];
   const mobileRow2 = [Row2[2], Row8[0]];
   const mobileRow3 = [Row4[2], Row5[2]];
-  console.log(mobileRow1);
   const size = useContext(ResponsiveContext);
   return (
     <Layout background="/img/BackgroundImages/stickers-background.jpg">
