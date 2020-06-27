@@ -38,7 +38,7 @@ const Challenge = props => {
   const [submitStatus, setSubmitStatus] = useState(false);
   const [challengeNameDesc, setChallengeNameDesc] = useState([]);
 
-  const apiEndpoint = process.env.REACT_APP_API_ENDPOINT;
+  const apiEndpoint = process.env.REACT_APP_CHALLENGE_API_ENDPOINT;
   const getChallengesApi = `${apiEndpoint}/api/challenges`;
   const addCustomer = `${apiEndpoint}/api/customer`;
 
