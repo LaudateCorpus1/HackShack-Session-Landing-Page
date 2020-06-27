@@ -1,0 +1,27 @@
+[
+    {
+      "avatar": "/img/SpeakerImages/Didier.png",
+      "title": "Hack Shack Challenges: Are You Ready to Compete?",
+      "desc": "Feeling competitive? Show off your coding chops in any of our four challenges to compete for cool prizes. Attend this summary session to learn how to register for the challenges. We’ll explain each one, go over the rules and walk you through the environment you’ll be working in. You’ll have four hours in which to complete each challenge.",
+      "presenter": "Didier Lalli",
+      "role": "Distinguished Technologist",
+      "videolink": "https://vimeo.com/299891922"
+    },
+    {
+
+        "avatar": "/img/SpeakerImages/Didier.png",
+        "title": "API 101, API Basics and the Value They Provide",
+        "desc": "You may know that application programming interfaces (APIs) allow applications to talk to other apps, but have you ever used them? Today, APIs are available for most products and solutions. You can take advantage of them when writing automation scripts, integrating code or defining infrastructure-as-code, as long as you understand the mechanisms used to consume an API. In this hands-on workshop, we’ll review all the jargon and technology used by REST APIs and show you how to place your first API call against a publicly available API.",
+        "presenter": "Didier Lalli",
+        "role": "Distinguished Technologist",
+        "videolink": "https://vimeo.com/195092393"
+      },
+      {
+        "avatar": "/img/SpeakerImages/chris-hpecp.jpg",
+        "title": "Automate Apps With the HPE Container Platform",
+        "desc": "IT administrators are frequently challenged to stand up hardware and software environments. These requests can be time-consuming and confusing for non-technical teams to deploy. By implementing the HPE Container Platform with its easy-to-use APIs, new clusters and software applications can be created automatically with specified resources. Join this hands-on workshop to learn how the HPE Container Platform APIs make it easier to configure apps and compute resources, along with how to pull detailed usage reports for chargeback/showback.",
+        "presenter": "Chris Crawford",
+        "role": "Solutions Architect",
+        "videolink": "https://vimeo.com/391448896"
+      }
+]
