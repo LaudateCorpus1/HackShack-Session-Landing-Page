@@ -7,6 +7,7 @@ import StickerWall from './StickerWall';
 import ContestPage from './Competiton';
 import NewsletterTC from './NewsletterTC';
 import ChallengeTC from './ChallengeTC';
+import Replays from './Replays';
 
 export {
   Home,
@@ -17,5 +18,6 @@ export {
   Arcade,
   StickerWall,
   NewsletterTC,
+  Replays,
   ChallengeTC,
 };
