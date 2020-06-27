@@ -14,11 +14,22 @@ const ScheduleCard = ({
   size,
   title,
 }) => {
+  let backgroundColor;
+  switch (sessionType) {
+    case 'Workshop':
+      backgroundColor = '#00567acc';
+      break;
+    case 'Challenge':
+      backgroundColor = 'rgba(155, 99, 16, 0.8)';
+      break;
+    default:
+      backgroundColor = 'background';
+  }
   return (
     <CardWrapper
       pad="large"
       justify="between"
-      background={sessionType === 'Workshop' ? '#00567acc' : 'background'}
+      background={backgroundColor}
       round="medium"
       overflow="hidden"
     >
@@ -80,6 +91,13 @@ const ScheduleCard = ({
 ScheduleCard.propTypes = {
   title: PropTypes.string,
   desc: PropTypes.string,
+  avatar: PropTypes.string,
+  id: PropTypes.string,
+  presenter: PropTypes.string,
+  role: PropTypes.string,
+  sessionLink: PropTypes.string,
+  sessionType: PropTypes.string,
+  size: PropTypes.string,
 };
 
 export default ScheduleCard;
