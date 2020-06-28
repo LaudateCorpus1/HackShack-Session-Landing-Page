@@ -1,12 +1,60 @@
 [
+  {
+    "sessionId": "C651",
+    "sessionType": "Workshop",
+    "avatar": "/img/SpeakerImages/Didier.png",
+    "title": "Hack Shack Challenges: Are You Ready to Compete?",
+    "desc": "Feeling competitive? Show off your coding chops in any of our four challenges to compete for cool prizes. Attend this summary session to learn how to register for the challenges. We’ll explain each one, go over the rules and walk you through the environment you’ll be working in. You’ll have four hours in which to complete each challenge.",
+    "presenter": "Didier Lalli",
+    "role": "Distinguished Technologist",
+    "link": "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US"    
+  },
+  {
+    "sessionId": "T492",
+    "sessionType": "Challenge",
+    "avatar": "/img/SpeakerImages/Francois.png",
+    "title": "The Redfish Challenge",
+    "desc": "Your mission here will be to write the smallest possible program (in terms of number of Redfish API calls) that retrieves the complete Device Inventory list from an HPE iLO 5, and to display the following properties for each device: Location, Product Name, Firmware Version (if applicable) and Status. Remember, you only have so much time. Be quick and be sharp!",
+    "presenter": "Francois Donze",
+    "role": "HPE Worldwide Technical Consultant",
+    "week": "2",
+    "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US",
+    "DBid": "1"
+    },
+  {
+    "sessionId": "T492",
+    "sessionType": "Challenge",
+    "avatar": "/img/SpeakerImages/Didier.png",
+    "title": "The Container Challenge",
+    "desc": "This challenge is undoubtedly the most complicated one as it's an end-to-end developer experience. Your mission here will be to build a Grommet sample app (or reuse the one from the Grommet Challenge), package it in a container, and then run that container in a Kubernetes Cluster. This challenge touches on several technologies, such as front-end web application design, Docker containers and Kubernetes. Be ready for an intense moment when all the pieces of the puzzle will suddenly make total sense.",
+    "presenter": "Didier Lalli",
+    "role": "Distinguished Technologist",
+    "week": "2",
+    "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US",
+    "DBid": "2"
+    },
     {
-      "sessionId": "C651",
-      "sessionType": "Workshop",
-      "avatar": "/img/SpeakerImages/Didier.png",
-      "title": "Hack Shack Challenges: Are You Ready to Compete?",
-      "desc": "Feeling competitive? Show off your coding chops in any of our four challenges to compete for cool prizes. Attend this summary session to learn how to register for the challenges. We’ll explain each one, go over the rules and walk you through the environment you’ll be working in. You’ll have four hours in which to complete each challenge.",
-      "presenter": "Didier Lalli",
-      "role": "Distinguished Technologist",
-      "link": "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US"
+    "sessionId": "T492",
+    "sessionType": "Challenge",
+    "avatar": "/img/SpeakerImages/defaultAvatar.svg",
+    "title": "The HPE OneView Challenge",
+    "desc": "Your mission, should you choose to accept it, is to implement vSphere VSAN on an HPE Synergy Composable Infrastructure. You will be asked to prepare a server profile template according to published best practices, and do it in a scripted way so that you can deploy it across your enterprise in different datacenters and different Synergy environments.",
+    "presenter": "Vincent Berger",
+    "role": "Solutions Architect",
+    "week": "2",
+    "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US",
+    "DBid": "3"
+    },
+    {
+    "sessionId": "T492",
+    "sessionType": "Challenge",
+    "avatar": "/img/SpeakerImages/Didier.png",
+    "title": "The Grommet Challenge",
+    "desc": "A new mission awaits! In this challenge, you will take on a UX designer persona and show your creative side using Grommet to design your own little web app UI. You will start with the Grommet Designer, generate code from your design, push that code to GitHub, and finally deploy the app on Netlify. Beginner through expert designers and developers are all welcome. This challenge is all about unleashing your creativity!",
+    "presenter": "Didier Lalli",
+    "role": "Distinguished Technologist",
+    "week": "2",
+    "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US",
+    "DBid": "4"
     }
 ]
