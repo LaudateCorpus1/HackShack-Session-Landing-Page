@@ -70,6 +70,7 @@ const Schedule = () => {
             avatar,
             desc,
             link,
+            DBid,
             presenter,
             role,
             sessionId,
@@ -81,6 +82,7 @@ const Schedule = () => {
               desc={`${desc.slice(0, 220)}...`}
               id={sessionId}
               key={title}
+              DBid={DBid}
               presenter={presenter}
               role={role}
               sessionLink={link}
