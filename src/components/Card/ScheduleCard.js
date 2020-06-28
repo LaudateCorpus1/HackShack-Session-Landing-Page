@@ -246,6 +246,17 @@ const ScheduleCard = ({
   size,
   title,
 }) => {
+  let backgroundColor;
+  switch (sessionType) {
+    case 'Workshop':
+      backgroundColor = '#00567acc';
+      break;
+    case 'Challenge':
+      backgroundColor = 'rgba(155, 99, 16, 0.8)';
+      break;
+    default:
+      backgroundColor = 'background';
+  }
   const [signupLayer, setSignupLayer] = useState(false);
   const [successLayer, setSuccessLayer] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -290,7 +301,7 @@ const ScheduleCard = ({
     <CardWrapper
       pad="large"
       justify="between"
-      background={sessionType === 'Workshop' ? '#00567acc' : 'background'}
+      background={backgroundColor}
       round="medium"
       overflow="hidden"
     >
