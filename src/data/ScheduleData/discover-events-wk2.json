@@ -36,7 +36,6 @@
       {
       "sessionId": "T492",
       "sessionType": "Challenge",
-      "avatar": "/img/SpeakerImages/defaultAvatar.svg",
       "title": "The HPE OneView Challenge",
       "desc": "Your mission, should you choose to accept it, is to implement vSphere VSAN on an HPE Synergy Composable Infrastructure. You will be asked to prepare a server profile template according to published best practices, and do it in a scripted way so that you can deploy it across your enterprise in different datacenters and different Synergy environments.",
       "presenter": "Vincent Berger",
