@@ -19,13 +19,14 @@ function getNumberOfWeek() {
   const pastDaysOfYear = (today - firstDayOfYear) / 86400000;
   return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
 }
-
+/* If discover goes into August more logic will need to 
+ be added for following weeks */
 let dateTitle;
 let weekFile;
 switch (getNumberOfWeek()) {
   case 27:
     dateTitle = 'Week of June 29';
-    weekFile = week3;
+    weekFile = week2;
     break;
   case 28:
     dateTitle = 'Week of July 6';
@@ -45,7 +46,6 @@ switch (getNumberOfWeek()) {
     break;
   default:
     dateTitle = 'This week in Discover';
-    weekFile = week2;
 }
 
 const Schedule = () => {
