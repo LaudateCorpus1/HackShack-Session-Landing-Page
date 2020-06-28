@@ -67,7 +67,6 @@ const SignupLayer = ({
             setError(response.data);
           } else {
             setLayer(false);
-            reset();
             setSuccess(true);
           }
         })
@@ -129,7 +128,7 @@ const SignupLayer = ({
                       target="_blank"
                       label="Terms and Conditions"
                       href="/challengetermsconditions"
-                    />
+                    />{' '}
                     and HPE's{' '}
                     <Anchor
                       label="Privacy Policy"
@@ -174,7 +173,7 @@ SignupLayer.propTypes = {
   title: PropTypes.string,
 };
 
-const SuccessLayer = ({ name, setLayer, size, title }) => (
+const SuccessLayer = ({ name, setLayer, size, title, reset }) => (
   <Layer
     position="right"
     full="vertical"
@@ -219,7 +218,10 @@ const SuccessLayer = ({ name, setLayer, size, title }) => (
         <Button
           alignSelf="start"
           label="Take me back to the Schedule"
-          onClick={() => setLayer(false)}
+          onClick={() => {
+            reset();
+            setLayer(false);
+          }}
           primary
         />
       </Box>
@@ -230,6 +232,7 @@ const SuccessLayer = ({ name, setLayer, size, title }) => (
 SuccessLayer.propTypes = {
   name: PropTypes.string,
   setLayer: PropTypes.func,
+  reset: PropTypes.func,
   size: PropTypes.string,
   title: PropTypes.string,
 };
@@ -366,9 +369,7 @@ const ScheduleCard = ({
               label={
                 <Box pad="xsmall">
                   <Text color="text-strong">
-                    {disabled
-                      ? 'Challenge unavailable, please try again, tomorrow'
-                      : 'Register'}
+                    {disabled ? 'Currently full, try again later' : 'Register'}
                   </Text>
                 </Box>
               }
@@ -394,6 +395,7 @@ const ScheduleCard = ({
           name={formData.name}
           size={size}
           title={title}
+          reset={resetFormData}
         />
       )}
     </CardWrapper>
