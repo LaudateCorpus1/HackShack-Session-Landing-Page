@@ -78,7 +78,7 @@ const Schedule = () => {
           }) => (
             <ScheduleCard
               avatar={avatar}
-              desc={`${desc.slice(0, 220)}...`}
+              desc={`${desc.slice(0, 535)}`}
               id={sessionId}
               key={title}
               DBid={DBid}
