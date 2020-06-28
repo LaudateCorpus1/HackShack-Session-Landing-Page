@@ -99,6 +99,9 @@ const App = () => {
           <Route path="/challengetermsconditions">
             <ChallengeTC />
           </Route>
+          <Route path="/newslettertermsconditions">
+            <NewsletterTC />
+          </Route>
         </Switch>
       </Router>
     </Grommet>
