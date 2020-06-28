@@ -251,6 +251,7 @@ const ScheduleCard = ({
 }) => {
   let backgroundColor;
   switch (sessionType) {
+    case 'Session':
     case 'Workshop':
       backgroundColor = '#00567acc';
       break;
