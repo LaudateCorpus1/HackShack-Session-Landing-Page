@@ -16,6 +16,6 @@ export {
   ContestPage,
   Arcade,
   StickerWall,
-  NewsletterTC,
   ChallengeTC,
+  NewsletterTC,
 };

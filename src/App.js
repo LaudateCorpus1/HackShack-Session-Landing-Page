@@ -89,11 +89,11 @@ const App = () => {
           <Route path="/hackshackattack">
             <HackShackAttack />
           </Route>
-          <Route path="/newslettertermsconditions">
-            <NewsletterTC />
-          </Route>
           <Route path="/challengetermsconditions">
             <ChallengeTC />
+          </Route>
+          <Route path="/newslettertermsconditions">
+            <NewsletterTC />
           </Route>
         </Switch>
       </Router>
