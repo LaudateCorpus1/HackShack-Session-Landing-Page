@@ -19,7 +19,8 @@
       "role": "HPE Worldwide Technical Consultant",
       "week": "2",
       "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US",
-      "DBid": "1"
+      "DBid": "1",
+      "notebook": "TheRedfishChallenge"
       },
     {
       "sessionId": "C651",
@@ -31,7 +32,8 @@
       "role": "Distinguished Technologist",
       "week": "2",
       "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US",
-      "DBid": "2"
+      "DBid": "2",
+      "notebook": "TheContainerChallenge"
       },
       {
       "sessionId": "C651",
@@ -43,7 +45,8 @@
       "role": "HPE Worldwide Technical Consultant",
       "week": "2",
       "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US",
-      "DBid": "3"
+      "DBid": "3",
+      "notebook": "TheOneViewChallenge"
       },
       {
       "sessionId": "C651",
@@ -55,6 +58,7 @@
       "role": "Distinguished Technologist",
       "week": "2",
       "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US",
-      "DBid": "4"
+      "DBid": "4",
+      "notebook": "TheGrommetChallenge"
       }
 ]

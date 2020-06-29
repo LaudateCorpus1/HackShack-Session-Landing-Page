@@ -242,6 +242,7 @@ const ScheduleCard = ({
   desc,
   id,
   DBid,
+  notebook,
   presenter,
   role,
   sessionLink,
@@ -268,7 +269,7 @@ const ScheduleCard = ({
     email: '',
     company: '',
     challenge: title,
-    notebook: title,
+    notebook,
     termsAndConditions: false,
   });
 
@@ -278,7 +279,7 @@ const ScheduleCard = ({
       email: '',
       company: '',
       challenge: title,
-      notebook: title,
+      notebook,
       termsAndConditions: false,
     });
   };
