@@ -70,6 +70,7 @@ const Schedule = () => {
             desc,
             link,
             DBid,
+            notebook,
             presenter,
             role,
             sessionId,
@@ -91,6 +92,7 @@ const Schedule = () => {
               sessionLink={link}
               sessionType={sessionType}
               title={title}
+              notebook={notebook}
             />
           ),
         )}
