@@ -1,27 +1,58 @@
 [
-    {
-      "avatar": "/img/SpeakerImages/Didier.png",
-      "title": "Hack Shack Challenges: Are You Ready to Compete?",
-      "desc": "Feeling competitive? Show off your coding chops in any of our four challenges to compete for cool prizes. Attend this summary session to learn how to register for the challenges. We’ll explain each one, go over the rules and walk you through the environment you’ll be working in. You’ll have four hours in which to complete each challenge.",
-      "presenter": "Didier Lalli",
-      "role": "Distinguished Technologist",
-      "videolink": "https://vimeo.com/299891922"
-    },
-    {
-
-        "avatar": "/img/SpeakerImages/Didier.png",
-        "title": "API 101, API Basics and the Value They Provide",
-        "desc": "You may know that application programming interfaces (APIs) allow applications to talk to other apps, but have you ever used them? Today, APIs are available for most products and solutions. You can take advantage of them when writing automation scripts, integrating code or defining infrastructure-as-code, as long as you understand the mechanisms used to consume an API. In this hands-on workshop, we’ll review all the jargon and technology used by REST APIs and show you how to place your first API call against a publicly available API.",
-        "presenter": "Didier Lalli",
-        "role": "Distinguished Technologist",
-        "videolink": "https://vimeo.com/195092393"
-      },
-      {
-        "avatar": "/img/SpeakerImages/chris-hpecp.jpg",
-        "title": "Automate Apps With the HPE Container Platform",
-        "desc": "IT administrators are frequently challenged to stand up hardware and software environments. These requests can be time-consuming and confusing for non-technical teams to deploy. By implementing the HPE Container Platform with its easy-to-use APIs, new clusters and software applications can be created automatically with specified resources. Join this hands-on workshop to learn how the HPE Container Platform APIs make it easier to configure apps and compute resources, along with how to pull detailed usage reports for chargeback/showback.",
-        "presenter": "Chris Crawford",
-        "role": "Solutions Architect",
-        "videolink": "https://vimeo.com/391448896"
-      }
-]
+  {
+    "avatar": "/img/SpeakerImages/hana.jpg",
+    "title": "AI 101, Convolutional Neural Network (CNN) for MNIST",
+    "desc": "Whether its facial recognition or self-driving cars, CNNs are used everywhere. Join this hands-on workshop to learn how to implement a simple CNN for a Modified National Institute of Standards and Technology database (MNIST). Using an MNIST dataset (70,000 pictures of hand-written digits) you'll learn how to build a simple CNN and train it to solve a real problem with Keras (a deep learning library for Python.) On completion, you'll be able to predict a digit, given a picture of hand-written digits with 99% accuracy.",
+    "presenter": "Hana Malha",
+    "role": "Machine Learning Engineer",
+    "videolink": "https://vimeo.com/433612904"
+  },
+  {
+    "avatar": "/img/SpeakerImages/Didier.png",
+    "title": "API 101, API Basics and the Value They Provide",
+    "desc": "You may know that application programming interfaces (APIs) allow applications to talk to other apps, but have you ever used them? Today, APIs are available for most products and solutions. You can take advantage of them when writing automation scripts, integrating code or defining infrastructure-as-code, as long as you understand the mechanisms used to consume an API. In this hands-on workshop, we'll review all the jargon and technology used by REST APIs and show you how to place your first API call against a publicly available API.",
+    "presenter": "Didier Lalli",
+    "role": "Distinguished Technologist",
+    "videolink": "https://vimeo.com/433621126"
+  },
+  {
+    "avatar": "/img/SpeakerImages/chris-hpecp.jpg",
+    "title": "Automate Apps With the HPE Container Platform",
+    "desc": "IT administrators are frequently challenged to stand up hardware and software environments. These requests can be time-consuming and confusing for non-technical teams to deploy. By implementing the HPE Container Platform with its easy-to-use APIs, new clusters and software applications can be created automatically with specified resources. Join this hands-on workshop to learn how the HPE Container Platform APIs make it easier to configure apps and compute resources, along with how to pull detailed usage reports for chargeback/showback.",
+    "presenter": "Chris Crawford",
+    "role": "Solutions Architect",
+    "videolink": "https://vimeo.com/433625058"
+  },
+  {
+    "avatar": "/img/SpeakerImages/Denis.png",
+    "title": "Intro to the HPE Container Platform REST API",
+    "desc": "Calling all developers, data analysts and IT architects. Learn how to interact with the HPE Container Platform programmatically through its REST API. In this hands-on workshop, you'll learn how to perform authentication, deploy distributed multi-mode applications for AI/ML and data analytics and interpret/respond to REST API calls. We'll walk you through, step by step, and, by the end of the session, you'll be deploying a TensorFlow application framework and other simple applications. No previous programming experience required.",
+    "presenter": "Denis Choukroun",
+    "role": "Cloud Solution Architect",
+    "videolink": "https://vimeo.com/433632590"
+  },
+  {
+    "avatar": "/img/SpeakerImages/Francois.png",
+    "title": "Redfish API Use With PowerShell Python and Bash/cURL",
+    "desc": "DMTF's Redfish is a standard designed to deliver simple and secure management for converged, hybrid IT and the Software-Defined Data Center (SDDC). Today it is rapidly replacing proprietary protocols. In this hands-on workshop, you'll get to explore the Redfish tree of an OpenBMC and HPE iLO 5 to understand its basic structure, and learn how to modify resources and perform simple actions. You'll interact with the HTTP/JSON-based standard using your favorite language, whether it's PowerShell, Python or Bash/cURL. Beginners and experts welcome.",
+    "presenter": "Francois Donze",
+    "role": "Technical Consultant",
+    "videolink": "https://vimeo.com/433618069"
+  },
+  {
+    "avatar": "/img/SpeakerImages/joe-aruba.jpg",
+    "title": "Use Aruba API Yourself",
+    "desc": "Get your automation game on with Aruba APIs in this Hands-on Lab session covering Aruba's wired and wireless portfolio. In this workshop, you'll learn to manage, configure and automate Aruba products using their REST APIs, and move away from slow and error-prone CLI (command line interface) work. We're offering a collection of labs tailored to varying skill levels, from coding new-comers to hardcore Pythonistas and everyone in-between. No experience required.s",
+    "presenter": "Joe Neville",
+    "role": "Strategist",
+    "videolink": "https://vimeo.com/433637026"
+  },
+  {
+    "avatar": "/img/SpeakerImages/Didier.png",
+    "title": "Hack Shack Challenges: Are You Ready to Compete?",
+    "desc": "Feeling competitive? Show off your coding chops in any of our four challenges to compete for cool prizes. Attend this summary session to learn how to register for the challenges. We'll explain each one, go over the rules and walk you through the environment you'll be working in. You'll have four hours in which to complete each challenge. Never tried any of our challenges before and wonder if it's for you? Join us on our Slack channel (https://hpedev.slack.com/archives/C015CLE2QTT so you can reach out to us with any questions.",
+    "presenter": "Didier Lalli",
+    "role": "Distinguished Technologist",
+    "videolink": "https://vimeo.com/434425665" 
+  }
+  ]

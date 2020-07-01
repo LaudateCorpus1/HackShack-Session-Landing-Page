@@ -7,7 +7,7 @@ import replays from '../../data/ReplaysData/replays.json';
 const Replays = () => {
   const [current, setCurrent] = useState(0);
   return (
-    <Layout background="background">
+    <Layout background="/img/BackgroundImages/generic-background.jpg">
       <PageHeader title="REPLAYS">
         <Video
           videolink={replays[current].videolink}
