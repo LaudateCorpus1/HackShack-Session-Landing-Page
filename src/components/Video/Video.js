@@ -61,7 +61,7 @@ const Video = ({
             </Heading>
           </Box>
           <Box>
-            <Text color="text-strong" margin={{ bottom: 'large' }}>
+            <Text color="text-strong" margin={{ bottom: 'large' }} size="22px">
               {desc}
             </Text>
           </Box>

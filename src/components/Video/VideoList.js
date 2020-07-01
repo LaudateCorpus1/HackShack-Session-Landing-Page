@@ -40,7 +40,12 @@ const VideoList = ({
             {title}
           </Heading>
           <Box>
-            <Text color="text-strong" margin={{ bottom: 'large' }} weight={100}>
+            <Text
+              color="text-strong"
+              margin={{ bottom: 'large' }}
+              weight={100}
+              size="22px"
+            >
               {desc}
             </Text>
           </Box>
