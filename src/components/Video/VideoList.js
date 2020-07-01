@@ -13,32 +13,40 @@ const VideoList = ({
   setCurrent,
 }) => {
   return (
-    <Box gap="large" direction="row-responsive" justify="center" align="center">
-      <ReactPlayer
-        url={videoLink}
-        style={{
-          maxWidth: '280px',
-          minWidth: '280px',
-          width: '280px',
-          maxHeight: '180px',
-          height: '180px',
-        }}
-      />
-      <Box pad={{ top: 'medium' }} direction="column">
-        <Box justify="center">
-          <Text>{presenter}</Text>
-          <Text>{role}</Text>
-        </Box>
-        <Heading color="text-strong" margin={{ vertical: 'small' }} level={3}>
-          {title}
-        </Heading>
-        <Box>
-          <Text color="text-strong" margin={{ bottom: 'large' }}>
-            {desc}
-          </Text>
+    <Button onClick={() => setCurrent(index)} style={{ textAlign: 'start' }}>
+      <Box gap="large" direction="row-responsive">
+        <ReactPlayer
+          url={videoLink}
+          style={{
+            maxWidth: '280px',
+            minWidth: '280px',
+            width: '280px',
+            maxHeight: '180px',
+            height: '180px',
+            zIndex: -10,
+          }}
+        />
+
+        <Box direction="column">
+          <Box>
+            <Text>{presenter}</Text>
+            <Text>{role}</Text>
+          </Box>
+          <Heading
+            color="text-strong"
+            margin={{ top: '0px', bottom: 'small' }}
+            level={3}
+          >
+            {title}
+          </Heading>
+          <Box>
+            <Text color="text-strong" margin={{ bottom: 'large' }} weight={100}>
+              {desc}
+            </Text>
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </Button>
   );
 };
 

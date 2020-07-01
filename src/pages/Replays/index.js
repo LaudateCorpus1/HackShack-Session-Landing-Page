@@ -21,18 +21,21 @@ const Replays = () => {
         <Heading color="text" style={{ fontWeight: '500' }} level={2}>
           UP NEXT
         </Heading>
-        {replays.map(({ desc, presenter, role, title, videolink }, index) => (
-          <VideoList
-            key={title}
-            index={index}
-            desc={`${desc.slice(0, 150)}...`}
-            title={title}
-            presenter={presenter}
-            videoLink={videolink}
-            role={role}
-            setCurrent={setCurrent}
-          />
-        ))}
+        {replays.map(
+          ({ desc, presenter, role, title, videolink }, index) =>
+            index !== current && (
+              <VideoList
+                key={title}
+                index={index}
+                desc={`${desc.slice(0, 150)}...`}
+                title={title}
+                presenter={presenter}
+                videoLink={videolink}
+                role={role}
+                setCurrent={setCurrent}
+              />
+            ),
+        )}
       </PageHeader>
     </Layout>
   );
