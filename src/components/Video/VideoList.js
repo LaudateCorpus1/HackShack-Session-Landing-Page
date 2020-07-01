@@ -3,12 +3,27 @@ import ReactPlayer from 'react-player/vimeo';
 import { Box, Button, Heading, Text } from 'grommet';
 import PropTypes from 'prop-types';
 
-const VideoList = ({ desc, presenter, role, videoLink, title }) => {
+const VideoList = ({
+  desc,
+  index,
+  presenter,
+  role,
+  videoLink,
+  title,
+  setCurrent,
+}) => {
   return (
-    <Box pad="medium" justify="between" gap="large" direction="row">
-      <Button>
-        <ReactPlayer width="294px" height="250px" url={videoLink} />
-      </Button>
+    <Box gap="large" direction="row-responsive" justify="center" align="center">
+      <ReactPlayer
+        url={videoLink}
+        style={{
+          maxWidth: '280px',
+          minWidth: '280px',
+          width: '280px',
+          maxHeight: '180px',
+          height: '180px',
+        }}
+      />
       <Box pad={{ top: 'medium' }} direction="column">
         <Box justify="center">
           <Text>{presenter}</Text>
@@ -28,11 +43,13 @@ const VideoList = ({ desc, presenter, role, videoLink, title }) => {
 };
 
 VideoList.propTypes = {
+  index: PropTypes.number,
   title: PropTypes.string,
   desc: PropTypes.string,
   role: PropTypes.string,
   videoLink: PropTypes.string,
   presenter: PropTypes.string,
+  setCurrent: PropTypes.func,
 };
 
 export default VideoList;

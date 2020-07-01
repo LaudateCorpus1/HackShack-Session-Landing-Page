@@ -1,38 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Heading } from 'grommet';
-import { VideoList, VideoPlaying } from '../../components/Replays';
-import { Layout } from '../../components/index';
+import { Layout, VideoList, Video } from '../../components/index';
 import { PageHeader } from '../../components/PageHeading';
 import replays from '../../data/ReplaysData/replays.json';
 
 const Replays = () => {
+  const [current, setCurrent] = useState(0);
   return (
     <Layout background="background">
       <PageHeader title="REPLAYS">
-        {/* To keep things easy I figured just play first one in array
-        you can use this for default state  */}
-        <VideoPlaying
-          videolink={replays[0].videolink}
-          avatar={replays[0].avatar}
-          desc={replays[0].desc}
-          key={replays[0].title}
-          presenter={replays[0].presenter}
-          role={replays[0].role}
-          title={replays[0].title}
+        <Video
+          videolink={replays[current].videolink}
+          avatar={replays[current].avatar}
+          desc={replays[current].desc}
+          key={replays[current].title}
+          presenter={replays[current].presenter}
+          role={replays[current].role}
+          title={replays[current].title}
         />
         <Heading color="text" style={{ fontWeight: '500' }} level={2}>
           UP NEXT
         </Heading>
-        {/* Update state depending on which video they click
-         */}
-        {replays.map(({ desc, presenter, role, title, videolink }) => (
+        {replays.map(({ desc, presenter, role, title, videolink }, index) => (
           <VideoList
             key={title}
+            index={index}
             desc={`${desc.slice(0, 150)}...`}
             title={title}
             presenter={presenter}
             videoLink={videolink}
             role={role}
+            setCurrent={setCurrent}
           />
         ))}
       </PageHeader>

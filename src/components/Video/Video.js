@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ReactPlayer from 'react-player/vimeo';
-import { Box, Heading, Text, Avatar } from 'grommet';
+import { Box, Heading, Text, Avatar, ResponsiveContext } from 'grommet';
 import PropTypes from 'prop-types';
 
-const CurrentVideo = ({ videolink, avatar, desc, presenter, role, title }) => {
+const Video = ({ videolink, avatar, desc, presenter, role, title }) => {
+  const size = useContext(ResponsiveContext);
+  const optionsLarge = { width: '640px', height: '380px' };
+  const optionsSmall = {
+    maxWidth: '280px',
+    minWidth: '280px',
+    width: '280px',
+    maxHeight: '180px',
+    height: '180px',
+  };
   return (
-    <>
-      <ReactPlayer controls url={videolink} />
+    <Box>
+      <ReactPlayer
+        controls
+        url={videolink}
+        style={size === 'small' ? optionsSmall : optionsLarge}
+      />
       <Box fill="horizontal" border={{ side: 'bottom' }}>
         <Box direction="column">
           <Box direction="column">
@@ -36,11 +49,11 @@ const CurrentVideo = ({ videolink, avatar, desc, presenter, role, title }) => {
           </Box>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 };
 
-CurrentVideo.propTypes = {
+Video.propTypes = {
   title: PropTypes.string,
   avatar: PropTypes.string,
   presenter: PropTypes.string,
@@ -49,4 +62,4 @@ CurrentVideo.propTypes = {
   videolink: PropTypes.string,
 };
 
-export default CurrentVideo;
+export default Video;
