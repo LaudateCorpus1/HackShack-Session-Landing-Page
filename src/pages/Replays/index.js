@@ -17,6 +17,9 @@ const Replays = () => {
           presenter={replays[current].presenter}
           role={replays[current].role}
           title={replays[current].title}
+          setCurrent={setCurrent}
+          current={current}
+          replaysLength={replays.length}
         />
         <Heading color="text" style={{ fontWeight: '500' }} level={2}>
           UP NEXT
