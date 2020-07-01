@@ -4,13 +4,30 @@ import { Layout, VideoList, Video } from '../../components/index';
 import { PageHeader } from '../../components/PageHeading';
 import replays from '../../data/ReplaysData/replays.json';
 
+const sortReplays = (replayData, current) => {
+  const beggining = [];
+  const end = [];
+
+  replayData.map(replay => {
+    if (current > replay.id) {
+      end.push(replay);
+    } else {
+      beggining.push(replay);
+    }
+    return replay;
+  });
+  return beggining.concat(end);
+};
+
 const Replays = () => {
   const [current, setCurrent] = useState(0);
+  const sortedReplays = sortReplays(replays, current);
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
       <PageHeader title="REPLAYS">
         <Video
           videolink={replays[current].videolink}
+          id={replays[current].id}
           avatar={replays[current].avatar}
           desc={replays[current].desc}
           key={replays[current].title}
@@ -24,12 +41,12 @@ const Replays = () => {
         <Heading color="text" style={{ fontWeight: '500' }} level={2}>
           UP NEXT
         </Heading>
-        {replays.map(
-          ({ desc, presenter, role, title, videolink }, index) =>
-            index !== current && (
+        {sortedReplays.map(
+          ({ desc, presenter, role, title, videolink, id }) =>
+            id !== current && (
               <VideoList
                 key={title}
-                index={index}
+                id={id}
                 desc={`${desc.slice(0, 150)}...`}
                 title={title}
                 presenter={presenter}

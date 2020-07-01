@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const VideoList = ({
   desc,
-  index,
+  id,
   presenter,
   role,
   videoLink,
@@ -13,7 +13,7 @@ const VideoList = ({
   setCurrent,
 }) => {
   return (
-    <Button onClick={() => setCurrent(index)} style={{ textAlign: 'start' }}>
+    <Button onClick={() => setCurrent(id)} style={{ textAlign: 'start' }}>
       <Box gap="large" direction="row-responsive">
         <ReactPlayer
           url={videoLink}
@@ -51,7 +51,7 @@ const VideoList = ({
 };
 
 VideoList.propTypes = {
-  index: PropTypes.number,
+  id: PropTypes.number,
   title: PropTypes.string,
   desc: PropTypes.string,
   role: PropTypes.string,

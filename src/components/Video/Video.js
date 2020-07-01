@@ -10,6 +10,7 @@ const Video = ({
   presenter,
   role,
   title,
+  id,
   setCurrent,
   current,
   replaysLength,
@@ -33,7 +34,7 @@ const Video = ({
           if (current >= replaysLength - 1) {
             setCurrent(0);
           } else {
-            setCurrent(current + 1);
+            setCurrent(id + 1);
           }
         }}
       />
@@ -79,6 +80,7 @@ Video.propTypes = {
   videolink: PropTypes.string,
   current: PropTypes.number,
   replaysLength: PropTypes.number,
+  id: PropTypes.number,
   setCurrent: PropTypes.func,
 };
 
