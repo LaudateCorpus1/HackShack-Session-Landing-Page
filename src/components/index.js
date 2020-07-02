@@ -10,6 +10,7 @@ import ListItem from './ListItem';
 import { Card, CardGrid, ScheduleCard } from './Card';
 import SubPageHeader from './SubPageHeaders';
 import Success from './Success';
+import { VideoList, Video } from './Video';
 
 export {
   ButtonSplit,
@@ -26,4 +27,6 @@ export {
   ListItem,
   SubPageHeader,
   Success,
+  Video,
+  VideoList,
 };
