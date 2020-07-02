@@ -70,6 +70,7 @@ const Schedule = () => {
             desc,
             link,
             DBid,
+            notebook,
             presenter,
             role,
             sessionId,
@@ -78,7 +79,11 @@ const Schedule = () => {
           }) => (
             <ScheduleCard
               avatar={avatar}
-              desc={`${desc.slice(0, 220)}...`}
+              desc={
+                sessionType === 'Challenge'
+                  ? `${desc.slice(0, 520)}`
+                  : `${desc.slice(0, 220)}...`
+              }
               id={sessionId}
               key={title}
               DBid={DBid}
@@ -87,6 +92,7 @@ const Schedule = () => {
               sessionLink={link}
               sessionType={sessionType}
               title={title}
+              notebook={notebook}
             />
           ),
         )}
