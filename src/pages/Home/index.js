@@ -194,7 +194,7 @@ const Home = () => {
               <Video controls="over" autoPlay fit="cover">
                 <source
                   key="video"
-                  src="https://player.vimeo.com/external/433193061.hd.mp4?s=54ec784440765db759f2240177e721ca637e812d&profile_id=175"
+                  src="https://player.vimeo.com/external/435519377.hd.mp4?s=66c6cb9e254a9c470e38ba44defc95c26b81e533&profile_id=174"
                   type="video/mp4"
                 />
                 <track
