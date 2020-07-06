@@ -108,7 +108,7 @@ const Cards = ({ size }) => (
         desc="Watch This Week in the Hack Shack!"
         background="rgba(0, 86, 122, 0.8);"
         label="Watch Now"
-        link="https://vimeo.com/433193061"
+        link="https://vimeo.com/435519377"
         margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
       />
     )}
