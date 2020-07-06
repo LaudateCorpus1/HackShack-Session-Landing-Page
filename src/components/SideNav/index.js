@@ -66,6 +66,7 @@ const SideNav = ({ location, history, size }) => (
       history={history}
       active={location.pathname === '/replays'}
       to="/replays"
+      size={size}
     >
       REPLAYS
     </NavButton>{' '}
