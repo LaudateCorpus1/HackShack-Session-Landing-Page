@@ -38,8 +38,9 @@
     "presenter": "Francois Donze",
     "role": "HPE Worldwide Technical Consultant",
     "week": "2",
-    "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US",
-    "DBid": "1"
+    "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US",
+    "DBid": "1",
+    "notebook": "TheRedfishChallenge"
     },
   {
     "sessionId": "C651",
@@ -50,8 +51,9 @@
     "presenter": "Didier Lalli",
     "role": "Distinguished Technologist",
     "week": "2",
-    "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US",
-    "DBid": "2"
+    "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US",
+    "DBid": "2",
+    "notebook": "TheContainerChallenge"
     },
     {
     "sessionId": "C651",
@@ -59,11 +61,12 @@
     "avatar": "/img/SpeakerImages/vincent.jpeg",
     "title": "The HPE OneView Challenge",
     "desc": "Your mission, should you choose to accept it, is to implement vSphere VSAN on an HPE Synergy Composable Infrastructure. You will be asked to prepare a server profile template according to published best practices, and do it in a scripted way so that you can deploy it across your enterprise in different datacenters and different Synergy environments.",
-    "presenter": "HPE Worldwide Technical Consultant",
-    "role": "Solutions Architect",
+    "presenter": "Vincent Berger",
+    "role": "HPE Worldwide Technical Consultant",
     "week": "2",
-    "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US",
-    "DBid": "3"
+    "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US",
+    "DBid": "3",
+    "notebook": "TheOneViewChallenge"
     },
     {
     "sessionId": "C651",
@@ -74,7 +77,8 @@
     "presenter": "Didier Lalli",
     "role": "Distinguished Technologist",
     "week": "2",
-    "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US",
-    "DBid": "4"
+    "link" : "https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US",
+    "DBid": "4",
+    "notebook": "TheGrommetChallenge"
     }
 ]
