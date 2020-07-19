@@ -16,6 +16,7 @@ import {
 import { StatusGood, FormClose } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import { CardWrapper } from './styles';
+import { Link } from 'react-router-dom';
 
 const { REACT_APP_CHALLENGE_API_ENDPOINT } = process.env;
 
@@ -349,7 +350,7 @@ const ScheduleCard = ({
         </Box>
       </Box>
       <Box direction="row" gap="medium">
-        <Button
+        {/* <Button
           alignSelf="start"
           href={sessionLink}
           target="_blank"
@@ -360,7 +361,17 @@ const ScheduleCard = ({
             </Box>
           }
           secondary
-        />
+        /> */}
+        <Link to={{ pathname: sessionLink }}>
+          <Button
+            label={
+              <Box pad="xsmall">
+                <Text color="text-strong">Watch Replay</Text>
+              </Box>
+            }
+            secondary
+          />
+        </Link>
         {sessionType === 'Challenge' && (
           <Box>
             <Button
