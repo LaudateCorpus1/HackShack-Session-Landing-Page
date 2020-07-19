@@ -1,11 +1,11 @@
 [
   {
-    "avatar": "/img/SpeakerImages/hana.jpg",
-    "title": "AI 101, Convolutional Neural Network (CNN) for MNIST",
-    "desc": "Whether its facial recognition or self-driving cars, CNNs are used everywhere. Join this hands-on workshop to learn how to implement a simple CNN for a Modified National Institute of Standards and Technology database (MNIST). Using an MNIST dataset (70,000 pictures of hand-written digits) you'll learn how to build a simple CNN and train it to solve a real problem with Keras (a deep learning library for Python.) On completion, you'll be able to predict a digit, given a picture of hand-written digits with 99% accuracy.",
-    "presenter": "Hana Malha",
-    "role": "Machine Learning Engineer",
-    "videolink": "https://vimeo.com/433612904",
+    "avatar": "/img/SpeakerImages/Didier.png",
+    "title": "Hack Shack Challenges: Are You Ready to Compete?",
+    "desc": "Feeling competitive? Show off your coding chops in any of our four challenges to compete for cool prizes. Attend this summary session to learn how to register for the challenges. We'll explain each one, go over the rules and walk you through the environment you'll be working in. You'll have four hours in which to complete each challenge. Never tried any of our challenges before and wonder if it's for you? Join us on our Slack channel (https://hpedev.slack.com/archives/C015CLE2QTT so you can reach out to us with any questions.",
+    "presenter": "Didier Lalli",
+    "role": "Distinguished Technologist",
+    "videolink": "https://vimeo.com/434425665",
     "id": 0
   },
   {
@@ -54,12 +54,12 @@
     "id": 5
   },
   {
-    "avatar": "/img/SpeakerImages/Didier.png",
-    "title": "Hack Shack Challenges: Are You Ready to Compete?",
-    "desc": "Feeling competitive? Show off your coding chops in any of our four challenges to compete for cool prizes. Attend this summary session to learn how to register for the challenges. We'll explain each one, go over the rules and walk you through the environment you'll be working in. You'll have four hours in which to complete each challenge. Never tried any of our challenges before and wonder if it's for you? Join us on our Slack channel (https://hpedev.slack.com/archives/C015CLE2QTT so you can reach out to us with any questions.",
-    "presenter": "Didier Lalli",
-    "role": "Distinguished Technologist",
-    "videolink": "https://vimeo.com/434425665",
+    "avatar": "/img/SpeakerImages/hana.jpg",
+    "title": "AI 101, Convolutional Neural Network (CNN) for MNIST",
+    "desc": "Whether its facial recognition or self-driving cars, CNNs are used everywhere. Join this hands-on workshop to learn how to implement a simple CNN for a Modified National Institute of Standards and Technology database (MNIST). Using an MNIST dataset (70,000 pictures of hand-written digits) you'll learn how to build a simple CNN and train it to solve a real problem with Keras (a deep learning library for Python.) On completion, you'll be able to predict a digit, given a picture of hand-written digits with 99% accuracy.",
+    "presenter": "Hana Malha",
+    "role": "Machine Learning Engineer",
+    "videolink": "https://vimeo.com/433612904",
     "id": 6
   },
   {

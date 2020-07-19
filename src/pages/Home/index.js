@@ -150,9 +150,10 @@ const Cards = ({ size }) => (
       title="Hack Shack coding challenges"
       desc="Feeling competitive? Here's a great way to show off your coding
       chops and compete for cool prizes. Find out how"
-      link="https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US"
+      //link="https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US"
+      path="/replays"
       background="background"
-      label="Learn more"
+      label="Watch Replay"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
     />
   </CardWrapper>
