@@ -64,6 +64,14 @@ const SideNav = ({ location, history, size }) => (
     </NavButton>
     <NavButton
       history={history}
+      active={location.pathname === '/ezmeral'}
+      to="/ezmeral"
+      size={size}
+    >
+      HPE EZMERAL
+    </NavButton>
+    <NavButton
+      history={history}
       active={location.pathname === '/replays'}
       to="/replays"
       size={size}
