@@ -112,7 +112,7 @@ const Cards = ({ size }) => (
         margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
       />
     )}
-    <Card
+    {/* <Card
       image="/img/Arcade/score.png"
       title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
       desc="Learn more about the rules and requirements to the contest."
@@ -124,28 +124,33 @@ const Cards = ({ size }) => (
           ? { top: '0px', right: '0px' }
           : { top: 'xlarge', right: 'large' }
       }
-    />
-    {/* <Card
+    /> */}
+    <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
       desc="Want to read more about industry trends for developers?"
       link="https://developer.hpe.com/event/hpe-discover-us-2020?listid=11647678"
-      background="rgba(0, 86, 122, 0.8);"
+      background="background"
       label="Get the Newsletter"
-      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    /> */}
-    {/* <Card
+      margin={
+        size === 'small'
+          ? { top: '0px', right: '0px' }
+          : { top: 'xlarge', right: 'large' }
+      }
+    />
+    <Card
       logo="/img/StickerPage/ezmeral.png"
       title="INTRODUCING HPE EZMERAL"
       // eslint-disable-next-line max-len
       desc="Run, manage, control and secure the apps,
       data and IT that run your business - from edge to cloud"
-      link="https://www.hpe.com/us/en/ezmeral.html"
+      //link="https://www.hpe.com/us/en/ezmeral.html"
       background="rgba(0, 86, 122, 0.8);"
       label="Learn more"
+      path="/ezmeral"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    /> */}
-    <Card
+    />
+    {/* <Card
       logo="/img/StickerPage/letshackshack.png"
       title="Hack Shack coding challenges"
       desc="Feeling competitive? Here's a great way to show off your coding
@@ -155,7 +160,7 @@ const Cards = ({ size }) => (
       background="background"
       label="Watch Replay"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    />
+    /> */}
   </CardWrapper>
 );
 
@@ -222,7 +227,7 @@ const Home = () => {
           <Content />
           <ButtonWrapper>
             <ButtonSplit to="https://developer.hpe.com">
-              Visit HPE Developer
+              Visit HPE DEV Community Portal
             </ButtonSplit>
           </ButtonWrapper>
         </MainWrapper>
