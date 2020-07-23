@@ -28,6 +28,17 @@ export const communityContent = [
     label: 'Get the Newsletter',
     background: '#00567acc',
   },
+  // To be included in Week of June 22 2020
+  {
+    logo: '/img/StickerPage/ezmeral.png',
+    alt: 'Ezmeral Logo',
+    title: 'HPE EZMERAL LEARN ON DEMAND',
+    desc:
+      'The HPE Ezmeral learn on demand library provides introductory to advanced courses on DevOps topics and the HPE Ezmeral Data Fabric platform.',
+    link: 'https://learn.ezmeral.software.hpe.com',
+    label: 'Go to the Academy',
+    background: 'background',
+  },
   {
     logo: '/img/Community/twitter.png',
     alt: 'Twitter Logo',
@@ -35,19 +46,8 @@ export const communityContent = [
     desc: 'Keep current on the latest dev news.',
     link: 'https://twitter.com/hashtag/hpedevcom?src=hash',
     label: 'Follow us on Twitter',
-    background: 'background',
+    background: '#00567acc',
   },
-  // To be included in Week of June 22 2020
-  // {
-  //   logo: '/img/ezmeral1.svg',
-  //   alt: 'Ezmeral Logo',
-  //   title: 'HPE EZMERAL DATA FABRIC ACADEMY',
-  //   desc:
-  //     'Game rules, sed do eiusmod tempor incididunt ut Game rules, sed do eiusmod tempor incididunt ut',
-  //   link: 'https://learn.mapr.com/',
-  //   label: 'Go to the Academy',
-  //   background: '#00567acc',
-  // },
 ];
 
 export const arcadeContent = [
