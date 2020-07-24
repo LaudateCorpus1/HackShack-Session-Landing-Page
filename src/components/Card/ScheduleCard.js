@@ -387,16 +387,6 @@ const ScheduleCard = ({
               />
             </Box>
           ))}
-        {/* <Link to={{ pathname: sessionLink }}>
-          <Button
-            label={
-              <Box pad="xsmall">
-                <Text color="text-strong">Watch Replay</Text>
-              </Box>
-            }
-            secondary
-          />
-        </Link> */}
         {sessionType === 'Challenge' && (
           <Box>
             <Button

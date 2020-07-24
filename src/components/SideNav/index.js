@@ -112,8 +112,3 @@ SideNav.propTypes = {
 };
 
 export default withRouter(SideNav);
-
-/* Take out EZMERAL for now until announced
-    <NavButton history={history} active={location.pathname === '/#'} to="#">
-      HPE EZMERAL
-    </NavButton> */
