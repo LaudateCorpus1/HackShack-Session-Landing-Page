@@ -16,7 +16,6 @@ import {
 import { StatusGood, FormClose } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import { CardWrapper } from './styles';
-import { Link } from 'react-router-dom';
 
 const { REACT_APP_CHALLENGE_API_ENDPOINT } = process.env;
 
@@ -250,6 +249,7 @@ const ScheduleCard = ({
   sessionType,
   size,
   title,
+  workshopList,
 }) => {
   let backgroundColor;
   switch (sessionType) {
@@ -311,31 +311,35 @@ const ScheduleCard = ({
       overflow="hidden"
     >
       <Box direction="column">
-        <Box align="center" justify="between" direction="row">
-          <Box
-            pad={{ vertical: 'xsmall', horizontal: 'medium' }}
-            background="background-contrast"
-            round="large"
-            alignSelf="center"
-          >
-            {sessionType}
-          </Box>
-          <Box direction="row" round="large">
-            Session ID: {id}
-          </Box>
-        </Box>
-        <Box direction="column">
-          <Box pad={{ top: 'large' }} gap="small" direction="row">
-            {avatar ? (
-              <Avatar src={avatar} />
-            ) : (
-              <Avatar src="/img/SpeakerImages/defaultAvatar.svg" />
-            )}
-            <Box justify="center">
-              <Text>{presenter}</Text>
-              <Text>{role}</Text>
+        {sessionType && id && (
+          <Box align="center" justify="between" direction="row">
+            <Box
+              pad={{ vertical: 'xsmall', horizontal: 'medium' }}
+              background="background-contrast"
+              round="large"
+              alignSelf="center"
+            >
+              {sessionType}
+            </Box>
+            <Box direction="row" round="large">
+              Session ID: {id}
             </Box>
           </Box>
+        )}
+        <Box direction="column">
+          {avatar && presenter && role && (
+            <Box pad={{ top: 'large' }} gap="small" direction="row">
+              {avatar ? (
+                <Avatar src={avatar} />
+              ) : (
+                <Avatar src="/img/SpeakerImages/defaultAvatar.svg" />
+              )}
+              <Box justify="center">
+                <Text>{presenter}</Text>
+                <Text>{role}</Text>
+              </Box>
+            </Box>
+          )}
           <Heading margin={{ vertical: 'small' }} level={3}>
             {title}
           </Heading>
@@ -350,7 +354,7 @@ const ScheduleCard = ({
         </Box>
       </Box>
       <Box direction="row" gap="medium">
-        {/* <Button
+        <Button
           alignSelf="start"
           href={sessionLink}
           target="_blank"
@@ -361,17 +365,28 @@ const ScheduleCard = ({
             </Box>
           }
           secondary
-        /> */}
-        <Link to={{ pathname: sessionLink }}>
-          <Button
-            label={
-              <Box pad="xsmall">
-                <Text color="text-strong">Watch Replay</Text>
-              </Box>
-            }
-            secondary
-          />
-        </Link>
+        />
+        {workshopList &&
+          workshopList.map(workshop => (
+            <Box key={workshop.workshopLink}>
+              <Button
+                href={workshop.workshopLink}
+                key={workshop.workshopLink}
+                target="_blank"
+                rel="noreferrer noopener"
+                alignSelf="start"
+                label={
+                  <Box pad="xsmall">
+                    <Text color="text-strong">
+                      {' '}
+                      Register {workshop.workshopID}
+                    </Text>
+                  </Box>
+                }
+                secondary
+              />
+            </Box>
+          ))}
         {sessionType === 'Challenge' && (
           <Box>
             <Button
@@ -424,5 +439,6 @@ ScheduleCard.propTypes = {
   sessionType: PropTypes.string,
   size: PropTypes.string,
   title: PropTypes.string,
+  workshopList: PropTypes.array,
 };
 export default ScheduleCard;

@@ -64,6 +64,14 @@ const SideNav = ({ location, history, size }) => (
     </NavButton>
     <NavButton
       history={history}
+      active={location.pathname === '/ezmeral'}
+      to="/ezmeral"
+      size={size}
+    >
+      HPE EZMERAL
+    </NavButton>
+    <NavButton
+      history={history}
       active={location.pathname === '/replays'}
       to="/replays"
       size={size}
@@ -104,8 +112,3 @@ SideNav.propTypes = {
 };
 
 export default withRouter(SideNav);
-
-/* Take out EZMERAL for now until announced
-    <NavButton history={history} active={location.pathname === '/#'} to="#">
-      HPE EZMERAL
-    </NavButton> */

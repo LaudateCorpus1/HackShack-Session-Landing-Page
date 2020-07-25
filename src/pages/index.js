@@ -8,6 +8,7 @@ import ContestPage from './Competiton';
 import NewsletterTC from './NewsletterTC';
 import ChallengeTC from './ChallengeTC';
 import Replays from './Replays';
+import Ezmeral from './Ezmeral';
 
 export {
   Home,
@@ -20,4 +21,5 @@ export {
   NewsletterTC,
   Replays,
   ChallengeTC,
+  Ezmeral,
 };

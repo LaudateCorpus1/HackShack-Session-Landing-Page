@@ -113,47 +113,27 @@ const Cards = ({ size }) => (
       />
     )}
     <Card
-      image="/img/Arcade/score.png"
-      title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
-      desc="Learn more about the rules and requirements to the contest."
-      path="/competition"
-      background="rgba(0, 86, 122, 0.8);"
-      label="Join the Contest"
+      logo="/img/Community/dev-thumb.png"
+      title="GET THE HPE DEVELOPER NEWSLETTER"
+      desc="Want to read more about industry trends for developers?"
+      link="https://developer.hpe.com/event/hpe-discover-us-2020?listid=11647678"
+      background="background"
+      label="Get the Newsletter"
       margin={
         size === 'small'
           ? { top: '0px', right: '0px' }
           : { top: 'xlarge', right: 'large' }
       }
     />
-    {/* <Card
-      logo="/img/Community/dev-thumb.png"
-      title="GET THE HPE DEVELOPER NEWSLETTER"
-      desc="Want to read more about industry trends for developers?"
-      link="https://developer.hpe.com/event/hpe-discover-us-2020?listid=11647678"
-      background="rgba(0, 86, 122, 0.8);"
-      label="Get the Newsletter"
-      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    /> */}
-    {/* <Card
+    <Card
       logo="/img/StickerPage/ezmeral.png"
       title="INTRODUCING HPE EZMERAL"
       // eslint-disable-next-line max-len
       desc="Run, manage, control and secure the apps,
       data and IT that run your business - from edge to cloud"
-      link="https://www.hpe.com/us/en/ezmeral.html"
       background="rgba(0, 86, 122, 0.8);"
       label="Learn more"
-      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    /> */}
-    <Card
-      logo="/img/StickerPage/letshackshack.png"
-      title="Hack Shack coding challenges"
-      desc="Feeling competitive? Here's a great way to show off your coding
-      chops and compete for cool prizes. Find out how"
-      //link="https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4739&locale=en_US"
-      path="/replays"
-      background="background"
-      label="Watch Replay"
+      path="/ezmeral"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
     />
   </CardWrapper>
@@ -222,7 +202,7 @@ const Home = () => {
           <Content />
           <ButtonWrapper>
             <ButtonSplit to="https://developer.hpe.com">
-              Visit HPE Developer
+              Visit HPE DEV Community Portal
             </ButtonSplit>
           </ButtonWrapper>
         </MainWrapper>

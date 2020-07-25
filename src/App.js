@@ -17,6 +17,7 @@ import {
   NewsletterTC,
   ChallengeTC,
   Replays,
+  Ezmeral,
 } from './pages/index';
 
 const customHpe = deepMerge(hpe, {
@@ -101,6 +102,9 @@ const App = () => {
           </Route>
           <Route path="/newslettertermsconditions">
             <NewsletterTC />
+          </Route>
+          <Route path="/ezmeral">
+            <Ezmeral />
           </Route>
         </Switch>
       </Router>
