@@ -108,7 +108,7 @@ const Cards = ({ size }) => (
         desc="Watch This Week in the Hack Shack!"
         background="rgba(0, 86, 122, 0.8);"
         label="Watch Now"
-        link="https://vimeo.com/433193061"
+        link="https://vimeo.com/441835569"
         margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
       />
     )}
@@ -175,7 +175,7 @@ const Home = () => {
               <Video controls="over" autoPlay fit="cover">
                 <source
                   key="video"
-                  src="https://player.vimeo.com/external/433193061.hd.mp4?s=54ec784440765db759f2240177e721ca637e812d&profile_id=174"
+                  src="https://player.vimeo.com/external/441835569.hd.mp4?s=154e58a9a952c6e70a9ac59e7887fa8a539f3962&profile_id=174"
                   type="video/mp4"
                 />
                 <track
