@@ -12,27 +12,39 @@ import {
 } from '../../data/ScheduleData/index';
 import { MainTitle } from './styles';
 
+function getNumberOfWeek() {
+  const today = new Date();
+  console.log('today', today);
+  const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
+  const pastDaysOfYear = (today - firstDayOfYear) / 86400000;
+  return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+}
+
 let dateTitle;
 let weekFile;
-switch (new Date().getDate()) {
-  case 5:
+switch (getNumberOfWeek()) {
+  case 27:
+    dateTitle = 'Week of June 29';
+    weekFile = week3;
+    break;
+  case 28:
     dateTitle = 'Week of July 6';
     weekFile = week3;
     break;
-  case 12:
+  case 29:
     dateTitle = 'Week of July 13';
     weekFile = week4;
     break;
-  case 19:
+  case 30:
     dateTitle = 'Week of July 20';
     weekFile = week5;
     break;
-  case 26:
+  case 31:
     dateTitle = 'Week of July 27';
     weekFile = week6;
     break;
   default:
-    dateTitle = 'Week of June 29';
+    dateTitle = 'This week in Discover';
     weekFile = week2;
 }
 
