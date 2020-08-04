@@ -23,8 +23,7 @@ export const communityContent = [
     alt: 'Dev Logo',
     title: 'GET THE HPE DEVELOPER NEWSLETTER',
     desc: 'Want to read more about industry trends for developers? ',
-    link:
-      'https://developer.hpe.com/event/hpe-discover-us-2020?listid=11647678',
+    link: 'https://developer.hpe.com/event/kubecon-europe-2020?listid=10605211',
     label: 'Get the Newsletter',
     background: '#00567acc',
   },
