@@ -18,13 +18,58 @@
     "id": 1
   },
   {
+    "avatar": "/img/SpeakerImages/michael.jpeg",
+    "title": "Using the CSI with HPE Ezmeral Container Platform",
+    "desc": "This hands-on workshop explores the fundamentals of persistent storage in Kubernetes from an end-user perspective. Learn how to create persistent volume claims (PVC), snapshots and clones, resize volumes, attach raw block volumes and understand the properties of StorageClass objects and working with PVC annotations to tweak behavior of the underlying storage to optimize performance for different workload types. Prior Kubernetes knowledge is helpful, but not necessary as the instructor will walk through different examples during the session.",
+    "presenter": "Michael Mattsson",
+    "role": "Principal Tech Marketing Engineer",
+    "videolink": "https://vimeo.com/436874235",
+    "id": 2
+  },
+  {
+    "avatar": "/img/SpeakerImages/sandeep.jpeg",
+    "title": "Deploying End-to-End Machine Learning Workflows",
+    "desc": "Join this hands-on workshop and learn some fundamentals of the HPE Ezmeral Container Platform’s ability to manage, deploy and work with models in a notebook oriented around machine learning, model development and management. You will understand how to securely deploy and update your models in a containerized workload using data in the global data fabric and applications loaded on the HPE Ezmeral Container Platform.",
+    "presenter": "Sandeep Deshmukh",
+    "role": "Product Manager",
+    "videolink": "https://vimeo.com/436874235",
+    "id": 3
+  },
+  {
+    "avatar": "/img/SpeakerImages/madhu_wali.jpg",
+    "title": "SPIFFE and SPIRE Fundamentals",
+    "desc": "Inspired by production infrastructure at Facebook, Google, Netflix and more, SPIFFE is a set of open-source standards for securely authenticating software services in dynamic and heterogeneous environments through the use of platform-agnostic, cryptographic identities. SPIRE is an open-source system that implements the SPIFFE specification in a wide variety of environments. This workshop covers SPIFFE fundamentals and provides a walk-through of installing components that make up a SPIRE deployment and demonstrates its functionality in action.",
+    "presenter": "Madhukesh Wali",
+    "role": "Solution Architect",
+    "videolink": "https://vimeo.com/436874235",
+    "id": 4
+  },
+  {
+    "avatar": "/img/SpeakerImages/madhu_wali.jpg",
+    "title": "Enabling PKI-Based Database Authentication With SPIRE",
+    "desc": "This workshop will showcase how you can use SPIRE-issued identities (specialized X.509 certificates based on SPIFFE) to directly authenticate to databases using their standard, built-in PKI authentication. This approach does not rely on hardcoded passwords or secrets in general. Instead, short-lived asymmetric keys encrypt all traffic to the database, so it's secure even if your network is compromised.",
+    "presenter": "Madhukesh Wali",
+    "role": "Solution Architect",
+    "videolink": "https://vimeo.com/436874235",
+    "id": 5
+  },
+  {
+    "avatar": "/img/SpeakerImages/madhu_wali.jpg",
+    "title": "Strengthening Envoy Authentication With SPIRE",
+    "desc": "Envoy is a popular open-source service proxy. SPIRE provides a system for establishing trust between software services, without necessarily using secrets or network-based security controls. In this workshop, you learn how to use SPIRE with Envoy to provide secure, authenticated mTLS connectivity between services with frequently rotated X.509 certificates and keys.",
+    "presenter": "Madhukesh Wali",
+    "role": "Solution Architect",
+    "videolink": "https://vimeo.com/436874235",
+    "id": 6
+  },
+  {
     "avatar": "/img/SpeakerImages/Didier.png",
     "title": "API 101, API Basics and the Value They Provide",
     "desc": "You may know that application programming interfaces (APIs) allow applications to talk to other apps, but have you ever used them? Today, APIs are available for most products and solutions. You can take advantage of them when writing automation scripts, integrating code or defining infrastructure-as-code, as long as you understand the mechanisms used to consume an API. In this hands-on workshop, we'll review all the jargon and technology used by REST APIs and show you how to place your first API call against a publicly available API.",
     "presenter": "Didier Lalli",
     "role": "Distinguished Technologist",
     "videolink": "https://vimeo.com/440739949",
-    "id": 2
+    "id": 7
   },
   {
     "avatar": "/img/SpeakerImages/Francois.png",
@@ -33,7 +78,7 @@
     "presenter": "Francois Donze",
     "role": "Technical Consultant",
     "videolink": "https://vimeo.com/440742028",
-    "id": 3
+    "id": 8
   },
   {
     "avatar": "/img/SpeakerImages/joe-aruba.jpg",
@@ -42,7 +87,7 @@
     "presenter": "Joe Neville",
     "role": "Strategist",
     "videolink": "https://vimeo.com/440740926",
-    "id": 4
+    "id": 9
   },
   {
     "avatar": "/img/SpeakerImages/hana.jpg",
@@ -51,16 +96,7 @@
     "presenter": "Hana Malha",
     "role": "Machine Learning Engineer",
     "videolink": "https://vimeo.com/440743166",
-    "id": 5
-  },
-  {
-    "avatar": "/img/SpeakerImages/michael.jpeg",
-    "title": "Using the CSI with HPE Ezmeral Container Platform",
-    "desc": "This hands-on workshop explores the fundamentals of persistent storage in Kubernetes from an end-user perspective. Learn how to create persistent volume claims (PVC), snapshots and clones, resize volumes, attach raw block volumes and understand the properties of StorageClass objects and working with PVC annotations to tweak behavior of the underlying storage to optimize performance for different workload types. Prior Kubernetes knowledge is helpful, but not necessary as the instructor will walk through different examples during the session.",
-    "presenter": "Michael Mattsson",
-    "role": "Principal Tech Marketing Engineer",
-    "videolink": "https://vimeo.com/436874235",
-    "id": 6
+    "id": 10
   },
   {
     "avatar": "/img/SpeakerImages/ron.jpg",
@@ -69,6 +105,6 @@
     "presenter": "Ron Dharma",
     "role": "Principal Tech Marketing Engineer",
     "videolink": "https://vimeo.com/436858869",
-    "id": 7
+    "id": 11
   }
 ]
