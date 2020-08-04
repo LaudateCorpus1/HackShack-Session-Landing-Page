@@ -116,7 +116,7 @@ const Cards = ({ size }) => (
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
       desc="Want to read more about industry trends for developers?"
-      link="https://developer.hpe.com/event/hpe-discover-us-2020?listid=11647678"
+      link="https://developer.hpe.com/event/kubecon-europe-2020?listid=10605211"
       background="background"
       label="Get the Newsletter"
       margin={
