@@ -1,14 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Button,
-  Text,
-  Header as HeaderGrommet,
-  Image,
-  Anchor,
-} from 'grommet';
-import { Menu } from 'grommet-icons';
+import { Box, Button, Text, Header as HeaderGrommet, Anchor } from 'grommet';
+import { Menu, Hpe } from 'grommet-icons';
 
 export const Header = ({ setLayer, size }) => {
   const iconSize = size === 'small' ? '192px' : '228px';
@@ -19,9 +12,9 @@ export const Header = ({ setLayer, size }) => {
 
   return (
     <HeaderGrommet pad="medium" justify="between" align="center">
-      <Anchor href="https://www.hpe.com/us/en/discover.html" target="_blank">
+      <Anchor href="https://developer.hpe.com/" target="_blank">
         <Box width={iconSize}>
-          <Image fit="contain" src="/img/hpe-dve-lockup.svg" />
+          <Hpe size="large" color="brand" />
         </Box>
       </Anchor>
       {size === 'small' && (
