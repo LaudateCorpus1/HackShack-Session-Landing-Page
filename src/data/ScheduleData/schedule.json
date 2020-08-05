@@ -38,7 +38,7 @@
             {
               "sessionType": "Game Challenge",
               "title": "Launch an Kubernetes App",
-              "desc": "HPE Ezmeral Container Platform makes it easy to deploy stateful applications on containers. Take this challenge and see for yourself how to use KubeDirector — an open source custom controller — to create container application images and register them in the HPE Container Platform AppStore. Then launch your application with with a few mouse clicks.",
+              "desc": "HPE Ezmeral Container Platform makes it easy to deploy stateful applications on containers. Take this challenge and see for yourself how to use KubeDirector — an open source custom controller — to create container application images and register them in the HPE Container Platform AppStore. Then launch your application with a few mouse clicks.",
               "link" : "https://enterpriseaccelerator.hpe.com/challenges/3"
               }
   ]
