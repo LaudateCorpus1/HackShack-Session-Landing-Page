@@ -369,18 +369,34 @@ const ScheduleCard = ({
             />
           </Link>
         ) : (
-          <Button
-            alignSelf="start"
-            href={sessionLink}
-            target="_blank"
-            rel="noreferrer noopener"
-            label={
-              <Box pad="xsmall">
-                <Text color="text-strong">Learn more</Text>
-              </Box>
-            }
-            secondary
-          />
+          <Box direction="row" gap="medium">
+            <Button
+              alignSelf="start"
+              href={sessionLink}
+              target="_blank"
+              rel="noreferrer noopener"
+              label={
+                <Box pad="xsmall">
+                  <Text color="text-strong">Learn more</Text>
+                </Box>
+              }
+              secondary
+            />
+            {sessionType === 'Game Challenge' && (
+              <Button
+                alignSelf="start"
+                href="https://enterpriseaccelerator.hpe.com/terms-and-conditions"
+                target="_blank"
+                rel="noreferrer noopener"
+                label={
+                  <Box pad="xsmall">
+                    <Text color="text-strong">Terms & Conditions</Text>
+                  </Box>
+                }
+                secondary
+              />
+            )}
+          </Box>
         )}
         {workshopList &&
           workshopList.map(workshop => (
