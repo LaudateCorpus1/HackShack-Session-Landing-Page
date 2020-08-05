@@ -5,8 +5,6 @@ import ezmeralContent from '../../data/EzmeralData/ezmeral.json';
 
 import { MainTitle } from './styles';
 
-let dateTitle = 'Week of July 27';
-
 const Ezmeral = () => {
   return (
     <Layout background="/img/BackgroundImages/ezmeral-background.png">
@@ -33,16 +31,11 @@ const Ezmeral = () => {
         </Box>
       </Box>
       <MainTitle>
-        <Heading color="text-strong" margin={{ top: 'none', bottom: 'none' }}>
-          HPE EZMERAL
-        </Heading>
         <Heading
-          color="text"
-          style={{ fontWeight: '500' }}
-          margin={{ top: 'none', bottom: 'large' }}
-          level={2}
+          color="text-strong"
+          margin={{ top: 'medium', bottom: 'medium' }}
         >
-          {dateTitle}
+          HPE EZMERAL
         </Heading>
       </MainTitle>
       <CardGrid>

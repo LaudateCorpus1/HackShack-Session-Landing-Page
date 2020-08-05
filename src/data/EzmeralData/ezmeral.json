@@ -2,15 +2,7 @@
   {
   "title": "HPE Ezmeral Container Platform",
   "desc": "HPE Ezmeral Container Platform provides an enterprise-grade platform to deploy Kubernetes at scale for a wide range of use cases on bare metal or VMs.",
-  "link": "https://www.hpe.com/us/en/solutions/container-platform.html",
-  "workshopList": [
-    {
-      "workshopID":"W479", "workshopLink":"https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4945&locale=en_US"
-    },
-    {
-      "workshopID":"W652", "workshopLink":"https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4950&locale=en_US"
-    }
-  ]
+  "link": "https://www.hpe.com/us/en/solutions/container-platform.html"
   },
   {
   "title": "HPE Ezmeral Data Fabric",
@@ -20,22 +12,12 @@
   {
   "title": "HPE Ezmeral ML Ops",
   "desc": "HPE Ezmeral ML Ops increases speed and agility for machine learning ops by operationalizing end-to-end processes from pilot to production.",
-  "link": "https://www.hpe.com/us/en/solutions/machine-learning-operations.html",
-  "workshopList": [
-    {
-      "workshopID":"W686", "workshopLink":"https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4949&locale=en_US"
-    }
-  ]
+  "link": "https://www.hpe.com/us/en/solutions/machine-learning-operations.html"
   },
   {
   "title": "HPE Ezmeral IT Ops & Automation",
   "desc": "HPE OneView and HPE InfoSight introduce automation and AI into IT Ops—improving productivity and mitigating risk of service disruption.",
-  "link": "https://www.hpe.com/us/en/solutions/it-automation-aiops.html",
-  "workshopList": [
-    {
-      "workshopID":"W682", "workshopLink":"https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4948&locale=en_US"
-    }
-  ]
+  "link": "https://www.hpe.com/us/en/solutions/it-automation-aiops.html"
   },
   {
   "title": "HPE Managed Cloud Controls",
@@ -45,18 +27,7 @@
   {
   "title": "Security Software",
   "desc": "Security software from HPE helps teams standardize and accelerate service authentication across cloud, container and on-premises infrastructures.",
-  "link": "https://www.hpe.com/us/en/newsroom/blog-post/2020/02/hpe-acquires-scytale-to-advance-open-secure-edge-to-cloud-strategy.html",
-  "workshopList": [
-    {
-      "workshopID":"W683", "workshopLink":"https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4947&locale=en_US"
-    },
-    {
-      "workshopID":"W684", "workshopLink":"https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4946&locale=en_US"
-    },
-    {
-      "workshopID":"W685", "workshopLink":"https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&sf=4951&locale=en_US"
-    }
-  ]
+  "link": "https://www.hpe.com/us/en/newsroom/blog-post/2020/02/hpe-acquires-scytale-to-advance-open-secure-edge-to-cloud-strategy.html"
   }
 ]
   

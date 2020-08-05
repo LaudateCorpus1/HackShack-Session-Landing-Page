@@ -108,7 +108,7 @@ const Cards = ({ size }) => (
         desc="Watch This Week in the Hack Shack!"
         background="rgba(0, 86, 122, 0.8);"
         label="Watch Now"
-        link="https://vimeo.com/441835569"
+        link="https://vimeo.com/444872340"
         margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
       />
     )}
@@ -116,7 +116,7 @@ const Cards = ({ size }) => (
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
       desc="Want to read more about industry trends for developers?"
-      link="https://developer.hpe.com/event/hpe-discover-us-2020?listid=11647678"
+      link="https://developer.hpe.com/event/kubecon-europe-2020?listid=10605211"
       background="background"
       label="Get the Newsletter"
       margin={
@@ -175,7 +175,7 @@ const Home = () => {
               <Video controls="over" autoPlay fit="cover">
                 <source
                   key="video"
-                  src="https://player.vimeo.com/external/441835569.hd.mp4?s=154e58a9a952c6e70a9ac59e7887fa8a539f3962&profile_id=174"
+                  src="https://player.vimeo.com/external/444872340.hd.mp4?s=d39ecd0b8a48ff75139b10aa86bfb0d1e32a0b5c&profile_id=174"
                   type="video/mp4"
                 />
                 <track

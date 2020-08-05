@@ -16,6 +16,7 @@ import {
 import { StatusGood, FormClose } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import { CardWrapper } from './styles';
+import { Link } from 'react-router-dom';
 
 const { REACT_APP_CHALLENGE_API_ENDPOINT } = process.env;
 
@@ -256,7 +257,7 @@ const ScheduleCard = ({
     case 'Workshop':
       backgroundColor = '#00567acc';
       break;
-    case 'Challenge':
+    case 'Coding Challenge':
       backgroundColor = 'rgba(155, 99, 16, 0.8)';
       break;
     default:
@@ -286,7 +287,7 @@ const ScheduleCard = ({
   };
 
   useEffect(() => {
-    if (sessionType === 'Challenge') {
+    if (sessionType === 'Coding Challenge') {
       axios({
         method: 'GET',
         url: `${REACT_APP_CHALLENGE_API_ENDPOINT}/api/challenges/${DBid}`,
@@ -311,7 +312,7 @@ const ScheduleCard = ({
       overflow="hidden"
     >
       <Box direction="column">
-        {sessionType && id && (
+        {(sessionType || id) && (
           <Box align="center" justify="between" direction="row">
             <Box
               pad={{ vertical: 'xsmall', horizontal: 'medium' }}
@@ -321,13 +322,15 @@ const ScheduleCard = ({
             >
               {sessionType}
             </Box>
-            <Box direction="row" round="large">
-              Session ID: {id}
-            </Box>
+            {id && (
+              <Box direction="row" round="large">
+                Session ID: {id}
+              </Box>
+            )}
           </Box>
         )}
         <Box direction="column">
-          {avatar && presenter && role && (
+          {(avatar || presenter || role) && (
             <Box pad={{ top: 'large' }} gap="small" direction="row">
               {avatar ? (
                 <Avatar src={avatar} />
@@ -354,18 +357,47 @@ const ScheduleCard = ({
         </Box>
       </Box>
       <Box direction="row" gap="medium">
-        <Button
-          alignSelf="start"
-          href={sessionLink}
-          target="_blank"
-          rel="noreferrer noopener"
-          label={
-            <Box pad="xsmall">
-              <Text color="text-strong">Learn more</Text>
-            </Box>
-          }
-          secondary
-        />
+        {sessionType === 'Coding Challenge' ? (
+          <Link to={{ pathname: sessionLink }}>
+            <Button
+              label={
+                <Box pad="xsmall">
+                  <Text color="text-strong">Watch Replay</Text>
+                </Box>
+              }
+              secondary
+            />
+          </Link>
+        ) : (
+          <Box direction="row" gap="medium">
+            <Button
+              alignSelf="start"
+              href={sessionLink}
+              target="_blank"
+              rel="noreferrer noopener"
+              label={
+                <Box pad="xsmall">
+                  <Text color="text-strong">Learn more</Text>
+                </Box>
+              }
+              secondary
+            />
+            {sessionType === 'Game Challenge' && (
+              <Button
+                alignSelf="start"
+                href="https://enterpriseaccelerator.hpe.com/terms-and-conditions"
+                target="_blank"
+                rel="noreferrer noopener"
+                label={
+                  <Box pad="xsmall">
+                    <Text color="text-strong">Terms & Conditions</Text>
+                  </Box>
+                }
+                secondary
+              />
+            )}
+          </Box>
+        )}
         {workshopList &&
           workshopList.map(workshop => (
             <Box key={workshop.workshopLink}>
@@ -387,7 +419,7 @@ const ScheduleCard = ({
               />
             </Box>
           ))}
-        {sessionType === 'Challenge' && (
+        {sessionType === 'Coding Challenge' && (
           <Box>
             <Button
               onClick={() => setSignupLayer(true)}

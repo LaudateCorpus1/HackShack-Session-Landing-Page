@@ -76,7 +76,7 @@ const App = () => {
           <Route path="/community">
             <Community />
           </Route>
-          <Route path="/schedule">
+          <Route path="/challenges">
             <Schedule />
           </Route>
           <Route path="/arcade">
