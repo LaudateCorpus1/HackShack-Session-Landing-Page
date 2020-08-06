@@ -63,13 +63,22 @@
     "id": 6
   },
   {
+    "avatar": "/img/SpeakerImages/Didier.png",
+    "title": "Hack Shack Challenges: Are You Ready to Compete?",
+    "desc": "Feeling competitive? Show off your coding chops in any of our four challenges to compete for cool prizes. Attend this summary session to learn how to register for the challenges. We’ll explain each one, go over the rules and walk you through the environment you’ll be working in. You’ll have four hours in which to complete each challenge. Never tried any of our challenges before and wonder if it’s for you? Join us on our Slack channel (https://hpedev.slack.com/archives/C015CLE2QTT) so you can reach out to us with any questions.",
+    "presenter": "Didier Lalli",
+    "role": "Distinguished Technologist",
+    "videolink": "https://vimeo.com/434425665",
+    "id": 7
+  },
+  {
     "avatar": "/img/SpeakerImages/vincent.jpeg",
     "title": "Introduction to the HPE OneView REST API",
     "desc": "Get some practical experience with the HPE OneView REST API. Learn how to talk to an HPE OneView appliance by building a request in PowerShell, Python or even implementing a raw request with curl. In this hands-on workshop, we’ll teach you how to write your own 'infrastructure-as-code', step by step, in an interactive way. You’ll learn how to gather information from HPE OneView and even how to perform configuration tasks, such as provisioning a new server.",
     "presenter": "Vincent Berger",
     "role": "Solutions Architect",
     "videolink": "https://vimeo.com/445000851/51d83a0140",
-    "id": 7
+    "id": 8
   },
   {
     "avatar": "/img/SpeakerImages/Didier.png",
@@ -78,7 +87,7 @@
     "presenter": "Didier Lalli",
     "role": "Distinguished Technologist",
     "videolink": "https://vimeo.com/440739949",
-    "id": 8
+    "id": 9
   },
   {
     "avatar": "/img/SpeakerImages/Francois.png",
@@ -87,7 +96,7 @@
     "presenter": "Francois Donze",
     "role": "Technical Consultant",
     "videolink": "https://vimeo.com/440742028",
-    "id": 9
+    "id": 10
   },
   {
     "avatar": "/img/SpeakerImages/joe-aruba.jpg",
@@ -96,7 +105,7 @@
     "presenter": "Joe Neville",
     "role": "Strategist",
     "videolink": "https://vimeo.com/440740926",
-    "id": 10
+    "id": 11
   },
   {
     "avatar": "/img/SpeakerImages/hana.jpg",
@@ -105,7 +114,7 @@
     "presenter": "Hana Malha",
     "role": "Machine Learning Engineer",
     "videolink": "https://vimeo.com/440743166",
-    "id": 11
+    "id": 12
   },
   {
     "avatar": "/img/SpeakerImages/ron.jpg",
@@ -114,6 +123,6 @@
     "presenter": "Ron Dharma",
     "role": "Principal Tech Marketing Engineer",
     "videolink": "https://vimeo.com/436858869",
-    "id": 12
+    "id": 13
   }
 ]
