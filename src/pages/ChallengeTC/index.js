@@ -58,7 +58,7 @@ const ChallengeTC = () => {
           disqualification will be determined at HPE’s sole discretion. Entry
           constitutes agreement to rules & HPE’s decisions. Participants will
           compete in this challenge between August 17th, 2020 at 8.00 AM CET and
-          August 21st, 2020 at 5.00 PM PSD and create a project from any one of
+          August 21st, 2020 at 5.00 PM PDT and create a project from any one of
           the following topics:  
         </Text>
         <br />
@@ -85,7 +85,7 @@ const ChallengeTC = () => {
         <Text size="xlarge">
           <strong>
             All challenges must be submitted back in to HPE no later than August
-            21st, 2020 at 5.00 PM PSD
+            21st, 2020 at 5.00 PM PDT
           </strong>
         </Text>
         <Text margin={{ top: 'medium' }} size="xlarge">
@@ -93,7 +93,7 @@ const ChallengeTC = () => {
           following criteria: 40% Usefulness of application; 20% Technical
           achievement; 20% Originality; and 20% Completeness. One entry per
           session. Participants are allowed to participate in multiple sessions.
-          Winner(s) will be notified no later than Monday, August 25rd by HPE
+          Winner(s) will be notified no later than Monday, August 24th by HPE
           via email. All winners must have provided a working email to be
           contacted by and for the gift certificate to be sent to. All winners
           may have to sign and return an eligibility affidavit & liability

@@ -55,7 +55,7 @@ const Competiton = () => {
               5:00 PM PDT
             </li>
             <li>
-              Wednesday August 19th 8:00 AM CET through Wednesday August 20th at
+              Wednesday August 19th 8:00 AM CET through Wednesday August 19th at
               5:00 PM PDT
             </li>
             <li>
@@ -72,7 +72,7 @@ const Competiton = () => {
             gift certificate
           </strong>{' '}
           (valued at approximately $50). All winners will be notified by email
-          no later than Monday August 23rd. In the event of a tie affecting the
+          no later than Monday August 24th. In the event of a tie affecting the
           determination of the highest score, the winner will be the player who
           achieved their score first in time during the applicable game period.
         </Text>
