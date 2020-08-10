@@ -46,7 +46,7 @@ const NewsletterTC = () => {
           the HPE Developer Community monthly newsletter between August 17th
           through August 20th 2020. Each winner will be{' '}
           <strong> awarded a gift certificate</strong> (valued at approximately
-          $50). Winner(s) will be notified no later than Monday, August23rd by
+          $50). Winner(s) will be notified no later than Monday, August24th by
           HPE via email.
         </Text>
         <br />
