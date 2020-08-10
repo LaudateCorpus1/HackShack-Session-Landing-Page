@@ -1,20 +1,20 @@
 [
   {
     "avatar": "/img/SpeakerImages/Denis.png",
-    "title": "Intro to the HPE Container Platform REST API",
-    "desc": "Calling all developers, data analysts and IT architects. Learn how to interact with the HPE Container Platform programmatically through its REST API. In this hands-on workshop, you'll learn how to perform authentication, deploy distributed multi-mode applications for AI/ML and data analytics and interpret/respond to REST API calls. We'll walk you through, step by step, and, by the end of the session, you'll be deploying a TensorFlow application framework and other simple applications. No previous programming experience required.",
+    "title": "Intro to the HPE Ezmeral Container Platform REST API",
+    "desc": "Calling all developers, data analysts and IT architects. Learn how to interact with the HPE Ezmeral Container Platform programmatically through its REST API. In this hands-on workshop, you'll learn how to perform authentication, deploy distributed multi-mode applications for AI/ML and data analytics and interpret/respond to REST API calls. We'll walk you through, step by step, and, by the end of the session, you'll be deploying a TensorFlow application framework and other simple applications. No previous programming experience required.",
     "presenter": "Denis Choukroun",
     "role": "Cloud Solution Architect",
-    "videolink": "https://vimeo.com/441389983",
+    "videolink": "https://vimeo.com/445302013",
     "id": 0
   },
   {
     "avatar": "/img/SpeakerImages/chris-hpecp.jpg",
     "title": "Automate Apps With the HPE Container Platform",
-    "desc": "IT administrators are frequently challenged to stand up hardware and software environments. These requests can be time-consuming and confusing for non-technical teams to deploy. By implementing the HPE Container Platform with its easy-to-use APIs, new clusters and software applications can be created automatically with specified resources. Join this hands-on workshop to learn how the HPE Container Platform APIs make it easier to configure apps and compute resources, along with how to pull detailed usage reports for chargeback/showback.",
+    "desc": "IT administrators are frequently challenged to stand up hardware and software environments. These requests can be time-consuming and confusing for non-technical teams to deploy. By implementing the HPE Ezmeral Container Platform with its easy-to-use APIs, new clusters and software applications can be created automatically with specified resources. Join this hands-on workshop to learn how the HPE Ezmeral Container Platform APIs make it easier to configure apps and compute resources, along with how to pull detailed usage reports for chargeback/showback.",
     "presenter": "Chris Crawford",
     "role": "Solutions Architect",
-    "videolink": "https://vimeo.com/440744034",
+    "videolink": "https://vimeo.com/445267000",
     "id": 1
   },
   {
@@ -32,7 +32,7 @@
     "desc": "Join this hands-on workshop and learn some fundamentals of the HPE Ezmeral Container Platform’s ability to manage, deploy and work with models in a notebook oriented around machine learning, model development and management. You will understand how to securely deploy and update your models in a containerized workload using data in the global data fabric and applications loaded on the HPE Ezmeral Container Platform.",
     "presenter": "Sandeep Deshmukh",
     "role": "Product Manager",
-    "videolink": "https://vimeo.com/445001242/5fbe2218a5",
+    "videolink": "https://vimeo.com/445001242",
     "id": 3
   },
   {
@@ -41,7 +41,7 @@
     "desc": "Inspired by production infrastructure at Facebook, Google, Netflix and more, SPIFFE is a set of open-source standards for securely authenticating software services in dynamic and heterogeneous environments through the use of platform-agnostic, cryptographic identities. SPIRE is an open-source system that implements the SPIFFE specification in a wide variety of environments. This workshop covers SPIFFE fundamentals and provides a walk-through of installing components that make up a SPIRE deployment and demonstrates its functionality in action.",
     "presenter": "Madhukesh Wali",
     "role": "Solution Architect",
-    "videolink": "https://vimeo.com/445001005/ddaee55b4e",
+    "videolink": "https://vimeo.com/445001005",
     "id": 4
   },
   {
@@ -50,7 +50,7 @@
     "desc": "This workshop will showcase how you can use SPIRE-issued identities (specialized X.509 certificates based on SPIFFE) to directly authenticate to databases using their standard, built-in PKI authentication. This approach does not rely on hardcoded passwords or secrets in general. Instead, short-lived asymmetric keys encrypt all traffic to the database, so it's secure even if your network is compromised.",
     "presenter": "Madhukesh Wali",
     "role": "Solution Architect",
-    "videolink": "https://vimeo.com/445001105/e17159f899",
+    "videolink": "https://vimeo.com/445001105",
     "id": 5
   },
   {
@@ -59,7 +59,7 @@
     "desc": "Envoy is a popular open-source service proxy. SPIRE provides a system for establishing trust between software services, without necessarily using secrets or network-based security controls. In this workshop, you learn how to use SPIRE with Envoy to provide secure, authenticated mTLS connectivity between services with frequently rotated X.509 certificates and keys.",
     "presenter": "Madhukesh Wali",
     "role": "Solution Architect",
-    "videolink": "https://vimeo.com/445001183/41f69fa11b",
+    "videolink": "https://vimeo.com/445001183",
     "id": 6
   },
   {
@@ -77,7 +77,7 @@
     "desc": "Get some practical experience with the HPE OneView REST API. Learn how to talk to an HPE OneView appliance by building a request in PowerShell, Python or even implementing a raw request with curl. In this hands-on workshop, we’ll teach you how to write your own 'infrastructure-as-code', step by step, in an interactive way. You’ll learn how to gather information from HPE OneView and even how to perform configuration tasks, such as provisioning a new server.",
     "presenter": "Vincent Berger",
     "role": "Solutions Architect",
-    "videolink": "https://vimeo.com/445000851/51d83a0140",
+    "videolink": "https://vimeo.com/445000851",
     "id": 8
   },
   {
@@ -86,7 +86,7 @@
     "desc": "You may know that application programming interfaces (APIs) allow applications to talk to other apps, but have you ever used them? Today, APIs are available for most products and solutions. You can take advantage of them when writing automation scripts, integrating code or defining infrastructure-as-code, as long as you understand the mechanisms used to consume an API. In this hands-on workshop, we'll review all the jargon and technology used by REST APIs and show you how to place your first API call against a publicly available API.",
     "presenter": "Didier Lalli",
     "role": "Distinguished Technologist",
-    "videolink": "https://vimeo.com/440739949",
+    "videolink": "https://vimeo.com/445266623",
     "id": 9
   },
   {
@@ -95,16 +95,16 @@
     "desc": "DMTF's Redfish is a standard designed to deliver simple and secure management for converged, hybrid IT and the Software-Defined Data Center (SDDC). Today it is rapidly replacing proprietary protocols. In this hands-on workshop, you'll get to explore the Redfish tree of an OpenBMC and HPE iLO 5 to understand its basic structure, and learn how to modify resources and perform simple actions. You'll interact with the HTTP/JSON-based standard using your favorite language, whether it's PowerShell, Python or Bash/cURL. Beginners and experts welcome.",
     "presenter": "Francois Donze",
     "role": "Technical Consultant",
-    "videolink": "https://vimeo.com/440742028",
+    "videolink": "https://vimeo.com/445266806",
     "id": 10
   },
   {
     "avatar": "/img/SpeakerImages/joe-aruba.jpg",
     "title": "Use Aruba API Yourself",
-    "desc": "Get your automation game on with Aruba APIs in this Hands-on Lab session covering Aruba's wired and wireless portfolio. In this workshop, you'll learn to manage, configure and automate Aruba products using their REST APIs, and move away from slow and error-prone CLI (command line interface) work. We're offering a collection of labs tailored to varying skill levels, from coding new-comers to hardcore Pythonistas and everyone in-between. No experience required.s",
+    "desc": "Get your automation game on with Aruba APIs in this Hands-on Lab session covering Aruba's wired and wireless portfolio. In this workshop, you'll learn to manage, configure and automate Aruba products using their REST APIs, and move away from slow and error-prone CLI (command line interface) work. We're offering a collection of labs tailored to varying skill levels, from coding new-comers to hardcore Pythonistas and everyone in-between. No experience required.",
     "presenter": "Joe Neville",
     "role": "Strategist",
-    "videolink": "https://vimeo.com/440740926",
+    "videolink": "https://vimeo.com/445266722",
     "id": 11
   },
   {
@@ -113,7 +113,7 @@
     "desc": "Whether its facial recognition or self-driving cars, CNNs are used everywhere. Join this hands-on workshop to learn how to implement a simple CNN for a Modified National Institute of Standards and Technology database (MNIST). Using an MNIST dataset (70,000 pictures of hand-written digits) you'll learn how to build a simple CNN and train it to solve a real problem with Keras (a deep learning library for Python.) On completion, you'll be able to predict a digit, given a picture of hand-written digits with 99% accuracy.",
     "presenter": "Hana Malha",
     "role": "Machine Learning Engineer",
-    "videolink": "https://vimeo.com/440743166",
+    "videolink": "https://vimeo.com/445266905",
     "id": 12
   },
   {
