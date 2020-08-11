@@ -33,16 +33,16 @@ const Content = () => {
   return (
     <TextWrapper>
       <Text size={fontSize} color="#FFFFFF">
-        Welcome to the Hack Shack. Come in to
+        Welcome to the Hack Shack. We offer many
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        collaborate and learn from others in Technology
+        ways to collaborate and expand your skills.
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        Workshops and Sessions or compete for elite
+        Check out our Challenges, Community and
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        gaming status playing Hack Shack Attack!
+        Arcade for opportunities to win prizes!
       </Text>
     </TextWrapper>
   );
