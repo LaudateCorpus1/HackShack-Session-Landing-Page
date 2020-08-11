@@ -25,6 +25,7 @@ const Replays = props => {
     replayId = parseInt(props.match.params.replayId, 10);
   }
   const [current, setCurrent] = useState(replayId);
+  const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
@@ -41,6 +42,7 @@ const Replays = props => {
           setCurrent={setCurrent}
           current={current}
           replaysLength={replays.length}
+          autoplay={autoplay}
         />
         <Heading color="text" style={{ fontWeight: '500' }} level={2}>
           UP NEXT
@@ -57,6 +59,7 @@ const Replays = props => {
                 videoLink={videolink}
                 role={role}
                 setCurrent={setCurrent}
+                setAutoPlay={setAutoPlay}
               />
             ),
         )}

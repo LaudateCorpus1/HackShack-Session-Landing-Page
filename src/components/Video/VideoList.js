@@ -12,10 +12,17 @@ const VideoList = ({
   videoLink,
   title,
   setCurrent,
+  setAutoPlay,
 }) => {
   return (
     <Link to={`/replays/${id}`}>
-      <Button onClick={() => setCurrent(id)} style={{ textAlign: 'start' }}>
+      <Button
+        onClick={() => {
+          setCurrent(id);
+          setAutoPlay(true);
+        }}
+        style={{ textAlign: 'start' }}
+      >
         <Box gap="large" direction="row-responsive">
           <ReactPlayer
             url={videoLink}
