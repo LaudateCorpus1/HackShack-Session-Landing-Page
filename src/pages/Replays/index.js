@@ -19,8 +19,12 @@ const sortReplays = (replayData, current) => {
   return beggining.concat(end);
 };
 
-const Replays = () => {
-  const [current, setCurrent] = useState(0);
+const Replays = props => {
+  let replayId = 0;
+  if (props.match.params.replayId != null) {
+    replayId = parseInt(props.match.params.replayId, 10);
+  }
+  const [current, setCurrent] = useState(replayId);
   const sortedReplays = sortReplays(replays, current);
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
