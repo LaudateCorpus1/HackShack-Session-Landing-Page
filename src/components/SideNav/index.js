@@ -44,7 +44,7 @@ NavButton.propTypes = {
   size: PropTypes.string,
 };
 
-const SideNav = ({ location, history, size }) => (
+const SideNav = ({ location, history, size, match }) => (
   <Box align="start" gap="xsmall" width={{ min: '250px' }}>
     <NavButton
       history={history}
@@ -72,8 +72,8 @@ const SideNav = ({ location, history, size }) => (
     </NavButton>
     <NavButton
       history={history}
-      active={location.pathname === '/replays'}
-      to="/replays"
+      active={match.path === '/replays/:replayId'}
+      to="/replays/0"
       size={size}
     >
       REPLAYS
@@ -106,6 +106,9 @@ SideNav.propTypes = {
     push: PropTypes.func.isRequired,
   }).isRequired,
   location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
+  match: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
   size: PropTypes.string,

@@ -362,7 +362,7 @@ const ScheduleCard = ({
             <Button
               label={
                 <Box pad="xsmall">
-                  <Text color="text-strong">Watch Replay</Text>
+                  <Text color="text-strong">Learn more</Text>
                 </Box>
               }
               secondary

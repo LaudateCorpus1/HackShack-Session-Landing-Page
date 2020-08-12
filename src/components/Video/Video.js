@@ -14,6 +14,7 @@ const Video = ({
   setCurrent,
   current,
   replaysLength,
+  autoplay,
 }) => {
   const size = useContext(ResponsiveContext);
   const optionsLarge = { width: '640px', height: '380px' };
@@ -29,6 +30,7 @@ const Video = ({
       <ReactPlayer
         controls
         url={videolink}
+        playing={autoplay}
         style={size === 'small' ? optionsSmall : optionsLarge}
         onEnded={() => {
           if (current >= replaysLength - 1) {

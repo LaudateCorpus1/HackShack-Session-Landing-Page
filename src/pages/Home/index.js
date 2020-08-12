@@ -33,16 +33,16 @@ const Content = () => {
   return (
     <TextWrapper>
       <Text size={fontSize} color="#FFFFFF">
-        Welcome to the Hack Shack. Come in to
+        Welcome to the Hack Shack. We offer many
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        collaborate and learn from others in Technology
+        ways to collaborate and expand your skills.
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        Workshops and Sessions or compete for elite
+        Check out our Challenges, Community and
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        gaming status playing Hack Shack Attack!
+        Arcade for opportunities to win prizes!
       </Text>
     </TextWrapper>
   );
@@ -115,7 +115,7 @@ const Cards = ({ size }) => (
     <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
-      desc="Want to read more about industry trends for developers?"
+      desc="Want to read more about industry trends for developers and Sign up to win a daily prize?"
       link="https://developer.hpe.com/event/kubecon-europe-2020?listid=10605211"
       background="background"
       label="Get the Newsletter"
@@ -126,14 +126,12 @@ const Cards = ({ size }) => (
       }
     />
     <Card
-      logo="/img/StickerPage/ezmeral.png"
-      title="INTRODUCING HPE EZMERAL"
-      // eslint-disable-next-line max-len
-      desc="Run, manage, control and secure the apps,
-      data and IT that run your business - from edge to cloud"
+      image="/img/Arcade/score.png"
+      title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
+      desc="Learn more about the rules and requirements to the contest."
+      path="/competition"
       background="rgba(0, 86, 122, 0.8);"
-      label="Learn more"
-      path="/ezmeral"
+      label="Join the Contest"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
     />
   </CardWrapper>

@@ -20,6 +20,8 @@ import {
   Ezmeral,
 } from './pages/index';
 
+import ScrollToTop from './components/ScrollToTop';
+
 const customHpe = deepMerge(hpe, {
   global: {
     breakpoints: {
@@ -64,11 +66,11 @@ const App = () => {
     <Grommet
       theme={customHpe}
       themeMode="dark"
-      full
       background="#151d29"
       style={{ overflowX: 'hidden' }}
     >
       <Router history={history}>
+        <ScrollToTop />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -91,9 +93,15 @@ const App = () => {
           <Route path="/hackshackattack">
             <HackShackAttack />
           </Route>
-          <Route path="/replays">
-            <Replays />
-          </Route>
+          <Route
+            exact
+            path="/replays"
+            render={props => <Replays {...props} />}
+          ></Route>
+          <Route
+            path="/replays/:replayId"
+            render={props => <Replays {...props} />}
+          ></Route>
           <Route path="/newslettertermsconditions">
             <NewsletterTC />
           </Route>

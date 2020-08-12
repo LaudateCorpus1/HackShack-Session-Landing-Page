@@ -2,6 +2,7 @@ import React from 'react';
 import ReactPlayer from 'react-player/vimeo';
 import { Box, Button, Heading, Text } from 'grommet';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const VideoList = ({
   desc,
@@ -11,47 +12,56 @@ const VideoList = ({
   videoLink,
   title,
   setCurrent,
+  setAutoPlay,
 }) => {
   return (
-    <Button onClick={() => setCurrent(id)} style={{ textAlign: 'start' }}>
-      <Box gap="large" direction="row-responsive">
-        <ReactPlayer
-          url={videoLink}
-          style={{
-            maxWidth: '280px',
-            minWidth: '280px',
-            width: '280px',
-            maxHeight: '180px',
-            height: '180px',
-            zIndex: -10,
-          }}
-        />
+    <Link to={`/replays/${id}`}>
+      <Button
+        onClick={() => {
+          setCurrent(id);
+          setAutoPlay(true);
+        }}
+        style={{ textAlign: 'start' }}
+      >
+        <Box gap="large" direction="row-responsive">
+          <ReactPlayer
+            url={videoLink}
+            style={{
+              maxWidth: '280px',
+              minWidth: '280px',
+              width: '280px',
+              maxHeight: '180px',
+              height: '180px',
+              zIndex: -10,
+            }}
+          />
 
-        <Box direction="column">
-          <Box>
-            <Text>{presenter}</Text>
-            <Text>{role}</Text>
-          </Box>
-          <Heading
-            color="text-strong"
-            margin={{ top: '0px', bottom: 'small' }}
-            level={3}
-          >
-            {title}
-          </Heading>
-          <Box>
-            <Text
+          <Box direction="column">
+            <Box>
+              <Text>{presenter}</Text>
+              <Text>{role}</Text>
+            </Box>
+            <Heading
               color="text-strong"
-              margin={{ bottom: 'large' }}
-              weight={100}
-              size="22px"
+              margin={{ top: '0px', bottom: 'small' }}
+              level={3}
             >
-              {desc}
-            </Text>
+              {title}
+            </Heading>
+            <Box>
+              <Text
+                color="text-strong"
+                margin={{ bottom: 'large' }}
+                weight={100}
+                size="22px"
+              >
+                {desc}
+              </Text>
+            </Box>
           </Box>
         </Box>
-      </Box>
-    </Button>
+      </Button>
+    </Link>
   );
 };
 
