@@ -22,7 +22,8 @@ export const communityContent = [
     logo: '/img/Community/dev-thumb.png',
     alt: 'Dev Logo',
     title: 'GET THE HPE DEVELOPER NEWSLETTER',
-    desc: 'Want to read more about industry trends for developers? ',
+    desc:
+      'Want to read more about industry trends for developers and Sign up to win a daily prize?',
     link: 'https://developer.hpe.com/event/kubecon-europe-2020?listid=10605211',
     label: 'Get the Newsletter',
     background: '#00567acc',
