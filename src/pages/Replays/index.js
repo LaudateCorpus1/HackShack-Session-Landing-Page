@@ -21,7 +21,7 @@ const sortReplays = (replayData, current) => {
 
 const Replays = props => {
   let replayId = 0;
-  if (props.match.params.replayId != null) {
+  if (props.match.params.replayId) {
     replayId = parseInt(props.match.params.replayId, 10);
   }
   const [current, setCurrent] = useState(replayId);

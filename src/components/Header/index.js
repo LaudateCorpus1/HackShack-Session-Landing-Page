@@ -14,6 +14,7 @@ export const Header = ({ setLayer, size }) => {
         icon={<Hpe color="brand" size="large" />}
         href="https://www.hpe.com/us/en/home.html"
         target="_blank"
+        rel="noopener noreferrer"
       />
       {size === 'small' && (
         <Box direction="row" align="center">
