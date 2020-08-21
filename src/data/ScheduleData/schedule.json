@@ -22,24 +22,6 @@
       "link" : "/replays/7",
       "DBid": "4",
       "notebook": "TheGrommetChallenge"
-      },
-      {
-        "sessionType": "Game Challenge",
-        "title": "Create a Kubernetes Cluster",
-        "desc": "HPE Ezmeral Container Platform simplifies the provisioning of Kubernetes clusters. Take this challenge and see for yourself how — with a few mouse clicks — platform admins can create and configure Kubernetes cluster with the HPE Ezmeral Container Platform.",
-        "link" : "https://enterpriseaccelerator.hpe.com/challenges/10"
-        },
-          {
-            "sessionType": "Game Challenge",
-            "title": "Create a New Tenant",
-            "desc": "HPE Ezmeral Container Platform integrates into enterprise security and authentication services to make it easy for admins to create and manage Kubernetes tenants. Take this challenge and learn how easy it is for admins to create tenants in a Kubernetes cluster for a project, business unit, or team, and assign users to that tenant based on each users’ access privileges.",
-            "link" : "https://enterpriseaccelerator.hpe.com/challenges/11"
-            },
-            {
-              "sessionType": "Game Challenge",
-              "title": "Launch an Kubernetes App",
-              "desc": "HPE Ezmeral Container Platform makes it easy to deploy stateful applications on containers. Take this challenge and see for yourself how to use KubeDirector — an open source custom controller — to create container application images and register them in the HPE Container Platform AppStore. Then launch your application with a few mouse clicks.",
-              "link" : "https://enterpriseaccelerator.hpe.com/challenges/3"
-              }
+      }
   ]
   
