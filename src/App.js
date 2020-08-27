@@ -18,6 +18,8 @@ import {
   ChallengeTC,
   Replays,
   Ezmeral,
+  Workshops,
+  WorkshopTC,
 } from './pages/index';
 
 import ScrollToTop from './components/ScrollToTop';
@@ -113,6 +115,12 @@ const App = () => {
           </Route>
           <Route path="/ezmeral">
             <Ezmeral />
+          </Route>
+          <Route path="/workshops">
+            <Workshops />
+          </Route>
+          <Route path="/workshoptermsconditions">
+            <WorkshopTC />
           </Route>
         </Switch>
       </Router>

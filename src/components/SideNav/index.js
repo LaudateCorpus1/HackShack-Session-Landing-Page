@@ -56,6 +56,14 @@ const SideNav = ({ location, history, size, match }) => (
     </NavButton>
     <NavButton
       history={history}
+      active={location.pathname === '/workshops'}
+      to="/workshops"
+      size={size}
+    >
+      WORKSHOPS
+    </NavButton>
+    <NavButton
+      history={history}
       active={location.pathname === '/challenges'}
       to="/challenges"
       size={size}
