@@ -11,7 +11,7 @@ import {
   Community,
   Arcade,
   StickerWall,
-  Schedule,
+  // Schedule,
   HackShackAttack,
   ContestPage,
   NewsletterTC,
@@ -78,9 +78,10 @@ const App = () => {
           <Route path="/community">
             <Community />
           </Route>
+          {/* hiding challenges while working on workshops on demand
           <Route path="/challenges">
             <Schedule />
-          </Route>
+          </Route> */}
           <Route path="/arcade">
             <Arcade />
           </Route>
