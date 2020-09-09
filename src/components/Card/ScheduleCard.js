@@ -248,7 +248,7 @@ const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }) => (
       <Box margin={{ top: 'large' }}>
         <Button
           alignSelf="start"
-          label="Take me back to the Schedule"
+          label="Take me back"
           onClick={() => {
             reset();
             setLayer(false);
