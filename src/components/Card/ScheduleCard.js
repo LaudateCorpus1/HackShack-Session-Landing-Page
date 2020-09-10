@@ -169,13 +169,15 @@ const SignupLayer = ({
                 label={
                   sessionType === 'Coding Challenge' ? (
                     <Text>
-                      Please consider your 4 hours window starts with the click
-                      on the Take on the Challenge button below
+                      I understand that I will have 4 hours to complete the
+                      session once I click on the Take on the Challenge button
+                      below.
                     </Text>
                   ) : (
                     <Text>
-                      Please consider your 4 hours window starts with the click
-                      on the Take the Workshop button below
+                      I understand that I will have 4 hours to complete the
+                      session once I click on the Take the Workshop button
+                      below.
                     </Text>
                   )
                 }
