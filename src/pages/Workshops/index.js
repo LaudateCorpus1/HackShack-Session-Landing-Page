@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const Workshop = () => {
   const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-  const getWorkshopsApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops`;
+  const getWorkshopsApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
   const [workshops, setworkshops] = useState([]);
   let arr = [];
 
@@ -19,7 +19,8 @@ const Workshop = () => {
         .then(response => {
           // Map created
           response.data.forEach(workshop => {
-            if (workshop.sessionType === 'workshop') arr.push({ ...workshop });
+            if (workshop.sessionType === 'workshop-on-demand')
+              arr.push({ ...workshop });
           });
           setworkshops(arr);
         })
@@ -42,7 +43,7 @@ const Workshop = () => {
           <ScheduleCard
             avatar={workshop.avatar}
             desc={
-              workshop.sessionType === 'workshop'
+              workshop.sessionType === 'workshop-on-demand'
                 ? `${workshop.description.slice(0, 520)}`
                 : `${workshop.description.slice(0, 220)}...`
             }

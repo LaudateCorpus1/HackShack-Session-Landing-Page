@@ -105,7 +105,7 @@ const SignupLayer = ({
           Register
         </Heading>
         <Text color="#ffffff">
-          For {title} {sessionType === 'workshop' ? 'workshop' : ''}
+          For {title} {sessionType === 'workshop-on-demand' ? 'workshop' : ''}
         </Text>
         <Form
           validate="blur"
@@ -158,6 +158,24 @@ const SignupLayer = ({
                         target="_blank"
                         rel="noreferrer noopener"
                       />
+                    </Text>
+                  )
+                }
+              />
+            </FormField>
+            <FormField required name="note">
+              <CheckBox
+                name="note"
+                label={
+                  sessionType === 'Coding Challenge' ? (
+                    <Text>
+                      Please consider your 4 hours window starts with the click
+                      on the Take on the Challenge button below
+                    </Text>
+                  ) : (
+                    <Text>
+                      Please consider your 4 hours window starts with the click
+                      on the Take the Workshop button below
                     </Text>
                   )
                 }
@@ -287,7 +305,7 @@ const ScheduleCard = ({
   // const [uri, seturi] = useState('');
   let uri = '';
   switch (sessionType) {
-    case 'workshop':
+    case 'workshop-on-demand':
       backgroundColor = '#00567acc';
       uri = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops/`;
       break;
@@ -394,7 +412,8 @@ const ScheduleCard = ({
         </Box>
       </Box>
       <Box direction="row" gap="medium">
-        {sessionType === 'Coding Challenge' || sessionType === 'workshop' ? (
+        {sessionType === 'Coding Challenge' ||
+        sessionType === 'workshop-on-demand' ? (
           <Link to={{ pathname: sessionLink }}>
             <Button
               label={
@@ -456,7 +475,8 @@ const ScheduleCard = ({
               />
             </Box>
           ))}
-        {(sessionType === 'Coding Challenge' || sessionType === 'workshop') && (
+        {(sessionType === 'Coding Challenge' ||
+          sessionType === 'workshop-on-demand') && (
           <Box>
             <Button
               onClick={() => setSignupLayer(true)}
