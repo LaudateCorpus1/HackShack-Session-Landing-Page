@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Heading } from 'grommet';
+import { Heading, Text } from 'grommet';
 import { Layout, ScheduleCard, CardGrid } from '../../components/index';
 import { MainTitle } from './styles';
 import axios from 'axios';
@@ -34,9 +34,12 @@ const Workshop = () => {
   return (
     <Layout background="/img/BackgroundImages/schedule-background.png">
       <MainTitle>
-        <Heading color="text-strong" margin={{ top: 'none', bottom: 'medium' }}>
+        <Heading color="text-strong" margin={{ top: 'none', bottom: 'small' }}>
           WORKSHOPS
         </Heading>
+        <Text color="text-strong" margin={{ top: 'none', bottom: 'medium' }}>
+          Register for Workshops-on-Demand
+        </Text>
       </MainTitle>
       <CardGrid>
         {workshops.map(workshop => (

@@ -104,7 +104,7 @@ const SignupLayer = ({
         <Heading color="#ffffff" margin={{ top: 'none', bottom: 'small' }}>
           Register
         </Heading>
-        <Text color="#ffffff">
+        <Text color="#ffffff" margin={{ top: 'none', bottom: 'small' }}>
           For {title} {sessionType === 'workshop-on-demand' ? 'workshop' : ''}
         </Text>
         <Form
@@ -170,14 +170,14 @@ const SignupLayer = ({
                   sessionType === 'Coding Challenge' ? (
                     <Text>
                       I understand that I will have 4 hours to complete the
-                      session once I click on the Take on the Challenge button
+                      challenge once I click on the Take on the Challenge button
                       below.
                     </Text>
                   ) : (
                     <Text>
                       I understand that I will have 4 hours to complete the
-                      session once I click on the Take the Workshop button
-                      below.
+                      workshop once I click on the Register for the Workshop
+                      button below.
                     </Text>
                   )
                 }
@@ -188,7 +188,7 @@ const SignupLayer = ({
               label={
                 sessionType === 'Coding Challenge'
                   ? 'Take on the Challenge'
-                  : 'Take the Workshop'
+                  : 'Register for the Workshop'
               }
               type="submit"
               primary
@@ -259,7 +259,7 @@ const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }) => (
           <Text color="#ffffff" weight="bold">
             {name}
           </Text>{' '}
-          is signed up for the{' '}
+          is signed up for{' '}
           <Text color="#ffffff" weight="bold">
             {title}
           </Text>
@@ -268,7 +268,11 @@ const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }) => (
       <Box margin={{ top: 'large' }}>
         <Button
           alignSelf="start"
-          label="Take me back"
+          label={
+            sessionType === 'Coding Challenge'
+              ? 'Take me back to the Challenges'
+              : 'Take me back to the Workshops'
+          }
           onClick={() => {
             reset();
             setLayer(false);
@@ -369,7 +373,7 @@ const ScheduleCard = ({
       overflow="hidden"
     >
       <Box direction="column">
-        {(sessionType || id) && (
+        {/* {(sessionType || id) && (
           <Box align="center" justify="between" direction="row">
             <Box
               pad={{ vertical: 'xsmall', horizontal: 'medium' }}
@@ -385,7 +389,7 @@ const ScheduleCard = ({
               </Box>
             )}
           </Box>
-        )}
+        )} */}
         <Box direction="column">
           {(avatar || presenter || role) && (
             <Box pad={{ top: 'large' }} gap="small" direction="row">
@@ -487,7 +491,9 @@ const ScheduleCard = ({
               label={
                 <Box pad="xsmall">
                   <Text color="text-strong">
-                    {disabled ? 'Currently full, try again later' : 'Register'}
+                    {disabled
+                      ? 'Currently full, please try again later'
+                      : 'Register'}
                   </Text>
                 </Box>
               }
