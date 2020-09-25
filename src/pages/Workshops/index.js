@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Heading, Text } from 'grommet';
+import { Heading, Text, Box } from 'grommet';
 import { Layout, ScheduleCard, CardGrid } from '../../components/index';
 import { MainTitle } from './styles';
 import axios from 'axios';
@@ -41,28 +41,41 @@ const Workshop = () => {
           Register for Workshops-on-Demand
         </Text>
       </MainTitle>
-      <CardGrid>
-        {workshops.map(workshop => (
-          <ScheduleCard
-            avatar={workshop.avatar}
-            desc={
-              workshop.sessionType === 'workshop-on-demand'
-                ? `${workshop.description.slice(0, 520)}`
-                : `${workshop.description.slice(0, 220)}...`
-            }
-            id={workshop.sessionId}
-            key={workshop.name}
-            DBid={workshop.id}
-            presenter={workshop.presenter}
-            role={workshop.role}
-            sessionLink={workshop.replayLink}
-            sessionType={workshop.sessionType}
-            title={workshop.name}
-            notebook={workshop.notebook}
-            location={workshop.location}
-          />
-        ))}
-      </CardGrid>
+      {workshops.length > 0 ? (
+        <CardGrid>
+          {workshops.map(workshop => (
+            <ScheduleCard
+              avatar={workshop.avatar}
+              desc={
+                workshop.sessionType === 'workshop-on-demand'
+                  ? `${workshop.description.slice(0, 520)}`
+                  : `${workshop.description.slice(0, 220)}...`
+              }
+              id={workshop.sessionId}
+              key={workshop.name}
+              DBid={workshop.id}
+              presenter={workshop.presenter}
+              role={workshop.role}
+              sessionLink={workshop.replayLink}
+              sessionType={workshop.sessionType}
+              title={workshop.name}
+              notebook={workshop.notebook}
+              location={workshop.location}
+            />
+          ))}
+        </CardGrid>
+      ) : (
+        <Box
+          pad="small"
+          justify="center"
+          margin={{ top: 'medium' }}
+          background="status-critical"
+        >
+          <Text alignSelf="center">
+            Oops..something went wrong. Please try again later
+          </Text>
+        </Box>
+      )}
     </Layout>
   );
 };
