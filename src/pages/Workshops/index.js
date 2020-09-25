@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Heading, Text, Box } from 'grommet';
+import { Heading, Text, Box, Image } from 'grommet';
 import { Layout, ScheduleCard, CardGrid } from '../../components/index';
 import { MainTitle } from './styles';
 import axios from 'axios';
@@ -8,6 +8,7 @@ const Workshop = () => {
   const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   const getWorkshopsApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
   const [workshops, setworkshops] = useState([]);
+  const [error, setError] = useState('');
   let arr = [];
 
   useEffect(() => {
@@ -25,6 +26,9 @@ const Workshop = () => {
           setworkshops(arr);
         })
         .catch(err => {
+          setError(
+            'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+          );
           console.log(err);
         });
     };
@@ -69,11 +73,13 @@ const Workshop = () => {
           pad="small"
           justify="center"
           margin={{ top: 'medium' }}
-          background="status-critical"
+          direction="column"
+          // background="status-critical"
         >
-          <Text alignSelf="center">
-            Oops..something went wrong. Please try again later
+          <Text color="status-critical" alignSelf="center">
+            {error}
           </Text>
+          <Image src="/img/gremlin-rockin.svg"></Image>
         </Box>
       )}
     </Layout>
