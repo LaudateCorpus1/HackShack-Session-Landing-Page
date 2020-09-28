@@ -23,8 +23,8 @@ export const communityContent = [
     alt: 'Dev Logo',
     title: 'GET THE HPE DEVELOPER NEWSLETTER',
     desc:
-      'Want to read more about industry trends for developers and Sign up to win a daily prize?',
-    link: 'https://developer.hpe.com/event/kubecon-europe-2020?listid=10605211',
+      'Want to read more about industry trends for developers? Sign up here.',
+    link: 'https://developer.hpe.com/newsletter-signup',
     label: 'Get the Newsletter',
     background: '#00567acc',
   },
@@ -71,13 +71,13 @@ export const arcadeContent = [
     label: 'Grab some Art',
     background: 'background',
   },
-  {
-    image: '/img/Arcade/score.png',
-    alt: 'admin ticket',
-    title: 'PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES',
-    desc: 'Learn more about the rules and requirements to the contest.',
-    path: '/competition',
-    label: 'Arcade Contest',
-    background: 'rgba(0, 86, 122, 0.8);',
-  },
+  // {
+  //   image: '/img/Arcade/score.png',
+  //   alt: 'admin ticket',
+  //   title: 'PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES',
+  //   desc: 'Learn more about the rules and requirements to the contest.',
+  //   path: '/competition',
+  //   label: 'Arcade Contest',
+  //   background: 'rgba(0, 86, 122, 0.8);',
+  // },
 ];

@@ -105,7 +105,7 @@ const SignupLayer = ({
           Register
         </Heading>
         <Text color="#ffffff" margin={{ top: 'none', bottom: 'small' }}>
-          For {title} {sessionType === 'workshop-on-demand' ? 'workshop' : ''}
+          {title} {sessionType === 'Workshops-on-Demand' ? 'workshop' : ''}
         </Text>
         <Form
           validate="blur"
@@ -176,7 +176,8 @@ const SignupLayer = ({
                   ) : (
                     <Text>
                       I understand that I will have 4 hours to complete the
-                      workshop once I click on the Register for the Workshop
+                      workshop once I click on the{' '}
+                      <b>Register for the Workshop </b>
                       button below.
                     </Text>
                   )
@@ -243,13 +244,12 @@ const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }) => (
         <Heading color="#ffffff" margin={{ top: 'none', bottom: 'small' }}>
           {sessionType === 'Coding Challenge'
             ? 'Challenge Accepted!'
-            : 'Registered for Workshop'}
+            : `You're Registered!`}
         </Heading>
         <Text color="#ffffff">
-          You're signed up for the{' '}
-          {sessionType === 'Coding Challenge' ? 'Challenge' : 'Workshop'}! Head
-          over to your email to confirm your registration, and to learn what
-          happens next.
+          You have been signed up for this{' '}
+          {sessionType === 'Coding Challenge' ? 'Challenge' : 'workshop'}. Head
+          over to your email to learn what happens next.
         </Text>
       </Box>
       <Box>
@@ -271,7 +271,7 @@ const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }) => (
           label={
             sessionType === 'Coding Challenge'
               ? 'Take me back to the Challenges'
-              : 'Take me back to the Workshops'
+              : 'Close'
           }
           onClick={() => {
             reset();
@@ -311,7 +311,7 @@ const ScheduleCard = ({
   // const [uri, seturi] = useState('');
   let uri = '';
   switch (sessionType) {
-    case 'workshop-on-demand':
+    case 'Workshops-on-Demand':
       backgroundColor = '#00567acc';
       uri = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops/`;
       break;
@@ -419,7 +419,7 @@ const ScheduleCard = ({
       </Box>
       <Box direction="row" gap="medium">
         {sessionType === 'Coding Challenge' ||
-        sessionType === 'workshop-on-demand' ? (
+        sessionType === 'Workshops-on-Demand' ? (
           <Link to={{ pathname: sessionLink }}>
             <Button
               label={
@@ -482,7 +482,7 @@ const ScheduleCard = ({
             </Box>
           ))}
         {(sessionType === 'Coding Challenge' ||
-          sessionType === 'workshop-on-demand') && (
+          sessionType === 'Workshops-on-Demand') && (
           <Box>
             <Button
               onClick={() => setSignupLayer(true)}

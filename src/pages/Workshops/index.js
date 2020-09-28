@@ -20,7 +20,7 @@ const Workshop = () => {
         .then(response => {
           // Map created
           response.data.forEach(workshop => {
-            if (workshop.sessionType === 'workshop-on-demand')
+            if (workshop.sessionType === 'Workshops-on-Demand')
               arr.push({ ...workshop });
           });
           setworkshops(arr);
@@ -51,7 +51,7 @@ const Workshop = () => {
             <ScheduleCard
               avatar={workshop.avatar}
               desc={
-                workshop.sessionType === 'workshop-on-demand'
+                workshop.sessionType === 'Workshops-on-Demand'
                   ? `${workshop.description.slice(0, 520)}`
                   : `${workshop.description.slice(0, 220)}...`
               }
@@ -76,7 +76,7 @@ const Workshop = () => {
           direction="column"
           // background="status-critical"
         >
-          <Text color="status-critical" alignSelf="center">
+          <Text size="large" color="status-critical" alignSelf="center">
             {error}
           </Text>
           <Image src="/img/gremlin-rockin.svg"></Image>

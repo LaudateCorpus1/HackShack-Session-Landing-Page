@@ -39,15 +39,14 @@ const Content = () => {
         ways to collaborate and expand your skills.
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        Check out our Challenges, Community and
+        Try our technology Workshops-on-Demand,
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        Arcade for opportunities to win prizes!
+        for a unique, hands-on learning experience.
       </Text>
     </TextWrapper>
   );
 };
-
 const GrommetMascot = ({ setOpen }) => (
   <StyledStack>
     <Stack anchor="bottom" alignSelf="start">
@@ -60,10 +59,10 @@ const GrommetMascot = ({ setOpen }) => (
       <StyledTextBox gap="small">
         <StyledBoxText width="medium">
           <Text size="large" color="#000000">
-            Watch This Week in
+            Learn about the Hack Shack
           </Text>
           <Text size="large" color="#000000">
-            the Hack Shack Video!
+            in this video!
           </Text>
         </StyledBoxText>
       </StyledTextBox>
@@ -105,7 +104,7 @@ const Cards = ({ size }) => (
       <Card
         logo="/img/StickerPage/gremlin.png"
         title="New to the HPE DEV Hack Shack?"
-        desc="Watch This Week in the Hack Shack!"
+        desc="Watch this video!"
         background="rgba(0, 86, 122, 0.8);"
         label="Watch Now"
         link="https://vimeo.com/444872340"
@@ -115,8 +114,8 @@ const Cards = ({ size }) => (
     <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
-      desc="Want to read more about industry trends for developers and Sign up to win a daily prize?"
-      link="https://developer.hpe.com/event/kubecon-europe-2020?listid=10605211"
+      desc="Want to read more about industry trends for developers? Sign up here."
+      link="https://developer.hpe.com/newsletter-signup"
       background="background"
       label="Get the Newsletter"
       margin={
@@ -127,11 +126,11 @@ const Cards = ({ size }) => (
     />
     <Card
       image="/img/Arcade/score.png"
-      title="PLAY HACK SHACK ATTACK CONTEST AND WIN PRIZES"
-      desc="Learn more about the rules and requirements to the contest."
-      path="/competition"
+      title="PLAY HACK SHACK ATTACK, OUR RETRO VIDEO GAME."
+      desc="Compete with your friends for bragging rights."
+      path="/hackshackattack"
       background="rgba(0, 86, 122, 0.8);"
-      label="Join the Contest"
+      label="Play the Game"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
     />
   </CardWrapper>
