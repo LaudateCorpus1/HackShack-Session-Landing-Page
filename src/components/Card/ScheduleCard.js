@@ -59,7 +59,6 @@ const SignupLayer = ({
 
   const onSubmit = () => {
     if (emailValidation(formData.email)) {
-      console.log('form data', formData);
       axios({
         method: 'POST',
         url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer`,
@@ -174,27 +173,6 @@ const SignupLayer = ({
                 }
               />
             </FormField>
-            {/* <FormField required name="note">
-              <CheckBox
-                name="note"
-                label={
-                  sessionType === 'Coding Challenge' ? (
-                    <Text>
-                      I understand that I will have 4 hours to complete the
-                      challenge once I click on the Take on the Challenge button
-                      below.
-                    </Text>
-                  ) : (
-                    <Text>
-                      Plan ahead! Clicking on the{' '}
-                      <b>Register for the Workshop </b>
-                      button below immediately starts the 4-hour clock for the
-                      workshop.
-                    </Text>
-                  )
-                }
-              />
-            </FormField> */}
             <Button
               alignSelf="start"
               label={
@@ -384,23 +362,6 @@ const ScheduleCard = ({
       overflow="hidden"
     >
       <Box direction="column">
-        {/* {(sessionType || id) && (
-          <Box align="center" justify="between" direction="row">
-            <Box
-              pad={{ vertical: 'xsmall', horizontal: 'medium' }}
-              background="background-contrast"
-              round="large"
-              alignSelf="center"
-            >
-              {sessionType}
-            </Box>
-            {id && (
-              <Box direction="row" round="large">
-                Session ID: {id}
-              </Box>
-            )}
-          </Box>
-        )} */}
         <Box direction="column">
           {(avatar || presenter || role) && (
             <Box pad={{ top: 'large' }} gap="small" direction="row">
