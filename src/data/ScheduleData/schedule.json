@@ -8,7 +8,7 @@
     "role": "Distinguished Technologist",
     "week": "4",
     "link" : "/replays/7",
-    "DBid": "2",
+    "DBid": 2,
     "notebook": "TheContainerChallenge"
     },
     {
@@ -20,7 +20,7 @@
       "role": "Distinguished Technologist",
       "week": "4",
       "link" : "/replays/7",
-      "DBid": "4",
+      "DBid": 4,
       "notebook": "TheGrommetChallenge"
       }
   ]

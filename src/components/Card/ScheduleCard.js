@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import { CardWrapper } from './styles';
 import { Link } from 'react-router-dom';
 
-const { REACT_APP_CHALLENGE_API_ENDPOINT } = process.env;
+const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 
 const SignupLayer = ({
   reset,
@@ -28,6 +28,7 @@ const SignupLayer = ({
   setSuccess,
   size,
   title,
+  sessionType,
 }) => {
   const [error, setError] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -60,7 +61,7 @@ const SignupLayer = ({
     if (emailValidation(formData.email)) {
       axios({
         method: 'POST',
-        url: `${REACT_APP_CHALLENGE_API_ENDPOINT}/api/customer`,
+        url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer`,
         data: { ...formData },
       })
         .then(response => {
@@ -102,7 +103,9 @@ const SignupLayer = ({
         <Heading color="#ffffff" margin={{ top: 'none', bottom: 'small' }}>
           Register
         </Heading>
-        <Text color="#ffffff">For {title}</Text>
+        <Text color="#ffffff" margin={{ top: 'none', bottom: 'small' }}>
+          {title} {sessionType === 'Workshops-on-Demand' ? 'workshop' : ''}
+        </Text>
         <Form
           validate="blur"
           value={formData}
@@ -118,32 +121,65 @@ const SignupLayer = ({
           <FormField label="Company" name="company">
             <TextInput name="company" />
           </FormField>
-          <Box margin={{ top: 'large' }} gap="medium">
+          <Box margin={{ top: 'medium' }} gap="medium">
             <FormField required name="termsAndConditions">
               <CheckBox
                 name="termsAndConditions"
                 label={
-                  <Text>
-                    I accept the HackShack Challenge{' '}
-                    <Anchor
-                      target="_blank"
-                      label="Terms and Conditions"
-                      href="/challengetermsconditions"
-                    />{' '}
-                    and HPE's{' '}
-                    <Anchor
-                      label="Privacy Policy"
-                      href="https://www.hpe.com/us/en/legal/privacy.html"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    />
-                  </Text>
+                  sessionType === 'Coding Challenge' ? (
+                    <Text>
+                      I accept the HackShack Challenge{' '}
+                      <Anchor
+                        target="_blank"
+                        label="Terms and Conditions"
+                        href="/challengetermsconditions"
+                      />
+                      and HPE's{' '}
+                      <Anchor
+                        label="Privacy Policy"
+                        href="https://www.hpe.com/us/en/legal/privacy.html"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      />
+                    </Text>
+                  ) : (
+                    <Text>
+                      I accept the Hack Shack Workshop{' '}
+                      <Anchor
+                        target="_blank"
+                        label="Terms and Conditions"
+                        href="/workshoptermsconditions"
+                      />
+                      , HPE's{' '}
+                      <Anchor
+                        label="Privacy Policy"
+                        href="https://www.hpe.com/us/en/legal/privacy.html"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      />
+                      , and acknowledge that clicking on the{' '}
+                      <strong>Register for the Workshop</strong> button below
+                      starts the
+                      <strong> 4-hour</strong> window in which to complete the
+                      workshop.
+                      <br />
+                      <b>
+                        <i>Note:</i>
+                      </b>{' '}
+                      After clicking the button, go directly to your email to
+                      receive your confirmation and login credentials.
+                    </Text>
+                  )
                 }
               />
             </FormField>
             <Button
               alignSelf="start"
-              label="Take on the Challenge"
+              label={
+                sessionType === 'Coding Challenge'
+                  ? 'Take on the Challenge'
+                  : 'Register for the Workshop'
+              }
               type="submit"
               primary
             />
@@ -174,7 +210,7 @@ SignupLayer.propTypes = {
   title: PropTypes.string,
 };
 
-const SuccessLayer = ({ name, setLayer, size, title, reset }) => (
+const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }) => (
   <Layer
     position="right"
     full="vertical"
@@ -195,11 +231,14 @@ const SuccessLayer = ({ name, setLayer, size, title, reset }) => (
       <StatusGood size="large" />
       <Box margin={{ bottom: 'medium', top: 'small' }}>
         <Heading color="#ffffff" margin={{ top: 'none', bottom: 'small' }}>
-          Challenge Accepted!
+          {sessionType === 'Coding Challenge'
+            ? 'Challenge Accepted!'
+            : `You're Registered!`}
         </Heading>
         <Text color="#ffffff">
-          You're signed up for the Challenge! Head over to your email to confirm
-          your registration, and to learn what happens next.
+          You have been signed up for this{' '}
+          {sessionType === 'Coding Challenge' ? 'Challenge' : 'workshop'}. Head
+          over to your email to learn what happens next.
         </Text>
       </Box>
       <Box>
@@ -209,7 +248,7 @@ const SuccessLayer = ({ name, setLayer, size, title, reset }) => (
           <Text color="#ffffff" weight="bold">
             {name}
           </Text>{' '}
-          is signed up for the{' '}
+          is signed up for{' '}
           <Text color="#ffffff" weight="bold">
             {title}
           </Text>
@@ -218,7 +257,11 @@ const SuccessLayer = ({ name, setLayer, size, title, reset }) => (
       <Box margin={{ top: 'large' }}>
         <Button
           alignSelf="start"
-          label="Take me back to the Schedule"
+          label={
+            sessionType === 'Coding Challenge'
+              ? 'Take me back to the Challenges'
+              : 'Close'
+          }
           onClick={() => {
             reset();
             setLayer(false);
@@ -251,14 +294,19 @@ const ScheduleCard = ({
   size,
   title,
   workshopList,
+  location,
 }) => {
   let backgroundColor;
+  // const [uri, seturi] = useState('');
+  let uri = '';
   switch (sessionType) {
-    case 'Workshop':
+    case 'Workshops-on-Demand':
       backgroundColor = '#00567acc';
+      uri = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops/`;
       break;
     case 'Coding Challenge':
       backgroundColor = 'rgba(155, 99, 16, 0.8)';
+      uri = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/challenges/`;
       break;
     default:
       backgroundColor = 'background';
@@ -270,8 +318,10 @@ const ScheduleCard = ({
     name: '',
     email: '',
     company: '',
-    challenge: title,
+    title: title,
     notebook,
+    sessionType: sessionType,
+    location: location,
     termsAndConditions: false,
   });
 
@@ -280,28 +330,28 @@ const ScheduleCard = ({
       name: '',
       email: '',
       company: '',
-      challenge: title,
+      title: title,
       notebook,
+      sessionType: sessionType,
+      location: location,
       termsAndConditions: false,
     });
   };
 
   useEffect(() => {
-    if (sessionType === 'Coding Challenge') {
-      axios({
-        method: 'GET',
-        url: `${REACT_APP_CHALLENGE_API_ENDPOINT}/api/challenges/${DBid}`,
+    axios({
+      method: 'GET',
+      url: `${uri}${DBid}`,
+    })
+      .then(res => {
+        if (res.data.capacity === 0) {
+          setDisabled(true);
+        }
       })
-        .then(res => {
-          if (res.data.capacity === 0) {
-            setDisabled(true);
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-  }, [DBid, sessionType]);
+      .catch(err => {
+        console.log(err);
+      });
+  }, [DBid, sessionType, uri]);
 
   return (
     <CardWrapper
@@ -312,23 +362,6 @@ const ScheduleCard = ({
       overflow="hidden"
     >
       <Box direction="column">
-        {(sessionType || id) && (
-          <Box align="center" justify="between" direction="row">
-            <Box
-              pad={{ vertical: 'xsmall', horizontal: 'medium' }}
-              background="background-contrast"
-              round="large"
-              alignSelf="center"
-            >
-              {sessionType}
-            </Box>
-            {id && (
-              <Box direction="row" round="large">
-                Session ID: {id}
-              </Box>
-            )}
-          </Box>
-        )}
         <Box direction="column">
           {(avatar || presenter || role) && (
             <Box pad={{ top: 'large' }} gap="small" direction="row">
@@ -357,7 +390,8 @@ const ScheduleCard = ({
         </Box>
       </Box>
       <Box direction="row" gap="medium">
-        {sessionType === 'Coding Challenge' ? (
+        {sessionType === 'Coding Challenge' ||
+        sessionType === 'Workshops-on-Demand' ? (
           <Link to={{ pathname: sessionLink }}>
             <Button
               label={
@@ -419,7 +453,8 @@ const ScheduleCard = ({
               />
             </Box>
           ))}
-        {sessionType === 'Coding Challenge' && (
+        {(sessionType === 'Coding Challenge' ||
+          sessionType === 'Workshops-on-Demand') && (
           <Box>
             <Button
               onClick={() => setSignupLayer(true)}
@@ -428,7 +463,9 @@ const ScheduleCard = ({
               label={
                 <Box pad="xsmall">
                   <Text color="text-strong">
-                    {disabled ? 'Currently full, try again later' : 'Register'}
+                    {disabled
+                      ? 'Currently full, please try again later'
+                      : 'Register'}
                   </Text>
                 </Box>
               }
@@ -446,6 +483,7 @@ const ScheduleCard = ({
           setSuccess={setSuccessLayer}
           title={title}
           size={size}
+          sessionType={sessionType}
         />
       )}
       {successLayer && (
@@ -455,6 +493,7 @@ const ScheduleCard = ({
           size={size}
           title={title}
           reset={resetFormData}
+          sessionType={sessionType}
         />
       )}
     </CardWrapper>
@@ -463,8 +502,8 @@ const ScheduleCard = ({
 ScheduleCard.propTypes = {
   avatar: PropTypes.string,
   desc: PropTypes.string,
-  id: PropTypes.string,
-  DBid: PropTypes.string,
+  id: PropTypes.number,
+  DBid: PropTypes.number,
   presenter: PropTypes.string,
   role: PropTypes.string,
   sessionLink: PropTypes.string,
@@ -472,5 +511,6 @@ ScheduleCard.propTypes = {
   size: PropTypes.string,
   title: PropTypes.string,
   workshopList: PropTypes.array,
+  location: PropTypes.string,
 };
 export default ScheduleCard;

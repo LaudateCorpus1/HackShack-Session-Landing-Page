@@ -9,6 +9,8 @@ import NewsletterTC from './NewsletterTC';
 import ChallengeTC from './ChallengeTC';
 import Replays from './Replays';
 import Ezmeral from './Ezmeral';
+import Workshops from './Workshops';
+import WorkshopTC from './WorkshopTC';
 
 export {
   Home,
@@ -22,4 +24,6 @@ export {
   Replays,
   ChallengeTC,
   Ezmeral,
+  Workshops,
+  WorkshopTC,
 };

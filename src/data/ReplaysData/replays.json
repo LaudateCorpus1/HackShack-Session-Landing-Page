@@ -124,5 +124,15 @@
     "role": "Principal Tech Marketing Engineer",
     "videolink": "https://vimeo.com/436858869",
     "id": 13
+  },
+  {
+    "avatar": "/img/SpeakerImages/pramod.png",
+    "title": "Streamline app development with open source Grommet",
+    "desc": "Ever wanted to develop your own app in a easy way? Come and join us at this 101 Session on grommet, an open source project led by HPE. Grommet is a react-based framework that provides accessibility, modularity, responsiveness, and theming in a tidy package. This session will allow you to discover the basics and deploy your first app on Netifly!",
+    "presenter": "Pramod Sareddy",
+    "role": "Fullstack Developer",
+    "videolink": "https://vimeo.com/461431097",
+    "id": 14
   }
+  
 ]
