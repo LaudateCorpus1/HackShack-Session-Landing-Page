@@ -122,7 +122,7 @@ const SignupLayer = ({
           <FormField label="Company" name="company">
             <TextInput name="company" />
           </FormField>
-          <Box margin={{ top: 'large' }} gap="medium">
+          <Box margin={{ top: 'medium' }} gap="medium">
             <FormField required name="termsAndConditions">
               <CheckBox
                 name="termsAndConditions"
@@ -145,25 +145,36 @@ const SignupLayer = ({
                     </Text>
                   ) : (
                     <Text>
-                      I accept the HackShack Workshop{' '}
+                      I accept the Hack Shack Workshop{' '}
                       <Anchor
                         target="_blank"
                         label="Terms and Conditions"
                         href="/workshoptermsconditions"
-                      />{' '}
-                      and HPE's{' '}
+                      />
+                      , HPE's{' '}
                       <Anchor
                         label="Privacy Policy"
                         href="https://www.hpe.com/us/en/legal/privacy.html"
                         target="_blank"
                         rel="noreferrer noopener"
                       />
+                      , and acknowledge that clicking on the{' '}
+                      <strong>Register for the Workshop</strong> button below
+                      starts the
+                      <strong> 4-hour</strong> window in which to complete the
+                      workshop.
+                      <br />
+                      <b>
+                        <i>Note:</i>
+                      </b>{' '}
+                      After clicking the button, go directly to your email to
+                      receive your confirmation and login credentials.
                     </Text>
                   )
                 }
               />
             </FormField>
-            <FormField required name="note">
+            {/* <FormField required name="note">
               <CheckBox
                 name="note"
                 label={
@@ -175,15 +186,15 @@ const SignupLayer = ({
                     </Text>
                   ) : (
                     <Text>
-                      I understand that I will have 4 hours to complete the
-                      workshop once I click on the{' '}
+                      Plan ahead! Clicking on the{' '}
                       <b>Register for the Workshop </b>
-                      button below.
+                      button below immediately starts the 4-hour clock for the
+                      workshop.
                     </Text>
                   )
                 }
               />
-            </FormField>
+            </FormField> */}
             <Button
               alignSelf="start"
               label={

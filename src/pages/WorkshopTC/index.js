@@ -40,7 +40,7 @@ const WorkshopTC = () => {
             level="1"
             margin={{ bottom: 'large', top: 'none' }}
           >
-            Terms for HPE Hack Shack Workshops-On-Demand
+            Terms for use of HPE Hack Shack Workshops-on-Demand
           </Heading>
         </Box>
         <Box pad={{ vertical: 'medium' }}>
@@ -48,9 +48,8 @@ const WorkshopTC = () => {
         </Box>
         <Text size="xlarge">
           Hewlett Packard Enterprise (HPE) is not responsible for any loss of
-          data created by the download. HPE is not responsible for any software
-          virus connected to the download. HPE is not responsible for any data
-          saved or left on the Jupityer Notebook.  
+          data created by the download. HPE is not responsible for any data
+          saved or left on the Jupyter Notebook.  
         </Text>
         <br />
       </Box>

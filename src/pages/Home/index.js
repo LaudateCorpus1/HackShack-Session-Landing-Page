@@ -126,7 +126,7 @@ const Cards = ({ size }) => (
     />
     <Card
       image="/img/Arcade/score.png"
-      title="PLAY HACK SHACK ATTACK, OUR RETRO VIDEO GAME."
+      title="PLAY HACK SHACK ATTACK, OUR RETRO VIDEO GAME"
       desc="Compete with your friends for bragging rights."
       path="/hackshackattack"
       background="rgba(0, 86, 122, 0.8);"
