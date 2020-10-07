@@ -125,6 +125,15 @@ const Cards = ({ size }) => (
       }
     />
     <Card
+      image="/img/workshops-on-demand.png"
+      title="INTRODUCING HPE DEV WORKSHOPS-ON-DEMAND"
+      desc="Learn more about our technologies through hands-on experience."
+      path="/workshops"
+      background="rgba(0, 86, 122, 0.8);"
+      label="Register Now!"
+      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
+    />
+    {/* <Card
       image="/img/Arcade/score.png"
       title="PLAY HACK SHACK ATTACK, OUR RETRO VIDEO GAME"
       desc="Compete with your friends for bragging rights."
@@ -132,7 +141,7 @@ const Cards = ({ size }) => (
       background="rgba(0, 86, 122, 0.8);"
       label="Play the Game"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    />
+    /> */}
   </CardWrapper>
 );
 
