@@ -2,7 +2,7 @@ import Home from './Home';
 import HackShackAttack from './HackShackAttack';
 import Community from './Community';
 import Arcade from './Arcade';
-import Schedule from './Schedule';
+import Challenges from './Challenges';
 import StickerWall from './StickerWall';
 import ContestPage from './Competiton';
 import NewsletterTC from './NewsletterTC';
@@ -14,7 +14,6 @@ import WorkshopTC from './WorkshopTC';
 
 export {
   Home,
-  Schedule,
   HackShackAttack,
   Community,
   ContestPage,
@@ -26,4 +25,5 @@ export {
   Ezmeral,
   Workshops,
   WorkshopTC,
+  Challenges,
 };

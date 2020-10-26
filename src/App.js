@@ -11,7 +11,6 @@ import {
   Community,
   Arcade,
   StickerWall,
-  // Schedule,
   HackShackAttack,
   ContestPage,
   NewsletterTC,
@@ -20,6 +19,7 @@ import {
   Ezmeral,
   Workshops,
   WorkshopTC,
+  Challenges,
 } from './pages/index';
 
 import ScrollToTop from './components/ScrollToTop';
@@ -80,10 +80,9 @@ const App = () => {
           <Route path="/community">
             <Community />
           </Route>
-          {/* hiding challenges while working on workshops on demand
           <Route path="/challenges">
-            <Schedule />
-          </Route> */}
+            <Challenges />
+          </Route>
           <Route path="/arcade">
             <Arcade />
           </Route>

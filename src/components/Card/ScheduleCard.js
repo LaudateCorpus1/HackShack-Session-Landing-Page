@@ -128,12 +128,12 @@ const SignupLayer = ({
                 label={
                   sessionType === 'Coding Challenge' ? (
                     <Text>
-                      I accept the HackShack Challenge{' '}
+                      I accept the Hack Shack Challenge{' '}
                       <Anchor
                         target="_blank"
                         label="Terms and Conditions"
                         href="/challengetermsconditions"
-                      />
+                      />{' '}
                       and HPE's{' '}
                       <Anchor
                         label="Privacy Policy"
@@ -257,11 +257,7 @@ const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }) => (
       <Box margin={{ top: 'large' }}>
         <Button
           alignSelf="start"
-          label={
-            sessionType === 'Coding Challenge'
-              ? 'Take me back to the Challenges'
-              : 'Close'
-          }
+          label="close"
           onClick={() => {
             reset();
             setLayer(false);
@@ -306,7 +302,7 @@ const ScheduleCard = ({
       break;
     case 'Coding Challenge':
       backgroundColor = 'rgba(155, 99, 16, 0.8)';
-      uri = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/challenges/`;
+      uri = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops/`;
       break;
     default:
       backgroundColor = 'background';
@@ -465,6 +461,8 @@ const ScheduleCard = ({
                   <Text color="text-strong">
                     {disabled
                       ? 'Currently full, please try again later'
+                      : sessionType === 'Coding Challenge'
+                      ? 'Challenge me'
                       : 'Register'}
                   </Text>
                 </Box>
