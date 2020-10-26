@@ -5,8 +5,8 @@ import { MainTitle } from './styles';
 import axios from 'axios';
 
 const Challenge = () => {
-  const { REACT_APP_CHALLENGE_API_ENDPOINT } = process.env;
-  const getChallengesApi = `${REACT_APP_CHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
+  const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
+  const getChallengesApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
   const [challenges, setchallenges] = useState([]);
   const [error, setError] = useState('');
   let arr = [];
