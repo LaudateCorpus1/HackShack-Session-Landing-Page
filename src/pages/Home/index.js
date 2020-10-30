@@ -59,10 +59,10 @@ const GrommetMascot = ({ setOpen }) => (
       <StyledTextBox gap="small">
         <StyledBoxText width="medium">
           <Text size="large" color="#000000">
-            Learn about the Hack Shack
+            Take a tour of
           </Text>
           <Text size="large" color="#000000">
-            in this video!
+            the Hack Shack!
           </Text>
         </StyledBoxText>
       </StyledTextBox>
@@ -79,7 +79,7 @@ const GrommetMascot = ({ setOpen }) => (
           label={
             <Box gap="xsmall" direction="row">
               <Text style={{ whiteSpace: 'nowrap' }} size="large">
-                Watch Now
+                Watch video
               </Text>
             </Box>
           }
