@@ -76,10 +76,16 @@ const Workshop = () => {
           direction="column"
           // background="status-critical"
         >
-          <Text size="large" color="status-critical" alignSelf="center">
-            {error}
-          </Text>
-          <Image src="/img/gremlin-rockin.svg"></Image>
+          {error ? (
+            <>
+              <Text size="large" color="status-critical" alignSelf="center">
+                {error}
+              </Text>
+              <Image src="/img/gremlin-rockin.svg"></Image>
+            </>
+          ) : (
+            <Box height="medium"></Box>
+          )}
         </Box>
       )}
     </Layout>

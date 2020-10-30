@@ -80,10 +80,16 @@ const Challenge = () => {
           direction="column"
           // background="status-critical"
         >
-          <Text size="large" alignSelf="center">
-            {error}
-          </Text>
-          <Box height="medium"></Box>
+          {error ? (
+            <>
+              <Text size="large" alignSelf="center">
+                {error}
+              </Text>
+              <Box height="medium"></Box>
+            </>
+          ) : (
+            <Box height="medium"></Box>
+          )}
         </Box>
       )}
     </Layout>
