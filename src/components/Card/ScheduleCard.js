@@ -128,7 +128,7 @@ const SignupLayer = ({
                 label={
                   sessionType === 'Coding Challenge' ? (
                     <Text>
-                      I accept the Hack Shack Challenge{' '}
+                      I have read and accept the Hack Shack Challenge{' '}
                       <Anchor
                         target="_blank"
                         label="Terms and Conditions"
@@ -144,7 +144,7 @@ const SignupLayer = ({
                     </Text>
                   ) : (
                     <Text>
-                      I accept the Hack Shack Workshop{' '}
+                      I have read and accept the Hack Shack Workshop{' '}
                       <Anchor
                         target="_blank"
                         label="Terms and Conditions"
