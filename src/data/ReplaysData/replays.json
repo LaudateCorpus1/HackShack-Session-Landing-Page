@@ -133,6 +133,23 @@
     "role": "Fullstack Developer",
     "videolink": "https://vimeo.com/461431097",
     "id": 14
+  },
+  {
+    "avatar": "/img/SpeakerImages/Didier.png",
+    "title": "Introduction to Python programming",
+    "desc": "Introduction to programming in Python",
+    "presenter": "Samarth Deyagond & Didier Lalli",
+    "role": "Distinguished Technologist",
+    "videolink": "https://vimeo.com/472124807",
+    "id": 15
+  },
+  {
+    "title": "Introduction to Rust programming",
+    "desc": "In this session, we will introduce the audience to Rust programming. This will be a hands-on session based on Jupyter Notebooks. We will also discuss lessons learn within the 3PAR/Primera team.",
+    "presenter": "Jonathan Parris & Thomas Malachi",
+    "role": "Fullstack Developer",
+    "videolink": "https://vimeo.com/472125189",
+    "id": 16
   }
   
 ]
