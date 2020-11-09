@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Image, Heading, Text } from 'grommet';
+import { Box, Button, Heading, Text, Anchor } from 'grommet';
 import { Previous } from 'grommet-icons';
 import { Layout } from '../../components/index';
 
@@ -12,63 +12,226 @@ const NewsletterTC = () => {
             color="white"
             icon={<Previous size="small" />}
             label="Back to Newsletter Signup"
-            href="https://developer.hpe.com/event/kubecon-europe-2020?listid=10605211"
+            href="https://developer.hpe.com/event/kubecon-na-2020?listid=12906620"
           />
           <Heading
             color="text-strong"
             level="1"
-            margin={{ bottom: 'large', top: 'none' }}
+            margin={{ bottom: 'none', top: 'none' }}
           >
-            RULES FOR - Random Newsletter Drawing – During HPE Virtual
-            Experience event
+            HPE Newsletter Giveaway
           </Heading>
+          <Text color="text-strong" margin={{ bottom: 'large' }}>
+            TERMS AND CONDITIONS
+          </Text>
         </Box>
-
-        <Box pad={{ vertical: 'medium' }}>
-          <Image src="img/Community/dev-thumb.png" />
-        </Box>
         <Text size="xlarge">
-          NO PURCHASE NECESSARY & PURCHASE WILL NOT INCREASE CHANCE OF WINNING.
-          OPEN those who sign up for the HPE DEV Newsletter between August 17
-          and August 20, and who are AT LEAST 18 YEARS OLD. Void in Puerto Rico,
-          U.S. territories, possessions and where prohibited by law. Employees
-          of HPE, its subsidiaries, affiliates and HPE authorized channel
-          partners, their immediate family and household members are not
-          eligible. Employees of the U.S. federal government, U.S. state/local
-          government, or public higher education institution, or any private or
-          public K-12 educational institution, or library, are not eligible.
-          Entry constitutes agreement to rules & HPE’s decisions. Eligibility
-          and disqualification will be determined in HPE’s sole discretion.
+          1. <strong>SPONSOR:</strong> The sponsor of this giveaway is Hewlett
+          Packard Enterprise Company (“HPE”), 6280 America Center Dr, San Jose,
+          CA 95002.
         </Text>
         <br />
         <Text size="xlarge">
-          HPE will select 5 names at random from those that have subscribed to
-          the HPE Developer Community monthly newsletter between August 17th
-          through August 20th 2020. Each winner will be{' '}
-          <strong> awarded a gift certificate</strong> (valued at approximately
-          $50). Winner(s) will be notified no later than Monday, August24th by
-          HPE via email.
+          2. <strong>INTRODUCTION:</strong> HPE invites KubeCon attendees who
+          sign up for the HPE DEV Newsletter (“Newsletter”) to participate in
+          the HPE Newsletter Giveaway (“Program”) for a chance to win a fifty
+          dollar (USD $50.00) e-gift card for HPE branded merchandise (“Prize”),
+          subject to the terms and conditions below (“Terms and Conditions”). By
+          participating in the Program, participants affirm that they have read,
+          accepted, and agree to waive any right to claim any ambiguity or error
+          in these Terms and Conditions or the entry itself and agree to be
+          bound by these Terms and Conditions and HPE’s decisions, which are
+          final and binding in all respects. HPE reserves the right to review,
+          modify, extend or discontinue any and/or all aspects of the Program,
+          including these Terms and Conditions, at any time without prior
+          notice. The Program is subject to federal, state, and local laws and
+          regulations and is void where prohibited.
         </Text>
         <br />
         <Text size="xlarge">
-          Each person is allowed to enter ONE EMAIL ADDRESS. Existing newsletter
-          subscribers are not eligible to win.
+          3. <strong>PROGRAM PERIOD:</strong> The Program begins on November 17,
+          2020 at 9 AM Pacific Time and ends at 11:59 PM Pacific Time on
+          November 20, 2020, or when the Program budget has been reached,
+          whichever is earlier (the “Program Period”). Entries submitted before
+          or after the Program Period will not be eligible. HPE’s computer is
+          the official time-keeping device for the Program.
         </Text>
         <br />
         <Text size="xlarge">
-          All winners must have provided a working email to be contacted by and
-          for the gift certificate to be sent to. Winner may have to sign and
-          return an eligibility affidavit & liability release, unless
-          prohibited. If eligible winners fail to sign and return required
-          documents, prize may be forfeited. No substitution, cash redemption or
-          transfer of prizes. Taxes are winner’s responsibility. Participants
-          release and hold harmless HPE, its subsidiaries, affiliates, and their
-          officers, directors, employees, agents from any claim arising out of
-          entry or prize receipt or use. All third party trademarks are the
-          property of their respective owners. Sponsor: Hewlett Packard
-          Enterprise Company, 11445 Compaq Center Dr. W Houston, TX 77070 USA.
-          Use this address for inquiries, requests to be removed from this
-          mailing list, and winner’s list.
+          4. <strong>ELIGIBILITY:</strong> NO HPE PRODUCT OR SERVICE PURCHASE
+          NECESSARY. A PURCHASE WILL NOT IMPROVE YOUR CHANCES OF WINNING. The
+          Program is open only to participants eighteen (18) years of age and
+          older who are attendees of KubeCon. Existing Newsletter subscribers
+          are not eligible to participate in the Program. Void in Puerto Rico,
+          U.S. territories and possessions, and where prohibited by law.
+          Employees, contractors, and contingent workers of HPE, its
+          subsidiaries, affiliates, their immediate family and household members
+          are not eligible. Employees of the following entities are ineligible
+          for this promotion: National/federal, state, and local government
+          entities, public higher education institutions, and private or public
+          K-12 educational institutions and libraries and their board members,
+          employees, officers, representatives, agents, consultants and
+          independent contractors. HPE shall determine Program eligibility in
+          its sole and absolute discretion.
+        </Text>
+        <br />
+        <Text size="xlarge">
+          5. <strong>HOW TO ENTER:</strong> By completing one of the two entry
+          methods below, participants may be considered eligible for the Prize.
+          LIMIT ONE (1) PRIZE PER PERSON/ENTRY WHILE SUPPLIES LAST. The Prize
+          (approximate retail value: $50.00) is subject to these Terms and
+          Conditions.
+        </Text>
+        <br />
+        <Text size="xlarge">
+          Entry Method One – Participants can sign up for the Newsletter through
+          the link provided by HPE during the Program Period.
+        </Text>
+        <br />
+        <Text size="xlarge">
+          Entry Method Two – Participants can access the alternate method of
+          entry form through the following link:{' '}
+          <Anchor
+            href="https://connect.hpe.com/Reg-HPEDEVNewsletterRaffle"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            https://connect.hpe.com/Reg-HPEDEVNewsletterRaffle
+          </Anchor>
+          ; fill in their valid name, email address, company name, and
+          country/region; and click the “Submit” button during the Program
+          Period.
+        </Text>
+        <br />
+        <Text size="xlarge">
+          Entrants may use either Entry Method One or Entry Method Two but
+          cannot use both. There is a maximum of one (1) entry allowed per
+          person across all entry methods. If a person enters more than once
+          (for either or both entry methods) then all of their entries will be
+          ineligible.
+        </Text>
+        <br />
+        <Text size="xlarge">
+          6. <strong>PRIZE:</strong> Interested parties who merely sign up for
+          the Newsletter or submit an entry are not guaranteed a Prize. The
+          total estimated retail value of each Prize is USD $50.00. HPE will
+          give away a total of five (5) Prizes, with a total estimated retail
+          value of USD $250.00. No later than fourteen (14) business days after
+          the end of the Program Period, in a random drawing, potential winners
+          will be selected from all eligible entries received during the Program
+          Period. Odds of winning depend on the total number of eligible entries
+          received during the Program Period. An email Prize notification will
+          be sent to the potential winners within five (5) business days after
+          the random drawing is conducted. Should you be awarded a Prize, you
+          will be contacted via the email address used in your entry method. It
+          shall be your responsibility to claim the Prize within fifteen (15)
+          days of notification from HPE. Failure to do so will result in
+          forfeiture of the Prize, and an alternate winner may be selected in a
+          random drawing from among the remaining eligible entries.
+        </Text>
+        <br />
+        <Text size="xlarge">
+          No substitution, cash redemption or transfer of Prizes, except in
+          HPE’s sole discretion. The Prize may not be used for resale or
+          distribution. Taxes and duties, if any, are winner’s responsibility.
+          Prizes are promotional in nature and may be subject to an expiration
+          date. Each participant is limited to one (1) Prize only and any
+          entries submitted after a participant has received a Prize will not be
+          an eligible entry. Any Prize details not specified herein will be
+          determined by HPE in its sole discretion. HPE reserves the right to
+          not fulfill your Prize in the event that the Prize is not certified in
+          your country. Due to abuse, we cannot provide Prizes to individuals
+          who register with Yahoo, Gmail, Hotmail, and other email domains not
+          registered to your company. Please speak directly to your HPE
+          representative if you have any questions. KubeCon is not affiliated
+          with HPE and is not a sponsor of this Program. All third party
+          trademarks are the property of their respective owners.
+        </Text>
+        <br />
+        <Text size="xlarge">
+          7. <strong>DISQUALIFICATION:</strong> HPE reserves the right to
+          disqualify any participant and any entries at any time or during any
+          phase of the Program for any reason whatsoever at its sole discretion.
+          Without limiting the foregoing, HPE reserves the right, in its sole
+          discretion, to disqualify any individual it finds to be tampering with
+          the operation of the Program or any website related to the Program; to
+          be acting in violation of these Terms and Conditions; or to be acting
+          in a disruptive manner, or with intent to annoy, abuse, threaten or
+          harass any person participating in or connected with the Program. Any
+          attempt by you to obtain more than the stated number of entries by
+          using multiple or different identities, or any other prohibited
+          methods will void your entry and you shall be disqualified. Use of any
+          automated system to participate is prohibited and will result in
+          disqualification. HPE’s server shall be the official time stamp for
+          the purposes of determining the validity of any participation in the
+          Program (where applicable).
+        </Text>
+        <br />
+        <Text size="xlarge">
+          8. <strong>RELEASE AND LIMITATIONS OF LIABILITY:</strong> By
+          participating in this Program, to the maximum extent permitted by
+          applicable laws, you release and discharge HPE from any and all
+          liability resulting from late, lost, delayed, stolen, misdirected,
+          unreadable, incorrect, inaccurate, garbled, unintelligible or postage
+          due communications, including without limitation, entry and Program
+          information, regardless of the method of transmission. By
+          participating in the Program, you agree that HPE shall not be liable
+          for, and, to the maximum extent permitted by applicable laws, you
+          shall release and hold HPE, its affiliates, subsidiaries, licensees,
+          officers, directors, agents, representatives and employees
+          (collectively, “Released Parties”), harmless from, any and all losses,
+          injuries, claims, and/or causes of action arising out of participation
+          in the Program, the content of any entries, and/or receipt or use of
+          any Prize. You waive the right to claim any attorneys’ fees and any
+          damages whatsoever, including, but not limited to, punitive,
+          consequential, direct, or indirect damages. You also agree that the
+          Released Parties are not responsible or liable for any injury or
+          damage to your or third person's computer and/or its contents, related
+          to or resulting from any part of the Program.
+        </Text>
+        <br />
+        <Text size="xlarge">
+          9. <strong>PRIVACY:</strong> By participating in the Program and
+          providing HPE with your personal data, you consent to the use of your
+          data by HPE for purposes of conducting this Program in accordance with
+          these Terms and Conditions and subject to HPE’s Privacy Statement,
+          available at{' '}
+          <Anchor
+            href="https://www.hpe.com/us/en/legal/privacy.html"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            https://www.hpe.com/us/en/legal/privacy.html
+          </Anchor>
+          .
+        </Text>
+        <br />
+        <Text size="xlarge">
+          10. <strong>ENGLISH LANGUAGE:</strong> HPE and the Program
+          participants confirm that it is their wish that the Terms and
+          Conditions, as well as any other documents relating to the Terms and
+          Conditions or the Program, including notices, schedules, exhibits and
+          authorizations, have been and shall be drawn up in the English
+          language only. HPE et les participants au programme confirment qu'ils
+          souhaitent que les conditions générales, ainsi que tout autre document
+          relatif aux conditions générales ou au programme, y compris les avis,
+          les horaires, les expositions et les autorisations, aient été et
+          soient rédigés en la langue anglaise uniquement.
+        </Text>
+        <br />
+        <Text size="xlarge">
+          11. <strong>GOVERNING LAW:</strong> The Terms and Conditions shall be
+          governed by and construed under the laws of the State of California
+          without regard to conflict of laws principles. Any dispute under the
+          Terms and Conditions shall be subject to the non-exclusive
+          jurisdiction of the courts of the State of California. You irrevocably
+          waive any objection on the grounds of venue, forum non-conveniens or
+          any similar grounds and irrevocably consent to service of process by
+          mail or in any other manner permitted by applicable law and consent to
+          the jurisdiction of the courts of the State of California. You further
+          hereby waive any right to a trial by jury with respect to any lawsuit
+          or judicial proceeding arising or relating to the Terms and
+          Conditions.
         </Text>
       </Box>
     </Layout>
