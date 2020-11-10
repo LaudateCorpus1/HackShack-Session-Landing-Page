@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { IonPhaser } from '@ion-phaser/react';
 import styled from 'styled-components';
-import { Box, Button, Layer, Image, Text, Anchor, CheckBox } from 'grommet';
+import { Box, Button, Layer, Image, Text } from 'grommet';
 import { Link } from 'react-router-dom';
 import { Previous } from 'grommet-icons';
 import Phaser from 'phaser';
@@ -78,17 +78,19 @@ const BackgroundWrapper = styled(Box)`
 
 // eslint-disable-next-line react/prop-types
 const TermsLayer = ({ setAccepted }) => {
-  const [checked, setChecked] = useState(false);
-  const [error, setError] = useState(false);
+  // remove terms and conditions checkbox as no prize offered
+  // const [checked, setChecked] = useState(false);
+  // const [error, setError] = useState(false);
 
   const handleSubmit = () => {
-    if (checked) {
-      setAccepted(true);
-      setError(false);
-      localStorage.setItem('formData', JSON.stringify({ accepted: true }));
-    } else {
-      setError(true);
-    }
+    // remove terms and conditions checkbox as no prize offered
+    // if (checked) {
+    setAccepted(true);
+    // setError(false);
+    localStorage.setItem('formData', JSON.stringify({ accepted: true }));
+    // } else {
+    //   setError(true);
+    // }
   };
 
   return (
@@ -106,10 +108,10 @@ const TermsLayer = ({ setAccepted }) => {
           src="/assets/attack-marquee.png"
         />
         <Text style={{ fontFamily: 'Kemco' }} size="xxlarge" color="#ffffff">
-          HPE may need to collect your email address if you are a high scoring
-          winner. Your email will not be used for any other purpose.
+          ELIMINATE AS MANY IT MONSTERS AND BUGS AS YOU CAN IN OUR RETRO ARCADE
+          GAME. COMPETE WITH YOUR FRIENDS FOR THE HIGHEST SCORE.
         </Text>
-        <Text color="#ffffff">
+        {/* <Text color="#ffffff">
           Read the full{' '}
           <Anchor
             href=" https://hackshack.hpedev.io/competition"
@@ -133,7 +135,7 @@ const TermsLayer = ({ setAccepted }) => {
             I agree.
           </Text>
         </Box>
-        {error && <Text>You must agree to play.</Text>}
+        {error && <Text>You must agree to play.</Text>} */}
         <Button onClick={() => handleSubmit()}>
           <Box background="#00567acc">
             <Text
