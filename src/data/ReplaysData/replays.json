@@ -137,7 +137,7 @@
   {
     "avatar": "/img/SpeakerImages/Didier.png",
     "title": "Introduction to Python programming",
-    "desc": "Python is an interpreted, high-level and general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects.",
+    "desc": "Are you interested in learning more about Python, the high-level, general-purpose programming language? This basic 101-level course will get you started. Begin with a simple Hello World example and move to loops, dict and tuples concepts. Learn to use Python language constructs and an object-oriented approach to write clear, logical code for small and large-scale projects.",
     "presenter": "Samarth Deyagond & Didier Lalli",
     "role": "Distinguished Technologist",
     "videolink": "https://vimeo.com/472124807",
@@ -145,7 +145,7 @@
   },
   {
     "title": "Introduction to Rust programming",
-    "desc": "In this session, we will introduce the audience to Rust programming. This will be a hands-on session based on Jupyter Notebooks. We will also discuss lessons learn within the 3PAR/Primera team.",
+    "desc": "Hundreds of companies around the world are using Rust in production today for fast, low-resource, cross-platform solutions. Software you know and love, like Firefox, Dropbox, and Cloudflare, uses Rust. From startups to large corporations, from embedded devices to scalable web services, Rust is a great fit. In this session we will introduce the audience to Rust programming. A language empowering everyone to build reliable and efficient software.",
     "presenter": "Jonathan Parris & Thomas Malachi",
     "role": "Fullstack Developer",
     "videolink": "https://vimeo.com/472125189",
