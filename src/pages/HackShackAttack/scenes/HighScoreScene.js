@@ -173,7 +173,7 @@ export default class HighScoreScene extends Phaser.Scene {
       })
       .setTint(0xff1fdc83);
     this.add
-      .text(300, 420, 'Email', {
+      .text(300, 420, 'Name', {
         fontFamily: 'Kemco',
         fontSize: '20px',
       })
