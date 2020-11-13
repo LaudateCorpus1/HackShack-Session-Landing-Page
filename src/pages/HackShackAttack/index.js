@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { IonPhaser } from '@ion-phaser/react';
 import styled from 'styled-components';
-import { Box, Button, Layer, Image, Text } from 'grommet';
+import { Box, Button, Layer, Image, Text, Anchor, CheckBox } from 'grommet';
 import { Link } from 'react-router-dom';
 import { Previous } from 'grommet-icons';
 import Phaser from 'phaser';
@@ -79,18 +79,18 @@ const BackgroundWrapper = styled(Box)`
 // eslint-disable-next-line react/prop-types
 const TermsLayer = ({ setAccepted }) => {
   // remove terms and conditions checkbox as no prize offered
-  // const [checked, setChecked] = useState(false);
-  // const [error, setError] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = () => {
     // remove terms and conditions checkbox as no prize offered
-    // if (checked) {
-    setAccepted(true);
-    // setError(false);
-    localStorage.setItem('formData', JSON.stringify({ accepted: true }));
-    // } else {
-    //   setError(true);
-    // }
+    if (checked) {
+      setAccepted(true);
+      setError(false);
+      localStorage.setItem('formData', JSON.stringify({ accepted: true }));
+    } else {
+      setError(true);
+    }
   };
 
   return (
@@ -107,9 +107,22 @@ const TermsLayer = ({ setAccepted }) => {
           alt="attack marquee"
           src="/assets/attack-marquee.png"
         />
-        <Text style={{ fontFamily: 'Kemco' }} size="xxlarge" color="#ffffff">
-          ELIMINATE AS MANY IT MONSTERS AND BUGS AS YOU CAN IN OUR RETRO ARCADE
-          GAME. COMPETE WITH YOUR FRIENDS FOR THE HIGHEST SCORE.
+        <Text style={{ fontFamily: 'Kemco' }} size="small" color="#ffffff">
+          HPE may invite you to enter your initials and name if you are a high
+          scoring winner. If provided, your initials will be displayed on the
+          leader board. Your name will not be displayed and will be used for
+          identification confirmation purposes only. All use will be in
+          accordance with{' '}
+          <Anchor
+            href="https://www.hpe.com/us/en/legal/privacy.html"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <Text style={{ fontFamily: 'Kemco' }} size="small" color="#ffffff">
+              hpe's privacy policy
+            </Text>
+          </Anchor>
+          .
         </Text>
         {/* <Text color="#ffffff">
           Read the full{' '}
@@ -123,7 +136,7 @@ const TermsLayer = ({ setAccepted }) => {
             </Text>
           </Anchor>{' '}
           that apply.
-        </Text>
+        </Text> */}
         <Box direction="row" align="center">
           <CheckBox
             onChange={() => {
@@ -135,7 +148,7 @@ const TermsLayer = ({ setAccepted }) => {
             I agree.
           </Text>
         </Box>
-        {error && <Text>You must agree to play.</Text>} */}
+        {error && <Text>You must agree to play.</Text>}
         <Button onClick={() => handleSubmit()}>
           <Box background="#00567acc">
             <Text
