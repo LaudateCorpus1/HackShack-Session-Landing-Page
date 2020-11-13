@@ -133,6 +133,23 @@
     "role": "Fullstack Developer",
     "videolink": "https://vimeo.com/461431097",
     "id": 14
+  },
+  {
+    "avatar": "/img/SpeakerImages/Didier.png",
+    "title": "Introduction to Python programming",
+    "desc": "Are you interested in learning more about Python, the high-level, general-purpose programming language? This basic 101-level course will get you started. Begin with a simple Hello World example and move to loops, dict and tuples concepts. Learn to use Python language constructs and an object-oriented approach to write clear, logical code for small and large-scale projects.",
+    "presenter": "Samarth Deyagond & Didier Lalli",
+    "role": "Distinguished Technologist",
+    "videolink": "https://vimeo.com/472124807",
+    "id": 15
+  },
+  {
+    "title": "Introduction to Rust programming",
+    "desc": "Hundreds of companies around the world are using Rust in production today for fast, low-resource, cross-platform solutions. Software you know and love, like Firefox, Dropbox, and Cloudflare, uses Rust. From startups to large corporations, from embedded devices to scalable web services, Rust is a great fit. In this session we will introduce the audience to Rust programming. A language empowering everyone to build reliable and efficient software.",
+    "presenter": "Jonathan Parris & Thomas Malachi",
+    "role": "Fullstack Developer",
+    "videolink": "https://vimeo.com/472125189",
+    "id": 16
   }
   
 ]

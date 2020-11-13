@@ -38,8 +38,8 @@ const VideoList = ({
 
           <Box direction="column">
             <Box>
-              <Text>{presenter}</Text>
-              <Text>{role}</Text>
+              <Text color="white">{presenter}</Text>
+              <Text color="white">{role}</Text>
             </Box>
             <Heading
               color="text-strong"

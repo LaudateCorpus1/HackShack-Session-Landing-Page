@@ -134,9 +134,9 @@ const SignupLayer = ({
                         label="Terms and Conditions"
                         href="/challengetermsconditions"
                       />{' '}
-                      and HPE's{' '}
+                      and{' '}
                       <Anchor
-                        label="Privacy Policy"
+                        label="HPE's Privacy Policy"
                         href="https://www.hpe.com/us/en/legal/privacy.html"
                         target="_blank"
                         rel="noreferrer noopener"
@@ -149,10 +149,10 @@ const SignupLayer = ({
                         target="_blank"
                         label="Terms and Conditions"
                         href="/workshoptermsconditions"
-                      />
-                      , HPE's{' '}
+                      />{' '}
+                      and{' '}
                       <Anchor
-                        label="Privacy Policy"
+                        label="HPE's Privacy Policy"
                         href="https://www.hpe.com/us/en/legal/privacy.html"
                         target="_blank"
                         rel="noreferrer noopener"

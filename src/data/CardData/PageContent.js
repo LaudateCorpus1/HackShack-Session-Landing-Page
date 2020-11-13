@@ -24,7 +24,7 @@ export const communityContent = [
     title: 'GET THE HPE DEVELOPER NEWSLETTER',
     desc:
       'Want to read more about industry trends for developers? Sign up here.',
-    link: 'https://developer.hpe.com/newsletter-signup',
+    link: ' https://developer.hpe.com/event/kubecon-na-2020?listid=12906620',
     label: 'Get the Newsletter',
     background: '#00567acc',
   },

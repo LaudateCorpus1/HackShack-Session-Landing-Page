@@ -78,10 +78,12 @@ const BackgroundWrapper = styled(Box)`
 
 // eslint-disable-next-line react/prop-types
 const TermsLayer = ({ setAccepted }) => {
+  // remove terms and conditions checkbox as no prize offered
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
 
   const handleSubmit = () => {
+    // remove terms and conditions checkbox as no prize offered
     if (checked) {
       setAccepted(true);
       setError(false);
@@ -105,11 +107,24 @@ const TermsLayer = ({ setAccepted }) => {
           alt="attack marquee"
           src="/assets/attack-marquee.png"
         />
-        <Text style={{ fontFamily: 'Kemco' }} size="xxlarge" color="#ffffff">
-          HPE may need to collect your email address if you are a high scoring
-          winner. Your email will not be used for any other purpose.
+        <Text style={{ fontFamily: 'Kemco' }} size="small" color="#ffffff">
+          HPE may invite you to enter your initials and name if you are a high
+          scoring winner. If provided, your initials will be displayed on the
+          leader board. Your name will not be displayed and will be used for
+          identification confirmation purposes only. All use will be in
+          accordance with{' '}
+          <Anchor
+            href="https://www.hpe.com/us/en/legal/privacy.html"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <Text style={{ fontFamily: 'Kemco' }} size="small" color="#ffffff">
+              hpe's privacy policy
+            </Text>
+          </Anchor>
+          .
         </Text>
-        <Text color="#ffffff">
+        {/* <Text color="#ffffff">
           Read the full{' '}
           <Anchor
             href=" https://hackshack.hpedev.io/competition"
@@ -121,7 +136,7 @@ const TermsLayer = ({ setAccepted }) => {
             </Text>
           </Anchor>{' '}
           that apply.
-        </Text>
+        </Text> */}
         <Box direction="row" align="center">
           <CheckBox
             onChange={() => {
