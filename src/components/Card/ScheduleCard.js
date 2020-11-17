@@ -112,13 +112,18 @@ const SignupLayer = ({
           onChange={setFormData}
           onSubmit={({ value }) => onSubmit({ value })}
         >
-          <FormField label="Email" name="email" error={emailError} required>
+          <FormField
+            label="Company Email"
+            name="email"
+            error={emailError}
+            required
+          >
             <TextInput name="email" />
           </FormField>
-          <FormField label="Name" name="name" required>
+          <FormField label="Full Name" name="name" required>
             <TextInput name="name" />
           </FormField>
-          <FormField label="Company" name="company">
+          <FormField label="Company Name" name="company" required>
             <TextInput name="company" />
           </FormField>
           <Box margin={{ top: 'medium' }} gap="medium">
@@ -141,6 +146,17 @@ const SignupLayer = ({
                         target="_blank"
                         rel="noreferrer noopener"
                       />
+                      , and acknowledge that clicking on the{' '}
+                      <strong>Take on the Challenge</strong> button below starts
+                      the
+                      <strong> 4-hour</strong> window in which to complete the
+                      challenge.
+                      <br />
+                      <b>
+                        <i>Note:</i>
+                      </b>{' '}
+                      After clicking the button, go directly to your email to
+                      receive your confirmation and login credentials.
                     </Text>
                   ) : (
                     <Text>
