@@ -33,16 +33,16 @@ const Content = () => {
   return (
     <TextWrapper>
       <Text size={fontSize} color="#FFFFFF">
-        Welcome to the Hack Shack. Collaborate and expand
+        Welcome to the Hack Shack. We offer many
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        your skills through online workshops and courses.
+        ways to collaborate and expand your skills.
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        You may even win a prize by competing in our
+        Try our technology Workshops-on-Demand,
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        coding challenge or by signing up for our newsletter.
+        for a unique, hands-on learning experience.
       </Text>
     </TextWrapper>
   );
@@ -115,7 +115,7 @@ const Cards = ({ size }) => (
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
       desc="Want to read more about industry trends for developers? Sign up here."
-      link="https://developer.hpe.com/event/kubecon-na-2020?listid=12906620"
+      link="https://developer.hpe.com/newsletter-signup"
       background="background"
       label="Get the Newsletter"
       margin={

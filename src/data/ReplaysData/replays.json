@@ -150,6 +150,15 @@
     "role": "Fullstack Developer",
     "videolink": "https://vimeo.com/472125189",
     "id": 16
+  },
+  {
+    "avatar": "/img/SpeakerImages/Didier.png",
+    "title": "Git101 - Getting involved in the open source community",
+    "desc": "Git, the most widely-used version control system, and its associated web-based repositories, Github and Gitlab, are critical elements of today’s DevOps practices. If you want to be an open source developer, being able to navigate your way through the Git command set is a must. In this hands-on workshop, we’ll review some of the most common use cases. You’ll create your own Github account and begin using it to collaborate with others. You’ll learn to access material from other members, contribute to projects, and even create your own project.",
+    "presenter": "Didier Lalli",
+    "role": "Distinguished Technologist",
+    "videolink": "https://vimeo.com/480875742",
+    "id": 17
   }
   
 ]

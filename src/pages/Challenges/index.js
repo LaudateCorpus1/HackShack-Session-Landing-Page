@@ -25,7 +25,7 @@ const Challenge = () => {
           });
           if (arr.length <= 0)
             setError(
-              `There are currently no challenges in progress. Please check back on November 17th 2020 to view available challenges.`,
+              `There are currently no challenges in progress. Stay tuned!`,
             );
           setchallenges(arr);
         })
