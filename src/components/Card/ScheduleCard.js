@@ -335,6 +335,7 @@ const ScheduleCard = ({
     sessionType: sessionType,
     location: location,
     termsAndConditions: false,
+    proxy: 'hackshack',
   });
 
   const resetFormData = () => {
@@ -347,6 +348,7 @@ const ScheduleCard = ({
       sessionType: sessionType,
       location: location,
       termsAndConditions: false,
+      proxy: 'hackshack',
     });
   };
 
