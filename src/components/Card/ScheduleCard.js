@@ -309,7 +309,6 @@ const ScheduleCard = ({
   location,
 }) => {
   let backgroundColor;
-  // const [uri, seturi] = useState('');
   let uri = '';
   switch (sessionType) {
     case 'Workshops-on-Demand':
