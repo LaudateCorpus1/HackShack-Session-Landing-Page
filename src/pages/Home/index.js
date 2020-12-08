@@ -112,12 +112,12 @@ const Cards = ({ size }) => (
       />
     )}
     <Card
-      logo="/img/Community/dev-thumb.png"
-      title="GET THE HPE DEVELOPER NEWSLETTER"
-      desc="Want to read more about industry trends for developers? Sign up here."
-      link="https://developer.hpe.com/newsletter-signup"
+      logo="/img/Community/SlashData_survey.png"
+      title="Calling all developers… Make your voices heard!"
+      desc="HPE DEV partners with SlashData for its State of the Developer Nation 2020 survey."
+      link="https://developer.hpe.com/blog/calling-all-developers-make-your-voices-heard"
       background="background"
-      label="Get the Newsletter"
+      label="View the Blog"
       margin={
         size === 'small'
           ? { top: '0px', right: '0px' }
@@ -133,6 +133,19 @@ const Cards = ({ size }) => (
       label="Register Now!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
     />
+    {/* <Card
+      logo="/img/Community/dev-thumb.png"
+      title="GET THE HPE DEVELOPER NEWSLETTER"
+      desc="Want to read more about industry trends for developers? Sign up here."
+      link="https://developer.hpe.com/newsletter-signup"
+      background="background"
+      label="Get the Newsletter"
+      margin={
+        size === 'small'
+          ? { top: '0px', right: '0px' }
+          : { top: 'xlarge', right: 'large' }
+      }
+    /> */}
     {/* <Card
       image="/img/Arcade/score.png"
       title="PLAY HACK SHACK ATTACK, OUR RETRO VIDEO GAME"

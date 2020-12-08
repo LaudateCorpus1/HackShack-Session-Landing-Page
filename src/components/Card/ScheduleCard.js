@@ -309,7 +309,6 @@ const ScheduleCard = ({
   location,
 }) => {
   let backgroundColor;
-  // const [uri, seturi] = useState('');
   let uri = '';
   switch (sessionType) {
     case 'Workshops-on-Demand':
@@ -335,6 +334,7 @@ const ScheduleCard = ({
     sessionType: sessionType,
     location: location,
     termsAndConditions: false,
+    proxy: 'hackshack',
   });
 
   const resetFormData = () => {
@@ -347,6 +347,7 @@ const ScheduleCard = ({
       sessionType: sessionType,
       location: location,
       termsAndConditions: false,
+      proxy: 'hackshack',
     });
   };
 
