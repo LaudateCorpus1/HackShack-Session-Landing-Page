@@ -125,6 +125,15 @@ const Cards = ({ size }) => (
       }
     />
     <Card
+      logo="/img/MunchandLearn.svg"
+      title="Introducing HPE DEV Munch & Learn series"
+      desc="Session 1: What's a data fabric and how does it work?"
+      link="https://hpe.zoom.us/meeting/register/tJwrc-ygrjItG90Z60OnGVisrppOzsT_N0fd"
+      background="rgba(0, 86, 122, 0.8);"
+      label="Register Now!"
+      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
+    />
+    {/* <Card
       image="/img/workshops-on-demand.png"
       title="INTRODUCING HPE DEV WORKSHOPS-ON-DEMAND"
       desc="Learn more about our technologies through hands-on experience."
@@ -132,7 +141,7 @@ const Cards = ({ size }) => (
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    />
+    /> */}
     {/* <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
