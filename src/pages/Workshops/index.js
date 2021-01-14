@@ -5,17 +5,21 @@ import { MainTitle } from './styles';
 import axios from 'axios';
 
 const Workshop = () => {
-  const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
+  const {
+    REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT,
+    REACT_APP_API_KEY,
+  } = process.env;
   const getWorkshopsApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
   const [workshops, setworkshops] = useState([]);
   const [error, setError] = useState('');
   let arr = [];
 
   useEffect(() => {
-    const getWorkshops = () => {
+    const getWorkshops = token => {
       axios({
         method: 'GET',
         url: getWorkshopsApi,
+        headers: { Authorization: 'Bearer ' + REACT_APP_API_KEY },
       })
         .then(response => {
           // Map created

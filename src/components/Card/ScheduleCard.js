@@ -18,7 +18,10 @@ import PropTypes from 'prop-types';
 import { CardWrapper } from './styles';
 import { Link } from 'react-router-dom';
 
-const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
+const {
+  REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT,
+  REACT_APP_API_KEY,
+} = process.env;
 
 const SignupLayer = ({
   reset,
@@ -62,6 +65,7 @@ const SignupLayer = ({
       axios({
         method: 'POST',
         url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer`,
+        headers: { Authorization: 'Bearer ' + REACT_APP_API_KEY },
         data: { ...formData },
       })
         .then(response => {
@@ -352,18 +356,22 @@ const ScheduleCard = ({
   };
 
   useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `${uri}${DBid}`,
-    })
-      .then(res => {
-        if (res.data.capacity === 0) {
-          setDisabled(true);
-        }
+    const getWorkshopbyID = () => {
+      axios({
+        method: 'GET',
+        url: `${uri}${DBid}`,
+        headers: { Authorization: 'Bearer ' + REACT_APP_API_KEY },
       })
-      .catch(err => {
-        console.log(err);
-      });
+        .then(res => {
+          if (res.data.capacity === 0) {
+            setDisabled(true);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+    getWorkshopbyID();
   }, [DBid, sessionType, uri]);
 
   return (
