@@ -17,11 +17,9 @@ import { StatusGood, FormClose } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import { CardWrapper } from './styles';
 import { Link } from 'react-router-dom';
+import AuthService from '../../services/auth.service';
 
-const {
-  REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT,
-  REACT_APP_API_KEY,
-} = process.env;
+const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 
 const SignupLayer = ({
   reset,
@@ -62,23 +60,33 @@ const SignupLayer = ({
 
   const onSubmit = () => {
     if (emailValidation(formData.email)) {
-      axios({
-        method: 'POST',
-        url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer`,
-        headers: { Authorization: 'Bearer ' + REACT_APP_API_KEY },
-        data: { ...formData },
-      })
-        .then(response => {
-          if (response.status === 202) {
-            setError(response.data);
-          } else {
-            setLayer(false);
-            setSuccess(true);
-          }
+      const postCustomer = () => {
+        axios({
+          method: 'POST',
+          url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer`,
+          headers: {
+            'x-access-token': AuthService.getCurrentUser().accessToken,
+          },
+          data: { ...formData },
         })
-        .catch(() => {
-          setError('There was an error submitting your request');
-        });
+          .then(response => {
+            if (response.status === 202) {
+              setError(response.data);
+            } else {
+              setLayer(false);
+              setSuccess(true);
+            }
+          })
+          .catch(err => {
+            if (err.response.status === 401) {
+              AuthService.login().then(() => postCustomer());
+            } else {
+              console.log(err);
+              setError('There was an error submitting your request');
+            }
+          });
+      };
+      postCustomer();
     }
   };
 
@@ -360,7 +368,7 @@ const ScheduleCard = ({
       axios({
         method: 'GET',
         url: `${uri}${DBid}`,
-        headers: { Authorization: 'Bearer ' + REACT_APP_API_KEY },
+        headers: { 'x-access-token': AuthService.getCurrentUser().accessToken },
       })
         .then(res => {
           if (res.data.capacity === 0) {
@@ -368,7 +376,9 @@ const ScheduleCard = ({
           }
         })
         .catch(err => {
-          console.log(err);
+          if (err.response.status === 401) {
+            AuthService.login().then(() => getWorkshopbyID());
+          }
         });
     };
     getWorkshopbyID();
