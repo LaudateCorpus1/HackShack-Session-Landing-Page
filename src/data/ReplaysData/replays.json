@@ -159,6 +159,15 @@
     "role": "Distinguished Technologist",
     "videolink": "https://vimeo.com/480875742",
     "id": 17
+  },
+  {
+    "avatar": "/img/SpeakerImages/Denis.png",
+    "title": "Building a dynamic Machine Learning pipeline with KubeDirector​",
+    "desc": "Looking for a quick introduction to Machine Learning pipeline with open source application called KubeDirector? Take this free hands-on workshop to learn the steps to create an end-to-end machine learning (ML) pipeline, from data preparation to model deployment through model training and registry. You will discover how the key use of KubeDirector and its capabilities enable a dynamic ML pipeline on a CNCF-certified Kubernetes cluster managed by HPE Ezmeral Container Platform.",
+    "presenter": "Denis Choukroun",
+    "role": "Cloud Solution Architect",
+    "videolink": "https://vimeo.com/502117137",
+    "id": 18
   }
   
 ]
