@@ -3,6 +3,7 @@ import { Heading, Text, Box, Image } from 'grommet';
 import { Layout, ScheduleCard, CardGrid } from '../../components/index';
 import { MainTitle } from './styles';
 import axios from 'axios';
+import AuthService from '../../services/auth.service';
 
 const Workshop = () => {
   const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
@@ -12,10 +13,24 @@ const Workshop = () => {
   let arr = [];
 
   useEffect(() => {
-    const getWorkshops = () => {
+    const getToken = () => {
+      AuthService.login().then(
+        () => {
+          getWorkshops(AuthService.getCurrentUser().accessToken);
+        },
+        err => {
+          setError(
+            'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+          );
+        },
+      );
+    };
+
+    const getWorkshops = token => {
       axios({
         method: 'GET',
         url: getWorkshopsApi,
+        headers: { 'x-access-token': token },
       })
         .then(response => {
           // Map created
@@ -26,13 +41,17 @@ const Workshop = () => {
           setworkshops(arr);
         })
         .catch(err => {
-          setError(
-            'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
-          );
-          console.log(err);
+          if (err.response.status === 401) {
+            AuthService.login().then(() => getToken());
+          } else {
+            console.log('catch error', err);
+            setError(
+              'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+            );
+          }
         });
     };
-    getWorkshops();
+    getToken();
     // eslint-disable-next-line
   }, []);
   return (

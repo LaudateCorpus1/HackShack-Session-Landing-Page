@@ -17,6 +17,7 @@ import { StatusGood, FormClose } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import { CardWrapper } from './styles';
 import { Link } from 'react-router-dom';
+import AuthService from '../../services/auth.service';
 
 const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 
@@ -59,22 +60,33 @@ const SignupLayer = ({
 
   const onSubmit = () => {
     if (emailValidation(formData.email)) {
-      axios({
-        method: 'POST',
-        url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer`,
-        data: { ...formData },
-      })
-        .then(response => {
-          if (response.status === 202) {
-            setError(response.data);
-          } else {
-            setLayer(false);
-            setSuccess(true);
-          }
+      const postCustomer = () => {
+        axios({
+          method: 'POST',
+          url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer`,
+          headers: {
+            'x-access-token': AuthService.getCurrentUser().accessToken,
+          },
+          data: { ...formData },
         })
-        .catch(() => {
-          setError('There was an error submitting your request');
-        });
+          .then(response => {
+            if (response.status === 202) {
+              setError(response.data);
+            } else {
+              setLayer(false);
+              setSuccess(true);
+            }
+          })
+          .catch(err => {
+            if (err.response.status === 401) {
+              AuthService.login().then(() => postCustomer());
+            } else {
+              console.log(err);
+              setError('There was an error submitting your request');
+            }
+          });
+      };
+      postCustomer();
     }
   };
 
@@ -352,18 +364,24 @@ const ScheduleCard = ({
   };
 
   useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `${uri}${DBid}`,
-    })
-      .then(res => {
-        if (res.data.capacity === 0) {
-          setDisabled(true);
-        }
+    const getWorkshopbyID = () => {
+      axios({
+        method: 'GET',
+        url: `${uri}${DBid}`,
+        headers: { 'x-access-token': AuthService.getCurrentUser().accessToken },
       })
-      .catch(err => {
-        console.log(err);
-      });
+        .then(res => {
+          if (res.data.capacity === 0) {
+            setDisabled(true);
+          }
+        })
+        .catch(err => {
+          if (err.response.status === 401) {
+            AuthService.login().then(() => getWorkshopbyID());
+          }
+        });
+    };
+    getWorkshopbyID();
   }, [DBid, sessionType, uri]);
 
   return (
