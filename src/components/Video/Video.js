@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import ReactPlayer from 'react-player/vimeo';
 import { Box, Heading, Text, Avatar, ResponsiveContext } from 'grommet';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Video = ({
   videolink,
@@ -62,9 +63,16 @@ const Video = ({
               {title}
             </Heading>
           </Box>
-          <Box>
-            <Text color="text-strong" margin={{ bottom: 'large' }} size="22px">
+          <Box gap="small">
+            <Text color="text-strong" size="22px">
               {desc}
+            </Text>
+            <Text color="text-strong" margin={{ bottom: 'large' }} size="22px">
+              If you liked this video and would like to get some real, hands-on
+              experience,{' '}
+              <Link style={{ color: '#FFF' }} color="white" to="/workshops">
+                register for this workshops-on-demand.
+              </Link>
             </Text>
           </Box>
         </Box>

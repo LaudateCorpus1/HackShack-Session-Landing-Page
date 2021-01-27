@@ -168,6 +168,15 @@
     "role": "Cloud Solution Architect",
     "videolink": "https://vimeo.com/502117137",
     "id": 18
+  },
+  {
+    "avatar": "/img/SpeakerImages/Francois.png",
+    "title": "HPE iLOrest Overview",
+    "desc": "The HPE RESTful Interface Tool (iLOrest) is a powerful command-line Redfish client that allows you to manage Hewlett Packard Enterprise iLO 4 and iLO 5 based servers. After a brief description of the tool capabilities, you will be able to perform several simple and complex management operations against an iLO 5 Redfish simulator. In addition, this workshop introduces the concept of resource data types and methodologies to get or set resources using the API Reference document. Lastly it explains how to use the debug mode to troubleshoot your Bash, Python or PowerShell scripts.",
+    "presenter": "Francois Donze",
+    "role": "Technical Consultant",
+    "videolink": "https://vimeo.com/504494928",
+    "id": 19
   }
   
 ]
