@@ -3,6 +3,7 @@ import { Heading, Text, Box } from 'grommet';
 import { Layout, ScheduleCard, CardGrid } from '../../components/index';
 import { MainTitle } from './styles';
 import axios from 'axios';
+import AuthService from '../../services/auth.service';
 
 const Challenge = () => {
   const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
@@ -12,10 +13,23 @@ const Challenge = () => {
   let arr = [];
 
   useEffect(() => {
-    const getChallenges = () => {
+    const getToken = () => {
+      AuthService.login().then(
+        () => {
+          getChallenges(AuthService.getCurrentUser().accessToken);
+        },
+        err => {
+          setError(
+            'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+          );
+        },
+      );
+    };
+    const getChallenges = token => {
       axios({
         method: 'GET',
         url: getChallengesApi,
+        headers: { 'x-access-token': token },
       })
         .then(response => {
           // Map created
@@ -36,7 +50,7 @@ const Challenge = () => {
           console.log(err);
         });
     };
-    getChallenges();
+    getToken();
     // eslint-disable-next-line
   }, []);
   return (
