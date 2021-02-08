@@ -127,7 +127,7 @@ const Cards = ({ size }) => (
     <Card
       logo="/img/MunchandLearn.svg"
       title="Introducing HPE DEV Munch & Learn series"
-      desc="Session 2: Explore Containerization and MLOps"
+      desc="Session 2: Explore Containerization and MLOps."
       link=" https://hpe.zoom.us/meeting/register/tJYkdequqTwsE9LuPAgPDbV-mf1V7jq23Mxj"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
