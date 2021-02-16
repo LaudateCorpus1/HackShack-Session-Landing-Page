@@ -177,6 +177,14 @@
     "role": "Technical Consultant",
     "videolink": "https://vimeo.com/504494928",
     "id": 19
+  },
+  {
+    "avatar": "/img/SpeakerImages/DungHoangKhac.png",
+    "title": "HPE OneView - PowerShell Advanced Scripting",
+    "desc": "Time to go further with HPE OneView. In this workshop, you will explore some advanced features of the HPE OneView PowerShell library as well as techniques to automate HPE OneView deployments using Windows PowerShell and the HPE OneView PowerShell library (POSH). Learn how to query HPE OneView to collect information about resources, how to update existing resources or create new resources, and how to write a simple PowerShell script to automate HPE OneView configurations.",
+    "presenter": "Solution Architect",
+    "role": "North America Service Enablement",
+    "videolink": "https://vimeo.com/508802530",
+    "id": 20
   }
-  
 ]
