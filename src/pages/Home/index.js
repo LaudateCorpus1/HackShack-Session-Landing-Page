@@ -125,10 +125,10 @@ const Cards = ({ size }) => (
       }
     />
     <Card
-      logo="/img/MunchandLearn.svg"
+      logo="/img/munch-and-learn-3.jpg"
       title="Introducing HPE DEV Munch & Learn series"
-      desc="Session 2: Explore Containerization and MLOps."
-      link=" https://hpe.zoom.us/meeting/register/tJYkdequqTwsE9LuPAgPDbV-mf1V7jq23Mxj"
+      desc="Session 3: Data Science Unplugged Part 1"
+      link=" https://hpe.zoom.us/meeting/register/tJYudO2uqD8iGddvDqH__n4v3lgzyAg42FrL"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
