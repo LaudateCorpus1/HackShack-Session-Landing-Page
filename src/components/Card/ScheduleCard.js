@@ -381,7 +381,13 @@ const ScheduleCard = ({
           }
         });
     };
-    getWorkshopbyID();
+    if (
+      sessionType &&
+      (sessionType === 'Workshops-on-Demand' ||
+        sessionType === 'Coding Challenge')
+    ) {
+      getWorkshopbyID();
+    }
   }, [DBid, sessionType, uri]);
 
   return (

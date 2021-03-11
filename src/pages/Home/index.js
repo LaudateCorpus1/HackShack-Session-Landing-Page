@@ -112,12 +112,12 @@ const Cards = ({ size }) => (
       />
     )}
     <Card
-      logo="/img/Community/SlashData_survey.png"
-      title="Calling all developers… Make your voices heard!"
-      desc="HPE DEV partners with SlashData for its State of the Developer Nation 2020 survey."
-      link="https://developer.hpe.com/blog/calling-all-developers-make-your-voices-heard"
+      image="/img/workshops-on-demand.png"
+      title="INTRODUCING HPE DEV WORKSHOPS-ON-DEMAND"
+      desc="Learn more about our technologies through hands-on experience."
+      path="/workshops"
       background="background"
-      label="View the Blog"
+      label="Register Now!"
       margin={
         size === 'small'
           ? { top: '0px', right: '0px' }
@@ -125,23 +125,14 @@ const Cards = ({ size }) => (
       }
     />
     <Card
-      logo="/img/MunchandLearn.svg"
+      logo="/img/munch-and-learn-3.jpg"
       title="Introducing HPE DEV Munch & Learn series"
-      desc="Session 1: What's a data fabric and how does it work?"
-      link="https://hpe.zoom.us/meeting/register/tJwrc-ygrjItG90Z60OnGVisrppOzsT_N0fd"
+      desc="Session 3: Data Science Unplugged Part 1"
+      link=" https://hpe.zoom.us/meeting/register/tJYudO2uqD8iGddvDqH__n4v3lgzyAg42FrL"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
     />
-    {/* <Card
-      image="/img/workshops-on-demand.png"
-      title="INTRODUCING HPE DEV WORKSHOPS-ON-DEMAND"
-      desc="Learn more about our technologies through hands-on experience."
-      path="/workshops"
-      background="rgba(0, 86, 122, 0.8);"
-      label="Register Now!"
-      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    /> */}
     {/* <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
