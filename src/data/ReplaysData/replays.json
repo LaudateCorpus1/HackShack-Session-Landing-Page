@@ -182,9 +182,18 @@
     "avatar": "/img/SpeakerImages/DungHoangKhac.png",
     "title": "HPE OneView - PowerShell Advanced Scripting",
     "desc": "Time to go further with HPE OneView. In this workshop, you will explore some advanced features of the HPE OneView PowerShell library as well as techniques to automate HPE OneView deployments using Windows PowerShell and the HPE OneView PowerShell library (POSH). Learn how to query HPE OneView to collect information about resources, how to update existing resources or create new resources, and how to write a simple PowerShell script to automate HPE OneView configurations.",
-    "presenter": "Solution Architect",
+    "presenter": "Dung Hoang Khac",
     "role": "North America Service Enablement",
     "videolink": "https://vimeo.com/508802530",
     "id": 20
+  },
+  {
+    "avatar": "/img/SpeakerImages/rickkauffmann.jpg",
+    "title": "StackStorm 101 - Introduction to the StackStorm Framework",
+    "desc": "StackStorm is a platform for integration and automation across services and tools. It ties together your existing infrastructure and application environment so you can more easily automate that environment. It has a particular focus on taking actions in response to events. Join this workshop to discover the main concepts that makes StackStorm so appealing.",
+    "presenter": "Rick A Kauffman",
+    "role": "Enterprise Architect",
+    "videolink": "https://vimeo.com/522105252",
+    "id": 21
   }
 ]
