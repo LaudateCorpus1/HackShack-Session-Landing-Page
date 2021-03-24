@@ -195,5 +195,14 @@
     "role": "Enterprise Architect",
     "videolink": "https://vimeo.com/522105252",
     "id": 21
+  },
+  {
+    "avatar": "/img/SpeakerImages/yann_allandit.jpg",
+    "title": "Managing HPE Cloud Volumes through API Calls",
+    "desc": "An API allows a programmatic way to manage a remote software or service. In this workshop, you will learn how to manage HPE Cloud Volumes using its Application Programming Interface. From getting connection tokens to list replication stores, replica volumes, and block volumes to creating new block volumes, you will go through many examples allowing you to interact programmatically with HPE Cloud Volumes to attach, detach, and  delete block volumes.",
+    "presenter": "Yann Allandit",
+    "role": "Customer Architect @Oracle Cloud",
+    "videolink": "https://vimeo.com/498286520",
+    "id": 22
   }
 ]
