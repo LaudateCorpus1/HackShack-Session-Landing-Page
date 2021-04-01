@@ -204,5 +204,23 @@
     "role": "Customer Architect @Oracle Cloud",
     "videolink": "https://vimeo.com/498286520",
     "id": 22
+  },
+  {
+    "avatar": "/img/SpeakerImages/hpe-dev-logo.svg",
+    "title": "Using the iLO Redfish API with Ansible and OneView",
+    "desc": "HPE Oneview is the preferred tool for monitoring, managing and configuring Synergy compute nodes in a secure way. However, you may have to view or modify specific compute parameters directly from the iLO using the iLO GUI or the Redfish API. This workshop explains how to leverage the OneView Single Sign On (SSO) feature to provide a Redfish connection to Ansible playbooks without exposing iLO credentials. Besides, Discover new ways of writing Redfish Ansible playbooks using built-in modules, DMTF or HPE examples.",
+    "presenter": "HPE DEV TEAM",
+    "role": "Developer",
+    "videolink": "https://vimeo.com/531345831",
+    "id": 23
+  },
+  {
+    "avatar": "/img/SpeakerImages/hpe-dev-logo.svg",
+    "title": "Kubernetes 101 - Introduction to the Kubernetes Concepts",
+    "desc": "This tutorial provides a walkthrough of the basics of the Kubernetes cluster orchestration system. Each module contains some background information on major Kubernetes features and concepts, and includes an interactive online tutorial. These interactive tutorials let you manage a simple cluster (managed by HPE Ezmeral Container Platform) and its containerized applications. In action, you will deploy a containerized application on a cluster, scale its deployment, update the application and debug it.",
+    "presenter": "HPE DEV TEAM",
+    "role": "Developer",
+    "videolink": "https://vimeo.com/531364481",
+    "id": 24
   }
 ]
