@@ -127,7 +127,7 @@ const Cards = ({ size }) => (
     <Card
       logo="/img/munch-and-learn-3.jpg"
       title="Introducing HPE DEV Munch & Learn series"
-      desc="Session 4: Building a foundation for zero trust with SPIFFE"
+      desc="Session 4: Building a foundation for zero trust with SPIFFE."
       link="https://hpe.zoom.us/meeting/register/tJwpd-2srzMuHNPUfW-adASIVpSxCoqat7AV"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
