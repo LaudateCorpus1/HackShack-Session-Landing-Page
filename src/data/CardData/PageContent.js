@@ -76,7 +76,7 @@ export const arcadeContent = [
     alt: 'Treasure hunt map',
     title: 'HPE DEV TREASURE HUNT',
     desc:
-      "Explore the HPE Developer Community's rich ecosystem in this scavenger-hunt style game! Be one of the first 15 to submit correct responses to win an HPE DEV hat.",
+      "Explore the HPE Developer Community's rich ecosystem in this scavenger-hunt style game!",
     link: 'https://forms.office.com/r/SDRAJVxEAd',
     label: 'Hunt for Treasure!',
     background: 'background',

@@ -149,7 +149,7 @@ const Cards = ({ size }) => (
     /> */}
     <Card
       image="/img/Arcade/TreasureMap.png"
-      title="WIN PRIZES IN THE HPE DEV VIRTUAL TREASURE HUNT!"
+      title="WIN IN THE HPE DEV TREASURE HUNT"
       desc="Discover ways to collaborate and where to find resources."
       link="https://forms.office.com/r/SDRAJVxEAd"
       background="rgba(0, 86, 122, 0.8);"
