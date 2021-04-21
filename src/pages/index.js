@@ -11,6 +11,7 @@ import Replays from './Replays';
 import Ezmeral from './Ezmeral';
 import Workshops from './Workshops';
 import WorkshopTC from './WorkshopTC';
+import TreasureHuntTC from './TreasureHuntTC';
 
 export {
   Home,
@@ -26,4 +27,5 @@ export {
   Workshops,
   WorkshopTC,
   Challenges,
+  TreasureHuntTC,
 };

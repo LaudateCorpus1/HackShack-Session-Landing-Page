@@ -20,6 +20,7 @@ import {
   Workshops,
   WorkshopTC,
   Challenges,
+  TreasureHuntTC,
 } from './pages/index';
 
 import ScrollToTop from './components/ScrollToTop';
@@ -121,6 +122,9 @@ const App = () => {
           </Route>
           <Route path="/workshoptermsconditions">
             <WorkshopTC />
+          </Route>
+          <Route path="/treasurehunttermsconditions">
+            <TreasureHuntTC />
           </Route>
         </Switch>
       </Router>
