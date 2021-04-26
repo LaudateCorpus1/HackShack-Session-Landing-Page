@@ -9,13 +9,23 @@ export const communityContent = [
     label: 'Join the Slack Team',
     background: 'background',
   },
+  // {
+  //   logo: '/img/Community/dev-thumb.png',
+  //   alt: 'Dev Logo',
+  //   title: 'JOIN THE HPE DEVELOPER COMMUNITY',
+  //   desc: 'Want an inside track on HPE to get the latest dev tips and tricks? ',
+  //   link: 'https://developer.hpe.com/signup',
+  //   label: 'Join the Community',
+  //   background: '#00567acc',
+  // },
   {
     logo: '/img/Community/dev-thumb.png',
-    alt: 'Dev Logo',
-    title: 'JOIN THE HPE DEVELOPER COMMUNITY',
-    desc: 'Want an inside track on HPE to get the latest dev tips and tricks? ',
-    link: 'https://developer.hpe.com/signup',
-    label: 'Join the Community',
+    alt: 'HPE Ezmeral Logo',
+    title: 'HPE EZMERAL SOFTWARE FORUM',
+    desc:
+      'Want to stay updated on how to deploy in any cloud, on any hardware and is 100% open source Kubernetes? Join the discussion.',
+    link: 'https://hpe.com/forum/ezmeral',
+    label: 'Go to the Ezmeral Forum',
     background: '#00567acc',
   },
   {
@@ -59,6 +69,16 @@ export const arcadeContent = [
       'Think SmashTV and Robotron, but much more awesome! Compete for top scores and bragging rights!',
     path: '/hackshackattack',
     label: 'Play the Game',
+    background: 'background',
+  },
+  {
+    image: '/img/Arcade/TreasureMap.png',
+    alt: 'Treasure hunt map',
+    title: 'HPE DEV TREASURE HUNT',
+    desc:
+      "Explore the HPE Developer Community's rich ecosystem in this scavenger-hunt style game!",
+    link: 'https://forms.office.com/r/SDRAJVxEAd',
+    label: 'Hunt for Treasure!',
     background: 'background',
   },
   {

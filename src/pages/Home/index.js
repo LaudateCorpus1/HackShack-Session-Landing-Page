@@ -31,18 +31,32 @@ const Content = () => {
   const size = useContext(ResponsiveContext);
   const fontSize = size === 'small' ? '4vw' : '2.2vw';
   return (
+    // <TextWrapper>
+    //   <Text size={fontSize} color="#FFFFFF">
+    //     Welcome to the Hack Shack. We offer many
+    //   </Text>
+    //   <Text size={fontSize} color="#FFFFFF">
+    //     ways to collaborate and expand your skills.
+    //   </Text>
+    //   <Text size={fontSize} color="#FFFFFF">
+    //     Try our technology Workshops-on-Demand,
+    //   </Text>
+    //   <Text size={fontSize} color="#FFFFFF">
+    //     for a unique, hands-on learning experience.
+    //   </Text>
+    // </TextWrapper>
     <TextWrapper>
       <Text size={fontSize} color="#FFFFFF">
-        Welcome to the Hack Shack. We offer many
+        Welcome to the Hack Shack, a place to collaborate
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        ways to collaborate and expand your skills.
+        and expand technology skills. Try our unique on-demand
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        Try our technology Workshops-on-Demand,
+        workshops or go on a virtual treasure hunt to discover
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        for a unique, hands-on learning experience.
+        a wealth of other resources and perhaps win a prize.
       </Text>
     </TextWrapper>
   );
@@ -107,7 +121,7 @@ const Cards = ({ size }) => (
         desc="Watch this video!"
         background="rgba(0, 86, 122, 0.8);"
         label="Watch Now"
-        link="https://vimeo.com/444872340"
+        link="https://vimeo.com/539879968"
         margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
       />
     )}
@@ -124,13 +138,22 @@ const Cards = ({ size }) => (
           : { top: 'xlarge', right: 'large' }
       }
     />
-    <Card
+    {/* <Card
       image="/img/munch-and-learn-3.jpg"
       title="Introducing HPE DEV Munch & Learn series"
       desc="Session 5: Data Science Unplugged Part 2."
       link="https://hpe.zoom.us/meeting/register/tJMkcumuqD0tE9SIrVe4mIOd00IHMPcjG0TB"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
+      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
+    /> */}
+    <Card
+      image="/img/Arcade/TreasureMap.png"
+      title="WIN IN THE HPE DEV TREASURE HUNT"
+      desc="Discover ways to collaborate and where to find resources."
+      link="https://forms.office.com/r/SDRAJVxEAd"
+      background="rgba(0, 86, 122, 0.8);"
+      label="Hunt for Treasure!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
     />
     {/* <Card
@@ -194,7 +217,7 @@ const Home = () => {
               <Video controls="over" autoPlay fit="cover">
                 <source
                   key="video"
-                  src="https://player.vimeo.com/external/444872340.hd.mp4?s=d39ecd0b8a48ff75139b10aa86bfb0d1e32a0b5c&profile_id=174"
+                  src="https://player.vimeo.com/external/539879968.hd.mp4?s=1ff575d7f35468a09a8ad9ac86361989b4cb33e5&profile_id=174"
                   type="video/mp4"
                 />
                 <track
