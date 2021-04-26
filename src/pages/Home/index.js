@@ -121,7 +121,7 @@ const Cards = ({ size }) => (
         desc="Watch this video!"
         background="rgba(0, 86, 122, 0.8);"
         label="Watch Now"
-        link="https://vimeo.com/444872340"
+        link="https://vimeo.com/539879968"
         margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
       />
     )}
@@ -139,10 +139,10 @@ const Cards = ({ size }) => (
       }
     />
     {/* <Card
-      logo="/img/munch-and-learn-3.jpg"
+      image="/img/munch-and-learn-3.jpg"
       title="Introducing HPE DEV Munch & Learn series"
-      desc="Session 4: Building a foundation for zero trust with SPIFFE."
-      link="https://hpe.zoom.us/meeting/register/tJwpd-2srzMuHNPUfW-adASIVpSxCoqat7AV"
+      desc="Session 5: Data Science Unplugged Part 2."
+      link="https://hpe.zoom.us/meeting/register/tJMkcumuqD0tE9SIrVe4mIOd00IHMPcjG0TB"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
@@ -217,7 +217,7 @@ const Home = () => {
               <Video controls="over" autoPlay fit="cover">
                 <source
                   key="video"
-                  src="https://player.vimeo.com/external/444872340.hd.mp4?s=d39ecd0b8a48ff75139b10aa86bfb0d1e32a0b5c&profile_id=174"
+                  src="https://player.vimeo.com/external/539879968.hd.mp4?s=1ff575d7f35468a09a8ad9ac86361989b4cb33e5&profile_id=174"
                   type="video/mp4"
                 />
                 <track
