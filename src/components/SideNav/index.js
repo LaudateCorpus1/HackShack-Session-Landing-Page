@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import { Box, Button, Heading } from 'grommet';
 
@@ -8,6 +9,10 @@ const getNavColor = (active, hover) => {
   if (hover) return 'white';
   return 'rgba(255, 255, 255, 0.3)';
 };
+
+const SideNavContainer = styled(Box)`
+  z-index: 1;
+`;
 
 const NavButton = ({ active, to, history, children, size }) => {
   const [hover, setHover] = useState(false);
@@ -45,7 +50,7 @@ NavButton.propTypes = {
 };
 
 const SideNav = ({ location, history, size, match }) => (
-  <Box align="start" gap="xsmall" width={{ min: '250px' }}>
+  <SideNavContainer align="start" gap="xsmall" width={{ min: '250px' }}>
     <NavButton
       history={history}
       active={location.pathname === '/'}
@@ -106,7 +111,7 @@ const SideNav = ({ location, history, size, match }) => (
     >
       ARCADE
     </NavButton>
-  </Box>
+  </SideNavContainer>
 );
 
 SideNav.propTypes = {
