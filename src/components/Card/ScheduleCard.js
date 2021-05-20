@@ -401,7 +401,10 @@ const ScheduleCard = ({
         background="#00000080"
       >
         <Box direction="column">
-          <Box direction="column">
+          <Box 
+            direction="column" 
+            margin={{ vertical: 'medium',  horizontal: "large" }}
+          >
             <ContrastLayer
               background="background-contrast"
               width="fit-content"
@@ -415,8 +418,14 @@ const ScheduleCard = ({
                 Popular
             </Text>
             </ContrastLayer>
+            <Heading
+              level={4}
+              margin={{ bottom: 'small' }}
+            >
+              {title}
+            </Heading>
             {(avatar || presenter || role) && (
-              <Box pad={{ top: 'large' }} gap="small" direction="row">
+              <Box gap="small" direction="row">
                 {avatar ? (
                   <Avatar src={avatar} />
                 ) : (
@@ -428,12 +437,6 @@ const ScheduleCard = ({
                 </Box>
               </Box>
             )}
-            <Heading
-              margin={{ top: '65px', bottom: 'medium', horizontal: "large" }}
-              level={4}
-            >
-              {title}
-            </Heading>
           </Box>
           {/* <Box>
             <Text
