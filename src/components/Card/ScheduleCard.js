@@ -13,7 +13,7 @@ import {
   TextInput,
   Avatar
 } from 'grommet';
-import { StatusGood, FormClose } from 'grommet-icons';
+import { StatusGood, FormClose, ShareOption } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import { CardWrapper, ContrastLayer } from './styles';
 import { Link } from 'react-router-dom';
@@ -401,14 +401,15 @@ const ScheduleCard = ({
         background="#00000080"
       >
         <Box direction="column">
-          <Box 
-            direction="column" 
-            margin={{ vertical: 'medium',  horizontal: "large" }}
+          <Box
+            direction="column"
+            margin={{ vertical: size !== 'large' ? 'large' : 'medium', horizontal: "large" }}
           >
             <ContrastLayer
               background="background-contrast"
               width="fit-content"
               pad="xxsmall"
+              round="xsmall"
             >
               <Text
                 color="#FF8300"
@@ -451,48 +452,6 @@ const ScheduleCard = ({
 
       <Box margin={{ vertical: "medium", horizontal: "large" }}>
         <Box direction="row" gap="medium">
-          {sessionType === 'Coding Challenge' ||
-            sessionType === 'Workshops-on-Demand' ? (
-            <Link to={{ pathname: sessionLink }}>
-              <Button
-                label={
-                  <Box pad="xsmall">
-                    <Text color="text-strong">Learn more</Text>
-                  </Box>
-                }
-                secondary
-              />
-            </Link>
-          ) : (
-            <Box direction="row" gap="medium">
-              <Button
-                alignSelf="start"
-                href={sessionLink}
-                target="_blank"
-                rel="noreferrer noopener"
-                label={
-                  <Box pad="xsmall">
-                    <Text color="text-strong">Learn more</Text>
-                  </Box>
-                }
-                secondary
-              />
-              {sessionType === 'Game Challenge' && (
-                <Button
-                  alignSelf="start"
-                  href="https://enterpriseaccelerator.hpe.com/terms-and-conditions"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  label={
-                    <Box pad="xsmall">
-                      <Text color="text-strong">Terms & Conditions</Text>
-                    </Box>
-                  }
-                  secondary
-                />
-              )}
-            </Box>
-          )}
           {workshopList &&
             workshopList.map(workshop => (
               <Box key={workshop.workshopLink}>
@@ -536,6 +495,61 @@ const ScheduleCard = ({
                 />
               </Box>
             )}
+          {sessionType === 'Coding Challenge' ||
+            sessionType === 'Workshops-on-Demand' ? (
+            <Link to={{ pathname: sessionLink }}>
+              <Button
+                label={
+                  <Box pad="xsmall">
+                    <Text color="text-strong">Learn more</Text>
+                  </Box>
+                }
+              />
+            </Link>
+          ) : (
+            <Box direction="row" gap="medium">
+              <Button
+                alignSelf="start"
+                href={sessionLink}
+                target="_blank"
+                rel="noreferrer noopener"
+                label={
+                  <Box pad="xsmall">
+                    <Text color="text-strong">Learn more</Text>
+                  </Box>
+                }
+              />
+              {sessionType === 'Game Challenge' && (
+                <Button
+                  alignSelf="start"
+                  href="https://enterpriseaccelerator.hpe.com/terms-and-conditions"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  label={
+                    <Box pad="xsmall">
+                      <Text color="text-strong">Terms & Conditions</Text>
+                    </Box>
+                  }
+                  secondary
+                />
+              )}
+            </Box>
+          )}
+          <Button
+            onClick={() => setSignupLayer(true)}
+            alignSelf="start"
+            margin={{ left: 'auto'}}
+            icon={<ShareOption />}
+            reverse={true}
+            gap="xsmall"
+            label={
+              <Box pad="xsmall">
+                <Text color="text-strong">
+                  Share
+                </Text>
+              </Box>
+            }
+          />
         </Box>
         {signupLayer && (
           <SignupLayer
