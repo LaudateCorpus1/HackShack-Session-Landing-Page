@@ -349,6 +349,7 @@ const ScheduleCard = ({
     termsAndConditions: false,
     proxy: 'hackshack',
   });
+  const [hover, setHover] = useState(false);
 
   const resetFormData = () => {
     setFormData({
@@ -390,7 +391,6 @@ const ScheduleCard = ({
       getWorkshopbyID();
     }
   }, [DBid, sessionType, uri]);
-
   return (
     <CardWrapper
       justify="between"
@@ -399,55 +399,64 @@ const ScheduleCard = ({
       overflow="hidden"
     >
       <Box
-        background="#00000080"
+        background={hover ? '#FFFFFF' : "#00000080"}
+        height={{ max: '200px' }}
+        onMouseOver={() => setHover(true)}
+        onFocus={() => setHover(true)}
+        onMouseOut={() => setHover(false)}
+        onBlur={() => setHover(false)}
       >
         <Box direction="column">
-          <Box
-            direction="column"
-            margin={{ vertical: size !== 'large' ? 'large' : 'medium', horizontal: "large" }}
-          >
-            <ContrastLayer
-              background="background-contrast"
-              width="fit-content"
-              pad="xxsmall"
-              round="xsmall"
+          {!hover ? (
+            <Box
+              direction="column"
+              margin={{ top: size !== 'large' ? 'large' : 'medium', horizontal: "large" }}
             >
-              <Text
-                color="#FF8300"
-                size="small"
-                margin={{ vertical: "3px", horizontal: "12px" }}
+              <ContrastLayer
+                background="background-contrast"
+                width="fit-content"
+                pad="xxsmall"
+                round="xsmall"
               >
-                Popular
+                <Text
+                  color="#FF8300"
+                  size="small"
+                  margin={{ vertical: "3px", horizontal: "12px" }}
+                >
+                  Popular
             </Text>
-            </ContrastLayer>
-            <Heading
-              level={4}
-              margin={{ bottom: 'small' }}
-            >
-              {title}
-            </Heading>
-            {(avatar || presenter || role) && (
-              <Box gap="small" direction="row">
-                {avatar ? (
-                  <Avatar src={avatar} />
-                ) : (
-                  <Avatar src="/img/SpeakerImages/defaultAvatar.svg" />
-                )}
-                <Box justify="center">
-                  <Text>{presenter}</Text>
-                  <Text>{role}</Text>
+              </ContrastLayer>
+              <Heading
+                level={4}
+                margin={{ bottom: 'small' }}
+              >
+                {title}
+              </Heading>
+              {(avatar || presenter || role) && (
+                <Box gap="small" direction="row" pad={{ bottom: 'large' }}>
+                  {avatar ? (
+                    <Avatar src={avatar} />
+                  ) : (
+                    <Avatar src="/img/SpeakerImages/defaultAvatar.svg" />
+                  )}
+                  <Box justify="center">
+                    <Text>{presenter}</Text>
+                    <Text>{role}</Text>
+                  </Box>
                 </Box>
-              </Box>
-            )}
-          </Box>
-          {/* <Box>
-            <Text
-              margin={{ bottom: 'large' }}
-              size={size === 'small' ? 'large' : 'xlarge'}
-            >
-              {desc}
-            </Text>
-          </Box> */}
+              )}
+            </Box>
+          ) : (
+            <Box overflow="scroll" margin={{ top: size !== 'large' ? 'large' : 'medium', horizontal: "large" }} >
+              <Heading level={5} margin={{ top: 'xsmall' }}>{title}</Heading>
+              <Text
+                margin={{ bottom: 'large' }}
+                size={size === 'small' ? 'small' : 'medium'}
+              >
+                {desc}
+              </Text>
+            </Box>
+          )}
         </Box>
       </Box>
 
@@ -539,7 +548,7 @@ const ScheduleCard = ({
           <Button
             onClick={() => setSignupLayer(true)}
             alignSelf="start"
-            margin={{ left: 'auto'}}
+            margin={{ left: 'auto' }}
             icon={<ShareOption />}
             reverse={true}
             gap="xsmall"
