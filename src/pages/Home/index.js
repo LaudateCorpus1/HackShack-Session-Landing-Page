@@ -141,8 +141,8 @@ const Cards = ({ size }) => (
     <Card
       image="/img/munch-and-learn-3.jpg"
       title="Introducing HPE DEV Munch & Learn series"
-      desc="Session 5: Data Science Unplugged Part 2."
-      link="https://hpe.zoom.us/meeting/register/tJMkcumuqD0tE9SIrVe4mIOd00IHMPcjG0TB"
+      desc="Session 6: Microservices architecture 101."
+      link="https://hpe.zoom.us/meeting/register/tJIlf-isqjgjH9bv-oJW2dv_5DMM6i2FV-WA"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
