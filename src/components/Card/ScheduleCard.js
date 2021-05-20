@@ -391,6 +391,7 @@ const ScheduleCard = ({
       getWorkshopbyID();
     }
   }, [DBid, sessionType, uri]);
+  console.log('hover: ', hover);
   return (
     <CardWrapper
       justify="between"
@@ -399,18 +400,18 @@ const ScheduleCard = ({
       overflow="hidden"
     >
       <Box
+        pad={{ vertical: size !== 'large' ? 'large' : 'medium', horizontal: "large" }}
         background={hover ? '#FFFFFF' : "#00000080"}
-        height={{ max: '200px' }}
-        onMouseOver={() => setHover(true)}
+        height="200px"
+        onMouseEnter={() => setHover(true)}
         onFocus={() => setHover(true)}
-        onMouseOut={() => setHover(false)}
+        onMouseLeave={() => setHover(false)}
         onBlur={() => setHover(false)}
       >
         <Box direction="column">
           {!hover ? (
             <Box
               direction="column"
-              margin={{ top: size !== 'large' ? 'large' : 'medium', horizontal: "large" }}
             >
               <ContrastLayer
                 background="background-contrast"
@@ -433,13 +434,13 @@ const ScheduleCard = ({
                 {title}
               </Heading>
               {(avatar || presenter || role) && (
-                <Box gap="small" direction="row" pad={{ bottom: 'large' }}>
+                <Box gap="small" direction="row" >
                   {avatar ? (
                     <Avatar src={avatar} />
                   ) : (
                     <Avatar src="/img/SpeakerImages/defaultAvatar.svg" />
                   )}
-                  <Box justify="center">
+                  <Box justify="center" >
                     <Text>{presenter}</Text>
                     <Text>{role}</Text>
                   </Box>
@@ -447,7 +448,9 @@ const ScheduleCard = ({
               )}
             </Box>
           ) : (
-            <Box overflow="scroll" margin={{ top: size !== 'large' ? 'large' : 'medium', horizontal: "large" }} >
+            <Box 
+              overflow="scroll" 
+            >
               <Heading level={5} margin={{ top: 'xsmall' }}>{title}</Heading>
               <Text
                 margin={{ bottom: 'large' }}
