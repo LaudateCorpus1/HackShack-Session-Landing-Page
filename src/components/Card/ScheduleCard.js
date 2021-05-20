@@ -320,6 +320,7 @@ const ScheduleCard = ({
   workshopList,
   location,
 }) => {
+  const textSize = size === 'small' ? '16px' : 'medium';
   let backgroundColor;
   let uri = '';
   switch (sessionType) {
@@ -451,7 +452,7 @@ const ScheduleCard = ({
       </Box>
 
       <Box margin={{ vertical: "medium", horizontal: "large" }}>
-        <Box direction="row" gap="medium">
+        <Box direction="row" gap={size === "small" ? "xsmall" : "medium"}>
           {workshopList &&
             workshopList.map(workshop => (
               <Box key={workshop.workshopLink}>
@@ -463,7 +464,7 @@ const ScheduleCard = ({
                   alignSelf="start"
                   label={
                     <Box pad="xsmall">
-                      <Text color="text-strong">
+                      <Text color="text-strong" size={textSize} >
                         {' '}
                         Register {workshop.workshopID}
                       </Text>
@@ -482,7 +483,7 @@ const ScheduleCard = ({
                   alignSelf="start"
                   label={
                     <Box pad="xsmall">
-                      <Text color="text-strong">
+                      <Text color="text-strong" size={textSize} >
                         {disabled
                           ? 'Currently full, please try again later'
                           : sessionType === 'Coding Challenge'
@@ -501,7 +502,7 @@ const ScheduleCard = ({
               <Button
                 label={
                   <Box pad="xsmall">
-                    <Text color="text-strong">Learn more</Text>
+                    <Text color="text-strong" size={textSize} >Learn more</Text>
                   </Box>
                 }
               />
@@ -515,7 +516,7 @@ const ScheduleCard = ({
                 rel="noreferrer noopener"
                 label={
                   <Box pad="xsmall">
-                    <Text color="text-strong">Learn more</Text>
+                    <Text color="text-strong" size={textSize} >Learn more</Text>
                   </Box>
                 }
               />
@@ -527,7 +528,7 @@ const ScheduleCard = ({
                   rel="noreferrer noopener"
                   label={
                     <Box pad="xsmall">
-                      <Text color="text-strong">Terms & Conditions</Text>
+                      <Text color="text-strong" size={textSize} >Terms & Conditions</Text>
                     </Box>
                   }
                   secondary
@@ -543,7 +544,7 @@ const ScheduleCard = ({
             reverse={true}
             gap="xsmall"
             label={
-              <Box pad="xsmall">
+              size !== 'small' && <Box pad="xsmall">
                 <Text color="text-strong">
                   Share
                 </Text>
