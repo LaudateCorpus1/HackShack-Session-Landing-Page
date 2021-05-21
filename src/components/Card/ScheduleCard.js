@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import {
   Heading,
@@ -335,6 +335,8 @@ const ScheduleCard = ({
     default:
       backgroundColor = 'background';
   }
+  const topCardContainerRef = useRef(null);
+  const [topCardContainerHeight, settopCardContainerHeight] = useState(false);
   const [signupLayer, setSignupLayer] = useState(false);
   const [successLayer, setSuccessLayer] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -350,7 +352,7 @@ const ScheduleCard = ({
     proxy: 'hackshack',
   });
   const [hover, setHover] = useState(false);
-
+  
   const resetFormData = () => {
     setFormData({
       name: '',
@@ -391,7 +393,15 @@ const ScheduleCard = ({
       getWorkshopbyID();
     }
   }, [DBid, sessionType, uri]);
-  console.log('hover: ', hover);
+
+  useEffect(() => {
+    if (topCardContainerRef.current) {
+      const topCardContainerHeight = topCardContainerRef.current.offsetHeight;
+      settopCardContainerHeight(topCardContainerHeight);
+
+    }
+  }, [topCardContainerRef])
+ 
   return (
     <CardWrapper
       justify="between"
@@ -400,15 +410,15 @@ const ScheduleCard = ({
       overflow="hidden"
     >
       <Box
-        pad={{ vertical: size !== 'large' ? 'large' : 'medium', horizontal: "large" }}
+        pad={{ top: size !== 'large' ? 'large' : 'medium', horizontal: "large" }}
         background={hover ? '#FFFFFF' : "#00000080"}
-        height="200px"
         onMouseEnter={() => setHover(true)}
         onFocus={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         onBlur={() => setHover(false)}
+        height="100%"
       >
-        <Box direction="column">
+        <Box direction="column" ref={topCardContainerRef}>
           {!hover ? (
             <Box
               direction="column"
@@ -448,21 +458,20 @@ const ScheduleCard = ({
               )}
             </Box>
           ) : (
-            <Box 
-              overflow="scroll" 
-            >
-              <Heading level={5} margin={{ top: 'xsmall' }}>{title}</Heading>
-              <Text
-                margin={{ bottom: 'large' }}
-                size={size === 'small' ? 'small' : 'medium'}
-              >
-                {desc}
-              </Text>
+            <Box height={`${topCardContainerHeight}px`}>
+              <Box overflow="scroll"  >
+                <Heading level={5} margin={{ top: 'xsmall' }}>{title}</Heading>
+                <Text
+                  margin={{ bottom: 'large' }}
+                  size={size === 'small' ? 'small' : 'medium'}
+                >
+                  {desc}
+                </Text>
+              </Box>
             </Box>
           )}
         </Box>
       </Box>
-
       <Box margin={{ vertical: "medium", horizontal: "large" }}>
         <Box direction="row" gap={size === "small" ? "xsmall" : "medium"}>
           {workshopList &&
