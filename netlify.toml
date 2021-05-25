@@ -7,4 +7,4 @@
 [context.staging.environment] # 'staging' is a branch name
   REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT = "https://hackshackchallenge.hpedev.io"
 [context.testing.environment]
-  REACT_APP_CHALLENGE_API_ENDPOINT = "http://hackshackdevtest.hpe.io:8082"
+  REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT = "http://hackshackdevtest.hpe.io:8082"
