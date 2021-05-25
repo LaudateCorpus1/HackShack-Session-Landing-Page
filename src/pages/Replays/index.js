@@ -4,7 +4,6 @@ import { Layout, VideoList, Video } from '../../components/index';
 import { PageHeader } from '../../components/PageHeading';
 import axios from 'axios';
 import AuthService from '../../services/auth.service';
-import { Workshop } from 'grommet-icons';
 
 const sortReplays = (replayData, current) => {
   const beggining = [];
@@ -65,7 +64,6 @@ const Replays = props => {
   const [current, setCurrent] = useState(replayId);
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
-  console.log('replays: ', replays && replays[0]);
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
       <PageHeader title="REPLAYS">
