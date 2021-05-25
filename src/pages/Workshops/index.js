@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Heading, Text, Box, Image } from 'grommet';
+import {
+  Heading,
+  Text, 
+  Box, 
+  Image
+} from 'grommet';
 import { Layout, ScheduleCard, CardGrid } from '../../components/index';
 import { MainTitle } from './styles';
 import axios from 'axios';
@@ -58,17 +63,14 @@ const Workshop = () => {
     <Layout background="/img/BackgroundImages/schedule-background.png">
       <MainTitle>
         <Heading color="text-strong" margin={{ top: 'none', bottom: 'small' }}>
-          WORKSHOPS
+          ONGOING Workshops-on-Demand
         </Heading>
-        <Text color="text-strong" margin={{ top: 'none', bottom: 'medium' }}>
-          Register for Workshops-on-Demand
-        </Text>
       </MainTitle>
       {workshops.length > 0 ? (
         <CardGrid>
           {workshops.map(workshop => (
             <ScheduleCard
-              avatar={workshop.avatar}
+              avatar={'https://s3-alpha-sig.figma.com/img/c73d/e823/e8935bd8095a9a88e428375fa1868854?Expires=1622419200&Signature=LJT7J07v8XAyWlnpdwekSbl0aR4t9ovMrdogtVEH2s2GhOt1CAUknXtmQzbmLm~m3G7Y1j499erXr2ln3ab-q~4OOEc~CkI4Uk9uvSgMAiT-qXHeMGcuQ2bT9uVoX5h0ss9z6833YTTRVfq3PG8Xf5TWah0PZMHCDon~CgWXdwlvXjyiJTukEWKT2zJK~pTtqJDZ8Rgn7Xm3TMfCZYT0qpFaOvjdfGSO~542KRXHyvsRcYnUOLYPrNjSHJo2JTrcQEJKDsBTPwc2iO5rOcwheO0c0Q7ddo6wCfoRvg4E-GLpnL~V2QULwgVZjagbSFxcbNYG7xlxP-fBM1nJfoyZlA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'}
               desc={
                 workshop.sessionType === 'Workshops-on-Demand'
                   ? `${workshop.description.slice(0, 520)}`
@@ -77,8 +79,8 @@ const Workshop = () => {
               id={workshop.sessionId}
               key={workshop.name}
               DBid={workshop.id}
-              presenter={workshop.presenter}
-              role={workshop.role}
+              presenter={'Chris Carlozzi'}
+              role={'HPE Designer & Gamer'}
               sessionLink={workshop.replayLink}
               sessionType={workshop.sessionType}
               title={workshop.name}

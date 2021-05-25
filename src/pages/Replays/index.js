@@ -4,6 +4,7 @@ import { Layout, VideoList, Video } from '../../components/index';
 import { PageHeader } from '../../components/PageHeading';
 import axios from 'axios';
 import AuthService from '../../services/auth.service';
+import { Workshop } from 'grommet-icons';
 
 const sortReplays = (replayData, current) => {
   const beggining = [];
@@ -64,6 +65,7 @@ const Replays = props => {
   const [current, setCurrent] = useState(replayId);
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
+  console.log('replays: ', replays && replays[0]);
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
       <PageHeader title="REPLAYS">
@@ -82,6 +84,10 @@ const Replays = props => {
           current={current}
           replaysLength={replays.length}
           autoplay={autoplay}
+          notebook={replays[current].workshop.notebook}
+          sessionType={replays[current].workshop.sessionType}
+          location={replays[current].workshop.location}
+          capcity={replays[current].workshop.capacity}
         />
         <Heading color="text" style={{ fontWeight: '500' }} level={2}>
           UP NEXT

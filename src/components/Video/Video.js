@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import ReactPlayer from 'react-player/vimeo';
-import { Box, Heading, Text, Avatar, ResponsiveContext } from 'grommet';
+import { Box, Heading, Text, Avatar, ResponsiveContext, Button } from 'grommet';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { SignupLayer, SuccessLayer } from '../Card/ScheduleCard';
 
 const Video = ({
   videolink,
@@ -16,7 +17,37 @@ const Video = ({
   current,
   replaysLength,
   autoplay,
+  notebook,
+  sessionType,
+  location,
+  capcity
 }) => {
+  const [signupLayer, setSignupLayer] = useState(false);
+  const [successLayer, setSuccessLayer] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    title: title,
+    notebook,
+    sessionType: sessionType,
+    location: location,
+    termsAndConditions: false,
+    proxy: 'hackshack',
+  });
+  const resetFormData = () => {
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      title: title,
+      notebook,
+      sessionType: sessionType,
+      location: location,
+      termsAndConditions: false,
+      proxy: 'hackshack',
+    });
+  };
   const size = useContext(ResponsiveContext);
   const optionsLarge = { width: '640px', height: '380px' };
   const optionsSmall = {
@@ -55,14 +86,54 @@ const Video = ({
                 <Text>{role}</Text>
               </Box>
             </Box>
-            <Heading
-              color="text-strong"
-              margin={{ vertical: 'small' }}
-              level={3}
+            <Box
+              direction="row"
+              justify="between"
             >
-              {title}
-            </Heading>
+              <Heading
+                color="text-strong"
+                margin={{ vertical: 'small' }}
+                level={3}
+              >
+                {title}
+              </Heading>
+              <Button
+                size="small"
+                onClick={() => setSignupLayer(true)}
+                label={
+                  <Text color="text-strong">
+                    {capcity === 0
+                      ? 'Currently full, please try again later'
+                      : 'Register'}
+                  </Text>
+                }
+                primary
+              >
+              </Button>
+            </Box>
           </Box>
+          {signupLayer && (
+            <SignupLayer
+              formData={formData}
+              reset={resetFormData}
+              setFormData={setFormData}
+              setLayer={setSignupLayer}
+              setSuccess={setSuccessLayer}
+              title={title}
+              size={size}
+              sessionType={sessionType}
+            />
+          )}
+          {successLayer && (
+            <SuccessLayer
+              setLayer={setSuccessLayer}
+              name={formData.name}
+              size={size}
+              title={title}
+              reset={resetFormData}
+              sessionType={sessionType}
+            />
+          )}
           <Box gap="small">
             <Text color="text-strong" size="22px">
               {desc}

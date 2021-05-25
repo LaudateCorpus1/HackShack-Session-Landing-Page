@@ -21,7 +21,7 @@ import AuthService from '../../services/auth.service';
 
 const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 
-const SignupLayer = ({
+export const SignupLayer = ({
   reset,
   setLayer,
   setFormData,
@@ -238,7 +238,7 @@ SignupLayer.propTypes = {
   title: PropTypes.string,
 };
 
-const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }) => (
+export const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }) => (
   <Layer
     position="right"
     full="vertical"
@@ -519,7 +519,9 @@ const ScheduleCard = ({
             )}
           {sessionType === 'Coding Challenge' ||
             sessionType === 'Workshops-on-Demand' ? (
-            <Link to={{ pathname: sessionLink }}>
+            <Link 
+              to={{ pathname: sessionLink }}
+              state={{notebook, sessionType, location }}>
               <Button
                 label={
                   <Box pad="xsmall">
