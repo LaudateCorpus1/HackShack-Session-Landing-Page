@@ -4,6 +4,7 @@ import { Box, Heading, Text, Avatar, ResponsiveContext, Button } from 'grommet';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { SignupLayer, SuccessLayer } from '../Card/ScheduleCard';
+import { Linkedin, Twitter, Link as GrommetLink, Columns } from 'grommet-icons';
 
 const Video = ({
   videolink,
@@ -75,41 +76,70 @@ const Video = ({
       <Box fill="horizontal" border={{ side: 'bottom' }}>
         <Box direction="column">
           <Box direction="column">
-            <Box pad={{ top: 'large' }} gap="small" direction="row">
-              {avatar ? (
-                <Avatar src={avatar} />
-              ) : (
-                <Avatar src="/img/SpeakerImages/defaultAvatar.svg" />
-              )}
-              <Box justify="center">
-                <Text>{presenter}</Text>
-                <Text>{role}</Text>
+            <Box
+              direction={size === 'large' ? 'row' : 'column'}
+              justify="between"
+              margin={{ vertical: 'small' }}
+            >
+              <Heading
+                color="text-strong"
+                margin="none"
+                level={3}
+              >
+                {title}
+              </Heading>
+              <Box width="110px">
+                <Button
+                  onClick={() => setSignupLayer(true)}
+                  margin={{ vertical: size === 'large' ? 0 : 'small' }}
+                  label={
+                    <Text color="text-strong" size="large">
+                      {capcity === 0
+                        ? 'Currently full, please try again later'
+                        : 'Register'}
+                    </Text>
+                  }
+                  primary
+                >
+                </Button>
               </Box>
             </Box>
             <Box
               direction="row"
               justify="between"
             >
-              <Heading
-                color="text-strong"
-                margin={{ vertical: 'small' }}
-                level={3}
-              >
-                {title}
-              </Heading>
-              <Button
-                size="small"
-                onClick={() => setSignupLayer(true)}
-                label={
-                  <Text color="text-strong">
-                    {capcity === 0
-                      ? 'Currently full, please try again later'
-                      : 'Register'}
+              <Box pad={{ vertical: 'small' }} gap="small" direction="row">
+                {avatar ? (
+                  <Avatar src={avatar} />
+                ) : (
+                  <Avatar src="/img/SpeakerImages/defaultAvatar.svg" />
+                )}
+                <Box justify="center">
+                  <Text
+                    weight="bold"
+                    size="large"
+                  >
+                    {presenter}
                   </Text>
-                }
-                primary
+                  <Text>{role}</Text>
+                </Box>
+              </Box>
+              <Box
+                direction="row"
+                alignSelf="center"
+                justify="evenly"
               >
-              </Button>
+                <Button
+                  icon={<Linkedin size="medium" />}
+                />
+                <Button
+                  margin={{ horizontal: "20px" }}
+                  icon={<Twitter size='medium' />}
+                />
+                <Button
+                  icon={<GrommetLink size='medium' />}
+                />
+              </Box>
             </Box>
           </Box>
           {signupLayer && (

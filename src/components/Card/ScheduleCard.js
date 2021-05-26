@@ -335,8 +335,9 @@ const ScheduleCard = ({
     default:
       backgroundColor = 'background';
   }
-  const topCardContainerRef = useRef(null);
-  const [topCardContainerHeight, settopCardContainerHeight] = useState(false);
+  const cardTopSectionRef = useRef(null);
+  const [cardTopSectionHeight, setcardTopSectionHeight] = useState(false);
+  const [cardTopSectionWidth, setcardTopSectionWidth] = useState(false);
   const [signupLayer, setSignupLayer] = useState(false);
   const [successLayer, setSuccessLayer] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -352,7 +353,6 @@ const ScheduleCard = ({
     proxy: 'hackshack',
   });
   const [hover, setHover] = useState(false);
-  
   const resetFormData = () => {
     setFormData({
       name: '',
@@ -395,13 +395,13 @@ const ScheduleCard = ({
   }, [DBid, sessionType, uri]);
 
   useEffect(() => {
-    if (topCardContainerRef.current) {
-      const topCardContainerHeight = topCardContainerRef.current.offsetHeight;
-      settopCardContainerHeight(topCardContainerHeight);
-
+    if (cardTopSectionRef.current) {
+      const refHeight = cardTopSectionRef.current.offsetHeight;
+      const refWidth = cardTopSectionRef.current.offsetWidth;
+      setcardTopSectionHeight(refHeight);
+      setcardTopSectionWidth(refWidth);
     }
-  }, [topCardContainerRef])
- 
+  }, [cardTopSectionRef])
   return (
     <CardWrapper
       justify="between"
@@ -418,7 +418,7 @@ const ScheduleCard = ({
         onBlur={() => setHover(false)}
         height="100%"
       >
-        <Box direction="column" ref={topCardContainerRef}>
+        <Box direction="column" ref={cardTopSectionRef}>
           {!hover ? (
             <Box
               direction="column"
@@ -458,7 +458,7 @@ const ScheduleCard = ({
               )}
             </Box>
           ) : (
-            <Box height={`${topCardContainerHeight}px`}>
+            <Box height={`${cardTopSectionHeight}px`} width={`${cardTopSectionWidth}px`}>
               <Box overflow="scroll"  >
                 <Heading level={5} margin={{ top: 'xsmall' }}>{title}</Heading>
                 <Text
@@ -472,7 +472,7 @@ const ScheduleCard = ({
           )}
         </Box>
       </Box>
-      <Box margin={{ vertical: "medium", horizontal: "large" }}>
+      <Box margin={{ top: "medium", bottom: "large", horizontal: "large" }}>
         <Box direction="row" gap={size === "small" ? "xsmall" : "medium"}>
           {workshopList &&
             workshopList.map(workshop => (
@@ -519,9 +519,7 @@ const ScheduleCard = ({
             )}
           {sessionType === 'Coding Challenge' ||
             sessionType === 'Workshops-on-Demand' ? (
-            <Link 
-              to={{ pathname: sessionLink }}
-              state={{notebook, sessionType, location }}>
+            <Link to={{ pathname: sessionLink }}>
               <Button
                 label={
                   <Box pad="xsmall">
