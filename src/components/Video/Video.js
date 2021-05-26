@@ -4,7 +4,7 @@ import { Box, Heading, Text, Avatar, ResponsiveContext, Button } from 'grommet';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { SignupLayer, SuccessLayer } from '../Card/ScheduleCard';
-import { Linkedin, Twitter, Link as GrommetLink, Columns } from 'grommet-icons';
+import { Linkedin, Twitter, Link as GrommetLink } from 'grommet-icons';
 
 const Video = ({
   videolink,
@@ -21,7 +21,8 @@ const Video = ({
   notebook,
   sessionType,
   location,
-  capcity
+  capacity,
+  workshopTitle
 }) => {
   const [signupLayer, setSignupLayer] = useState(false);
   const [successLayer, setSuccessLayer] = useState(false);
@@ -29,7 +30,7 @@ const Video = ({
     name: '',
     email: '',
     company: '',
-    title: title,
+    title: workshopTitle,
     notebook,
     sessionType: sessionType,
     location: location,
@@ -41,7 +42,7 @@ const Video = ({
       name: '',
       email: '',
       company: '',
-      title: title,
+      title: workshopTitle,
       notebook,
       sessionType: sessionType,
       location: location,
@@ -88,21 +89,28 @@ const Video = ({
               >
                 {title}
               </Heading>
-              <Box width="110px">
-                <Button
-                  onClick={() => setSignupLayer(true)}
-                  margin={{ vertical: size === 'large' ? 0 : 'small' }}
-                  label={
-                    <Text color="text-strong" size="large">
-                      {capcity === 0
-                        ? 'Currently full, please try again later'
-                        : 'Register'}
-                    </Text>
-                  }
-                  primary
-                >
-                </Button>
-              </Box>
+              {
+                notebook &&
+                sessionType &&
+                location &&
+                <Box width={capacity === 0 ? '350px' : '110px'}>
+                  <Button
+                    size="small"
+                    onClick={() => setSignupLayer(true)}
+                    margin={{ vertical: size === 'large' ? '0px' : 'small' }}
+                    disabled={capacity === 0}
+                    label={
+                      <Text color="text-strong" size="large">
+                        {capacity === 0
+                          ? 'Currently full, please try again later'
+                          : 'Register'}
+                      </Text>
+                    }
+                    primary
+                  >
+                  </Button>
+                </Box>
+              }
             </Box>
             <Box
               direction="row"
