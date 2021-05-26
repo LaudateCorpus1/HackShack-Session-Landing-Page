@@ -4,6 +4,7 @@ import { Layout, VideoList, Video } from '../../components/index';
 import { PageHeader } from '../../components/PageHeading';
 import axios from 'axios';
 import AuthService from '../../services/auth.service';
+import { Helmet } from 'react-helmet';
 
 const sortReplays = (replayData, current) => {
   const beggining = [];
@@ -25,7 +26,7 @@ const Replays = props => {
   const getReplaysApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
   const [replays, setReplays] = useState([]);
   const [error, setError] = useState('');
-  
+
   useEffect(() => {
     const getToken = () => {
       AuthService.login().then(
@@ -45,8 +46,8 @@ const Replays = props => {
         url: getReplaysApi
       })
         .then(response => {
-        setReplays(response.data)
-      })
+          setReplays(response.data)
+        })
         .catch(err => {
           setError(
             'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
@@ -68,49 +69,54 @@ const Replays = props => {
     <Layout background="/img/BackgroundImages/generic-background.jpg">
       <PageHeader title="REPLAYS">
         {replays.length > 0 ? (
-        <>
-        <Video
-          videolink={replays[current].videoLink}
-          id={replays[current].id}
-          avatar={replays[current].avatar}
-          desc={replays[current].desc}
-          key={replays[current].title}
-          presenter={replays[current].presenter}
-          role={replays[current].role}
-          title={replays[current].title}
-          setCurrent={setCurrent}
-          current={current}
-          replaysLength={replays.length}
-          autoplay={autoplay}
-          notebook={replays[current].workshop && replays[current].workshop.notebook}
-          sessionType={replays[current].workshop && replays[current].workshop.sessionType}
-          location={replays[current].workshop && replays[current].workshop.location}
-          capacity={replays[current].workshop && replays[current].workshop.capacity}
-          workshopTitle={replays[current].workshop && replays[current].workshop.name}
-        />
-        <Heading color="text" style={{ fontWeight: '500' }} level={2}>
-          UP NEXT
+          <>
+            <Helmet>
+              <meta property="og:title" content={replays[current].title} />
+              <meta property="og:description" content={replays[current].desc} />
+              <meta property="og:image" content={replays[current].avatar} />
+            </Helmet>
+            <Video
+              videolink={replays[current].videoLink}
+              id={replays[current].id}
+              avatar={replays[current].avatar}
+              desc={replays[current].desc}
+              key={replays[current].title}
+              presenter={replays[current].presenter}
+              role={replays[current].role}
+              title={replays[current].title}
+              setCurrent={setCurrent}
+              current={current}
+              replaysLength={replays.length}
+              autoplay={autoplay}
+              notebook={replays[current].workshop && replays[current].workshop.notebook}
+              sessionType={replays[current].workshop && replays[current].workshop.sessionType}
+              location={replays[current].workshop && replays[current].workshop.location}
+              capacity={replays[current].workshop && replays[current].workshop.capacity}
+              workshopTitle={replays[current].workshop && replays[current].workshop.name}
+            />
+            <Heading color="text" style={{ fontWeight: '500' }} level={2}>
+              UP NEXT
         </Heading>
-        </>
+          </>
         ) : (
-        <Box
-          pad="small"
-          justify="center"
-          margin={{ top: 'medium' }}
-          direction="column"
+          <Box
+            pad="small"
+            justify="center"
+            margin={{ top: 'medium' }}
+            direction="column"
           // background="status-critical"
-        >
-          {error ? (
-            <>
-              <Text size="large" color="status-critical" alignSelf="center">
-                {error}
-              </Text>
-              <Image src="/img/gremlin-rockin.svg"></Image>
-            </>
-          ) : (
-            <Box height="medium"></Box>
-          )}
-        </Box>
+          >
+            {error ? (
+              <>
+                <Text size="large" color="status-critical" alignSelf="center">
+                  {error}
+                </Text>
+                <Image src="/img/gremlin-rockin.svg"></Image>
+              </>
+            ) : (
+              <Box height="medium"></Box>
+            )}
+          </Box>
         )}
         {sortedReplays.map(
           ({ desc, presenter, role, title, videoLink, id }) =>
