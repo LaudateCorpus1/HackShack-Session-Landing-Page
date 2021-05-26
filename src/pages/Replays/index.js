@@ -72,8 +72,8 @@ const Replays = props => {
           <>
             <Helmet>
               <meta property="og:title" content={replays[current].title} />
-              <meta property="og:description" content={replays[current].desc} />
-              <meta property="og:image" content={replays[current].avatar} />
+              <meta property="og:description" content={replays[current].desc.substr(0, 60)} />
+              <meta property="og:image" content="https://us-central1-grommet-designer.cloudfunctions.net/images/jay-giang-hpe-com/dev-thumb.png?size=192" />
             </Helmet>
             <Video
               videolink={replays[current].videoLink}
