@@ -26,6 +26,13 @@ const Replays = props => {
   const getReplaysApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
   const [replays, setReplays] = useState([]);
   const [error, setError] = useState('');
+  window.prerenderReady = false;
+
+  useEffect(() => {
+    setTimeout(function() {
+      window.prerenderReady = true;
+    }, 3000)
+  })
 
   useEffect(() => {
     const getToken = () => {
