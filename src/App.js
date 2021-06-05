@@ -22,6 +22,7 @@ import {
   Challenges,
   TreasureHuntTC,
 } from './pages/index';
+import FinisherBadge from './pages/Replays/finisher-badge';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -102,8 +103,13 @@ const App = () => {
             render={props => <Replays {...props} />}
           ></Route>
           <Route
+            exact
             path="/replays/:replayId"
             render={props => <Replays {...props} />}
+          ></Route>
+          <Route
+            path="/replays/:replayId/finisher-badge"
+            render={props => <FinisherBadge {...props} />}
           ></Route>
           <Route path="/newslettertermsconditions">
             <NewsletterTC />
