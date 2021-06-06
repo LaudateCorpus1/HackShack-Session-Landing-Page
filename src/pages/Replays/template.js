@@ -73,7 +73,7 @@ const Replays = props => {
   const [current, setCurrent] = useState(replayId);
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
-  const finisherBadgeImg = props.openGraphImage ? props.openGraphImage : replays[current] && replays[current].workshop  && replays[current].workshop.badgeImg || null ;
+  const finisherBadgeImg = props.openGraphImage ? props.openGraphImage : replays[current] && replays[current].workshop ? replays[current].workshop.badgeImg : null;
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
       <PageHeader title="REPLAYS">
