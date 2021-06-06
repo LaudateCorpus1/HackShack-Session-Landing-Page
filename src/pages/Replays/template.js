@@ -69,9 +69,11 @@ const Replays = props => {
   if (props.match.params.replayId) {
     replayId = props.match.params.replayId;
   }
+  
   const [current, setCurrent] = useState(replayId);
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
+  const finisherBadgeImg = props.openGraphImage ? props.openGraphImage : replays[current] && replays[current].workshop  && replays[current].workshop.badgeImg || null ;
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
       <PageHeader title="REPLAYS">
@@ -81,24 +83,24 @@ const Replays = props => {
               <meta name="fragment" content="!" />
               <meta property="og:title" content={replays[current].title} data-react-helmet="true" />
               <meta property="og:description" content={replays[current].desc.substr(0, 60)} data-react-helmet="true" />
-              <meta property="og:image" content={props.openGraphImage} data-react-helmet="true" />
+              <meta property="og:image" content={finisherBadgeImg} data-react-helmet="true" />
 
               {/* <!-- Google / Search Engine Tags --> */}
               <meta itemprop="name" content={replays[current].title} data-react-helmet="true" />
               <meta itemprop="description" content={replays[current].desc.substr(0, 60)} data-react-helmet="true" />
-              <meta itemprop="image" content={props.openGraphImage} data-react-helmet="true" />
+              <meta itemprop="image" content={finisherBadgeImg} data-react-helmet="true" />
 
               {/* <!-- Facebook Meta Tags --> */}
               <meta property="og:type" content="website" data-react-helmet="true" />
               <meta property="og:title" content={replays[current].title} data-react-helmet="true" />
               <meta property="og:description" content={replays[current].desc.substr(0, 60)} data-react-helmet="true" />
-              <meta property="og:image" content={props.openGraphImage} data-react-helmet="true" />
+              <meta property="og:image" content={finisherBadgeImg} data-react-helmet="true" />
 
               {/* <!-- Twitter Meta Tags --> */}
               <meta name="twitter:card" content="summary_large_image" data-react-helmet="true" />
               <meta name="twitter:title" content={replays[current].title} data-react-helmet="true" />
               <meta name="twitter:description" content={replays[current].desc.substr(0, 60)} data-react-helmet="true" />
-              <meta name="twitter:image" content={props.openGraphImage} data-react-helmet="true" />
+              <meta name="twitter:image" content={finisherBadgeImg} data-react-helmet="true" />
             </Helmet>
             <Video
               videolink={replays[current].videoLink}
