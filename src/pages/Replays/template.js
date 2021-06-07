@@ -31,7 +31,7 @@ const Replays = props => {
   useEffect(() => {
     setTimeout(function() {
       window.prerenderReady = true;
-    }, 3000)
+    }, 5000)
   })
 
   useEffect(() => {
@@ -82,24 +82,26 @@ const Replays = props => {
             <Helmet>
               <meta name="fragment" content="!" />
               <meta property="og:title" content={replays[current].title} data-react-helmet="true" />
-              <meta property="og:description" content={replays[current].desc.substr(0, 60)} data-react-helmet="true" />
+              <meta property="og:description" content={replays[current].desc.substr(0, 100)} data-react-helmet="true" />
               <meta property="og:image" content={finisherBadgeImg} data-react-helmet="true" />
+              <meta property="og:image:width" content="400" data-react-helmet="true" />
+              <meta property="og:image:height" content="400" data-react-helmet="true" />
 
               {/* <!-- Google / Search Engine Tags --> */}
               <meta itemprop="name" content={replays[current].title} data-react-helmet="true" />
-              <meta itemprop="description" content={replays[current].desc.substr(0, 60)} data-react-helmet="true" />
+              <meta itemprop="description" content={replays[current].desc.substr(0, 100)} data-react-helmet="true" />
               <meta itemprop="image" content={finisherBadgeImg} data-react-helmet="true" />
 
               {/* <!-- Facebook Meta Tags --> */}
               <meta property="og:type" content="website" data-react-helmet="true" />
               <meta property="og:title" content={replays[current].title} data-react-helmet="true" />
-              <meta property="og:description" content={replays[current].desc.substr(0, 60)} data-react-helmet="true" />
+              <meta property="og:description" content={replays[current].desc.substr(0, 100)} data-react-helmet="true" />
               <meta property="og:image" content={finisherBadgeImg} data-react-helmet="true" />
 
               {/* <!-- Twitter Meta Tags --> */}
               <meta name="twitter:card" content="summary_large_image" data-react-helmet="true" />
               <meta name="twitter:title" content={replays[current].title} data-react-helmet="true" />
-              <meta name="twitter:description" content={replays[current].desc.substr(0, 60)} data-react-helmet="true" />
+              <meta name="twitter:description" content={replays[current].desc.substr(0, 100)} data-react-helmet="true" />
               <meta name="twitter:image" content={finisherBadgeImg} data-react-helmet="true" />
             </Helmet>
             <Video
