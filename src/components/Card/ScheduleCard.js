@@ -60,7 +60,6 @@ export const SignupLayer = ({
 
   const onSubmit = () => {
     if (emailValidation(formData.email)) {
-      console.log('formData: ', formData);
       const postCustomer = () => {
         axios({
           method: 'POST',
@@ -320,6 +319,7 @@ const ScheduleCard = ({
   title,
   workshopList,
   location,
+  ezmeral,
 }) => {
   const textSize = size === 'small' ? '16px' : 'medium';
   let backgroundColor;
@@ -404,132 +404,31 @@ const ScheduleCard = ({
     }
   }, [cardTopSectionRef])
   return (
-    <CardWrapper
-      justify="between"
-      background={backgroundColor}
-      round="xsmall"
-      overflow="hidden"
-    >
-      <Box
-        pad={{ top: size !== 'large' ? 'large' : 'medium', horizontal: "large" }}
-        background={hover ? '#FFFFFF' : "#00000080"}
-        onMouseEnter={() => setHover(true)}
-        onFocus={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-        onBlur={() => setHover(false)}
-        height="100%"
-      >
-        <Box direction="column" ref={cardTopSectionRef}>
-          {!hover ? (
-            <Box
-              direction="column"
-            >
-              <ContrastLayer
-                background="background-contrast"
-                width="fit-content"
-                pad="xxsmall"
-                round="xsmall"
-              >
-                <Text
-                  color="#FF8300"
-                  size="small"
-                  margin={{ vertical: "3px", horizontal: "12px" }}
-                >
-                  Popular
-            </Text>
-              </ContrastLayer>
-              <Heading
-                level={4}
-                margin={{ bottom: 'small' }}
-              >
+    <>
+      {ezmeral ?
+        (<CardWrapper
+          pad="large"
+          justify="between"
+          background={backgroundColor}
+          round="medium"
+          overflow="hidden"
+        >
+          <Box direction="column">
+            <Box direction="column">
+              <Heading margin={{ vertical: 'small' }} level={3}>
                 {title}
               </Heading>
-              {(avatar || presenter || role) && (
-                <Box gap="small" direction="row" >
-                  {avatar ? (
-                    <Avatar src={avatar} />
-                  ) : (
-                    <Avatar src="/img/SpeakerImages/defaultAvatar.svg" />
-                  )}
-                  <Box justify="center" >
-                    <Text>{presenter}</Text>
-                    <Text>{role}</Text>
-                  </Box>
-                </Box>
-              )}
             </Box>
-          ) : (
-            <Box height={`${cardTopSectionHeight}px`} width={`${cardTopSectionWidth}px`}>
-              <Box overflow="scroll"  >
-                <Heading level={5} margin={{ top: 'xsmall' }}>{title}</Heading>
-                <Text
-                  margin={{ bottom: 'large' }}
-                  size={size === 'small' ? 'small' : 'medium'}
-                >
-                  {desc}
-                </Text>
-              </Box>
+            <Box>
+              <Text
+                margin={{ bottom: 'large' }}
+                size={size === 'small' ? 'large' : 'xlarge'}
+              >
+                {desc}
+              </Text>
             </Box>
-          )}
-        </Box>
-      </Box>
-      <Box margin={{ top: "medium", bottom: "large", horizontal: "large" }}>
-        <Box direction="row" gap={size === "small" ? "xsmall" : "medium"}>
-          {workshopList &&
-            workshopList.map(workshop => (
-              <Box key={workshop.workshopLink}>
-                <Button
-                  href={workshop.workshopLink}
-                  key={workshop.workshopLink}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  alignSelf="start"
-                  label={
-                    <Box pad="xsmall">
-                      <Text color="text-strong" size={textSize} >
-                        {' '}
-                        Register {workshop.workshopID}
-                      </Text>
-                    </Box>
-                  }
-                  secondary
-                />
-              </Box>
-            ))}
-          {(sessionType === 'Coding Challenge' ||
-            sessionType === 'Workshops-on-Demand') && (
-              <Box>
-                <Button
-                  onClick={() => setSignupLayer(true)}
-                  disabled={disabled}
-                  alignSelf="start"
-                  label={
-                    <Box pad="xsmall">
-                      <Text color="text-strong" size={textSize} >
-                        {disabled
-                          ? 'Currently full, please try again later'
-                          : sessionType === 'Coding Challenge'
-                            ? 'Challenge me'
-                            : 'Register'}
-                      </Text>
-                    </Box>
-                  }
-                  secondary
-                />
-              </Box>
-            )}
-          {sessionType === 'Coding Challenge' ||
-            sessionType === 'Workshops-on-Demand' ? (
-            <Link to={{ pathname: sessionLink }}>
-              <Button
-                label={
-                  <Box pad="xsmall">
-                    <Text color="text-strong" size={textSize} >Learn more</Text>
-                  </Box>
-                }
-              />
-            </Link>
-          ) : (
+          </Box>
+          <Box direction="row" gap="medium">
             <Box direction="row" gap="medium">
               <Button
                 alignSelf="start"
@@ -538,66 +437,209 @@ const ScheduleCard = ({
                 rel="noreferrer noopener"
                 label={
                   <Box pad="xsmall">
-                    <Text color="text-strong" size={textSize} >Learn more</Text>
+                    <Text color="text-strong">Learn more</Text>
+                  </Box>
+                }
+                secondary
+              />
+            </Box>
+          </Box>
+        </CardWrapper>)
+        : (<CardWrapper
+          justify="between"
+          background={backgroundColor}
+          round="xsmall"
+          overflow="hidden"
+        >
+          <Box
+            pad={{ top: size !== 'large' ? 'large' : 'medium', horizontal: "large" }}
+            background={hover ? '#FFFFFF' : "#00000080"}
+            onMouseEnter={() => setHover(true)}
+            onFocus={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+            onBlur={() => setHover(false)}
+            height="100%"
+          >
+            <Box direction="column" ref={cardTopSectionRef}>
+              {!hover ? (
+                <Box
+                  direction="column"
+                >
+                  <ContrastLayer
+                    background="background-contrast"
+                    width="fit-content"
+                    pad="xxsmall"
+                    round="xsmall"
+                  >
+                    <Text
+                      color="#FF8300"
+                      size="small"
+                      margin={{ vertical: "3px", horizontal: "12px" }}
+                    >
+                      Popular
+            </Text>
+                  </ContrastLayer>
+                  <Heading
+                    level={4}
+                    margin={{ bottom: 'small' }}
+                  >
+                    {title}
+                  </Heading>
+                  {(avatar || presenter || role) && (
+                    <Box gap="small" direction="row" >
+                      {avatar ? (
+                        <Avatar src={avatar} />
+                      ) : (
+                        <Avatar src="/img/SpeakerImages/defaultAvatar.svg" />
+                      )}
+                      <Box justify="center" >
+                        <Text>{presenter}</Text>
+                        <Text>{role}</Text>
+                      </Box>
+                    </Box>
+                  )}
+                </Box>
+              ) : (
+                <Box height={`${cardTopSectionHeight}px`} width={`${cardTopSectionWidth}px`}>
+                  <Box overflow="scroll"  >
+                    <Heading level={5} margin={{ top: 'xsmall' }}>{title}</Heading>
+                    <Text
+                      margin={{ bottom: 'large' }}
+                      size={size === 'small' ? 'small' : 'medium'}
+                    >
+                      {desc}
+                    </Text>
+                  </Box>
+                </Box>
+              )}
+            </Box>
+          </Box>
+          <Box margin={{ top: "medium", bottom: "large", horizontal: "large" }}>
+            <Box direction="row" gap={size === "small" ? "xsmall" : "medium"}>
+              {workshopList &&
+                workshopList.map(workshop => (
+                  <Box key={workshop.workshopLink}>
+                    <Button
+                      href={workshop.workshopLink}
+                      key={workshop.workshopLink}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      alignSelf="start"
+                      label={
+                        <Box pad="xsmall">
+                          <Text color="text-strong" size={textSize} >
+                            {' '}
+                        Register {workshop.workshopID}
+                          </Text>
+                        </Box>
+                      }
+                      secondary
+                    />
+                  </Box>
+                ))}
+              {(sessionType === 'Coding Challenge' ||
+                sessionType === 'Workshops-on-Demand') && (
+                  <Box>
+                    <Button
+                      onClick={() => setSignupLayer(true)}
+                      disabled={disabled}
+                      alignSelf="start"
+                      label={
+                        <Box pad="xsmall">
+                          <Text color="text-strong" size={textSize} >
+                            {disabled
+                              ? 'Currently full, please try again later'
+                              : sessionType === 'Coding Challenge'
+                                ? 'Challenge me'
+                                : 'Register'}
+                          </Text>
+                        </Box>
+                      }
+                      secondary
+                    />
+                  </Box>
+                )}
+              {sessionType === 'Coding Challenge' ||
+                sessionType === 'Workshops-on-Demand' ? (
+                <Link to={{ pathname: sessionLink }}>
+                  <Button
+                    label={
+                      <Box pad="xsmall">
+                        <Text color="text-strong" size={textSize} >Learn more</Text>
+                      </Box>
+                    }
+                  />
+                </Link>
+              ) : (
+                <Box direction="row" gap="medium">
+                  <Button
+                    alignSelf="start"
+                    href={sessionLink}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    label={
+                      <Box pad="xsmall">
+                        <Text color="text-strong" size={textSize} >Learn more</Text>
+                      </Box>
+                    }
+                  />
+                  {sessionType === 'Game Challenge' && (
+                    <Button
+                      alignSelf="start"
+                      href="https://enterpriseaccelerator.hpe.com/terms-and-conditions"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      label={
+                        <Box pad="xsmall">
+                          <Text color="text-strong" size={textSize} >Terms & Conditions</Text>
+                        </Box>
+                      }
+                      secondary
+                    />
+                  )}
+                </Box>
+              )}
+              <Button
+                onClick={() => setSignupLayer(true)}
+                alignSelf="start"
+                margin={{ left: 'auto' }}
+                icon={<ShareOption />}
+                reverse={true}
+                gap="xsmall"
+                label={
+                  size !== 'small' && <Box pad="xsmall">
+                    <Text color="text-strong">
+                      Share
+                </Text>
                   </Box>
                 }
               />
-              {sessionType === 'Game Challenge' && (
-                <Button
-                  alignSelf="start"
-                  href="https://enterpriseaccelerator.hpe.com/terms-and-conditions"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  label={
-                    <Box pad="xsmall">
-                      <Text color="text-strong" size={textSize} >Terms & Conditions</Text>
-                    </Box>
-                  }
-                  secondary
-                />
-              )}
             </Box>
-          )}
-          <Button
-            onClick={() => setSignupLayer(true)}
-            alignSelf="start"
-            margin={{ left: 'auto' }}
-            icon={<ShareOption />}
-            reverse={true}
-            gap="xsmall"
-            label={
-              size !== 'small' && <Box pad="xsmall">
-                <Text color="text-strong">
-                  Share
-                </Text>
-              </Box>
-            }
-          />
-        </Box>
-        {signupLayer && (
-          <SignupLayer
-            formData={formData}
-            reset={resetFormData}
-            setFormData={setFormData}
-            setLayer={setSignupLayer}
-            setSuccess={setSuccessLayer}
-            title={title}
-            size={size}
-            sessionType={sessionType}
-          />
-        )}
-        {successLayer && (
-          <SuccessLayer
-            setLayer={setSuccessLayer}
-            name={formData.name}
-            size={size}
-            title={title}
-            reset={resetFormData}
-            sessionType={sessionType}
-          />
-        )}
-      </Box>
-    </CardWrapper>
+            {signupLayer && (
+              <SignupLayer
+                formData={formData}
+                reset={resetFormData}
+                setFormData={setFormData}
+                setLayer={setSignupLayer}
+                setSuccess={setSuccessLayer}
+                title={title}
+                size={size}
+                sessionType={sessionType}
+              />
+            )}
+            {successLayer && (
+              <SuccessLayer
+                setLayer={setSuccessLayer}
+                name={formData.name}
+                size={size}
+                title={title}
+                reset={resetFormData}
+                sessionType={sessionType}
+              />
+            )}
+          </Box>
+        </CardWrapper>)}
+    </>
   );
 };
 ScheduleCard.propTypes = {
