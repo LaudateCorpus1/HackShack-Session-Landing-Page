@@ -338,7 +338,6 @@ const ScheduleCard = ({
   }
   const cardTopSectionRef = useRef(null);
   const [cardTopSectionHeight, setcardTopSectionHeight] = useState(false);
-  const [cardTopSectionWidth, setcardTopSectionWidth] = useState(false);
   const [signupLayer, setSignupLayer] = useState(false);
   const [successLayer, setSuccessLayer] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -401,7 +400,6 @@ const ScheduleCard = ({
       setcardTopSectionHeight(refHeight);
     }
   }, [cardTopSectionRef])
-
   return (
     <>
       {ezmeral ?
