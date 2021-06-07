@@ -60,6 +60,7 @@ export const SignupLayer = ({
 
   const onSubmit = () => {
     if (emailValidation(formData.email)) {
+      console.log('formData: ', formData);
       const postCustomer = () => {
         axios({
           method: 'POST',
