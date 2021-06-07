@@ -398,11 +398,10 @@ const ScheduleCard = ({
   useEffect(() => {
     if (cardTopSectionRef.current) {
       const refHeight = cardTopSectionRef.current.offsetHeight;
-      const refWidth = cardTopSectionRef.current.offsetWidth;
       setcardTopSectionHeight(refHeight);
-      setcardTopSectionWidth(refWidth);
     }
   }, [cardTopSectionRef])
+
   return (
     <>
       {ezmeral ?
@@ -458,12 +457,14 @@ const ScheduleCard = ({
             onFocus={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
             onBlur={() => setHover(false)}
-            height="100%"
+            height="70%"
+            ref={cardTopSectionRef}
           >
-            <Box direction="column" ref={cardTopSectionRef}>
+            <Box direction="column">
               {!hover ? (
                 <Box
                   direction="column"
+                  height={`${cardTopSectionHeight}px`}
                 >
                   <ContrastLayer
                     background="background-contrast"
@@ -477,7 +478,7 @@ const ScheduleCard = ({
                       margin={{ vertical: "3px", horizontal: "12px" }}
                     >
                       Popular
-            </Text>
+                    </Text>
                   </ContrastLayer>
                   <Heading
                     level={4}
@@ -500,7 +501,7 @@ const ScheduleCard = ({
                   )}
                 </Box>
               ) : (
-                <Box height={`${cardTopSectionHeight}px`} width={`${cardTopSectionWidth}px`}>
+                <Box height={`${cardTopSectionHeight}px`}>
                   <Box overflow="scroll"  >
                     <Heading level={5} margin={{ top: 'xsmall' }}>{title}</Heading>
                     <Text
@@ -514,7 +515,7 @@ const ScheduleCard = ({
               )}
             </Box>
           </Box>
-          <Box margin={{ top: "medium", bottom: "large", horizontal: "large" }}>
+          <Box margin={{ top: "medium", bottom: "medium", horizontal: "large" }}>
             <Box direction="row" gap={size === "small" ? "xsmall" : "medium"}>
               {workshopList &&
                 workshopList.map(workshop => (

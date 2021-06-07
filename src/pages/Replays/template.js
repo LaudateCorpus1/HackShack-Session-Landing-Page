@@ -117,11 +117,11 @@ const Replays = props => {
               current={current}
               replaysLength={replays.length}
               autoplay={autoplay}
-              notebook={replays[current].workshop.notebook}
-              sessionType={replays[current].workshop.sessionType}
-              location={replays[current].workshop.location}
-              capcity={replays[current].workshop.capacity}
-              workshopTitle={replays[current].workshop.name}
+              notebook={replays[current].workshop && replays[current].workshop.notebook}
+              sessionType={replays[current].workshop && replays[current].workshop.sessionType}
+              location={replays[current].workshop && replays[current].workshop.location}
+              capcity={replays[current].workshop && replays[current].workshop.capacity}
+              workshopTitle={replays[current].workshop && replays[current].workshop.name}
             />
             <Heading color="text" style={{ fontWeight: '500' }} level={2}>
               UP NEXT
