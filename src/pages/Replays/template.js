@@ -122,6 +122,7 @@ const Replays = props => {
               location={replays[current].workshop && replays[current].workshop.location}
               capcity={replays[current].workshop && replays[current].workshop.capacity}
               workshopTitle={replays[current].workshop && replays[current].workshop.name}
+              replayId={replayId}
             />
             <Heading color="text" style={{ fontWeight: '500' }} level={2}>
               UP NEXT

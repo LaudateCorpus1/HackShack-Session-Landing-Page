@@ -22,7 +22,8 @@ const Video = ({
   sessionType,
   location,
   capacity,
-  workshopTitle
+  workshopTitle,
+  replayId
 }) => {
   const [signupLayer, setSignupLayer] = useState(false);
   const [successLayer, setSuccessLayer] = useState(false);
@@ -37,6 +38,7 @@ const Video = ({
     termsAndConditions: false,
     proxy: 'hackshack',
   });
+  const [toolTip, setToolTip] = useState('Click to copy the URL to clipboard');
   const resetFormData = () => {
     setFormData({
       name: '',
@@ -59,6 +61,7 @@ const Video = ({
     maxHeight: '180px',
     height: '180px',
   };
+  const hostName = window.location.host;
   return (
     <Box>
       <ReactPlayer
@@ -139,13 +142,29 @@ const Video = ({
               >
                 <Button
                   icon={<Linkedin size="medium" />}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  a11yTitle="Share on LinkedIn"
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${hostName}/replays/${replayId}`}
                 />
                 <Button
                   margin={{ horizontal: "20px" }}
                   icon={<Twitter size='medium' />}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  a11yTitle="Share on Twitter"
+                  href={`https://twitter.com/intent/tweet?url=${hostName}/replays/${replayId}`}
                 />
                 <Button
                   icon={<GrommetLink size='medium' />}
+                  onClick={() => {
+                    navigator.clipboard.writeText(window.location.href);
+                    setToolTip('Copied!');
+                  }}
+                  tip={{
+                    dropProps: { align: { left: 'right' } },
+                    content: toolTip,
+                  }}
                 />
               </Box>
             </Box>
