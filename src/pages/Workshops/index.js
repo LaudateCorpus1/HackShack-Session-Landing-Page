@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {
   Heading,
-  Text, 
-  Box, 
+  Text,
+  Box,
   Image
 } from 'grommet';
 import { Layout, ScheduleCard, CardGrid } from '../../components/index';
@@ -10,7 +10,7 @@ import { MainTitle } from './styles';
 import axios from 'axios';
 import AuthService from '../../services/auth.service';
 
-const Workshop = () => {
+const Workshop = ({ match }) => {
   const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   const getWorkshopsApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
   const [workshops, setworkshops] = useState([]);
@@ -63,7 +63,7 @@ const Workshop = () => {
     <Layout background="/img/BackgroundImages/schedule-background.png">
       <MainTitle>
         <Heading color="text-strong" margin={{ top: 'none', bottom: 'small' }}>
-          ONGOING Workshops-on-Demand
+          Workshops-on-Demand
         </Heading>
       </MainTitle>
       {workshops.length > 0 ? (
@@ -86,6 +86,7 @@ const Workshop = () => {
               title={workshop.name}
               notebook={workshop.notebook}
               location={workshop.location}
+              match={match}
             />
           ))}
         </CardGrid>

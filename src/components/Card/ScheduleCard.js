@@ -11,13 +11,15 @@ import {
   Button,
   Anchor,
   TextInput,
-  Avatar
+  Avatar,
+  DropButton,
 } from 'grommet';
 import { StatusGood, FormClose, ShareOption } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import { CardWrapper, ContrastLayer } from './styles';
 import { Link } from 'react-router-dom';
 import AuthService from '../../services/auth.service';
+import Share from '../Share';
 
 const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 
@@ -320,6 +322,7 @@ const ScheduleCard = ({
   workshopList,
   location,
   ezmeral,
+  match
 }) => {
   const textSize = size === 'small' ? '16px' : 'medium';
   let backgroundColor;
@@ -400,6 +403,10 @@ const ScheduleCard = ({
       setcardTopSectionHeight(refHeight);
     }
   }, [cardTopSectionRef])
+  let replayId = 0;
+  if (match.params.replayId) {
+    replayId = parseInt(match.params.replayId, 10);
+  }
   return (
     <>
       {ezmeral ?
@@ -598,8 +605,13 @@ const ScheduleCard = ({
                   )}
                 </Box>
               )}
-              <Button
-                onClick={() => setSignupLayer(true)}
+              <DropButton
+                dropAlign={{ top: 'bottom', right: 'right' }}
+                dropContent={
+                  <Box pad="small">
+                    <Share replayId={replayId} workshop />
+                  </Box>
+                }
                 alignSelf="start"
                 margin={{ left: 'auto' }}
                 icon={<ShareOption />}

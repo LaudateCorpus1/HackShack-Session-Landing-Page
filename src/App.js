@@ -123,8 +123,10 @@ const App = () => {
           <Route path="/ezmeral">
             <Ezmeral />
           </Route>
-          <Route path="/workshops">
-            <Workshops />
+          <Route 
+            path="/workshops"
+            render = { props => <Workshops {...props} />}
+          >
           </Route>
           <Route path="/workshoptermsconditions">
             <WorkshopTC />
