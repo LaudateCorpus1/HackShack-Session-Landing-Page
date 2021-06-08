@@ -153,7 +153,7 @@ const Video = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   a11yTitle="Share on Twitter"
-                  href={`https://twitter.com/intent/tweet?url=${hostName}/replays/${replayId}`}
+                  href={`https://twitter.com/intent/tweet?url=https://${hostName}/replays/${replayId}`}
                 />
                 <Button
                   icon={<GrommetLink size='medium' />}
