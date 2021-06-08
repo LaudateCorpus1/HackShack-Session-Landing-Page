@@ -38,7 +38,6 @@ const Video = ({
     termsAndConditions: false,
     proxy: 'hackshack',
   });
-  const [toolTip, setToolTip] = useState('Click to copy the URL to clipboard');
   const resetFormData = () => {
     setFormData({
       name: '',
@@ -61,7 +60,6 @@ const Video = ({
     maxHeight: '180px',
     height: '180px',
   };
-  
   return (
     <Box>
       <ReactPlayer

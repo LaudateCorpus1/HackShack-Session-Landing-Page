@@ -404,7 +404,7 @@ const ScheduleCard = ({
     }
   }, [cardTopSectionRef])
   let replayId = 0;
-  if (match.params.replayId) {
+  if (sessionType === 'Workshops-on-demand' && match.params.replayId) {
     replayId = parseInt(match.params.replayId, 10);
   }
   return (

@@ -23,6 +23,7 @@ import {
   TreasureHuntTC,
 } from './pages/index';
 import FinisherBadge from './pages/Replays/finisher-badge';
+import SpecialBadge from './pages/Workshops/special-badge';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -123,11 +124,15 @@ const App = () => {
           <Route path="/ezmeral">
             <Ezmeral />
           </Route>
-          <Route 
+          <Route
             path="/workshops"
-            render = { props => <Workshops {...props} />}
+            render={props => <Workshops {...props} />}
           >
           </Route>
+          <Route
+            path="/workshops/special-badge"
+            render={props => <SpecialBadge {...props} />}
+          ></Route>
           <Route path="/workshoptermsconditions">
             <WorkshopTC />
           </Route>
