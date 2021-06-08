@@ -475,7 +475,7 @@ const ScheduleCard = ({
                       size="small"
                       margin={{ vertical: "3px", horizontal: "12px" }}
                     >
-                      Popular
+                      Most Popular
                     </Text>
                   </ContrastLayer>
                   <Heading
