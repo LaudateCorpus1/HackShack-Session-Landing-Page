@@ -10,13 +10,13 @@ import { MainTitle } from './styles';
 import axios from 'axios';
 import AuthService from '../../services/auth.service';
 
-const Workshop = ({ match }) => {
+const Workshop = () => {
   const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   const getWorkshopsApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
   const [workshops, setworkshops] = useState([]);
   const [error, setError] = useState('');
   let arr = [];
-
+  console.log('workshops: ', workshops);
   useEffect(() => {
     const getToken = () => {
       AuthService.login().then(
@@ -86,7 +86,7 @@ const Workshop = ({ match }) => {
               title={workshop.name}
               notebook={workshop.notebook}
               location={workshop.location}
-              match={match}
+              replayId={workshop.replayId}
             />
           ))}
         </CardGrid>

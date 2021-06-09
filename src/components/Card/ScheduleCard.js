@@ -322,7 +322,7 @@ const ScheduleCard = ({
   workshopList,
   location,
   ezmeral,
-  match
+  replayId,
 }) => {
   const textSize = size === 'small' ? '16px' : 'medium';
   let backgroundColor;
@@ -403,10 +403,7 @@ const ScheduleCard = ({
       setcardTopSectionHeight(refHeight);
     }
   }, [cardTopSectionRef])
-  let replayId = 0;
-  if (sessionType === 'Workshops-on-demand' && match.params.replayId) {
-    replayId = parseInt(match.params.replayId, 10);
-  }
+
   return (
     <>
       {ezmeral ?
