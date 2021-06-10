@@ -125,12 +125,14 @@ const App = () => {
             <Ezmeral />
           </Route>
           <Route
+            exact
             path="/workshops"
             render={props => <Workshops {...props} />}
           >
           </Route>
           <Route
-            path="/workshops/special-badge"
+            exact
+            path="/workshops/:workshopId/special-badge"
             render={props => <SpecialBadge {...props} />}
           ></Route>
           <Route path="/workshoptermsconditions">
