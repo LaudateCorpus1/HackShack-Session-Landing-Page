@@ -169,10 +169,9 @@ const Video = ({
               {desc}
             </Text>
             <Text color="text-strong" margin={{ bottom: 'large' }} size="22px">
-              If you liked this video and would like to get some real, hands-on
-              experience,{' '}
-              <Link style={{ color: '#FFF' }} color="white" to="/workshops">
-                register for this workshops-on-demand.
+              Try it out for yourself. Get some real, hands-on experience by{' '} 
+              <Link style={{ color: '#FFF' }} color="white" onClick={() => setSignupLayer(true)}>
+                registering for this Workshop-on-Demand.
               </Link>
             </Text>
           </Box>
