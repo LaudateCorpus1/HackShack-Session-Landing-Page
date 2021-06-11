@@ -76,6 +76,7 @@ const Replays = props => {
   const finisherBadgeImg = props.openGraphImage ? props.openGraphImage : replays[current] && replays[current].workshop ? replays[current].workshop.badgeImg : null;
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
+      <PageHeader title={replays.length > 0 && replays[current].title}>
       {replays.length > 0 ? (
         <>
           <Helmet>
@@ -163,6 +164,7 @@ const Replays = props => {
             />
           ),
       )}
+      </PageHeader>
     </Layout>
   );
 };

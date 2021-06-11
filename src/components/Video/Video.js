@@ -62,13 +62,6 @@ const Video = ({
   };
   return (
     <Box>
-      <Heading
-        color="text-strong"
-        margin={{ bottom: "medium" }}
-        level={3}
-      >
-        {title}
-      </Heading>
       <ReactPlayer
         controls
         url={videolink}
@@ -88,7 +81,7 @@ const Video = ({
             <Box
               direction={size === 'small' ? 'column' : 'row'}
               justify="between"
-              margin={{ vertical: "small" }}
+              margin={{ vertical: "medium" }}
               width={size === "small" ? '100%' : "640px"}
             >
               {
