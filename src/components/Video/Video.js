@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react';
 import ReactPlayer from 'react-player/vimeo';
-import { Box, Heading, Text, Avatar, ResponsiveContext, Button } from 'grommet';
+import { Box, Text, Avatar, ResponsiveContext, Button } from 'grommet';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { SignupLayer, SuccessLayer } from '../Card/ScheduleCard';
 import Share from '../Share';
 
