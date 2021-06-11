@@ -95,7 +95,7 @@ export const SignupLayer = ({
   return (
     <Layer
       position="right"
-      full="vertical"
+      full={size === 'large' ? true : 'vertical'}
       style={{ borderRadius: '4px 0px 0px 4px' }}
       background={
         size === "large" ?
@@ -109,7 +109,6 @@ export const SignupLayer = ({
           }
       }
       opacity="true"
-      full={size === 'large' ? true : 'vertical'}
     >
       <Button
         onClick={() => {

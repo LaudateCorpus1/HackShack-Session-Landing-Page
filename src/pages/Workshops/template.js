@@ -67,7 +67,6 @@ const Workshop = props => {
         headers: { 'x-access-token': token },
       })
         .then(response => {
-          console.log('response.data: ', response.data);
           setSpecialBadges(response.data);
         })
         .catch(err => {
