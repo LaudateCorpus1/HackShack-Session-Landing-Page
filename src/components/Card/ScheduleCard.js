@@ -97,6 +97,19 @@ export const SignupLayer = ({
       position="right"
       full="vertical"
       style={{ borderRadius: '4px 0px 0px 4px' }}
+      background={
+        size === "large" ?
+          {
+            image: "url(/img/gremlin-signup.png)",
+            size: "cover",
+            position: "center",
+            repeat: "no-repeat",
+          } : {
+            color: "#333333",
+          }
+      }
+      opacity="true"
+      full={size === 'large' ? true : 'vertical'}
     >
       <Button
         onClick={() => {
@@ -113,6 +126,8 @@ export const SignupLayer = ({
         width={size === 'small' ? '100%' : '500px'}
         direction="column"
         pad={{ bottom: 'large', left: 'xlarge', right: 'xlarge' }}
+        margin={size === 'large' ? { right: '100px' } : { right: '0' }}
+        alignSelf="end"
       >
         <Heading color="#ffffff" margin={{ top: 'none', bottom: 'small' }}>
           Register
