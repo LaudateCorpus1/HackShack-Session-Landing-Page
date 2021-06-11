@@ -62,6 +62,13 @@ const Video = ({
   };
   return (
     <Box>
+      <Heading
+        color="text-strong"
+        margin={{ bottom: "medium" }}
+        level={3}
+      >
+        {title}
+      </Heading>
       <ReactPlayer
         controls
         url={videolink}
@@ -79,17 +86,11 @@ const Video = ({
         <Box direction="column">
           <Box direction="column">
             <Box
-              direction={size === 'large' ? 'row' : 'column'}
+              direction={size === 'small' ? 'column' : 'row'}
               justify="between"
-              margin={{ vertical: 'small' }}
+              margin={{ vertical: "small" }}
+              width={size === "small" ? '100%' : "640px"}
             >
-              <Heading
-                color="text-strong"
-                margin="none"
-                level={3}
-              >
-                {title}
-              </Heading>
               {
                 notebook &&
                 sessionType &&
@@ -112,10 +113,18 @@ const Video = ({
                   </Button>
                 </Box>
               }
+              <Box
+                direction="row"
+                alignSelf="start"
+                justify="evenly"
+              >
+                <Share replayId={replayId} />
+              </Box>
             </Box>
             <Box
               direction="row"
               justify="between"
+              margin={{bottom: 'small'}}
             >
               <Box pad={{ vertical: 'small' }} gap="small" direction="row">
                 {avatar ? (
@@ -132,13 +141,6 @@ const Video = ({
                   </Text>
                   <Text>{role}</Text>
                 </Box>
-              </Box>
-              <Box
-                direction="row"
-                alignSelf="center"
-                justify="evenly"
-              >
-                <Share replayId={replayId}/>
               </Box>
             </Box>
           </Box>
@@ -169,10 +171,10 @@ const Video = ({
               {desc}
             </Text>
             <Text color="text-strong" margin={{ bottom: 'large' }} size="22px">
-              Try it out for yourself. Get some real, hands-on experience by{' '} 
-              <Link style={{ color: '#FFF' }} color="white" onClick={() => setSignupLayer(true)}>
+              Try it out for yourself. Get some real, hands-on experience by{' '}
+              <span style={{ color: '#FFF', textDecoration: 'underline', cursor: 'pointer' }} color="white" onClick={() => setSignupLayer(true)} to=''>
                 registering for this Workshop-on-Demand.
-              </Link>
+              </span>
             </Text>
           </Box>
         </Box>
