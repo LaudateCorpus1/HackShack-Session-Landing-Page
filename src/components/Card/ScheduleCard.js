@@ -104,11 +104,11 @@ export const SignupLayer = ({
             size: "cover",
             position: "center",
             repeat: "no-repeat",
+            opacity: "0.99",
           } : {
             color: "#333333",
           }
       }
-      opacity="true"
     >
       <Button
         onClick={() => {
@@ -257,8 +257,20 @@ SignupLayer.propTypes = {
 export const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }) => (
   <Layer
     position="right"
-    full="vertical"
+    full={size === 'large' ? true : 'vertical'}
     style={{ borderRadius: '4px 0px 0px 4px' }}
+    background={
+      size === "large" ?
+        {
+          image: "url(/img/gremlin-signup.png)",
+          size: "cover",
+          position: "center",
+          repeat: "no-repeat",
+          opacity: "0.99",
+        } : {
+          color: "#333333",
+        }
+    }
   >
     <Button
       alignSelf="end"
@@ -271,6 +283,7 @@ export const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }
       width={size === 'small' ? '100%' : '500px'}
       direction="column"
       pad={{ bottom: 'large', left: 'xlarge', right: 'xlarge' }}
+      alignSelf="end"
     >
       <StatusGood size="large" />
       <Box margin={{ bottom: 'medium', top: 'small' }}>
@@ -488,13 +501,13 @@ const ScheduleCard = ({
                     pad="xxsmall"
                     round="xsmall"
                   >
-                    <Text
+                    {/* <Text
                       color="#FF8300"
                       size="small"
                       margin={{ vertical: "3px", horizontal: "12px" }}
                     >
                       Most Popular
-                    </Text>
+                    </Text> */}
                   </ContrastLayer>
                   <Heading
                     level={4}
