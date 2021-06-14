@@ -15,7 +15,7 @@ const Share = ({replayId, workshop}) => {
       a11yTitle="Share on LinkedIn"
       label={workshop && "LinkedIn"}
       reverse={true}
-      href={`https://www.linkedin.com/sharing/share-offsite/?url=https://${hostName}/replays/${replayId}`}
+      href={`https://www.linkedin.com/sharing/share-offsite/?url=https://${hostName}/workshop/${replayId}`}
     />
     <Button
       margin={{ horizontal: "20px" }}
@@ -25,7 +25,7 @@ const Share = ({replayId, workshop}) => {
       a11yTitle="Share on Twitter"
       label={workshop && "Twitter"}
       reverse={true}
-      href={`https://twitter.com/intent/tweet?url=https://${hostName}/replays/${replayId}`}
+      href={`https://twitter.com/intent/tweet?url=https://${hostName}/workshop/${replayId}`}
     />
     <Button
       icon={<GrommetLink size='medium' />}

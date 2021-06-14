@@ -108,10 +108,6 @@ const App = () => {
             path="/replays/:replayId"
             render={props => <Replays {...props} />}
           ></Route>
-          <Route
-            path="/replays/:replayId/finisher-badge"
-            render={props => <FinisherBadge {...props} />}
-          ></Route>
           <Route path="/newslettertermsconditions">
             <NewsletterTC />
           </Route>
@@ -128,6 +124,18 @@ const App = () => {
             exact
             path="/workshops"
             render={props => <Workshops {...props} />}
+          >
+          </Route>
+          <Route
+            exact
+            path="/workshop/:replayId"
+            render={props => <Replays {...props} />}
+          >
+          </Route>
+          <Route
+            exact
+            path="/workshop/:replayId/finisher-badge"
+            render={props => <FinisherBadge {...props} />}
           >
           </Route>
           <Route

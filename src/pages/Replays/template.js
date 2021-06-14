@@ -74,9 +74,12 @@ const Replays = props => {
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
   const finisherBadgeImg = props.openGraphImage ? props.openGraphImage : replays[current] && replays[current].workshop ? replays[current].workshop.badgeImg : null;
+  const replayTitle = replays.length > 0 && replays[current].title;
+ console.log('replays[current] && replays[current]: ', replays[current] && replays[current]);
+ console.log('finisherBadgeImg: ', finisherBadgeImg);
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
-      <PageHeader title={replays.length > 0 && replays[current].title}>
+      <PageHeader title={replayTitle}>
       {replays.length > 0 ? (
         <>
           <Helmet>

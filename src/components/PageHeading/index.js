@@ -24,5 +24,8 @@ export default PageHeader;
 
 PageHeader.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool
+  ]),
 };
