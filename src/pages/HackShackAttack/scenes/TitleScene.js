@@ -74,7 +74,22 @@ export default class TitleScene extends Phaser.Scene {
       .setInteractive();
     this.centerObject(this.leaderboardButton, 1.2, -0.65);
 
-    this.keyboardInputs();
+    // Keyboard instructions
+    this.keyboardInstructions = this.add
+      .text(this.width / 2 + 60, this.height / 2 - 108, 'Use Keyboard arrow keys to navigate and press enter to select', {
+        fontFamily: 'Kemco',
+        fontSize: '15px',
+      })
+      .setTint(0xffffff)
+    this.centerObject(this.keyboardInstructions, 3.5, -1.55);
+    this.acceptTextFade = this.tweens.add({
+      targets: this.keyboardInstructions,
+      alpha: 0,
+      yoyo: true,
+      repeat: -1,
+      ease: 'Sine.easeInOut', 
+      duration: 1200,
+    });
   }
 
   update() {
