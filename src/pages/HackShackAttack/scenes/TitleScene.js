@@ -81,7 +81,7 @@ export default class TitleScene extends Phaser.Scene {
         fontSize: '15px',
       })
       .setTint(0xffffff)
-    this.centerObject(this.keyboardInstructions, 3.5, -1.55);
+    this.centerObject(this.keyboardInstructions, 3.5, -1.25);
     this.acceptTextFade = this.tweens.add({
       targets: this.keyboardInstructions,
       alpha: 0,
@@ -90,6 +90,8 @@ export default class TitleScene extends Phaser.Scene {
       ease: 'Sine.easeInOut', 
       duration: 1200,
     });
+
+    this.keyboardInputs();
   }
 
   update() {
