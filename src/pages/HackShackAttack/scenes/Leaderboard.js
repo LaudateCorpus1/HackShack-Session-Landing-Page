@@ -68,6 +68,11 @@ export default class LeaderboardScene extends Phaser.Scene {
       this.onSelect,
       this,
     );
+    this.enterInput = this.input.keyboard.on(
+      'keyup_A',
+      this.onSelect,
+      this,
+    );
   }
 
   countdown() {
