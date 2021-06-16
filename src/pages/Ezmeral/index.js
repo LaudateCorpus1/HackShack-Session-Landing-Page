@@ -70,6 +70,7 @@ const Ezmeral = () => {
               title={title}
               notebook={notebook}
               workshopList={workshopList}
+              ezmeral
             />
           ),
         )}
