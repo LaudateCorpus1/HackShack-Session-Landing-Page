@@ -30,7 +30,7 @@ const Share = ({replayId, workshop}) => {
     <Button
       icon={<GrommetLink size='medium' />}
       onClick={() => {
-        navigator.clipboard.writeText(window.location.href);
+        workshop ? navigator.clipboard.writeText(`${hostName}/workshop/${replayId}`) : navigator.clipboard.writeText(window.location.href); 
         setToolTip('Copied!');
       }}
       tip={{
