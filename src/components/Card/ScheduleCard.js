@@ -366,7 +366,7 @@ const ScheduleCard = ({
     default:
       backgroundColor = 'background';
   }
-  const cardTopSectionRef = useRef(null);
+  const cardRef = useRef(null);
   const [cardTopSectionHeight, setcardTopSectionHeight] = useState(false);
   const [signupLayer, setSignupLayer] = useState(false);
   const [successLayer, setSuccessLayer] = useState(false);
@@ -425,11 +425,33 @@ const ScheduleCard = ({
   }, [DBid, sessionType, uri]);
 
   useEffect(() => {
-    if (cardTopSectionRef.current) {
-      const refHeight = cardTopSectionRef.current.offsetHeight;
+    if (cardRef.current) {
+      const refHeight = cardRef.current.offsetHeight;
       setcardTopSectionHeight(refHeight);
     }
-  }, [cardTopSectionRef])
+  }, [cardRef])
+
+  useEffect(()=> {
+    window.addEventListener("mousemove", checkHover, true);
+
+    return () => {
+      window.removeEventListener('mousemove', checkHover, true);
+    };
+  })
+
+  const checkHover = e => {
+    if (cardRef.current) {
+      const mouseOver = cardRef.current.contains(e.target);
+
+      if (!hover && mouseOver) {
+        setHover(true);
+      }
+
+      if (hover && !mouseOver) {
+        setHover(false)
+      }
+    }
+  };
 
   return (
     <>
@@ -487,7 +509,7 @@ const ScheduleCard = ({
             onMouseLeave={() => setHover(false)}
             onBlur={() => setHover(false)}
             height="70%"
-            ref={cardTopSectionRef}
+            ref={cardRef}
           >
             <Box direction="column">
               {!hover ? (
@@ -495,20 +517,20 @@ const ScheduleCard = ({
                   direction="column"
                   height={`${cardTopSectionHeight}px`}
                 >
-                  <ContrastLayer
+                  {/* <ContrastLayer
                     background="background-contrast"
                     width="fit-content"
                     pad="xxsmall"
                     round="xsmall"
                   >
-                    {/* <Text
+                    <Text
                       color="#FF8300"
                       size="small"
                       margin={{ vertical: "3px", horizontal: "12px" }}
                     >
                       Most Popular
-                    </Text> */}
-                  </ContrastLayer>
+                    </Text>
+                  </ContrastLayer> */}
                   <Heading
                     level={4}
                     margin={{ bottom: 'small' }}
@@ -531,7 +553,7 @@ const ScheduleCard = ({
                 </Box>
               ) : (
                 <Box height={`${cardTopSectionHeight}px`}>
-                  <Box overflow="scroll"  >
+                  <Box overflow={{ horizontal: 'hidden', vertical: 'scroll' }}  >
                     <Heading level={5} margin={{ top: 'xsmall' }}>{title}</Heading>
                     <Text
                       margin={{ bottom: 'large' }}
