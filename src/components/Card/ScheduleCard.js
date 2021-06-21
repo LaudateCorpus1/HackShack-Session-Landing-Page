@@ -16,7 +16,7 @@ import {
 } from 'grommet';
 import { StatusGood, FormClose, ShareOption } from 'grommet-icons';
 import PropTypes from 'prop-types';
-import { CardWrapper, ContrastLayer } from './styles';
+import { CardWrapper } from './styles';
 import { Link } from 'react-router-dom';
 import AuthService from '../../services/auth.service';
 import Share from '../Share';
