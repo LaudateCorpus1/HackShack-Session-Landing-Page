@@ -74,6 +74,11 @@ export default class ThankYouScene extends Phaser.Scene {
 
   keyboardInputs() {
     this.enterInput = this.input.keyboard.on('keyup_ENTER', this.enter, this);
+    this.enterInput = this.input.keyboard.on(
+      'keyup_A',
+      this.enter,
+      this,
+    );
   }
 
   gamepadInputs() {

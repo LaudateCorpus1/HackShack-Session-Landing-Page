@@ -31,34 +31,34 @@ const Content = () => {
   const size = useContext(ResponsiveContext);
   const fontSize = size === 'small' ? '4vw' : '2.2vw';
   return (
-    // <TextWrapper>
-    //   <Text size={fontSize} color="#FFFFFF">
-    //     Welcome to the Hack Shack. We offer many
-    //   </Text>
-    //   <Text size={fontSize} color="#FFFFFF">
-    //     ways to collaborate and expand your skills.
-    //   </Text>
-    //   <Text size={fontSize} color="#FFFFFF">
-    //     Try our technology Workshops-on-Demand,
-    //   </Text>
-    //   <Text size={fontSize} color="#FFFFFF">
-    //     for a unique, hands-on learning experience.
-    //   </Text>
-    // </TextWrapper>
     <TextWrapper>
       <Text size={fontSize} color="#FFFFFF">
-        Welcome to the Hack Shack, a place to collaborate
+      Welcome to the Hack Shack, a place to collaborate
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        and expand technology skills. Try our unique on-demand
+      and expand technology skills. Try our unique  on-demand 
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        workshops or go on a virtual treasure hunt to discover
+      workshops or go on a virtual treasure hunt to discover
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        a wealth of other resources and perhaps win a prize.
+      a wealth of other resources and perhaps win a prize. 
       </Text>
     </TextWrapper>
+    // <TextWrapper>
+    //   <Text size={fontSize} color="#FFFFFF">
+    //     Welcome to the Hack Shack, a place to collaborate
+    //   </Text>
+    //   <Text size={fontSize} color="#FFFFFF">
+    //     and expand technology skills. Try our unique on-demand
+    //   </Text>
+    //   <Text size={fontSize} color="#FFFFFF">
+    //     workshops or go on a virtual treasure hunt to discover
+    //   </Text>
+    //   <Text size={fontSize} color="#FFFFFF">
+    //     a wealth of other resources and perhaps win a prize.
+    //   </Text>
+    // </TextWrapper>
   );
 };
 const GrommetMascot = ({ setOpen }) => (
@@ -138,24 +138,24 @@ const Cards = ({ size }) => (
           : { top: 'xlarge', right: 'large' }
       }
     />
-    <Card
+    {/* <Card
       image="/img/munch-and-learn-3.jpg"
       title="Introducing HPE DEV Munch & Learn series"
-      desc="Session 5: Data Science Unplugged Part 2."
-      link="https://hpe.zoom.us/meeting/register/tJMkcumuqD0tE9SIrVe4mIOd00IHMPcjG0TB"
+      desc="Session 6: Microservices architecture 101."
+      link="https://hpe.zoom.us/meeting/register/tJIlf-isqjgjH9bv-oJW2dv_5DMM6i2FV-WA"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    />
-    {/* <Card
+    /> */}
+    <Card
       image="/img/Arcade/TreasureMap.png"
       title="WIN IN THE HPE DEV TREASURE HUNT"
       desc="Discover ways to collaborate and where to find resources."
-      link="https://forms.office.com/r/SDRAJVxEAd"
+      link="http://bit.ly/hpe-discover-treasure-hunt"
       background="rgba(0, 86, 122, 0.8);"
       label="Hunt for Treasure!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    /> */}
+    />
     {/* <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"

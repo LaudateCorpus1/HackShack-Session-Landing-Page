@@ -75,7 +75,7 @@ const Replays = props => {
   const sortedReplays = sortReplays(replays, current);
   const openGraphImg = replays.length > 0 && props.location.pathname.includes('finisher-badge') ? 
     replays.length > 0 && replays[current].workshop.badgeImg : 
-    replays.length > 0 && replays[current].workshop.workshopImg;
+    replays.length > 0 && replays[current].workshop && replays[current].workshop.workshopImg;
   const replayTitle = replays.length > 0 && replays[current].title;
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
