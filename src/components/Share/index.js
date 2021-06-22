@@ -4,7 +4,7 @@ import { Button } from 'grommet';
 
 const Share = ({replayId, workshop}) => {
   const [toolTip, setToolTip] = useState('Click to copy the URL to clipboard');
-  const hostName = window.location.host;
+  const hostName = window.location.href;
 
   return (
   <>
