@@ -1,8 +1,8 @@
 import React from 'react';
 import ReplaysTemplate from './template';
 
-const Replays = props => {
+const FinisherBadge = props => {
   return <ReplaysTemplate {...props} />
 }
 
-export default Replays;
+export default FinisherBadge;

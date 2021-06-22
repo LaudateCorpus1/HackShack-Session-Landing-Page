@@ -22,6 +22,8 @@ import {
   Challenges,
   TreasureHuntTC,
 } from './pages/index';
+import FinisherBadge from './pages/Replays/finisher-badge';
+import SpecialBadge from './pages/Workshops/special-badge';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -102,6 +104,7 @@ const App = () => {
             render={props => <Replays {...props} />}
           ></Route>
           <Route
+            exact
             path="/replays/:replayId"
             render={props => <Replays {...props} />}
           ></Route>
@@ -117,9 +120,29 @@ const App = () => {
           <Route path="/ezmeral">
             <Ezmeral />
           </Route>
-          <Route path="/workshops">
-            <Workshops />
+          <Route
+            exact
+            path="/workshops"
+            render={props => <Workshops {...props} />}
+          >
           </Route>
+          <Route
+            exact
+            path="/workshop/:replayId"
+            render={props => <Replays {...props} />}
+          >
+          </Route>
+          <Route
+            exact
+            path="/workshop/:replayId/finisher-badge"
+            render={props => <FinisherBadge {...props} />}
+          >
+          </Route>
+          <Route
+            exact
+            path="/workshops/:workshopId/special-badge"
+            render={props => <SpecialBadge {...props} />}
+          ></Route>
           <Route path="/workshoptermsconditions">
             <WorkshopTC />
           </Route>
