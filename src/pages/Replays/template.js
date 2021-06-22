@@ -65,13 +65,11 @@ const Replays = props => {
     getToken();
     // eslint-disable-next-line
   }, [error, getReplaysApi])
-
   let replayId = 0;
   if (props.match.params.replayId) {
     replayId = parseInt(props.match.params.replayId, 10);
   }
-console.log('replays: ', replays);
-console.log('replays[replayId]: ', replays[replayId]);
+
   const [current, setCurrent] = useState(replayId);
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);

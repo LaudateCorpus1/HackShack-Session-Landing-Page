@@ -4,7 +4,7 @@ import { Button } from 'grommet';
 
 const Share = ({replayId, workshop}) => {
   const [toolTip, setToolTip] = useState('Click to copy the URL to clipboard');
-  const hostName = window.location.host;
+  const origin = window.location.origin;
 
   return (
   <>
@@ -15,7 +15,7 @@ const Share = ({replayId, workshop}) => {
       a11yTitle="Share on LinkedIn"
       label={workshop && "LinkedIn"}
       reverse={true}
-      href={`https://www.linkedin.com/sharing/share-offsite/?url=https://${hostName}/workshop/${replayId}`}
+      href={`https://www.linkedin.com/sharing/share-offsite/?url=${origin}/workshop/${replayId}`}
     />
     <Button
       margin={{ horizontal: "20px" }}
@@ -25,12 +25,12 @@ const Share = ({replayId, workshop}) => {
       a11yTitle="Share on Twitter"
       label={workshop && "Twitter"}
       reverse={true}
-      href={`https://twitter.com/intent/tweet?url=https://${hostName}/workshop/${replayId}`}
+      href={`https://twitter.com/intent/tweet?url=${origin}/workshop/${replayId}`}
     />
     <Button
       icon={<GrommetLink size='medium' />}
       onClick={() => {
-        workshop ? navigator.clipboard.writeText(`${hostName}/workshop/${replayId}`) : navigator.clipboard.writeText(window.location.href); 
+        workshop ? navigator.clipboard.writeText(`${origin}/workshop/${replayId}`) : navigator.clipboard.writeText(window.location.href); 
         setToolTip('Copied!');
       }}
       tip={{
