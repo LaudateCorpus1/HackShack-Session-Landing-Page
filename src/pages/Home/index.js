@@ -144,7 +144,7 @@ const Cards = ({ size }) => (
       desc="HPE DEV partners with SlashData for its State of the Developer Nation 2021 survey."
       link="https://www.developereconomics.net/?member_id=hpe"
       background="rgba(0, 86, 122, 0.8);"
-      label="Register Now!"
+      label="Participate Now!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
     />
     {/* <Card
