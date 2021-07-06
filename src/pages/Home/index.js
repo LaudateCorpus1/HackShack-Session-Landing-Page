@@ -127,9 +127,11 @@ const Cards = ({ size }) => (
     )}
     <Card
       image="/img/munch-and-learn-data-sharing.jpeg"
-      title="HPE DEV Munch & Learn Technology Talks series"
-      desc="Join us to discuss how to make data consumable for real-world data science."
+      title="HPE DEV Munch & Learn Technology Talk"
+      desc="Join us to discuss how to make data 
+        consumable for real-world data science."
       link="https://hpe.zoom.us/meeting/register/tJwudeuorzosG9ctDE4IcuBhiNRk3L-z_Z1B"
+      date="July 28th , 2021"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={
@@ -154,7 +156,8 @@ const Cards = ({ size }) => (
     <Card
       image="/img/02-developer-nation-1024.jpeg"
       title="Developer Nation Survey by SlashData"
-      desc="HPE DEV partners with SlashData for its State of the Developer Nation 2021 survey."
+      desc="HPE DEV partners with SlashData for 
+        its State of the Developer Nation 2021 survey."
       link="https://www.developereconomics.net/?member_id=hpe"
       background="rgba(0, 86, 122, 0.8);"
       label="Participate Now!"
@@ -181,7 +184,8 @@ const Cards = ({ size }) => (
     {/* <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
-      desc="Want to read more about industry trends for developers? Sign up here."
+      desc="Want to read more about industry 
+        trends for developers? Sign up here."
       link="https://developer.hpe.com/newsletter-signup"
       background="background"
       label="Get the Newsletter"
