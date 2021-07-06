@@ -55,6 +55,7 @@ const Card = ({
   margin,
   path,
   size,
+  date,
 }) => {
   return (
     <CardWrapper
@@ -87,6 +88,13 @@ const Card = ({
           >
             {title}
           </Heading>
+          <Text
+            color="text-strong"
+            weight="bold"
+            size={size === 'small' ? 'large' : 'xlarge'}
+          >
+            {date && `Date: ${date}`}
+          </Text>
           <Text
             color="text-strong"
             size={size === 'small' ? 'large' : 'xlarge'}
@@ -137,6 +145,7 @@ Card.propTypes = {
   path: PropTypes.string,
   title: PropTypes.string,
   size: PropTypes.string,
+  date: PropTypes.string,
 };
 
 export default Card;
