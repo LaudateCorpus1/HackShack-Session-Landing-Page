@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import ReactPlayer from 'react-player/vimeo';
+import ReactPlayer from 'react-player';
 import { Box, Text, Avatar, ResponsiveContext, Button } from 'grommet';
 import PropTypes from 'prop-types';
 import { SignupLayer, SuccessLayer } from '../Card/ScheduleCard';
