@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactPlayer from 'react-player/vimeo';
+import ReactPlayer from 'react-player';
 import { Box, Button, Heading, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
