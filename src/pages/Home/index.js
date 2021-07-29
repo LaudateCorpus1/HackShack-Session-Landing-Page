@@ -126,6 +126,29 @@ const Cards = ({ size }) => (
       />
     )}
     <Card
+      image="/img/workshops-on-demand.png"
+      title="INTRODUCING HPE DEV WORKSHOPS-ON-DEMAND"
+      desc="Learn more about our technologies through hands-on experience."
+      path="/workshops"
+      background="background"
+      label="Register Now!"
+      margin={
+        size === 'small'
+          ? { top: '0px', right: '0px' }
+          : { top: 'xlarge', right: 'large' }
+      }
+    />
+    <Card
+      image="/img/02-developer-nation-1024.jpeg"
+      title="Developer Nation Survey by SlashData"
+      desc="HPE DEV partners with SlashData for 
+        its State of the Developer Nation 2021 survey."
+      link="https://www.developereconomics.net/?member_id=hpe"
+      background="rgba(0, 86, 122, 0.8);"
+      label="Participate Now!"
+      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
+    />
+    {/* <Card
       image="/img/munch-and-learn-data-sharing.jpeg"
       title="HPE DEV Munch & Learn Technology Talk"
       desc="Join us to discuss how to make data 
@@ -139,38 +162,6 @@ const Cards = ({ size }) => (
           ? { top: '0px', right: '0px' }
           : { top: 'xlarge', right: 'large' }
       }
-    />
-    {/* <Card
-      image="/img/workshops-on-demand.png"
-      title="INTRODUCING HPE DEV WORKSHOPS-ON-DEMAND"
-      desc="Learn more about our technologies through hands-on experience."
-      path="/workshops"
-      background="background"
-      label="Register Now!"
-      margin={
-        size === 'small'
-          ? { top: '0px', right: '0px' }
-          : { top: 'xlarge', right: 'large' }
-      }
-    /> */}
-    <Card
-      image="/img/02-developer-nation-1024.jpeg"
-      title="Developer Nation Survey by SlashData"
-      desc="HPE DEV partners with SlashData for 
-        its State of the Developer Nation 2021 survey."
-      link="https://www.developereconomics.net/?member_id=hpe"
-      background="rgba(0, 86, 122, 0.8);"
-      label="Participate Now!"
-      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    />
-    {/* <Card
-      image="/img/munch-and-learn-3.jpg"
-      title="Introducing HPE DEV Munch & Learn series"
-      desc="Session 6: Microservices architecture 101."
-      link="https://hpe.zoom.us/meeting/register/tJIlf-isqjgjH9bv-oJW2dv_5DMM6i2FV-WA"
-      background="rgba(0, 86, 122, 0.8);"
-      label="Register Now!"
-      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
     /> */}
     {/* <Card
       image="/img/Arcade/TreasureMap.png"
