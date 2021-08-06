@@ -139,22 +139,12 @@ const Cards = ({ size }) => (
       }
     />
     <Card
-      image="/img/02-developer-nation-1024.jpeg"
-      title="Developer Nation Survey by SlashData"
-      desc="HPE DEV partners with SlashData for 
-        its State of the Developer Nation 2021 survey."
-      link="https://www.developereconomics.net/?member_id=hpe"
-      background="rgba(0, 86, 122, 0.8);"
-      label="Participate Now!"
-      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    />
-    {/* <Card
-      image="/img/munch-and-learn-data-sharing.jpeg"
-      title="HPE DEV Munch & Learn Technology Talk"
-      desc="Join us to discuss how to make data 
-        consumable for real-world data science."
-      link="https://hpe.zoom.us/meeting/register/tJwudeuorzosG9ctDE4IcuBhiNRk3L-z_Z1B"
-      date="July 28th , 2021"
+      image="/img/aug_mnl-kubernetes.jpeg"
+      title="HPE DEV Munch & Learn - Kubernetes 101"
+      desc="Join us to learn about the basics of 
+        Kubernetes cluster orchestration system."
+      link="https://hpe.zoom.us/meeting/register/tJcrduuuqzgsHNEC-u8l_Y86YeZLMxEDF5fP"
+      date="August 25th , 2021"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={
@@ -162,7 +152,7 @@ const Cards = ({ size }) => (
           ? { top: '0px', right: '0px' }
           : { top: 'xlarge', right: 'large' }
       }
-    /> */}
+    />
     {/* <Card
       image="/img/Arcade/TreasureMap.png"
       title="WIN IN THE HPE DEV TREASURE HUNT"
