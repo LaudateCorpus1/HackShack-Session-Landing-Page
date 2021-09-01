@@ -139,12 +139,11 @@ const Cards = ({ size }) => (
       }
     />
     <Card
-      image="/img/aug_mnl-kubernetes.jpeg"
-      title="HPE DEV Munch & Learn - Kubernetes 101"
-      desc="Join us to learn about the basics of 
-        Kubernetes cluster orchestration system."
-      link="https://hpe.zoom.us/meeting/register/tJcrduuuqzgsHNEC-u8l_Y86YeZLMxEDF5fP"
-      date="August 25th , 2021"
+      image="/img/sep_mnl-digital-transformation.jpg"
+      title="HPE Dev Munch & Learn - Digital Transformation Next: Data & Analytics Workloads"
+      desc="Join us to discuss strategic best practices and practical architectural details."
+      link="https://hpe.zoom.us/meeting/register/tJEtde-hrDMpE9MLHnqxZ7gWZCgjWyDMz_gM"
+      date="September 22 , 2021"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={
