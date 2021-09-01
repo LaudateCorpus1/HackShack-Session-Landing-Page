@@ -143,7 +143,7 @@ const Cards = ({ size }) => (
       title="HPE Dev Munch & Learn - Digital Transformation Next: Data & Analytics Workloads"
       desc="Join us to discuss strategic best practices and practical architectural details."
       link="https://hpe.zoom.us/meeting/register/tJEtde-hrDMpE9MLHnqxZ7gWZCgjWyDMz_gM"
-      date="September 22 , 2021"
+      date="September 22, 2021"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={
