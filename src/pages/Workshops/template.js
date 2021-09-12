@@ -3,31 +3,46 @@ import {
   Heading,
   Text,
   Box,
-  Image
+  Image, 
+  Tab,
+  Tabs,
 } from 'grommet';
+import axios from 'axios';
+import { Helmet } from 'react-helmet';
 import { Layout, ScheduleCard, CardGrid } from '../../components/index';
 import { MainTitle } from './styles';
-import axios from 'axios';
+
 import AuthService from '../../services/auth.service';
-import { Helmet } from 'react-helmet';
+
 
 const Workshop = props => {
   const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   const getWorkshopsApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
+  const getPopularWorkshopsApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/popularWorkshops`;
   const getSpecialBadgesApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`;
   const [workshops, setworkshops] = useState([]);
+  const [popularWorkshops, setPopularWorkshops] = useState([]);
   const [specialBadges, setSpecialBadges] = useState([]);
   const [error, setError] = useState('');
-  let arr = [];
+  const arr = [];
+  const popularWorkshopsArr =[];
+  const [index, setIndex] = useState(0);
+  const onActive = (nextIndex) => setIndex(nextIndex);
+
+  const latestWorkshops = workshops.sort((a,b) => {
+    return new Date(b.createdAt) - new Date(a.createdAt);
+  }).slice(0, 2);
 
   useEffect(() => {
     const getToken = () => {
       AuthService.login().then(
         () => {
           getWorkshops(AuthService.getCurrentUser().accessToken);
+          getPopularWorkshops(AuthService.getCurrentUser().accessToken);
           getSpecialBadges(AuthService.getCurrentUser().accessToken);
         },
         err => {
+          console.log('Error: ', err);
           setError(
             'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
           );
@@ -60,6 +75,34 @@ const Workshop = props => {
           }
         });
     };
+    
+    const getPopularWorkshops = token => {
+      axios({
+        method: 'GET',
+        url: getPopularWorkshopsApi,
+        headers: { 'x-access-token': token },
+      })
+        .then(response => {
+          // Map created
+          response.data.forEach(workshop => {
+            if (workshop.sessionType === 'Workshops-on-Demand')
+              popularWorkshopsArr.push({ ...workshop });
+          });
+          setPopularWorkshops(popularWorkshopsArr);
+        })
+        .catch(err => {
+          if (err.response.status === 401) {
+            AuthService.login().then(() => getToken());
+          } else {
+            console.log('catch error', err);
+            setError(
+              'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+            );
+          }
+        });
+    };
+    
+
     const getSpecialBadges = token => {
       axios({
         method: 'GET',
@@ -103,9 +146,9 @@ const Workshop = props => {
           <meta property="og:image:height" content="200" data-react-helmet="true" />
 
           {/* <!-- Google / Search Engine Tags --> */}
-          <meta itemprop="name" content={specialBadges[workshopId].title} data-react-helmet="true" />
-          <meta itemprop="description" content={specialBadges[workshopId].description} data-react-helmet="true" />
-          <meta itemprop="image" content={openGraphImg} data-react-helmet="true" />
+          <meta itemProp="name" content={specialBadges[workshopId].title} data-react-helmet="true" />
+          <meta itemProp="description" content={specialBadges[workshopId].description} data-react-helmet="true" />
+          <meta itemProp="image" content={openGraphImg} data-react-helmet="true" />
 
           {/* <!-- Facebook Meta Tags --> */}
           <meta property="og:type" content="website" data-react-helmet="true" />
@@ -125,7 +168,80 @@ const Workshop = props => {
           Workshops-on-Demand
         </Heading>
       </MainTitle>
-      {workshops.length > 0 ? (
+      <Tabs activeIndex={index} onActive={onActive} justify="start">
+        <Tab title='All'>
+        <CardGrid>
+          {workshops.map((workshop, i) => (
+            <ScheduleCard
+              avatar={workshop.replay && workshop.replay.avatar}
+              desc={
+                workshop.sessionType === 'Workshops-on-Demand'
+                  ? `${workshop.description.slice(0, 520)}`
+                  : `${workshop.description.slice(0, 220)}...`
+              }
+              id={workshop.sessionId}
+              key={i}
+              DBid={workshop.id}
+              presenter={workshop.replay && workshop.replay.presenter}
+              role={workshop.replay && workshop.replay.role}
+              sessionLink={workshop.replayLink}
+              sessionType={workshop.sessionType}
+              title={workshop.name}
+              notebook={workshop.notebook}
+              location={workshop.location}
+              replayId={workshop.replayId}
+            />
+          ))}
+        </CardGrid>
+        </Tab>
+        <Tab title='Latest'>
+        {latestWorkshops.map((workshop, i) => (
+            <ScheduleCard
+              avatar={workshop.replay && workshop.replay.avatar}
+              desc={
+                workshop.sessionType === 'Workshops-on-Demand'
+                  ? `${workshop.description.slice(0, 520)}`
+                  : `${workshop.description.slice(0, 220)}...`
+              }
+              id={workshop.sessionId}
+              key={i}
+              DBid={workshop.id}
+              presenter={workshop.replay && workshop.replay.presenter}
+              role={workshop.replay && workshop.replay.role}
+              sessionLink={workshop.replayLink}
+              sessionType={workshop.sessionType}
+              title={workshop.name}
+              notebook={workshop.notebook}
+              location={workshop.location}
+              replayId={workshop.replayId}
+            />
+          ))}
+        </Tab>
+        <Tab title='Popular'>
+        {popularWorkshops.map((workshop, i) => (
+            <ScheduleCard
+              avatar={workshop.replay && workshop.replay.avatar}
+              desc={
+                workshop.sessionType === 'Workshops-on-Demand'
+                  ? `${workshop.description.slice(0, 520)}`
+                  : `${workshop.description.slice(0, 220)}...`
+              }
+              id={workshop.sessionId}
+              key={i}
+              DBid={workshop.id}
+              presenter={workshop.replay && workshop.replay.presenter}
+              role={workshop.replay && workshop.replay.role}
+              sessionLink={workshop.replayLink}
+              sessionType={workshop.sessionType}
+              title={workshop.name}
+              notebook={workshop.notebook}
+              location={workshop.location}
+              replayId={workshop.replayId}
+            />
+          ))}
+        </Tab>
+      </Tabs>
+      {/* {workshops.length > 0 ? (
         <CardGrid>
           {workshops.map(workshop => (
             <ScheduleCard
@@ -168,7 +284,7 @@ const Workshop = props => {
             <Box height="medium"></Box>
           )}
         </Box>
-      )}
+      )} */}
     </Layout>
   );
 };
