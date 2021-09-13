@@ -32,8 +32,8 @@ const Video = ({
     company: '',
     title: workshopTitle,
     notebook,
-    sessionType: sessionType,
-    location: location,
+    sessionType,
+    location,
     termsAndConditions: false,
     proxy: 'hackshack',
   });
@@ -44,8 +44,8 @@ const Video = ({
       company: '',
       title: workshopTitle,
       notebook,
-      sessionType: sessionType,
-      location: location,
+      sessionType,
+      location,
       termsAndConditions: false,
       proxy: 'hackshack',
     });
@@ -80,8 +80,8 @@ const Video = ({
             <Box
               direction={size === 'small' ? 'column' : 'row'}
               justify="between"
-              margin={{ vertical: "medium" }}
-              width={size === "small" ? '100%' : "640px"}
+              margin={{ vertical: 'medium' }}
+              width={size === 'small' ? '100%' : '640px'}
             >
               {
                 notebook &&
@@ -101,8 +101,7 @@ const Video = ({
                       </Text>
                     }
                     primary
-                  >
-                  </Button>
+                  />
                 </Box>
               }
               <Box
@@ -116,7 +115,7 @@ const Video = ({
             <Box
               direction="row"
               justify="between"
-              margin={{bottom: 'small'}}
+              margin={{ bottom: 'small' }}
             >
               <Box pad={{ vertical: 'small' }} gap="small" direction="row">
                 {avatar ? (
@@ -162,12 +161,15 @@ const Video = ({
             <Text color="text-strong" size="22px">
               {desc}
             </Text>
-            <Text color="text-strong" margin={{ bottom: 'large' }} size="22px">
-              Try it out for yourself. Get some real, hands-on experience by{' '}
-              <span style={{ color: '#FFF', textDecoration: 'underline', cursor: 'pointer' }} color="white" onClick={() => setSignupLayer(true)} to=''>
-                registering for this Workshop-on-Demand.
-              </span>
-            </Text>
+            {capacity !== 0 ?
+              <Text color="text-strong" margin={{ bottom: 'large' }} size="22px">
+                Try it out for yourself. Get some real, hands-on experience by{' '}
+                <span style={{ color: '#FFF', textDecoration: 'underline', cursor: 'pointer' }} color="white" onClick={() => setSignupLayer(true)}>
+                  registering for this Workshop-on-Demand.
+                </span>
+              </Text>
+              : <Box pad={{ bottom: 'medium' }} />
+            }
           </Box>
         </Box>
       </Box>
