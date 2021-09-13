@@ -123,7 +123,7 @@ const Replays = props => {
             notebook={replays[current].workshop && replays[current].workshop.notebook}
             sessionType={replays[current].workshop && replays[current].workshop.sessionType}
             location={replays[current].workshop && replays[current].workshop.location}
-            capcity={replays[current].workshop && replays[current].workshop.capacity}
+            capacity={replays[current].workshop && replays[current].workshop.capacity}
             workshopTitle={replays[current].workshop && replays[current].workshop.name}
             replayId={replayId}
           />
