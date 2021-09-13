@@ -3,7 +3,7 @@ import {
   Heading,
   Text,
   Box,
-  Image, 
+  Image,
   Tab,
   Tabs,
 } from 'grommet';
@@ -13,6 +13,29 @@ import { Layout, ScheduleCard, CardGrid } from '../../components/index';
 import { MainTitle } from './styles';
 
 import AuthService from '../../services/auth.service';
+
+
+const renderScheduleCard = (workshop, i) => (
+  <ScheduleCard
+    avatar={workshop.replay && workshop.replay.avatar}
+    desc={
+      workshop.sessionType === 'Workshops-on-Demand'
+        ? `${workshop.description.slice(0, 520)}`
+        : `${workshop.description.slice(0, 220)}...`
+    }
+    id={workshop.sessionId}
+    key={i}
+    DBid={workshop.id}
+    presenter={workshop.replay && workshop.replay.presenter}
+    role={workshop.replay && workshop.replay.role}
+    sessionLink={workshop.replayLink}
+    sessionType={workshop.sessionType}
+    title={workshop.name}
+    notebook={workshop.notebook}
+    location={workshop.location}
+    replayId={workshop.replayId}
+  />
+);
 
 
 const Workshop = props => {
@@ -25,11 +48,11 @@ const Workshop = props => {
   const [specialBadges, setSpecialBadges] = useState([]);
   const [error, setError] = useState('');
   const arr = [];
-  const popularWorkshopsArr =[];
+  const popularWorkshopsArr = [];
   const [index, setIndex] = useState(0);
   const onActive = (nextIndex) => setIndex(nextIndex);
 
-  const latestWorkshops = workshops.sort((a,b) => {
+  const latestWorkshops = workshops.slice().sort((a, b) => {
     return new Date(b.createdAt) - new Date(a.createdAt);
   }).slice(0, 2);
 
@@ -75,7 +98,7 @@ const Workshop = props => {
           }
         });
     };
-    
+
     const getPopularWorkshops = token => {
       axios({
         method: 'GET',
@@ -101,7 +124,6 @@ const Workshop = props => {
           }
         });
     };
-    
 
     const getSpecialBadges = token => {
       axios({
@@ -131,12 +153,12 @@ const Workshop = props => {
   if (props.match.params.workshopId) {
     workshopId = parseInt(props.match.params.workshopId, 10);
   }
-  
+  console.log('workshops: ', workshops);
   const openGraphImg = props.match.params.workshopId ? specialBadges.length > 0 && specialBadges[workshopId].badgeImg : props.openGraphImg;
-  
+
   return (
     <Layout background="/img/BackgroundImages/schedule-background.png">
-      { specialBadges.length > 0 && (
+      {specialBadges.length > 0 && (
         <Helmet>
           <meta name="fragment" content="!" />
           <meta property="og:title" content={specialBadges[workshopId].title} data-react-helmet="true" />
@@ -168,103 +190,39 @@ const Workshop = props => {
           Workshops-on-Demand
         </Heading>
       </MainTitle>
-      <Tabs activeIndex={index} onActive={onActive} justify="start">
-        <Tab title='All'>
-        <CardGrid>
-          {workshops.map((workshop, i) => (
-            <ScheduleCard
-              avatar={workshop.replay && workshop.replay.avatar}
-              desc={
-                workshop.sessionType === 'Workshops-on-Demand'
-                  ? `${workshop.description.slice(0, 520)}`
-                  : `${workshop.description.slice(0, 220)}...`
-              }
-              id={workshop.sessionId}
-              key={i}
-              DBid={workshop.id}
-              presenter={workshop.replay && workshop.replay.presenter}
-              role={workshop.replay && workshop.replay.role}
-              sessionLink={workshop.replayLink}
-              sessionType={workshop.sessionType}
-              title={workshop.name}
-              notebook={workshop.notebook}
-              location={workshop.location}
-              replayId={workshop.replayId}
-            />
-          ))}
-        </CardGrid>
-        </Tab>
-        <Tab title='Latest'>
-        {latestWorkshops.map((workshop, i) => (
-            <ScheduleCard
-              avatar={workshop.replay && workshop.replay.avatar}
-              desc={
-                workshop.sessionType === 'Workshops-on-Demand'
-                  ? `${workshop.description.slice(0, 520)}`
-                  : `${workshop.description.slice(0, 220)}...`
-              }
-              id={workshop.sessionId}
-              key={i}
-              DBid={workshop.id}
-              presenter={workshop.replay && workshop.replay.presenter}
-              role={workshop.replay && workshop.replay.role}
-              sessionLink={workshop.replayLink}
-              sessionType={workshop.sessionType}
-              title={workshop.name}
-              notebook={workshop.notebook}
-              location={workshop.location}
-              replayId={workshop.replayId}
-            />
-          ))}
-        </Tab>
-        <Tab title='Popular'>
-        {popularWorkshops.map((workshop, i) => (
-            <ScheduleCard
-              avatar={workshop.replay && workshop.replay.avatar}
-              desc={
-                workshop.sessionType === 'Workshops-on-Demand'
-                  ? `${workshop.description.slice(0, 520)}`
-                  : `${workshop.description.slice(0, 220)}...`
-              }
-              id={workshop.sessionId}
-              key={i}
-              DBid={workshop.id}
-              presenter={workshop.replay && workshop.replay.presenter}
-              role={workshop.replay && workshop.replay.role}
-              sessionLink={workshop.replayLink}
-              sessionType={workshop.sessionType}
-              title={workshop.name}
-              notebook={workshop.notebook}
-              location={workshop.location}
-              replayId={workshop.replayId}
-            />
-          ))}
-        </Tab>
-      </Tabs>
-      {/* {workshops.length > 0 ? (
-        <CardGrid>
-          {workshops.map(workshop => (
-            <ScheduleCard
-              avatar={workshop.replay && workshop.replay.avatar}
-              desc={
-                workshop.sessionType === 'Workshops-on-Demand'
-                  ? `${workshop.description.slice(0, 520)}`
-                  : `${workshop.description.slice(0, 220)}...`
-              }
-              id={workshop.sessionId}
-              key={workshop.name}
-              DBid={workshop.id}
-              presenter={workshop.replay && workshop.replay.presenter}
-              role={workshop.replay && workshop.replay.role}
-              sessionLink={workshop.replayLink}
-              sessionType={workshop.sessionType}
-              title={workshop.name}
-              notebook={workshop.notebook}
-              location={workshop.location}
-              replayId={workshop.replayId}
-            />
-          ))}
-        </CardGrid>
+      {workshops.length > 0 ? (
+        <Tabs activeIndex={index} onActive={onActive} justify="start">
+          <Tab title='All'>
+            <CardGrid pad={{ top: 'medium' }}>
+              {workshops.map((workshop, i) => renderScheduleCard(workshop, i))}
+            </CardGrid>
+          </Tab>
+          <Tab title='Latest'>
+            <CardGrid pad={{ top: 'medium' }}>
+              {latestWorkshops.map((workshop, i) => renderScheduleCard(workshop, i))}
+            </CardGrid>
+          </Tab>
+          <Tab title='Popular'>
+            <CardGrid pad={{ top: 'medium' }}>
+              {popularWorkshops.map((workshop, i) => renderScheduleCard(workshop, i))}
+            </CardGrid>
+          </Tab>
+          <Tab title='Open Source'>
+            <CardGrid pad={{ top: 'medium' }}>
+              {workshops.map((workshop, i) => workshop.category === 'open source' && renderScheduleCard(workshop, i))}
+            </CardGrid>
+          </Tab>
+          <Tab title='HPE Ezmeral'>
+            <CardGrid pad={{ top: 'medium' }}>
+              {workshops.map((workshop, i) => workshop.category === 'hpe ezmeral' && renderScheduleCard(workshop, i))}
+            </CardGrid>
+          </Tab>
+          <Tab title='Infrastructure'>
+            <CardGrid pad={{ top: 'medium' }}>
+              {workshops.map((workshop, i) => workshop.category === 'infrastructure' && renderScheduleCard(workshop, i))}
+            </CardGrid>
+          </Tab>
+        </Tabs>
       ) : (
         <Box
           pad="small"
@@ -278,13 +236,13 @@ const Workshop = props => {
               <Text size="large" color="status-critical" alignSelf="center">
                 {error}
               </Text>
-              <Image src="/img/gremlin-rockin.svg"></Image>
+              <Image src="/img/gremlin-rockin.svg" />
             </>
           ) : (
-            <Box height="medium"></Box>
+            <Box height="medium" />
           )}
         </Box>
-      )} */}
+      )}
     </Layout>
   );
 };
