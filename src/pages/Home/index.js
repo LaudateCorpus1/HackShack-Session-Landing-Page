@@ -33,16 +33,16 @@ const Content = () => {
   return (
     <TextWrapper>
       <Text size={fontSize} color="#FFFFFF">
-      Welcome to the Hack Shack, a place to collaborate
+        Welcome to the Hack Shack. We offer many
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-      and expand technology skills. Try our unique  on-demand 
+        ways to collaborate and expand your skills.
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-      workshops or go on a virtual treasure hunt to discover
+        Try our technology Workshops-on-Demand,
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-      a wealth of other resources and perhaps win a prize. 
+        for a unique, hands-on learning experience.
       </Text>
     </TextWrapper>
     // <TextWrapper>
@@ -138,16 +138,21 @@ const Cards = ({ size }) => (
           : { top: 'xlarge', right: 'large' }
       }
     />
-    {/* <Card
-      image="/img/munch-and-learn-3.jpg"
-      title="Introducing HPE DEV Munch & Learn series"
-      desc="Session 6: Microservices architecture 101."
-      link="https://hpe.zoom.us/meeting/register/tJIlf-isqjgjH9bv-oJW2dv_5DMM6i2FV-WA"
+    <Card
+      image="/img/sep_mnl-digital-transformation.jpg"
+      title="HPE Dev Munch & Learn - Digital Transformation Next: Data & Analytics Workloads"
+      desc="Join us to discuss strategic best practices and practical architectural details."
+      link="https://hpe.zoom.us/meeting/register/tJEtde-hrDMpE9MLHnqxZ7gWZCgjWyDMz_gM"
+      date="September 22, 2021"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
-      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    /> */}
-    <Card
+      margin={
+        size === 'small'
+          ? { top: '0px', right: '0px' }
+          : { top: 'xlarge', right: 'large' }
+      }
+    />
+    {/* <Card
       image="/img/Arcade/TreasureMap.png"
       title="WIN IN THE HPE DEV TREASURE HUNT"
       desc="Discover ways to collaborate and where to find resources."
@@ -155,11 +160,12 @@ const Cards = ({ size }) => (
       background="rgba(0, 86, 122, 0.8);"
       label="Hunt for Treasure!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    />
+    /> */}
     {/* <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
-      desc="Want to read more about industry trends for developers? Sign up here."
+      desc="Want to read more about industry 
+        trends for developers? Sign up here."
       link="https://developer.hpe.com/newsletter-signup"
       background="background"
       label="Get the Newsletter"
