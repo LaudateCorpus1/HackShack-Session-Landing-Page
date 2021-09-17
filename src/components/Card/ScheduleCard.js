@@ -14,6 +14,7 @@ import {
   Avatar,
   DropButton,
 } from 'grommet';
+import { ContrastLayer } from './styles';
 import { StatusGood, FormClose, ShareOption } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import { CardWrapper } from './styles';
@@ -350,6 +351,7 @@ const ScheduleCard = ({
   location,
   ezmeral,
   replayId,
+  popular,
 }) => {
   const textSize = size === 'small' ? '16px' : 'medium';
   let backgroundColor;
@@ -431,7 +433,7 @@ const ScheduleCard = ({
     }
   }, [cardRef])
 
-  useEffect(()=> {
+  useEffect(() => {
     window.addEventListener("mousemove", checkHover, true);
 
     return () => {
@@ -517,7 +519,7 @@ const ScheduleCard = ({
                   direction="column"
                   height={`${cardTopSectionHeight}px`}
                 >
-                  {/* <ContrastLayer
+                  {popular && <ContrastLayer
                     background="background-contrast"
                     width="fit-content"
                     pad="xxsmall"
@@ -528,9 +530,10 @@ const ScheduleCard = ({
                       size="small"
                       margin={{ vertical: "3px", horizontal: "12px" }}
                     >
-                      Most Popular
+                      Popular
                     </Text>
-                  </ContrastLayer> */}
+                  </ContrastLayer>
+                  }
                   <Heading
                     level={4}
                     margin={{ bottom: 'small' }}
@@ -581,7 +584,7 @@ const ScheduleCard = ({
                         <Box pad="xsmall">
                           <Text color="text-strong" size={textSize} >
                             {' '}
-                        Register {workshop.workshopID}
+                            Register {workshop.workshopID}
                           </Text>
                         </Box>
                       }
@@ -667,7 +670,7 @@ const ScheduleCard = ({
                   size !== 'small' && <Box pad="xsmall">
                     <Text color="text-strong">
                       Share
-                </Text>
+                    </Text>
                   </Box>
                 }
               />

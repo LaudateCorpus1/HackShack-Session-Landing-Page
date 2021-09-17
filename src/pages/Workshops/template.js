@@ -34,6 +34,7 @@ const renderScheduleCard = (workshop, i) => (
     notebook={workshop.notebook}
     location={workshop.location}
     replayId={workshop.replayId}
+    popular={workshop.popular}
   />
 );
 
@@ -41,27 +42,23 @@ const renderScheduleCard = (workshop, i) => (
 const Workshop = props => {
   const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   const getWorkshopsApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
-  const getPopularWorkshopsApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/popularWorkshops`;
   const getSpecialBadgesApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`;
   const [workshops, setworkshops] = useState([]);
-  const [popularWorkshops, setPopularWorkshops] = useState([]);
   const [specialBadges, setSpecialBadges] = useState([]);
   const [error, setError] = useState('');
   const arr = [];
-  const popularWorkshopsArr = [];
   const [index, setIndex] = useState(0);
   const onActive = (nextIndex) => setIndex(nextIndex);
 
   const latestWorkshops = workshops.slice().sort((a, b) => {
-    return new Date(b.createdAt) - new Date(a.createdAt);
-  }).slice(0, 2);
+    return new Date(b.updatedAt) - new Date(a.updatedAt);
+  }).slice(0, 10);
 
   useEffect(() => {
     const getToken = () => {
       AuthService.login().then(
         () => {
           getWorkshops(AuthService.getCurrentUser().accessToken);
-          getPopularWorkshops(AuthService.getCurrentUser().accessToken);
           getSpecialBadges(AuthService.getCurrentUser().accessToken);
         },
         err => {
@@ -86,32 +83,6 @@ const Workshop = props => {
               arr.push({ ...workshop });
           });
           setworkshops(arr);
-        })
-        .catch(err => {
-          if (err.response.status === 401) {
-            AuthService.login().then(() => getToken());
-          } else {
-            console.log('catch error', err);
-            setError(
-              'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
-            );
-          }
-        });
-    };
-
-    const getPopularWorkshops = token => {
-      axios({
-        method: 'GET',
-        url: getPopularWorkshopsApi,
-        headers: { 'x-access-token': token },
-      })
-        .then(response => {
-          // Map created
-          response.data.forEach(workshop => {
-            if (workshop.sessionType === 'Workshops-on-Demand')
-              popularWorkshopsArr.push({ ...workshop });
-          });
-          setPopularWorkshops(popularWorkshopsArr);
         })
         .catch(err => {
           if (err.response.status === 401) {
@@ -153,7 +124,7 @@ const Workshop = props => {
   if (props.match.params.workshopId) {
     workshopId = parseInt(props.match.params.workshopId, 10);
   }
-  console.log('workshops: ', workshops);
+
   const openGraphImg = props.match.params.workshopId ? specialBadges.length > 0 && specialBadges[workshopId].badgeImg : props.openGraphImg;
 
   return (
@@ -204,7 +175,7 @@ const Workshop = props => {
           </Tab>
           <Tab title='Popular'>
             <CardGrid pad={{ top: 'medium' }}>
-              {popularWorkshops.map((workshop, i) => renderScheduleCard(workshop, i))}
+              {workshops.map((workshop, i) => workshop.popular && renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
           <Tab title='Open Source'>
