@@ -38,7 +38,6 @@ const renderScheduleCard = (workshop, i) => (
   />
 );
 
-
 const Workshop = props => {
   const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   const getWorkshopsApi = `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
@@ -126,7 +125,6 @@ const Workshop = props => {
   }
 
   const openGraphImg = props.match.params.workshopId ? specialBadges.length > 0 && specialBadges[workshopId].badgeImg : props.openGraphImg;
-
   return (
     <Layout background="/img/BackgroundImages/schedule-background.png">
       {specialBadges.length > 0 && (
@@ -180,17 +178,17 @@ const Workshop = props => {
           </Tab>
           <Tab title='Open Source'>
             <CardGrid pad={{ top: 'medium' }}>
-              {workshops.map((workshop, i) => workshop.category === 'open source' && renderScheduleCard(workshop, i))}
+              {workshops.map((workshop, i) => workshop.category && workshop.category.includes('open source') && renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
           <Tab title='HPE Ezmeral'>
             <CardGrid pad={{ top: 'medium' }}>
-              {workshops.map((workshop, i) => workshop.category === 'hpe ezmeral' && renderScheduleCard(workshop, i))}
+              {workshops.map((workshop, i) => workshop.category && workshop.category.includes('hpe ezmeral') && renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
           <Tab title='Infrastructure'>
             <CardGrid pad={{ top: 'medium' }}>
-              {workshops.map((workshop, i) => workshop.category === 'infrastructure' && renderScheduleCard(workshop, i))}
+              {workshops.map((workshop, i) => workshop.category && workshop.category.includes('infrastructure') && renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
         </Tabs>
