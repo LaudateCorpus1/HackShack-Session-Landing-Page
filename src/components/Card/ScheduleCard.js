@@ -73,7 +73,11 @@ export const SignupLayer = ({
         })
           .then(response => {
             if (response.status === 202) {
-              setError(response.data);
+              setError({
+                status: response.status,
+                customerId: response.data.id,
+                message: response.data.message,
+              });
             } else {
               setLayer(false);
               setSuccess(true);
@@ -84,12 +88,35 @@ export const SignupLayer = ({
               AuthService.login().then(() => postCustomer());
             } else {
               console.log(err);
-              setError('There was an error submitting your request');
+              setError({
+                status: err.response.status,
+                message: err.response.data.message,
+              });
             }
           });
       };
       postCustomer();
     }
+  };
+
+  const resetRegister = (customerId) => {
+
+    const resetCustomer = () => {
+      axios({
+        method: 'PUT',
+        url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer/unregister/${customerId}`,
+        headers: {
+          'x-access-token': AuthService.getCurrentUser().accessToken,
+        },
+      })
+        .then(() => {
+          onSubmit();
+        })
+        .catch(err => {
+          console.log('err: ', err);
+        });
+    };
+    resetCustomer();
   };
 
   return (
@@ -98,15 +125,15 @@ export const SignupLayer = ({
       full={size === 'large' ? true : 'vertical'}
       style={{ borderRadius: '4px 0px 0px 4px' }}
       background={
-        size === "large" ?
+        size === 'large' ?
           {
-            image: "url(/img/gremlin-signup.png)",
-            size: "cover",
-            position: "center",
-            repeat: "no-repeat",
-            opacity: "0.99",
+            image: 'url(/img/gremlin-signup.png)',
+            size: 'cover',
+            position: 'center',
+            repeat: 'no-repeat',
+            opacity: '0.99',
           } : {
-            color: "#333333",
+            color: '#333333',
           }
       }
     >
@@ -228,14 +255,35 @@ export const SignupLayer = ({
               primary
             />
           </Box>
-          {error && (
+          {error.status === 202 ? (
+            <Box>
+              <Box
+                pad="small"
+                justify="center"
+                margin={{ top: 'medium' }}
+                background="status-critical"
+              >
+                <Text alignSelf="center">{error.message}</Text>
+              </Box>
+              <Button
+                alignSelf="start"
+                label={
+                  sessionType === 'Coding Challenge'
+                    ? 'Start new Challenge'
+                    : 'Start new Workshop'
+                }
+                onClick={() => resetRegister(error.customerId)}
+                primary
+              />
+            </Box>
+          ) : error.status && (
             <Box
               pad="small"
               justify="center"
               margin={{ top: 'medium' }}
               background="status-critical"
             >
-              <Text alignSelf="center">{error}</Text>
+              <Text alignSelf="center">{error.message}</Text>
             </Box>
           )}
         </Form>
@@ -260,15 +308,15 @@ export const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }
     full={size === 'large' ? true : 'vertical'}
     style={{ borderRadius: '4px 0px 0px 4px' }}
     background={
-      size === "large" ?
+      size === 'large' ?
         {
-          image: "url(/img/gremlin-signup.png)",
-          size: "cover",
-          position: "center",
-          repeat: "no-repeat",
-          opacity: "0.99",
+          image: 'url(/img/gremlin-signup.png)',
+          size: 'cover',
+          position: 'center',
+          repeat: 'no-repeat',
+          opacity: '0.99',
         } : {
-          color: "#333333",
+          color: '#333333',
         }
     }
   >
@@ -431,8 +479,8 @@ const ScheduleCard = ({
     }
   }, [cardRef])
 
-  useEffect(()=> {
-    window.addEventListener("mousemove", checkHover, true);
+  useEffect(() => {
+    window.addEventListener('mousemove', checkHover, true);
 
     return () => {
       window.removeEventListener('mousemove', checkHover, true);
@@ -448,7 +496,7 @@ const ScheduleCard = ({
       }
 
       if (hover && !mouseOver) {
-        setHover(false)
+        setHover(false);
       }
     }
   };
@@ -581,7 +629,7 @@ const ScheduleCard = ({
                         <Box pad="xsmall">
                           <Text color="text-strong" size={textSize} >
                             {' '}
-                        Register {workshop.workshopID}
+                            Register {workshop.workshopID}
                           </Text>
                         </Box>
                       }
@@ -667,7 +715,7 @@ const ScheduleCard = ({
                   size !== 'small' && <Box pad="xsmall">
                     <Text color="text-strong">
                       Share
-                </Text>
+                    </Text>
                   </Box>
                 }
               />
