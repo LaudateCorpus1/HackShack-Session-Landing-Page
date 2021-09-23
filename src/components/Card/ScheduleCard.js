@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import {
   Heading,
@@ -13,6 +13,7 @@ import {
   TextInput,
   Avatar,
   DropButton,
+  ResponsiveContext,
 } from 'grommet';
 import { ContrastLayer } from './styles';
 import { StatusGood, FormClose, ShareOption } from 'grommet-icons';
@@ -92,22 +93,22 @@ export const SignupLayer = ({
       postCustomer();
     }
   };
-
+console.log('size: ', size);
   return (
     <Layer
       position="right"
       full={size === 'large' ? true : 'vertical'}
       style={{ borderRadius: '4px 0px 0px 4px' }}
       background={
-        size === "large" ?
+        size === 'large' ?
           {
-            image: "url(/img/gremlin-signup.png)",
-            size: "cover",
-            position: "center",
-            repeat: "no-repeat",
-            opacity: "0.99",
+            image: 'url(/img/gremlin-signup.png)',
+            size: 'cover',
+            position: 'center',
+            repeat: 'no-repeat',
+            opacity: '0.99',
           } : {
-            color: "#333333",
+            color: '#333333',
           }
       }
     >
@@ -345,7 +346,6 @@ const ScheduleCard = ({
   role,
   sessionLink,
   sessionType,
-  size,
   title,
   workshopList,
   location,
@@ -353,6 +353,7 @@ const ScheduleCard = ({
   replayId,
   popular,
 }) => {
+  const size = useContext(ResponsiveContext);
   const textSize = size === 'small' ? '16px' : 'medium';
   let backgroundColor;
   let uri = '';
