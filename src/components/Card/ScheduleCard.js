@@ -93,7 +93,7 @@ export const SignupLayer = ({
       postCustomer();
     }
   };
-console.log('size: ', size);
+
   return (
     <Layer
       position="right"
