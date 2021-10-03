@@ -162,32 +162,32 @@ const Workshop = props => {
       {workshops.length > 0 ? (
         <Tabs activeIndex={index} onActive={onActive} justify="start">
           <Tab title='All'>
-            <CardGrid pad={{ top: 'medium' }}>
+            <CardGrid pad={{ top: 'medium' }} key='all'>
               {workshops.map((workshop, i) => renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
           <Tab title='Latest'>
-            <CardGrid pad={{ top: 'medium' }}>
+            <CardGrid pad={{ top: 'medium' }} key='ltst'>
               {latestWorkshops.map((workshop, i) => renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
           <Tab title='Popular'>
-            <CardGrid pad={{ top: 'medium' }}>
+            <CardGrid pad={{ top: 'medium' }} key='pop'>
               {workshops.map((workshop, i) => workshop.popular && renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
           <Tab title='Open Source'>
-            <CardGrid pad={{ top: 'medium' }}>
+            <CardGrid pad={{ top: 'medium' }} key='os'>
               {workshops.map((workshop, i) => workshop.category && workshop.category.includes('open source') && renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
           <Tab title='HPE Ezmeral'>
-            <CardGrid pad={{ top: 'medium' }}>
+            <CardGrid pad={{ top: 'medium' }} key='hpee'> 
               {workshops.map((workshop, i) => workshop.category && workshop.category.includes('hpe ezmeral') && renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
           <Tab title='Infrastructure'>
-            <CardGrid pad={{ top: 'medium' }}>
+            <CardGrid pad={{ top: 'medium' }} key='ifa'>
               {workshops.map((workshop, i) => workshop.category && workshop.category.includes('infrastructure') && renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
