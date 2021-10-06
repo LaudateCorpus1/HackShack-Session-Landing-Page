@@ -156,7 +156,7 @@ const Cards = ({ size }) => (
       image="/img/Arcade/TreasureMap.png"
       title="WIN IN THE HPE DEV TREASURE HUNT"
       desc="Discover ways to collaborate and where to find resources."
-      link="https://forms.office.com/pages/responsepage.aspx?id=YSBbEGm2MUuSrCTTBNGV3ByhkES30UNBrMnmA-EAWZRUQ1ZRWkhDNjdVVzhTNkJSVjIwSjFVNEJJUC4u"
+      link="https://bit.ly/kubecon-na-2021-hpedev-treasure-hunt"
       background="rgba(0, 86, 122, 0.8);"
       label="Hunt for Treasure!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
