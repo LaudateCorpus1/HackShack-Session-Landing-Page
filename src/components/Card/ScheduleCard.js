@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import {
   Heading,
@@ -13,7 +13,9 @@ import {
   TextInput,
   Avatar,
   DropButton,
+  ResponsiveContext,
 } from 'grommet';
+import { ContrastLayer } from './styles';
 import { StatusGood, FormClose, ShareOption } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import { CardWrapper } from './styles';
@@ -98,15 +100,15 @@ export const SignupLayer = ({
       full={size === 'large' ? true : 'vertical'}
       style={{ borderRadius: '4px 0px 0px 4px' }}
       background={
-        size === "large" ?
+        size === 'large' ?
           {
-            image: "url(/img/gremlin-signup.png)",
-            size: "cover",
-            position: "center",
-            repeat: "no-repeat",
-            opacity: "0.99",
+            image: 'url(/img/gremlin-signup.png)',
+            size: 'cover',
+            position: 'center',
+            repeat: 'no-repeat',
+            opacity: '0.99',
           } : {
-            color: "#333333",
+            color: '#333333',
           }
       }
     >
@@ -344,13 +346,14 @@ const ScheduleCard = ({
   role,
   sessionLink,
   sessionType,
-  size,
   title,
   workshopList,
   location,
   ezmeral,
   replayId,
+  popular,
 }) => {
+  const size = useContext(ResponsiveContext);
   const textSize = size === 'small' ? '16px' : 'medium';
   let backgroundColor;
   let uri = '';
@@ -431,7 +434,7 @@ const ScheduleCard = ({
     }
   }, [cardRef])
 
-  useEffect(()=> {
+  useEffect(() => {
     window.addEventListener("mousemove", checkHover, true);
 
     return () => {
@@ -517,7 +520,7 @@ const ScheduleCard = ({
                   direction="column"
                   height={`${cardTopSectionHeight}px`}
                 >
-                  {/* <ContrastLayer
+                  {popular && <ContrastLayer
                     background="background-contrast"
                     width="fit-content"
                     pad="xxsmall"
@@ -528,9 +531,10 @@ const ScheduleCard = ({
                       size="small"
                       margin={{ vertical: "3px", horizontal: "12px" }}
                     >
-                      Most Popular
+                      Popular
                     </Text>
-                  </ContrastLayer> */}
+                  </ContrastLayer>
+                  }
                   <Heading
                     level={4}
                     margin={{ bottom: 'small' }}
@@ -581,7 +585,7 @@ const ScheduleCard = ({
                         <Box pad="xsmall">
                           <Text color="text-strong" size={textSize} >
                             {' '}
-                        Register {workshop.workshopID}
+                            Register {workshop.workshopID}
                           </Text>
                         </Box>
                       }
@@ -667,7 +671,7 @@ const ScheduleCard = ({
                   size !== 'small' && <Box pad="xsmall">
                     <Text color="text-strong">
                       Share
-                </Text>
+                    </Text>
                   </Box>
                 }
               />
