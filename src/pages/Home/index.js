@@ -33,16 +33,16 @@ const Content = () => {
   return (
     <TextWrapper>
       <Text size={fontSize} color="#FFFFFF">
-        Welcome to the Hack Shack. We offer many
+        Welcome to the Hack Shack, a place to collaborate
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        ways to collaborate and expand your skills.
+        and expand technology skills. Try our unique on-demand
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        Try our technology Workshops-on-Demand,
+        workshops or go on a virtual treasure hunt to discover
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        for a unique, hands-on learning experience.
+        a wealth of other resources and perhaps win a prize. 
       </Text>
     </TextWrapper>
     // <TextWrapper>
@@ -138,7 +138,7 @@ const Cards = ({ size }) => (
           : { top: 'xlarge', right: 'large' }
       }
     />
-    <Card
+    {/* <Card
       image="/img/sep_mnl-digital-transformation.jpg"
       title="HPE Dev Munch & Learn - Digital Transformation Next: Data & Analytics Workloads"
       desc="Join us to discuss strategic best practices and practical architectural details."
@@ -151,16 +151,16 @@ const Cards = ({ size }) => (
           ? { top: '0px', right: '0px' }
           : { top: 'xlarge', right: 'large' }
       }
-    />
-    {/* <Card
+    /> */}
+    <Card
       image="/img/Arcade/TreasureMap.png"
       title="WIN IN THE HPE DEV TREASURE HUNT"
       desc="Discover ways to collaborate and where to find resources."
-      link="http://bit.ly/hpe-discover-treasure-hunt"
+      link="https://bit.ly/kubecon-na-2021-hpedev-treasure-hunt"
       background="rgba(0, 86, 122, 0.8);"
       label="Hunt for Treasure!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    /> */}
+    />
     {/* <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
