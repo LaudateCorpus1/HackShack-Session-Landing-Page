@@ -21,7 +21,7 @@ const TreasureHuntTC = () => {
             level="1"
             margin={{ bottom: 'none', top: 'none' }}
           >
-            HPE Virtual Treasure Hunt
+            HPE Virtual Treasure Hunt – KubeCon North America 2021
           </Heading>
           <Text color="text-strong" margin={{ bottom: 'large' }}>
             TERMS AND CONDITIONS
@@ -34,47 +34,46 @@ const TreasureHuntTC = () => {
         </Text>
         <br />
         <Text size="xlarge">
-          2. <strong>INTRODUCTION:</strong> HPE invites HPE Discover 2021
-          attendees to participate in the HPE DEV Virtual Treasure Hunt Giveaway
-          (“Program”) for a chance to win an HPE DEV cap (“Prize”), subject to
-          the terms and conditions below (“Terms and Conditions”). By
-          participating in the Program, participants affirm that they have read,
-          accepted, and agree to waive any right to claim any ambiguity or error
-          in these Terms and Conditions or the entry itself and agree to be
-          bound by these Terms and Conditions and HPE’s decisions, which are
-          final and binding in all respects. HPE reserves the right to review,
-          modify, extend or discontinue any and/or all aspects of the Program,
-          including these Terms and Conditions, at any time without prior
-          notice. The Program is subject to federal, state, and local laws and
-          regulations and is void where prohibited.
+          2. <strong>INTRODUCTION:</strong> HPE invites KubeCon North America
+          2021 (“Event”) attendees to participate in the HPE DEV Virtual
+          Treasure Hunt Giveaway (“Program”) for a chance to win an HPE DEV cap
+          (“Prize”), subject to the terms and conditions below (“Terms and
+          Conditions”). By participating in the Program, participants affirm
+          that they have read, accepted, and agree to waive any right to claim
+          any ambiguity or error in these Terms and Conditions or the entry
+          itself and agree to be bound by these Terms and Conditions and HPE’s
+          decisions, which are final and binding in all respects. HPE reserves
+          the right to review, modify, extend or discontinue any and/or all
+          aspects of the Program, including these Terms and Conditions, at any
+          time without prior notice. The Program is subject to federal, state,
+          and local laws and regulations and is void where prohibited.
         </Text>
         <br />
         <Text size="xlarge">
-          3. <strong>PROGRAM PERIOD:</strong> The Program begins on June 22,
+          3. <strong>PROGRAM PERIOD:</strong> The Program begins on October 11,
           2021 at 12:00 AM Pacific Time and ends at 11:59 PM Pacific Time on
-          June 25, 2021, or when the Program budget has been reached, whichever
-          is earlier (the “Program Period”). Entries submitted before or after
-          the Program Period will not be eligible. HPE’s computer is the
-          official time-keeping device for the Program.
+          October 17, 2021, or when the Program budget has been reached,
+          whichever is earlier (the “Program Period”). Entries submitted before
+          or after the Program Period will not be eligible. HPE’s computer is
+          the official time-keeping device for the Program.
         </Text>
         <br />
         <Text size="xlarge">
           4. <strong>ELIGIBILITY:</strong> NO HPE PRODUCT OR SERVICE PURCHASE
           NECESSARY. A PURCHASE WILL NOT IMPROVE YOUR CHANCES OF WINNING. The
           Program is open only to participants eighteen (18) years of age and
-          older who are attendees of HPE Discover 2021. Winners of any previous
-          HPE DEV Virtual Treasure Hunt Giveaway are not eligible for a Prize
-          for this Program. Void in Puerto Rico, U.S. territories and
-          possessions, and where prohibited by law. Employees, contractors, and
-          contingent workers of HPE, its subsidiaries, affiliates, their
-          immediate family and household members are not eligible. Employees of
-          the following entities are ineligible for this promotion:
-          National/federal, state, and local government entities, public higher
-          education institutions, and private or public K-12 educational
-          institutions and libraries and their board members, employees,
-          officers, representatives, agents, consultants and independent
-          contractors. HPE shall determine Program eligibility in its sole and
-          absolute discretion.
+          older who are attendees of the Event. Winners of any previous HPE DEV
+          Virtual Treasure Hunt Giveaway are not eligible for a Prize for this
+          Program. Void in Puerto Rico, U.S. territories and possessions, and
+          where prohibited by law. Employees, contractors, and contingent
+          workers of HPE, its subsidiaries, affiliates, their immediate family
+          and household members are not eligible. Employees of the following
+          entities are ineligible for this promotion: National/federal, state,
+          and local government entities, public higher education institutions,
+          and private or public K-12 educational institutions and libraries and
+          their board members, employees, officers, representatives, agents,
+          consultants and independent contractors. HPE shall determine Program
+          eligibility in its sole and absolute discretion.
         </Text>
         <br />
         <Text size="xlarge">
@@ -96,12 +95,12 @@ const TreasureHuntTC = () => {
           6. <strong>PRIZE:</strong> Interested parties who merely complete the
           Virtual Treasure Hunt form or submit an entry are not guaranteed a
           Prize. The total estimated retail value of each Prize is USD $15.00.
-          HPE will give away a total of fifty (50) Prizes, with a total
-          estimated retail value of USD $750.00. No later than fourteen (14)
-          business days after the end of the Program Period, fifty (50)
+          HPE will give away a total of fifteen (15) Prizes, with a total
+          estimated retail value of USD $225.00. No later than fourteen (14)
+          business days after the end of the Program Period, fifteen (15)
           potential winners will be selected from all eligible entries received
           during the Program Period. A panel of two (2) HPE judges will select
-          the fifty (50) winners who they determine have submitted the best
+          the fifteen (15) winners who they determine have submitted the best
           Virtual Treasure Hunt entries based on the following criteria:
           Completeness, accuracy of responses and date/time of the submission.
           Winners of any previous HPE DEV Virtual Treasure Hunt Giveaway are not
@@ -129,7 +128,8 @@ const TreasureHuntTC = () => {
           certified in your country. Due to abuse, we cannot provide Prizes to
           individuals who submitted their entry with Yahoo, Gmail, Hotmail, and
           other email domains not registered to your company. Please speak
-          directly to your HPE representative if you have any questions. All
+          directly to your HPE representative if you have any questions. KubeCon
+          is not affiliated with HPE and is not a sponsor of this Program. All
           third party trademarks are the property of their respective owners.
         </Text>
         <br />
