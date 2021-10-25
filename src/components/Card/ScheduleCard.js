@@ -23,6 +23,58 @@ import Share from '../Share';
 
 const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 
+export const UnregisterLayer = ({ formData, setFormData, customerId }) => {
+  const resetRegister = () => {
+    console.log('customer: ', customerId);
+    console.log('formData: ', formData);
+    // const resetCustomer = () => {
+    //   axios({
+    //     method: 'PUT',
+    //     url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer/unregister/${customerId}`,
+    //     headers: {
+    //       'x-access-token': AuthService.getCurrentUser().accessToken,
+    //     },
+    //   })
+    //     .then(data => {
+    //       if (data) {
+    //         setUnregisterStatus(true);
+    //       }
+    //     })
+    //     .catch(err => {
+    //       console.log('err: ', err);
+    //       setUnregisterStatus(false);
+    //     });
+    // };
+    // resetCustomer();
+  };
+
+  return (
+    <Layer
+      id="hello world"
+      position="center"
+      // onClickOutside={onClose}
+      // onEsc={onClose}
+    >
+      <Box>
+        <Form
+          validate="blur"
+          value={formData}
+          onChange={setFormData}
+          onSubmit={({ value }) => resetRegister({ value })}
+        >
+          <FormField label="User Name" name="username" required>
+            <TextInput name="username" />
+          </FormField>
+          <FormField label="Password" name="password" required>
+            <TextInput name="password" />
+          </FormField>
+          <Button alignSelf="start" label="Unregister" type="submit" primary />
+        </Form>
+      </Box>
+    </Layer>
+  );
+};
+
 export const SignupLayer = ({
   reset,
   setLayer,
@@ -35,7 +87,19 @@ export const SignupLayer = ({
 }) => {
   const [error, setError] = useState('');
   const [emailError, setEmailError] = useState('');
-
+  const [unregisterStatus, setUnregisterStatus] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [unregisterFormData, setUnregisterFormData] = useState({
+    username: '',
+    password: '',
+    // company: '',
+    // title: title,
+    // notebook,
+    // sessionType: sessionType,
+    // location: location,
+    // termsAndConditions: false,
+    // proxy: 'hackshack',
+  });
   const emailValidation = email => {
     if (email) {
       const emailtemp = email;
@@ -78,6 +142,7 @@ export const SignupLayer = ({
                 customerId: response.data.id,
                 message: response.data.message,
               });
+              setOpen(true);
             } else {
               setLayer(false);
               setSuccess(true);
@@ -98,43 +163,24 @@ export const SignupLayer = ({
       postCustomer();
     }
   };
-
-  const resetRegister = (customerId) => {
-
-    const resetCustomer = () => {
-      axios({
-        method: 'PUT',
-        url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer/unregister/${customerId}`,
-        headers: {
-          'x-access-token': AuthService.getCurrentUser().accessToken,
-        },
-      })
-        .then(() => {
-          onSubmit();
-        })
-        .catch(err => {
-          console.log('err: ', err);
-        });
-    };
-    resetCustomer();
-  };
-
+console.log('error.customerId: ', error.customerId);
   return (
     <Layer
       position="right"
       full={size === 'large' ? true : 'vertical'}
       style={{ borderRadius: '4px 0px 0px 4px' }}
       background={
-        size === 'large' ?
-          {
-            image: 'url(/img/gremlin-signup.png)',
-            size: 'cover',
-            position: 'center',
-            repeat: 'no-repeat',
-            opacity: '0.99',
-          } : {
-            color: '#333333',
-          }
+        size === 'large'
+          ? {
+              image: 'url(/img/gremlin-signup.png)',
+              size: 'cover',
+              position: 'center',
+              repeat: 'no-repeat',
+              opacity: '0.99',
+            }
+          : {
+              color: '#333333',
+            }
       }
     >
       <Button
@@ -255,6 +301,19 @@ export const SignupLayer = ({
               primary
             />
           </Box>
+          {open && (
+            <UnregisterLayer
+              formData={unregisterFormData}
+              // reset={resetFormData}
+              setFormData={setUnregisterFormData}
+              // setLayer={setSignupLayer}
+              // setSuccess={setSuccessLayer}
+              // title={title}
+              // size={size}
+              // sessionType={sessionType}
+              customerId={error.customerId}
+            />
+          )}
           {error.status === 202 ? (
             <Box>
               <Box
@@ -272,19 +331,21 @@ export const SignupLayer = ({
                     ? 'Start new Challenge'
                     : 'Start new Workshop'
                 }
-                onClick={() => resetRegister(error.customerId)}
+                // onClick={() => resetRegister(error.customerId)}
                 primary
               />
             </Box>
-          ) : error.status && (
-            <Box
-              pad="small"
-              justify="center"
-              margin={{ top: 'medium' }}
-              background="status-critical"
-            >
-              <Text alignSelf="center">{error.message}</Text>
-            </Box>
+          ) : (
+            error.status && (
+              <Box
+                pad="small"
+                justify="center"
+                margin={{ top: 'medium' }}
+                background="status-critical"
+              >
+                <Text alignSelf="center">{error.message}</Text>
+              </Box>
+            )
           )}
         </Form>
       </Box>
@@ -302,22 +363,30 @@ SignupLayer.propTypes = {
   title: PropTypes.string,
 };
 
-export const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }) => (
+export const SuccessLayer = ({
+  name,
+  setLayer,
+  size,
+  title,
+  reset,
+  sessionType,
+}) => (
   <Layer
     position="right"
     full={size === 'large' ? true : 'vertical'}
     style={{ borderRadius: '4px 0px 0px 4px' }}
     background={
-      size === 'large' ?
-        {
-          image: 'url(/img/gremlin-signup.png)',
-          size: 'cover',
-          position: 'center',
-          repeat: 'no-repeat',
-          opacity: '0.99',
-        } : {
-          color: '#333333',
-        }
+      size === 'large'
+        ? {
+            image: 'url(/img/gremlin-signup.png)',
+            size: 'cover',
+            position: 'center',
+            repeat: 'no-repeat',
+            opacity: '0.99',
+          }
+        : {
+            color: '#333333',
+          }
     }
   >
     <Button
@@ -477,7 +546,7 @@ const ScheduleCard = ({
       const refHeight = cardRef.current.offsetHeight;
       setcardTopSectionHeight(refHeight);
     }
-  }, [cardRef])
+  }, [cardRef]);
 
   useEffect(() => {
     window.addEventListener('mousemove', checkHover, true);
@@ -485,7 +554,7 @@ const ScheduleCard = ({
     return () => {
       window.removeEventListener('mousemove', checkHover, true);
     };
-  })
+  });
 
   const checkHover = e => {
     if (cardRef.current) {
@@ -503,8 +572,8 @@ const ScheduleCard = ({
 
   return (
     <>
-      {ezmeral ?
-        (<CardWrapper
+      {ezmeral ? (
+        <CardWrapper
           pad="large"
           justify="between"
           background={backgroundColor}
@@ -542,16 +611,20 @@ const ScheduleCard = ({
               />
             </Box>
           </Box>
-        </CardWrapper>)
-        : (<CardWrapper
+        </CardWrapper>
+      ) : (
+        <CardWrapper
           justify="between"
           background={backgroundColor}
           round="xsmall"
           overflow="hidden"
         >
           <Box
-            pad={{ top: size !== 'large' ? 'large' : 'medium', horizontal: "large" }}
-            background={hover ? '#FFFFFF' : "#00000080"}
+            pad={{
+              top: size !== 'large' ? 'large' : 'medium',
+              horizontal: 'large',
+            }}
+            background={hover ? '#FFFFFF' : '#00000080'}
             onMouseEnter={() => setHover(true)}
             onFocus={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
@@ -561,10 +634,7 @@ const ScheduleCard = ({
           >
             <Box direction="column">
               {!hover ? (
-                <Box
-                  direction="column"
-                  height={`${cardTopSectionHeight}px`}
-                >
+                <Box direction="column" height={`${cardTopSectionHeight}px`}>
                   {/* <ContrastLayer
                     background="background-contrast"
                     width="fit-content"
@@ -579,20 +649,17 @@ const ScheduleCard = ({
                       Most Popular
                     </Text>
                   </ContrastLayer> */}
-                  <Heading
-                    level={4}
-                    margin={{ bottom: 'small' }}
-                  >
+                  <Heading level={4} margin={{ bottom: 'small' }}>
                     {title}
                   </Heading>
                   {(avatar || presenter || role) && (
-                    <Box gap="small" direction="row" >
+                    <Box gap="small" direction="row">
                       {avatar ? (
                         <Avatar src={avatar} />
                       ) : (
                         <Avatar src="/img/SpeakerImages/defaultAvatar.svg" />
                       )}
-                      <Box justify="center" >
+                      <Box justify="center">
                         <Text>{presenter}</Text>
                         <Text>{role}</Text>
                       </Box>
@@ -601,8 +668,10 @@ const ScheduleCard = ({
                 </Box>
               ) : (
                 <Box height={`${cardTopSectionHeight}px`}>
-                  <Box overflow={{ horizontal: 'hidden', vertical: 'scroll' }}  >
-                    <Heading level={5} margin={{ top: 'xsmall' }}>{title}</Heading>
+                  <Box overflow={{ horizontal: 'hidden', vertical: 'scroll' }}>
+                    <Heading level={5} margin={{ top: 'xsmall' }}>
+                      {title}
+                    </Heading>
                     <Text
                       margin={{ bottom: 'large' }}
                       size={size === 'small' ? 'small' : 'medium'}
@@ -614,8 +683,10 @@ const ScheduleCard = ({
               )}
             </Box>
           </Box>
-          <Box margin={{ top: "medium", bottom: "medium", horizontal: "large" }}>
-            <Box direction="row" gap={size === "small" ? "xsmall" : "medium"}>
+          <Box
+            margin={{ top: 'medium', bottom: 'medium', horizontal: 'large' }}
+          >
+            <Box direction="row" gap={size === 'small' ? 'xsmall' : 'medium'}>
               {workshopList &&
                 workshopList.map(workshop => (
                   <Box key={workshop.workshopLink}>
@@ -627,7 +698,7 @@ const ScheduleCard = ({
                       alignSelf="start"
                       label={
                         <Box pad="xsmall">
-                          <Text color="text-strong" size={textSize} >
+                          <Text color="text-strong" size={textSize}>
                             {' '}
                             Register {workshop.workshopID}
                           </Text>
@@ -639,33 +710,35 @@ const ScheduleCard = ({
                 ))}
               {(sessionType === 'Coding Challenge' ||
                 sessionType === 'Workshops-on-Demand') && (
-                  <Box>
-                    <Button
-                      onClick={() => setSignupLayer(true)}
-                      disabled={disabled}
-                      alignSelf="start"
-                      label={
-                        <Box pad="xsmall">
-                          <Text color="text-strong" size={textSize} >
-                            {disabled
-                              ? 'Currently full, please try again later'
-                              : sessionType === 'Coding Challenge'
-                                ? 'Challenge me'
-                                : 'Register'}
-                          </Text>
-                        </Box>
-                      }
-                      secondary
-                    />
-                  </Box>
-                )}
+                <Box>
+                  <Button
+                    onClick={() => setSignupLayer(true)}
+                    disabled={disabled}
+                    alignSelf="start"
+                    label={
+                      <Box pad="xsmall">
+                        <Text color="text-strong" size={textSize}>
+                          {disabled
+                            ? 'Currently full, please try again later'
+                            : sessionType === 'Coding Challenge'
+                            ? 'Challenge me'
+                            : 'Register'}
+                        </Text>
+                      </Box>
+                    }
+                    secondary
+                  />
+                </Box>
+              )}
               {sessionType === 'Coding Challenge' ||
-                sessionType === 'Workshops-on-Demand' ? (
+              sessionType === 'Workshops-on-Demand' ? (
                 <Link to={{ pathname: sessionLink }}>
                   <Button
                     label={
                       <Box pad="xsmall">
-                        <Text color="text-strong" size={textSize} >Learn more</Text>
+                        <Text color="text-strong" size={textSize}>
+                          Learn more
+                        </Text>
                       </Box>
                     }
                   />
@@ -679,7 +752,9 @@ const ScheduleCard = ({
                     rel="noreferrer noopener"
                     label={
                       <Box pad="xsmall">
-                        <Text color="text-strong" size={textSize} >Learn more</Text>
+                        <Text color="text-strong" size={textSize}>
+                          Learn more
+                        </Text>
                       </Box>
                     }
                   />
@@ -691,7 +766,9 @@ const ScheduleCard = ({
                       rel="noreferrer noopener"
                       label={
                         <Box pad="xsmall">
-                          <Text color="text-strong" size={textSize} >Terms & Conditions</Text>
+                          <Text color="text-strong" size={textSize}>
+                            Terms & Conditions
+                          </Text>
                         </Box>
                       }
                       secondary
@@ -712,11 +789,11 @@ const ScheduleCard = ({
                 reverse={true}
                 gap="xsmall"
                 label={
-                  size !== 'small' && <Box pad="xsmall">
-                    <Text color="text-strong">
-                      Share
-                    </Text>
-                  </Box>
+                  size !== 'small' && (
+                    <Box pad="xsmall">
+                      <Text color="text-strong">Share</Text>
+                    </Box>
+                  )
                 }
               />
             </Box>
@@ -743,7 +820,8 @@ const ScheduleCard = ({
               />
             )}
           </Box>
-        </CardWrapper>)}
+        </CardWrapper>
+      )}
     </>
   );
 };
