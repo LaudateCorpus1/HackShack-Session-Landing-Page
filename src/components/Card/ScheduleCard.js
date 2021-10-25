@@ -23,10 +23,67 @@ import Share from '../Share';
 
 const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 
-export const UnregisterLayer = ({ formData, setFormData, customerId }) => {
+export const UnregisterLayer = ({
+  formData,
+  setFormData,
+  customerId,
+  setUnregisterLayer,
+  setUnresigsterSuccess,
+}) => {
   const resetRegister = () => {
     console.log('customer: ', customerId);
     console.log('formData: ', formData);
+
+    const resetCustomer = () => {
+      axios({
+        method: 'GET',
+        url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customers/${customerId}`,
+        headers: {
+          'x-access-token': AuthService.getCurrentUser().accessToken,
+        },
+      })
+        .then(customerData => {
+          axios({
+            method: 'GET',
+            url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/students/${customerData.data.studentId}`,
+            headers: {
+              'x-access-token': AuthService.getCurrentUser().accessToken,
+            },
+          }).then(studentData => {
+            if (
+              formData.username !== studentData.data.username &&
+              formData.password !== studentData.data.username
+            ) {
+              console.log('credentials do not match');
+            } else {
+              axios({
+                method: 'PUT',
+                url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer/unregister/${customerId}`,
+                headers: {
+                  'x-access-token': AuthService.getCurrentUser().accessToken,
+                },
+              })
+                .then(customerUnregisterData => {
+                  console.log(
+                    'customerUnregisterData: ',
+                    customerUnregisterData,
+                  );
+                })
+                .catch(err => {
+                  console.log('err: ', err);
+                });
+              setUnregisterLayer(false);
+              setUnresigsterSuccess(
+                'Sucessfully unregistered from “Workshop name XYZ” workshop!',
+              );
+            }
+          });
+        })
+        .catch(err => {
+          console.log('err: ', err);
+        });
+    };
+    resetCustomer();
     // const resetCustomer = () => {
     //   axios({
     //     method: 'PUT',
@@ -88,17 +145,11 @@ export const SignupLayer = ({
   const [error, setError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [unregisterStatus, setUnregisterStatus] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [unregisterLayer, setUnregisterLayer] = useState(false);
+  const [unregisterSuccess, setUnresigsterSuccess] = useState('');
   const [unregisterFormData, setUnregisterFormData] = useState({
     username: '',
     password: '',
-    // company: '',
-    // title: title,
-    // notebook,
-    // sessionType: sessionType,
-    // location: location,
-    // termsAndConditions: false,
-    // proxy: 'hackshack',
   });
   const emailValidation = email => {
     if (email) {
@@ -142,7 +193,7 @@ export const SignupLayer = ({
                 customerId: response.data.id,
                 message: response.data.message,
               });
-              setOpen(true);
+              setUnregisterLayer(true);
             } else {
               setLayer(false);
               setSuccess(true);
@@ -163,7 +214,7 @@ export const SignupLayer = ({
       postCustomer();
     }
   };
-console.log('error.customerId: ', error.customerId);
+
   return (
     <Layer
       position="right"
@@ -290,6 +341,13 @@ console.log('error.customerId: ', error.customerId);
                 }
               />
             </FormField>
+            {unregisterSuccess && (
+              <Box>
+                <Box justify="center">
+                  <Text alignSelf="center">{unregisterSuccess}</Text>
+                </Box>
+              </Box>
+            )}
             <Button
               alignSelf="start"
               label={
@@ -301,12 +359,13 @@ console.log('error.customerId: ', error.customerId);
               primary
             />
           </Box>
-          {open && (
+          {unregisterLayer && (
             <UnregisterLayer
               formData={unregisterFormData}
               // reset={resetFormData}
               setFormData={setUnregisterFormData}
-              // setLayer={setSignupLayer}
+              setUnregisterLayer={setUnregisterLayer}
+              setUnresigsterSuccess={setUnresigsterSuccess}
               // setSuccess={setSuccessLayer}
               // title={title}
               // size={size}
@@ -314,7 +373,7 @@ console.log('error.customerId: ', error.customerId);
               customerId={error.customerId}
             />
           )}
-          {error.status === 202 ? (
+          {/* {error.status === 202 ? (
             <Box>
               <Box
                 pad="small"
@@ -346,7 +405,7 @@ console.log('error.customerId: ', error.customerId);
                 <Text alignSelf="center">{error.message}</Text>
               </Box>
             )
-          )}
+          )} */}
         </Form>
       </Box>
     </Layer>
