@@ -14,10 +14,15 @@ import {
   Avatar,
   DropButton,
 } from 'grommet';
-import { StatusGood, FormClose, ShareOption } from 'grommet-icons';
+import {
+  StatusGood,
+  FormClose,
+  ShareOption,
+  CircleInformation,
+} from 'grommet-icons';
 import PropTypes from 'prop-types';
-import { CardWrapper } from './styles';
 import { Link } from 'react-router-dom';
+import { CardWrapper } from './styles';
 import AuthService from '../../services/auth.service';
 import Share from '../Share';
 
@@ -26,15 +31,34 @@ const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 export const UnregisterLayer = ({
   formData,
   setFormData,
+  title,
   customerId,
   setUnregisterLayer,
   setUnresigsterSuccess,
+  resetUnregisterFormData,
+  setTryAgainLater,
+  endDate,
 }) => {
-  const resetRegister = () => {
-    console.log('customer: ', customerId);
-    console.log('formData: ', formData);
+  const [usernameError, setUserNameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
-    const resetCustomer = () => {
+  const getTimeLeft = ends => {
+    const dateFuture = new Date(ends);
+    const dateNow = new Date();
+
+    const seconds = Math.floor((dateFuture - dateNow) / 1000);
+    let minutes = Math.floor(seconds / 60);
+    let hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    hours = hours - days * 24;
+    minutes = minutes - days * 24 * 60 - hours * 60;
+
+    return { hours, minutes };
+  };
+
+  const unregisterCustomer = () => {
+    const unregister = () => {
       axios({
         method: 'GET',
         url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customers/${customerId}`,
@@ -50,11 +74,11 @@ export const UnregisterLayer = ({
               'x-access-token': AuthService.getCurrentUser().accessToken,
             },
           }).then(studentData => {
-            if (
-              formData.username !== studentData.data.username &&
-              formData.password !== studentData.data.username
-            ) {
-              console.log('credentials do not match');
+            if (formData.username !== studentData.data.username) {
+              setUserNameError('User name not found');
+            } else if (formData.password !== studentData.data.password) {
+              setPasswordError('Invalid password');
+              setUserNameError('');
             } else {
               axios({
                 method: 'PUT',
@@ -63,19 +87,20 @@ export const UnregisterLayer = ({
                   'x-access-token': AuthService.getCurrentUser().accessToken,
                 },
               })
-                .then(customerUnregisterData => {
-                  console.log(
-                    'customerUnregisterData: ',
-                    customerUnregisterData,
+                .then(() => {
+                  setUnregisterLayer(false);
+                  setUnresigsterSuccess(
+                    <Text>
+                      Sucessfully unregistered from{' '}
+                      {customerData.data.sessionName} workshop!
+                    </Text>,
                   );
+                  resetUnregisterFormData();
+                  setTryAgainLater(false);
                 })
                 .catch(err => {
                   console.log('err: ', err);
                 });
-              setUnregisterLayer(false);
-              setUnresigsterSuccess(
-                'Sucessfully unregistered from “Workshop name XYZ” workshop!',
-              );
             }
           });
         })
@@ -83,53 +108,95 @@ export const UnregisterLayer = ({
           console.log('err: ', err);
         });
     };
-    resetCustomer();
-    // const resetCustomer = () => {
-    //   axios({
-    //     method: 'PUT',
-    //     url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer/unregister/${customerId}`,
-    //     headers: {
-    //       'x-access-token': AuthService.getCurrentUser().accessToken,
-    //     },
-    //   })
-    //     .then(data => {
-    //       if (data) {
-    //         setUnregisterStatus(true);
-    //       }
-    //     })
-    //     .catch(err => {
-    //       console.log('err: ', err);
-    //       setUnregisterStatus(false);
-    //     });
-    // };
-    // resetCustomer();
+    unregister();
   };
 
+  const { hours, minutes } = getTimeLeft(endDate);
+  const timeLeftString = `${hours} hour${
+    hours === 1 ? '' : 's'
+  } and ${minutes} minute${minutes === 1 ? '' : 's'}`;
+
   return (
-    <Layer
-      id="hello world"
-      position="center"
-      // onClickOutside={onClose}
-      // onEsc={onClose}
-    >
-      <Box>
+    <Layer position="center">
+      <Box pad="medium">
+        <Heading level="3" margin={{ top: 'none' }}>
+          Already Registered
+        </Heading>
+        <Text margin={{ bottom: 'medium' }}>
+          You are already registered for the <strong>{title}</strong> workshop
+          and can only register for one of the Workshops-on-Demand at a time.
+        </Text>
+        <Text>
+          Try again in {timeLeftString} or unregister from{' '}
+          <strong>{title}</strong> by entering your credentials recieved in your
+          email.
+        </Text>
         <Form
           validate="blur"
           value={formData}
           onChange={setFormData}
-          onSubmit={({ value }) => resetRegister({ value })}
+          onSubmit={({ value }) => unregisterCustomer({ value })}
         >
-          <FormField label="User Name" name="username" required>
-            <TextInput name="username" />
-          </FormField>
-          <FormField label="Password" name="password" required>
-            <TextInput name="password" />
-          </FormField>
-          <Button alignSelf="start" label="Unregister" type="submit" primary />
+          <Box width="300px" margin={{ vertical: 'small' }}>
+            <FormField
+              label="User Name*"
+              name="username"
+              error={usernameError}
+              required
+            >
+              <TextInput name="username" />
+            </FormField>
+            <FormField
+              label="Password*"
+              name="password"
+              error={passwordError}
+              required
+            >
+              <TextInput name="password" type="password" />
+            </FormField>
+          </Box>
+          <Box direction="row" gap="small" margin={{ bottom: 'large' }}>
+            <CircleInformation size="medium" />
+            <Text>
+              Unregistering from <strong>{title}</strong> workshop will end your
+              session and reset your student account. Please remember to save
+              your work and download the workshop notebook if you anticipate
+              requiring it in the future.
+            </Text>
+          </Box>
+          <Button
+            alignSelf="start"
+            label="Unregister"
+            type="submit"
+            margin={{ right: 'medium' }}
+            primary
+          />
+          <Button
+            alignSelf="start"
+            label="Try again later"
+            onClick={async () => {
+              setUnregisterLayer(false);
+              resetUnregisterFormData();
+              setTryAgainLater(true);
+            }}
+            secondary
+          />
         </Form>
       </Box>
     </Layer>
   );
+};
+
+UnregisterLayer.propTypes = {
+  customerId: PropTypes.number,
+  setUnregisterLayer: PropTypes.func,
+  setUnresigsterSuccess: PropTypes.func,
+  resetUnregisterFormData: PropTypes.func,
+  setTryAgainLater: PropTypes.func,
+  endDate: PropTypes.string,
+  title: PropTypes.string,
+  formData: PropTypes.object,
+  setFormData: PropTypes.func,
 };
 
 export const SignupLayer = ({
@@ -144,13 +211,20 @@ export const SignupLayer = ({
 }) => {
   const [error, setError] = useState('');
   const [emailError, setEmailError] = useState('');
-  const [unregisterStatus, setUnregisterStatus] = useState(false);
+  const [unregisterCustomerData, setUnregisterCustomerData] = useState();
   const [unregisterLayer, setUnregisterLayer] = useState(false);
   const [unregisterSuccess, setUnresigsterSuccess] = useState('');
+  const [tryAgainLater, setTryAgainLater] = useState(false);
   const [unregisterFormData, setUnregisterFormData] = useState({
     username: '',
     password: '',
   });
+  const resetUnregisterFormData = () => {
+    setUnregisterFormData({
+      username: '',
+      password: '',
+    });
+  };
   const emailValidation = email => {
     if (email) {
       const emailtemp = email;
@@ -175,6 +249,12 @@ export const SignupLayer = ({
     return true;
   };
 
+  useEffect(() => {
+    if (!unregisterLayer && tryAgainLater) {
+      setLayer(false);
+    }
+  }, [unregisterLayer, setLayer, tryAgainLater]);
+
   const onSubmit = () => {
     if (emailValidation(formData.email)) {
       const postCustomer = () => {
@@ -188,10 +268,10 @@ export const SignupLayer = ({
         })
           .then(response => {
             if (response.status === 202) {
-              setError({
+              const { data } = response;
+              setUnregisterCustomerData({
                 status: response.status,
-                customerId: response.data.id,
-                message: response.data.message,
+                ...data,
               });
               setUnregisterLayer(true);
             } else {
@@ -203,7 +283,7 @@ export const SignupLayer = ({
             if (err.response.status === 401) {
               AuthService.login().then(() => postCustomer());
             } else {
-              console.log(err);
+              console.log('err', err);
               setError({
                 status: err.response.status,
                 message: err.response.data.message,
@@ -214,7 +294,6 @@ export const SignupLayer = ({
       postCustomer();
     }
   };
-
   return (
     <Layer
       position="right"
@@ -245,7 +324,7 @@ export const SignupLayer = ({
       />
       <Box
         overflow="auto"
-        height="800px"
+        height="950px"
         width={size === 'small' ? '100%' : '500px'}
         direction="column"
         pad={{ bottom: 'large', left: 'xlarge', right: 'xlarge' }}
@@ -278,7 +357,10 @@ export const SignupLayer = ({
           <FormField label="Company Name" name="company" required>
             <TextInput name="company" />
           </FormField>
-          <Box margin={{ top: 'medium' }} gap="medium">
+          <Box
+            margin={{ top: 'medium' }}
+            gap={unregisterSuccess ? 'none' : 'medium'}
+          >
             <FormField required name="termsAndConditions">
               <CheckBox
                 name="termsAndConditions"
@@ -343,7 +425,7 @@ export const SignupLayer = ({
             </FormField>
             {unregisterSuccess && (
               <Box>
-                <Box justify="center">
+                <Box justify="center" margin={{ vertical: 'small' }}>
                   <Text alignSelf="center">{unregisterSuccess}</Text>
                 </Box>
               </Box>
@@ -362,50 +444,27 @@ export const SignupLayer = ({
           {unregisterLayer && (
             <UnregisterLayer
               formData={unregisterFormData}
-              // reset={resetFormData}
+              resetUnregisterFormData={resetUnregisterFormData}
               setFormData={setUnregisterFormData}
               setUnregisterLayer={setUnregisterLayer}
               setUnresigsterSuccess={setUnresigsterSuccess}
-              // setSuccess={setSuccessLayer}
-              // title={title}
-              // size={size}
-              // sessionType={sessionType}
-              customerId={error.customerId}
+              setLayer={setLayer}
+              setTryAgainLater={setTryAgainLater}
+              customerId={unregisterCustomerData.id}
+              title={unregisterCustomerData.title}
+              endDate={unregisterCustomerData.endDate}
             />
           )}
-          {/* {error.status === 202 ? (
-            <Box>
-              <Box
-                pad="small"
-                justify="center"
-                margin={{ top: 'medium' }}
-                background="status-critical"
-              >
-                <Text alignSelf="center">{error.message}</Text>
-              </Box>
-              <Button
-                alignSelf="start"
-                label={
-                  sessionType === 'Coding Challenge'
-                    ? 'Start new Challenge'
-                    : 'Start new Workshop'
-                }
-                // onClick={() => resetRegister(error.customerId)}
-                primary
-              />
+          {error.status && error.status !== 202 ? (
+            <Box
+              pad="small"
+              justify="center"
+              margin={{ top: 'medium' }}
+              background="status-critical"
+            >
+              <Text alignSelf="center">{error.message}</Text>
             </Box>
-          ) : (
-            error.status && (
-              <Box
-                pad="small"
-                justify="center"
-                margin={{ top: 'medium' }}
-                background="status-critical"
-              >
-                <Text alignSelf="center">{error.message}</Text>
-              </Box>
-            )
-          )} */}
+          ) : null}
         </Form>
       </Box>
     </Layer>
