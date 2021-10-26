@@ -208,6 +208,7 @@ export const SignupLayer = ({
   size,
   title,
   sessionType,
+  duration,
 }) => {
   const [error, setError] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -383,7 +384,7 @@ export const SignupLayer = ({
                       , and acknowledge that clicking on the{' '}
                       <strong>Take on the Challenge</strong> button below starts
                       the
-                      <strong> 4-hour</strong> window in which to complete the
+                      <strong> {duration}-hour</strong> window in which to complete the
                       challenge.
                       <br />
                       <b>
@@ -410,7 +411,7 @@ export const SignupLayer = ({
                       , and acknowledge that clicking on the{' '}
                       <strong>Register for the Workshop</strong> button below
                       starts the
-                      <strong> 4-hour</strong> window in which to complete the
+                      <strong> {duration}-hour</strong> window in which to complete the
                       workshop.
                       <br />
                       <b>
@@ -572,7 +573,6 @@ SuccessLayer.propTypes = {
 const ScheduleCard = ({
   avatar,
   desc,
-  id,
   DBid,
   notebook,
   presenter,
@@ -585,6 +585,7 @@ const ScheduleCard = ({
   location,
   ezmeral,
   replayId,
+  duration,
 }) => {
   const textSize = size === 'small' ? '16px' : 'medium';
   let backgroundColor;
@@ -925,6 +926,7 @@ const ScheduleCard = ({
                 title={title}
                 size={size}
                 sessionType={sessionType}
+                duration={duration}
               />
             )}
             {successLayer && (
@@ -946,7 +948,6 @@ const ScheduleCard = ({
 ScheduleCard.propTypes = {
   avatar: PropTypes.string,
   desc: PropTypes.string,
-  id: PropTypes.number,
   DBid: PropTypes.number,
   presenter: PropTypes.string,
   role: PropTypes.string,

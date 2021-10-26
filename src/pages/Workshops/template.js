@@ -146,6 +146,7 @@ const Workshop = props => {
               notebook={workshop.notebook}
               location={workshop.location}
               replayId={workshop.replayId}
+              duration={workshop.duration}
             />
           ))}
         </CardGrid>
