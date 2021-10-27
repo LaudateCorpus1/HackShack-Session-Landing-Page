@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import {
   Heading,
@@ -13,6 +13,7 @@ import {
   TextInput,
   Avatar,
   DropButton,
+  ResponsiveContext,
 } from 'grommet';
 import {
   StatusGood,
@@ -20,9 +21,9 @@ import {
   ShareOption,
   CircleInformation,
 } from 'grommet-icons';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { CardWrapper } from './styles';
+import PropTypes from 'prop-types';
+import { CardWrapper, ContrastLayer } from './styles';
 import AuthService from '../../services/auth.service';
 import Share from '../Share';
 
@@ -579,14 +580,15 @@ const ScheduleCard = ({
   role,
   sessionLink,
   sessionType,
-  size,
   title,
   workshopList,
   location,
   ezmeral,
   replayId,
   duration,
+  popular,
 }) => {
+  const size = useContext(ResponsiveContext);
   const textSize = size === 'small' ? '16px' : 'medium';
   let backgroundColor;
   let uri = '';
@@ -753,8 +755,11 @@ const ScheduleCard = ({
           >
             <Box direction="column">
               {!hover ? (
-                <Box direction="column" height={`${cardTopSectionHeight}px`}>
-                  {/* <ContrastLayer
+                <Box
+                  direction="column"
+                  height={`${cardTopSectionHeight}px`}
+                >
+                  {popular && <ContrastLayer
                     background="background-contrast"
                     width="fit-content"
                     pad="xxsmall"
@@ -765,10 +770,14 @@ const ScheduleCard = ({
                       size="small"
                       margin={{ vertical: "3px", horizontal: "12px" }}
                     >
-                      Most Popular
+                      Popular
                     </Text>
-                  </ContrastLayer> */}
-                  <Heading level={4} margin={{ bottom: 'small' }}>
+                  </ContrastLayer>
+                  }
+                  <Heading
+                    level={4}
+                    margin={{ bottom: 'small' }}
+                  >
                     {title}
                   </Heading>
                   {(avatar || presenter || role) && (
