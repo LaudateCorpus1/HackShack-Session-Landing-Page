@@ -15,15 +15,190 @@ import {
   DropButton,
   ResponsiveContext,
 } from 'grommet';
-import { ContrastLayer } from './styles';
-import { StatusGood, FormClose, ShareOption } from 'grommet-icons';
-import PropTypes from 'prop-types';
-import { CardWrapper } from './styles';
+import {
+  StatusGood,
+  FormClose,
+  ShareOption,
+  CircleInformation,
+} from 'grommet-icons';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { CardWrapper, ContrastLayer } from './styles';
 import AuthService from '../../services/auth.service';
 import Share from '../Share';
 
 const { REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
+
+export const UnregisterLayer = ({
+  formData,
+  setFormData,
+  title,
+  customerId,
+  setUnregisterLayer,
+  setUnresigsterSuccess,
+  resetUnregisterFormData,
+  setTryAgainLater,
+  endDate,
+}) => {
+  const [usernameError, setUserNameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
+  const getTimeLeft = ends => {
+    const dateFuture = new Date(ends);
+    const dateNow = new Date();
+
+    const seconds = Math.floor((dateFuture - dateNow) / 1000);
+    let minutes = Math.floor(seconds / 60);
+    let hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    hours = hours - days * 24;
+    minutes = minutes - days * 24 * 60 - hours * 60;
+
+    return { hours, minutes };
+  };
+
+  const unregisterCustomer = () => {
+    const unregister = () => {
+      axios({
+        method: 'GET',
+        url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customers/${customerId}`,
+        headers: {
+          'x-access-token': AuthService.getCurrentUser().accessToken,
+        },
+      })
+        .then(customerData => {
+          axios({
+            method: 'GET',
+            url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/students/${customerData.data.studentId}`,
+            headers: {
+              'x-access-token': AuthService.getCurrentUser().accessToken,
+            },
+          }).then(studentData => {
+            if (formData.username !== studentData.data.username) {
+              setUserNameError('User name not found');
+            } else if (formData.password !== studentData.data.password) {
+              setPasswordError('Invalid password');
+              setUserNameError('');
+            } else {
+              axios({
+                method: 'PUT',
+                url: `${REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer/unregister/${customerId}`,
+                headers: {
+                  'x-access-token': AuthService.getCurrentUser().accessToken,
+                },
+              })
+                .then(() => {
+                  setUnregisterLayer(false);
+                  setUnresigsterSuccess(
+                    <Text>
+                      Sucessfully unregistered from{' '}
+                      {customerData.data.sessionName} workshop!
+                    </Text>,
+                  );
+                  resetUnregisterFormData();
+                  setTryAgainLater(false);
+                })
+                .catch(err => {
+                  console.log('err: ', err);
+                });
+            }
+          });
+        })
+        .catch(err => {
+          console.log('err: ', err);
+        });
+    };
+    unregister();
+  };
+
+  const { hours, minutes } = getTimeLeft(endDate);
+  const timeLeftString = `${hours} hour${
+    hours === 1 ? '' : 's'
+  } and ${minutes} minute${minutes === 1 ? '' : 's'}`;
+
+  return (
+    <Layer position="center">
+      <Box pad="medium">
+        <Heading level="3" margin={{ top: 'none' }}>
+          Already Registered
+        </Heading>
+        <Text margin={{ bottom: 'medium' }}>
+          You are already registered for the <strong>{title}</strong> workshop
+          and can only register for one of the Workshops-on-Demand at a time.
+        </Text>
+        <Text>
+          Try again in {timeLeftString} or unregister from{' '}
+          <strong>{title}</strong> by entering your credentials recieved in your
+          email.
+        </Text>
+        <Form
+          validate="blur"
+          value={formData}
+          onChange={setFormData}
+          onSubmit={({ value }) => unregisterCustomer({ value })}
+        >
+          <Box width="300px" margin={{ vertical: 'small' }}>
+            <FormField
+              label="User Name*"
+              name="username"
+              error={usernameError}
+              required
+            >
+              <TextInput name="username" />
+            </FormField>
+            <FormField
+              label="Password*"
+              name="password"
+              error={passwordError}
+              required
+            >
+              <TextInput name="password" type="password" />
+            </FormField>
+          </Box>
+          <Box direction="row" gap="small" margin={{ bottom: 'large' }}>
+            <CircleInformation size="medium" />
+            <Text>
+              Unregistering from <strong>{title}</strong> workshop will end your
+              session and reset your student account. Please remember to save
+              your work and download the workshop notebook if you anticipate
+              requiring it in the future.
+            </Text>
+          </Box>
+          <Button
+            alignSelf="start"
+            label="Unregister"
+            type="submit"
+            margin={{ right: 'medium' }}
+            primary
+          />
+          <Button
+            alignSelf="start"
+            label="Try again later"
+            onClick={async () => {
+              setUnregisterLayer(false);
+              resetUnregisterFormData();
+              setTryAgainLater(true);
+            }}
+            secondary
+          />
+        </Form>
+      </Box>
+    </Layer>
+  );
+};
+
+UnregisterLayer.propTypes = {
+  customerId: PropTypes.number,
+  setUnregisterLayer: PropTypes.func,
+  setUnresigsterSuccess: PropTypes.func,
+  resetUnregisterFormData: PropTypes.func,
+  setTryAgainLater: PropTypes.func,
+  endDate: PropTypes.string,
+  title: PropTypes.string,
+  formData: PropTypes.object,
+  setFormData: PropTypes.func,
+};
 
 export const SignupLayer = ({
   reset,
@@ -34,10 +209,24 @@ export const SignupLayer = ({
   size,
   title,
   sessionType,
+  duration,
 }) => {
   const [error, setError] = useState('');
   const [emailError, setEmailError] = useState('');
-
+  const [unregisterCustomerData, setUnregisterCustomerData] = useState();
+  const [unregisterLayer, setUnregisterLayer] = useState(false);
+  const [unregisterSuccess, setUnresigsterSuccess] = useState('');
+  const [tryAgainLater, setTryAgainLater] = useState(false);
+  const [unregisterFormData, setUnregisterFormData] = useState({
+    username: '',
+    password: '',
+  });
+  const resetUnregisterFormData = () => {
+    setUnregisterFormData({
+      username: '',
+      password: '',
+    });
+  };
   const emailValidation = email => {
     if (email) {
       const emailtemp = email;
@@ -62,6 +251,12 @@ export const SignupLayer = ({
     return true;
   };
 
+  useEffect(() => {
+    if (!unregisterLayer && tryAgainLater) {
+      setLayer(false);
+    }
+  }, [unregisterLayer, setLayer, tryAgainLater]);
+
   const onSubmit = () => {
     if (emailValidation(formData.email)) {
       const postCustomer = () => {
@@ -75,7 +270,12 @@ export const SignupLayer = ({
         })
           .then(response => {
             if (response.status === 202) {
-              setError(response.data);
+              const { data } = response;
+              setUnregisterCustomerData({
+                status: response.status,
+                ...data,
+              });
+              setUnregisterLayer(true);
             } else {
               setLayer(false);
               setSuccess(true);
@@ -85,31 +285,34 @@ export const SignupLayer = ({
             if (err.response.status === 401) {
               AuthService.login().then(() => postCustomer());
             } else {
-              console.log(err);
-              setError('There was an error submitting your request');
+              console.log('err', err);
+              setError({
+                status: err.response.status,
+                message: err.response.data.message,
+              });
             }
           });
       };
       postCustomer();
     }
   };
-
   return (
     <Layer
       position="right"
       full={size === 'large' ? true : 'vertical'}
       style={{ borderRadius: '4px 0px 0px 4px' }}
       background={
-        size === 'large' ?
-          {
-            image: 'url(/img/gremlin-signup.png)',
-            size: 'cover',
-            position: 'center',
-            repeat: 'no-repeat',
-            opacity: '0.99',
-          } : {
-            color: '#333333',
-          }
+        size === 'large'
+          ? {
+              image: 'url(/img/gremlin-signup.png)',
+              size: 'cover',
+              position: 'center',
+              repeat: 'no-repeat',
+              opacity: '0.99',
+            }
+          : {
+              color: '#333333',
+            }
       }
     >
       <Button
@@ -123,7 +326,7 @@ export const SignupLayer = ({
       />
       <Box
         overflow="auto"
-        height="800px"
+        height="950px"
         width={size === 'small' ? '100%' : '500px'}
         direction="column"
         pad={{ bottom: 'large', left: 'xlarge', right: 'xlarge' }}
@@ -156,7 +359,10 @@ export const SignupLayer = ({
           <FormField label="Company Name" name="company" required>
             <TextInput name="company" />
           </FormField>
-          <Box margin={{ top: 'medium' }} gap="medium">
+          <Box
+            margin={{ top: 'medium' }}
+            gap={unregisterSuccess ? 'none' : 'medium'}
+          >
             <FormField required name="termsAndConditions">
               <CheckBox
                 name="termsAndConditions"
@@ -179,7 +385,7 @@ export const SignupLayer = ({
                       , and acknowledge that clicking on the{' '}
                       <strong>Take on the Challenge</strong> button below starts
                       the
-                      <strong> 4-hour</strong> window in which to complete the
+                      <strong> {duration}-hour</strong> window in which to complete the
                       challenge.
                       <br />
                       <b>
@@ -206,7 +412,7 @@ export const SignupLayer = ({
                       , and acknowledge that clicking on the{' '}
                       <strong>Register for the Workshop</strong> button below
                       starts the
-                      <strong> 4-hour</strong> window in which to complete the
+                      <strong> {duration}-hour</strong> window in which to complete the
                       workshop.
                       <br />
                       <b>
@@ -219,6 +425,13 @@ export const SignupLayer = ({
                 }
               />
             </FormField>
+            {unregisterSuccess && (
+              <Box>
+                <Box justify="center" margin={{ vertical: 'small' }}>
+                  <Text alignSelf="center">{unregisterSuccess}</Text>
+                </Box>
+              </Box>
+            )}
             <Button
               alignSelf="start"
               label={
@@ -230,16 +443,30 @@ export const SignupLayer = ({
               primary
             />
           </Box>
-          {error && (
+          {unregisterLayer && (
+            <UnregisterLayer
+              formData={unregisterFormData}
+              resetUnregisterFormData={resetUnregisterFormData}
+              setFormData={setUnregisterFormData}
+              setUnregisterLayer={setUnregisterLayer}
+              setUnresigsterSuccess={setUnresigsterSuccess}
+              setLayer={setLayer}
+              setTryAgainLater={setTryAgainLater}
+              customerId={unregisterCustomerData.id}
+              title={unregisterCustomerData.title}
+              endDate={unregisterCustomerData.endDate}
+            />
+          )}
+          {error.status && error.status !== 202 ? (
             <Box
               pad="small"
               justify="center"
               margin={{ top: 'medium' }}
               background="status-critical"
             >
-              <Text alignSelf="center">{error}</Text>
+              <Text alignSelf="center">{error.message}</Text>
             </Box>
-          )}
+          ) : null}
         </Form>
       </Box>
     </Layer>
@@ -256,22 +483,30 @@ SignupLayer.propTypes = {
   title: PropTypes.string,
 };
 
-export const SuccessLayer = ({ name, setLayer, size, title, reset, sessionType }) => (
+export const SuccessLayer = ({
+  name,
+  setLayer,
+  size,
+  title,
+  reset,
+  sessionType,
+}) => (
   <Layer
     position="right"
     full={size === 'large' ? true : 'vertical'}
     style={{ borderRadius: '4px 0px 0px 4px' }}
     background={
-      size === "large" ?
-        {
-          image: "url(/img/gremlin-signup.png)",
-          size: "cover",
-          position: "center",
-          repeat: "no-repeat",
-          opacity: "0.99",
-        } : {
-          color: "#333333",
-        }
+      size === 'large'
+        ? {
+            image: 'url(/img/gremlin-signup.png)',
+            size: 'cover',
+            position: 'center',
+            repeat: 'no-repeat',
+            opacity: '0.99',
+          }
+        : {
+            color: '#333333',
+          }
     }
   >
     <Button
@@ -339,7 +574,6 @@ SuccessLayer.propTypes = {
 const ScheduleCard = ({
   avatar,
   desc,
-  id,
   DBid,
   notebook,
   presenter,
@@ -351,6 +585,7 @@ const ScheduleCard = ({
   location,
   ezmeral,
   replayId,
+  duration,
   popular,
 }) => {
   const size = useContext(ResponsiveContext);
@@ -432,15 +667,15 @@ const ScheduleCard = ({
       const refHeight = cardRef.current.offsetHeight;
       setcardTopSectionHeight(refHeight);
     }
-  }, [cardRef])
+  }, [cardRef]);
 
   useEffect(() => {
-    window.addEventListener("mousemove", checkHover, true);
+    window.addEventListener('mousemove', checkHover, true);
 
     return () => {
       window.removeEventListener('mousemove', checkHover, true);
     };
-  })
+  });
 
   const checkHover = e => {
     if (cardRef.current) {
@@ -451,15 +686,15 @@ const ScheduleCard = ({
       }
 
       if (hover && !mouseOver) {
-        setHover(false)
+        setHover(false);
       }
     }
   };
 
   return (
     <>
-      {ezmeral ?
-        (<CardWrapper
+      {ezmeral ? (
+        <CardWrapper
           pad="large"
           justify="between"
           background={backgroundColor}
@@ -497,16 +732,20 @@ const ScheduleCard = ({
               />
             </Box>
           </Box>
-        </CardWrapper>)
-        : (<CardWrapper
+        </CardWrapper>
+      ) : (
+        <CardWrapper
           justify="between"
           background={backgroundColor}
           round="xsmall"
           overflow="hidden"
         >
           <Box
-            pad={{ top: size !== 'large' ? 'large' : 'medium', horizontal: "large" }}
-            background={hover ? '#FFFFFF' : "#00000080"}
+            pad={{
+              top: size !== 'large' ? 'large' : 'medium',
+              horizontal: 'large',
+            }}
+            background={hover ? '#FFFFFF' : '#00000080'}
             onMouseEnter={() => setHover(true)}
             onFocus={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
@@ -542,13 +781,13 @@ const ScheduleCard = ({
                     {title}
                   </Heading>
                   {(avatar || presenter || role) && (
-                    <Box gap="small" direction="row" >
+                    <Box gap="small" direction="row">
                       {avatar ? (
                         <Avatar src={avatar} />
                       ) : (
                         <Avatar src="/img/SpeakerImages/defaultAvatar.svg" />
                       )}
-                      <Box justify="center" >
+                      <Box justify="center">
                         <Text>{presenter}</Text>
                         <Text>{role}</Text>
                       </Box>
@@ -557,8 +796,10 @@ const ScheduleCard = ({
                 </Box>
               ) : (
                 <Box height={`${cardTopSectionHeight}px`}>
-                  <Box overflow={{ horizontal: 'hidden', vertical: 'scroll' }}  >
-                    <Heading level={5} margin={{ top: 'xsmall' }}>{title}</Heading>
+                  <Box overflow={{ horizontal: 'hidden', vertical: 'scroll' }}>
+                    <Heading level={5} margin={{ top: 'xsmall' }}>
+                      {title}
+                    </Heading>
                     <Text
                       margin={{ bottom: 'large' }}
                       size={size === 'small' ? 'small' : 'medium'}
@@ -570,8 +811,10 @@ const ScheduleCard = ({
               )}
             </Box>
           </Box>
-          <Box margin={{ top: "medium", bottom: "medium", horizontal: "large" }}>
-            <Box direction="row" gap={size === "small" ? "xsmall" : "medium"}>
+          <Box
+            margin={{ top: 'medium', bottom: 'medium', horizontal: 'large' }}
+          >
+            <Box direction="row" gap={size === 'small' ? 'xsmall' : 'medium'}>
               {workshopList &&
                 workshopList.map(workshop => (
                   <Box key={workshop.workshopLink}>
@@ -583,7 +826,7 @@ const ScheduleCard = ({
                       alignSelf="start"
                       label={
                         <Box pad="xsmall">
-                          <Text color="text-strong" size={textSize} >
+                          <Text color="text-strong" size={textSize}>
                             {' '}
                             Register {workshop.workshopID}
                           </Text>
@@ -595,33 +838,35 @@ const ScheduleCard = ({
                 ))}
               {(sessionType === 'Coding Challenge' ||
                 sessionType === 'Workshops-on-Demand') && (
-                  <Box>
-                    <Button
-                      onClick={() => setSignupLayer(true)}
-                      disabled={disabled}
-                      alignSelf="start"
-                      label={
-                        <Box pad="xsmall">
-                          <Text color="text-strong" size={textSize} >
-                            {disabled
-                              ? 'Currently full, please try again later'
-                              : sessionType === 'Coding Challenge'
-                                ? 'Challenge me'
-                                : 'Register'}
-                          </Text>
-                        </Box>
-                      }
-                      secondary
-                    />
-                  </Box>
-                )}
+                <Box>
+                  <Button
+                    onClick={() => setSignupLayer(true)}
+                    disabled={disabled}
+                    alignSelf="start"
+                    label={
+                      <Box pad="xsmall">
+                        <Text color="text-strong" size={textSize}>
+                          {disabled
+                            ? 'Currently full, please try again later'
+                            : sessionType === 'Coding Challenge'
+                            ? 'Challenge me'
+                            : 'Register'}
+                        </Text>
+                      </Box>
+                    }
+                    secondary
+                  />
+                </Box>
+              )}
               {sessionType === 'Coding Challenge' ||
-                sessionType === 'Workshops-on-Demand' ? (
+              sessionType === 'Workshops-on-Demand' ? (
                 <Link to={{ pathname: sessionLink }}>
                   <Button
                     label={
                       <Box pad="xsmall">
-                        <Text color="text-strong" size={textSize} >Learn more</Text>
+                        <Text color="text-strong" size={textSize}>
+                          Learn more
+                        </Text>
                       </Box>
                     }
                   />
@@ -635,7 +880,9 @@ const ScheduleCard = ({
                     rel="noreferrer noopener"
                     label={
                       <Box pad="xsmall">
-                        <Text color="text-strong" size={textSize} >Learn more</Text>
+                        <Text color="text-strong" size={textSize}>
+                          Learn more
+                        </Text>
                       </Box>
                     }
                   />
@@ -647,7 +894,9 @@ const ScheduleCard = ({
                       rel="noreferrer noopener"
                       label={
                         <Box pad="xsmall">
-                          <Text color="text-strong" size={textSize} >Terms & Conditions</Text>
+                          <Text color="text-strong" size={textSize}>
+                            Terms & Conditions
+                          </Text>
                         </Box>
                       }
                       secondary
@@ -668,11 +917,11 @@ const ScheduleCard = ({
                 reverse={true}
                 gap="xsmall"
                 label={
-                  size !== 'small' && <Box pad="xsmall">
-                    <Text color="text-strong">
-                      Share
-                    </Text>
-                  </Box>
+                  size !== 'small' && (
+                    <Box pad="xsmall">
+                      <Text color="text-strong">Share</Text>
+                    </Box>
+                  )
                 }
               />
             </Box>
@@ -686,6 +935,7 @@ const ScheduleCard = ({
                 title={title}
                 size={size}
                 sessionType={sessionType}
+                duration={duration}
               />
             )}
             {successLayer && (
@@ -699,14 +949,14 @@ const ScheduleCard = ({
               />
             )}
           </Box>
-        </CardWrapper>)}
+        </CardWrapper>
+      )}
     </>
   );
 };
 ScheduleCard.propTypes = {
   avatar: PropTypes.string,
   desc: PropTypes.string,
-  id: PropTypes.number,
   DBid: PropTypes.number,
   presenter: PropTypes.string,
   role: PropTypes.string,
