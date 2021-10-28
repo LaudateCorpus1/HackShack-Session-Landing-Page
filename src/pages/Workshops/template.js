@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Heading,
-  Text,
-  Box,
-  Image,
-  Tab,
-  Tabs,
-} from 'grommet';
+import { Heading, Text, Box, Image, Tab, Tabs } from 'grommet';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import { Layout, ScheduleCard, CardGrid } from '../../components/index';
 import { MainTitle } from './styles';
 
 import AuthService from '../../services/auth.service';
-
 
 const renderScheduleCard = (workshop, i) => (
   <ScheduleCard
@@ -35,6 +27,7 @@ const renderScheduleCard = (workshop, i) => (
     location={workshop.location}
     replayId={workshop.replayId}
     popular={workshop.popular}
+    duration={workshop.duration}
   />
 );
 
@@ -47,11 +40,14 @@ const Workshop = props => {
   const [error, setError] = useState('');
   const arr = [];
   const [index, setIndex] = useState(0);
-  const onActive = (nextIndex) => setIndex(nextIndex);
+  const onActive = nextIndex => setIndex(nextIndex);
 
-  const latestWorkshops = workshops.slice().sort((a, b) => {
-    return new Date(b.updatedAt) - new Date(a.updatedAt);
-  }).slice(0, 10);
+  const latestWorkshops = workshops
+    .slice()
+    .sort((a, b) => {
+      return new Date(b.updatedAt) - new Date(a.updatedAt);
+    })
+    .slice(0, 10);
 
   useEffect(() => {
     const getToken = () => {
@@ -124,34 +120,96 @@ const Workshop = props => {
     workshopId = parseInt(props.match.params.workshopId, 10);
   }
 
-  const openGraphImg = props.match.params.workshopId ? specialBadges.length > 0 && specialBadges[workshopId].badgeImg : props.openGraphImg;
+  const openGraphImg = props.match.params.workshopId
+    ? specialBadges.length > 0 && specialBadges[workshopId].badgeImg
+    : props.openGraphImg;
   return (
     <Layout background="/img/BackgroundImages/schedule-background.png">
       {specialBadges.length > 0 && (
         <Helmet>
           <meta name="fragment" content="!" />
-          <meta property="og:title" content={specialBadges[workshopId].title} data-react-helmet="true" />
-          <meta property="og:description" content={specialBadges[workshopId].description} data-react-helmet="true" />
-          <meta property="og:image" content={openGraphImg} data-react-helmet="true" />
-          <meta property="og:image:width" content="200" data-react-helmet="true" />
-          <meta property="og:image:height" content="200" data-react-helmet="true" />
+          <meta
+            property="og:title"
+            content={specialBadges[workshopId].title}
+            data-react-helmet="true"
+          />
+          <meta
+            property="og:description"
+            content={specialBadges[workshopId].description}
+            data-react-helmet="true"
+          />
+          <meta
+            property="og:image"
+            content={openGraphImg}
+            data-react-helmet="true"
+          />
+          <meta
+            property="og:image:width"
+            content="200"
+            data-react-helmet="true"
+          />
+          <meta
+            property="og:image:height"
+            content="200"
+            data-react-helmet="true"
+          />
 
           {/* <!-- Google / Search Engine Tags --> */}
-          <meta itemProp="name" content={specialBadges[workshopId].title} data-react-helmet="true" />
-          <meta itemProp="description" content={specialBadges[workshopId].description} data-react-helmet="true" />
-          <meta itemProp="image" content={openGraphImg} data-react-helmet="true" />
+          <meta
+            itemProp="name"
+            content={specialBadges[workshopId].title}
+            data-react-helmet="true"
+          />
+          <meta
+            itemProp="description"
+            content={specialBadges[workshopId].description}
+            data-react-helmet="true"
+          />
+          <meta
+            itemProp="image"
+            content={openGraphImg}
+            data-react-helmet="true"
+          />
 
           {/* <!-- Facebook Meta Tags --> */}
           <meta property="og:type" content="website" data-react-helmet="true" />
-          <meta property="og:title" content={specialBadges[workshopId].title} data-react-helmet="true" />
-          <meta property="og:description" content={specialBadges[workshopId].description} data-react-helmet="true" />
-          <meta property="og:image" content={openGraphImg} data-react-helmet="true" />
+          <meta
+            property="og:title"
+            content={specialBadges[workshopId].title}
+            data-react-helmet="true"
+          />
+          <meta
+            property="og:description"
+            content={specialBadges[workshopId].description}
+            data-react-helmet="true"
+          />
+          <meta
+            property="og:image"
+            content={openGraphImg}
+            data-react-helmet="true"
+          />
 
           {/* <!-- Twitter Meta Tags --> */}
-          <meta name="twitter:card" content="summary_large_image" data-react-helmet="true" />
-          <meta name="twitter:title" content={specialBadges[workshopId].title} data-react-helmet="true" />
-          <meta name="twitter:description" content={specialBadges[workshopId].description} data-react-helmet="true" />
-          <meta name="twitter:image" content={openGraphImg} data-react-helmet="true" />
+          <meta
+            name="twitter:card"
+            content="summary_large_image"
+            data-react-helmet="true"
+          />
+          <meta
+            name="twitter:title"
+            content={specialBadges[workshopId].title}
+            data-react-helmet="true"
+          />
+          <meta
+            name="twitter:description"
+            content={specialBadges[workshopId].description}
+            data-react-helmet="true"
+          />
+          <meta
+            name="twitter:image"
+            content={openGraphImg}
+            data-react-helmet="true"
+          />
         </Helmet>
       )}
       <MainTitle>
@@ -161,34 +219,54 @@ const Workshop = props => {
       </MainTitle>
       {workshops.length > 0 ? (
         <Tabs activeIndex={index} onActive={onActive} justify="start">
-          <Tab title='All'>
-            <CardGrid pad={{ top: 'medium' }} key='all'>
+          <Tab title="All">
+            <CardGrid pad={{ top: 'medium' }} key="all">
               {workshops.map((workshop, i) => renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
-          <Tab title='Latest'>
-            <CardGrid pad={{ top: 'medium' }} key='ltst'>
-              {latestWorkshops.map((workshop, i) => renderScheduleCard(workshop, i))}
+          <Tab title="Latest">
+            <CardGrid pad={{ top: 'medium' }} key="ltst">
+              {latestWorkshops.map((workshop, i) =>
+                renderScheduleCard(workshop, i),
+              )}
             </CardGrid>
           </Tab>
-          <Tab title='Popular'>
-            <CardGrid pad={{ top: 'medium' }} key='pop'>
-              {workshops.map((workshop, i) => workshop.popular && renderScheduleCard(workshop, i))}
+          <Tab title="Popular">
+            <CardGrid pad={{ top: 'medium' }} key="pop">
+              {workshops.map(
+                (workshop, i) =>
+                  workshop.popular && renderScheduleCard(workshop, i),
+              )}
             </CardGrid>
           </Tab>
-          <Tab title='Open Source'>
-            <CardGrid pad={{ top: 'medium' }} key='os'>
-              {workshops.map((workshop, i) => workshop.category && workshop.category.includes('open source') && renderScheduleCard(workshop, i))}
+          <Tab title="Open Source">
+            <CardGrid pad={{ top: 'medium' }} key="os">
+              {workshops.map(
+                (workshop, i) =>
+                  workshop.category &&
+                  workshop.category.includes('open source') &&
+                  renderScheduleCard(workshop, i),
+              )}
             </CardGrid>
           </Tab>
-          <Tab title='HPE Ezmeral'>
-            <CardGrid pad={{ top: 'medium' }} key='hpee'> 
-              {workshops.map((workshop, i) => workshop.category && workshop.category.includes('hpe ezmeral') && renderScheduleCard(workshop, i))}
+          <Tab title="HPE Ezmeral">
+            <CardGrid pad={{ top: 'medium' }} key="hpee">
+              {workshops.map(
+                (workshop, i) =>
+                  workshop.category &&
+                  workshop.category.includes('hpe ezmeral') &&
+                  renderScheduleCard(workshop, i),
+              )}
             </CardGrid>
           </Tab>
-          <Tab title='Infrastructure'>
-            <CardGrid pad={{ top: 'medium' }} key='ifa'>
-              {workshops.map((workshop, i) => workshop.category && workshop.category.includes('infrastructure') && renderScheduleCard(workshop, i))}
+          <Tab title="Infrastructure">
+            <CardGrid pad={{ top: 'medium' }} key="ifa">
+              {workshops.map(
+                (workshop, i) =>
+                  workshop.category &&
+                  workshop.category.includes('infrastructure') &&
+                  renderScheduleCard(workshop, i),
+              )}
             </CardGrid>
           </Tab>
         </Tabs>
@@ -198,7 +276,7 @@ const Workshop = props => {
           justify="center"
           margin={{ top: 'medium' }}
           direction="column"
-        // background="status-critical"
+          // background="status-critical"
         >
           {error ? (
             <>
