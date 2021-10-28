@@ -33,16 +33,16 @@ const Content = () => {
   return (
     <TextWrapper>
       <Text size={fontSize} color="#FFFFFF">
-        Welcome to the Hack Shack, a place to collaborate
+        Welcome to the Hack Shack. We offer many
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        and expand technology skills. Try our unique on-demand
+        ways to collaborate and expand your skills.
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        workshops or go on a virtual treasure hunt to discover
+        Try our technology Workshops-on-Demand,
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        a wealth of other resources and perhaps win a prize. 
+        for a unique, hands-on learning experience.
       </Text>
     </TextWrapper>
     // <TextWrapper>
@@ -152,7 +152,7 @@ const Cards = ({ size }) => (
           : { top: 'xlarge', right: 'large' }
       }
     /> */}
-    <Card
+    {/* <Card
       image="/img/Arcade/TreasureMap.png"
       title="WIN IN THE HPE DEV TREASURE HUNT"
       desc="Discover ways to collaborate and where to find resources."
@@ -160,8 +160,8 @@ const Cards = ({ size }) => (
       background="rgba(0, 86, 122, 0.8);"
       label="Hunt for Treasure!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    />
-    {/* <Card
+    /> */}
+    <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
       desc="Want to read more about industry 
@@ -174,7 +174,7 @@ const Cards = ({ size }) => (
           ? { top: '0px', right: '0px' }
           : { top: 'xlarge', right: 'large' }
       }
-    /> */}
+    />
     {/* <Card
       image="/img/Arcade/score.png"
       title="PLAY HACK SHACK ATTACK, OUR RETRO VIDEO GAME"
