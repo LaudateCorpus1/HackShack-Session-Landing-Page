@@ -138,12 +138,12 @@ const Cards = ({ size }) => (
           : { top: 'xlarge', right: 'large' }
       }
     />
-    {/* <Card
-      image="/img/sep_mnl-digital-transformation.jpg"
-      title="HPE Dev Munch & Learn - Digital Transformation Next: Data & Analytics Workloads"
+    <Card
+      image="/img/munch-and-learn-3.jpg"
+      title="HPE Dev Munch & Learn - The Great Unification: Building Analytic pipelines with Apache Spark"
       desc="Join us to discuss strategic best practices and practical architectural details."
       link="https://hpe.zoom.us/meeting/register/tJEtde-hrDMpE9MLHnqxZ7gWZCgjWyDMz_gM"
-      date="September 22, 2021"
+      date="November 17, 2021"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={
@@ -151,7 +151,7 @@ const Cards = ({ size }) => (
           ? { top: '0px', right: '0px' }
           : { top: 'xlarge', right: 'large' }
       }
-    /> */}
+    />
     {/* <Card
       image="/img/Arcade/TreasureMap.png"
       title="WIN IN THE HPE DEV TREASURE HUNT"
@@ -161,7 +161,7 @@ const Cards = ({ size }) => (
       label="Hunt for Treasure!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
     /> */}
-    <Card
+    {/* <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
       desc="Want to read more about industry 
@@ -174,7 +174,7 @@ const Cards = ({ size }) => (
           ? { top: '0px', right: '0px' }
           : { top: 'xlarge', right: 'large' }
       }
-    />
+    /> */}
     {/* <Card
       image="/img/Arcade/score.png"
       title="PLAY HACK SHACK ATTACK, OUR RETRO VIDEO GAME"
