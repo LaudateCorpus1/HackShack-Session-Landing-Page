@@ -139,7 +139,7 @@ const Cards = ({ size }) => (
       }
     />
     <Card
-      image="/img/munch-and-learn-3.jpg"
+      image="/img/munch-learn-generic.jpg"
       title="HPE Dev Munch & Learn - The Great Unification: Building Analytic pipelines with Apache Spark"
       desc="Join us to discuss strategic best practices and practical architectural details."
       link="https://hpe.zoom.us/meeting/register/tJEtde-hrDMpE9MLHnqxZ7gWZCgjWyDMz_gM"
