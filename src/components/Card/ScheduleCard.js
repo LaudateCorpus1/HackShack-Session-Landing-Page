@@ -91,10 +91,10 @@ export const UnregisterLayer = ({
                 .then(() => {
                   setUnregisterLayer(false);
                   setUnresigsterSuccess(
-                    <Text>
+                    <Text alignSelf="center" margin="small" size="xsmall">
                       Sucessfully unregistered from{' '}
                       {customerData.data.sessionName} workshop!
-                    </Text>,
+                    </Text>
                   );
                   resetUnregisterFormData();
                   setTryAgainLater(false);
@@ -385,8 +385,8 @@ export const SignupLayer = ({
                       , and acknowledge that clicking on the{' '}
                       <strong>Take on the Challenge</strong> button below starts
                       the
-                      <strong> {duration}-hour</strong> window in which to complete the
-                      challenge.
+                      <strong> {duration}-hour</strong> window in which to
+                      complete the challenge.
                       <br />
                       <b>
                         <i>Note:</i>
@@ -412,8 +412,8 @@ export const SignupLayer = ({
                       , and acknowledge that clicking on the{' '}
                       <strong>Register for the Workshop</strong> button below
                       starts the
-                      <strong> {duration}-hour</strong> window in which to complete the
-                      workshop.
+                      <strong> {duration}-hour</strong> window in which to
+                      complete the workshop.
                       <br />
                       <b>
                         <i>Note:</i>
@@ -426,10 +426,12 @@ export const SignupLayer = ({
               />
             </FormField>
             {unregisterSuccess && (
-              <Box>
-                <Box justify="center" margin={{ vertical: 'small' }}>
-                  <Text alignSelf="center">{unregisterSuccess}</Text>
-                </Box>
+              <Box
+                border={{ color: 'validation-ok' }}
+                justify="center"
+                margin={{ top: 'small', bottom: 'medium' }}
+              >
+                {unregisterSuccess}
               </Box>
             )}
             <Button
@@ -755,29 +757,24 @@ const ScheduleCard = ({
           >
             <Box direction="column">
               {!hover ? (
-                <Box
-                  direction="column"
-                  height={`${cardTopSectionHeight}px`}
-                >
-                  {popular && <ContrastLayer
-                    background="background-contrast"
-                    width="fit-content"
-                    pad="xxsmall"
-                    round="xsmall"
-                  >
-                    <Text
-                      color="#FF8300"
-                      size="small"
-                      margin={{ vertical: "3px", horizontal: "12px" }}
+                <Box direction="column" height={`${cardTopSectionHeight}px`}>
+                  {popular && (
+                    <ContrastLayer
+                      background="background-contrast"
+                      width="fit-content"
+                      pad="xxsmall"
+                      round="xsmall"
                     >
-                      Popular
-                    </Text>
-                  </ContrastLayer>
-                  }
-                  <Heading
-                    level={4}
-                    margin={{ bottom: 'small' }}
-                  >
+                      <Text
+                        color="#FF8300"
+                        size="small"
+                        margin={{ vertical: '3px', horizontal: '12px' }}
+                      >
+                        Popular
+                      </Text>
+                    </ContrastLayer>
+                  )}
+                  <Heading level={4} margin={{ bottom: 'small' }}>
                     {title}
                   </Heading>
                   {(avatar || presenter || role) && (
