@@ -14,7 +14,7 @@ const SideNavContainer = styled(Box)`
   z-index: 1;
 `;
 
-const NavButton = ({ active, to, history, children, size }) => {
+const NavButton = ({ active, to, history, children, size, href }) => {
   const [hover, setHover] = useState(false);
 
   return (
@@ -27,6 +27,7 @@ const NavButton = ({ active, to, history, children, size }) => {
       onFocus={() => setHover(true)}
       onMouseOut={() => setHover(false)}
       onBlur={() => setHover(false)}
+      href={href}
     >
       <Heading
         margin="none"
@@ -47,6 +48,7 @@ NavButton.propTypes = {
   }).isRequired,
   to: PropTypes.string.isRequired,
   size: PropTypes.string,
+  href: PropTypes.string,
 };
 
 const SideNav = ({ location, history, size, match }) => (
@@ -94,7 +96,7 @@ const SideNav = ({ location, history, size, match }) => (
     <NavButton
       history={history}
       active={location.pathname === '/community'}
-      to="/community"
+      href="https://developer.hpe.com/community"
       size={size}
     >
       COMMUNITY

@@ -139,11 +139,11 @@ const Cards = ({ size }) => (
       }
     />
     <Card
-      image="/img/sep_mnl-digital-transformation.jpg"
-      title="HPE Dev Munch & Learn - Digital Transformation Next: Data & Analytics Workloads"
+      image="/img/munch-learn-generic.jpg"
+      title="HPE Dev Munch & Learn - The Great Unification: Building Analytic pipelines with Apache Spark"
       desc="Join us to discuss strategic best practices and practical architectural details."
       link="https://hpe.zoom.us/meeting/register/tJEtde-hrDMpE9MLHnqxZ7gWZCgjWyDMz_gM"
-      date="September 22, 2021"
+      date="November 17, 2021"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={
@@ -156,7 +156,7 @@ const Cards = ({ size }) => (
       image="/img/Arcade/TreasureMap.png"
       title="WIN IN THE HPE DEV TREASURE HUNT"
       desc="Discover ways to collaborate and where to find resources."
-      link="http://bit.ly/hpe-discover-treasure-hunt"
+      link="https://bit.ly/kubecon-na-2021-hpedev-treasure-hunt"
       background="rgba(0, 86, 122, 0.8);"
       label="Hunt for Treasure!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}

@@ -109,8 +109,8 @@ export const Row5 = [
     img: '/img/StickerPage/dev-thumb.png',
   },
   {
-    backgroundImage: 'url(/img/StickerPage/design.png)',
-    download: '/img/StickerPage/design.png',
+    img: '/img/StickerPage/gremlin-cube.jpeg',
+    backgroundColor: 'white',
     icon: <Monitor size="small" />,
   },
   {
@@ -138,8 +138,20 @@ export const Row6 = [
   },
 ];
 
-// Need extra rows for mobile view
 export const Row7 = [
+  {
+    img: '/img/StickerPage/gremlin-cube-transparent.png',
+    icon: <Monitor size="small" />,
+  },
+  {
+    backgroundImage: 'url(/img/StickerPage/design.png)',
+    download: '/img/StickerPage/design.png',
+    icon: <Monitor size="small" />,
+  },
+];
+
+// Need extra rows for mobile view
+export const Row8 = [
   {
     backgroundImage: 'url(/img/StickerPage/grommet-icon.png)',
     download: '/img/StickerPage/grommet-icon.png',
@@ -157,7 +169,7 @@ export const Row7 = [
   },
 ];
 
-export const Row8 = [
+export const Row9 = [
   {
     img: '/img/StickerPage/letshackshack.png',
     icon: <Monitor size="small" />,

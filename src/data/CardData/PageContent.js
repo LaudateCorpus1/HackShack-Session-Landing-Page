@@ -77,7 +77,7 @@ export const arcadeContent = [
   //   title: 'HPE DEV TREASURE HUNT',
   //   desc:
   //     "Explore the HPE Developer Community's rich ecosystem in this scavenger-hunt style game!",
-  //   link: 'http://bit.ly/hpe-discover-treasure-hunt',
+  //   link: 'https://bit.ly/kubecon-na-2021-hpedev-treasure-hunt',
   //   label: 'Hunt for Treasure!',
   //   background: 'background',
   // },
