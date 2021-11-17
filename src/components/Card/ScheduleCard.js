@@ -266,7 +266,7 @@ export const SignupLayer = ({
           headers: {
             'x-access-token': AuthService.getCurrentUser().accessToken,
           },
-          data: { ...formData },
+          data: { ...formData, email: formData.email.toLowerCase() },
         })
           .then(response => {
             if (response.status === 202) {
