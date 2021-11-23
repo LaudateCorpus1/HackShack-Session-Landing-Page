@@ -140,10 +140,10 @@ const Cards = ({ size }) => (
     />
     <Card
       image="/img/munch-learn-generic.jpg"
-      title="HPE Dev Munch & Learn - The Great Unification: Building Analytic pipelines with Apache Spark"
-      desc="Join us to discuss strategic best practices and practical architectural details."
-      link="https://hpe.zoom.us/meeting/register/tJEtde-hrDMpE9MLHnqxZ7gWZCgjWyDMz_gM"
-      date="November 17, 2021"
+      title="HPE Dev Munch & Learn - Redfish: Past, Present and Future"
+      desc="Join us to discuss how Redfish got started (did you know it is an HPE invention?), where it is now and where Redfish is going."
+      link="https://hpe.zoom.us/meeting/register/tJclcuugqD8rEtH4bVJeCI72Vn_6wnz9_g1z"
+      date="December 8, 2021"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={
