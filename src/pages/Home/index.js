@@ -140,10 +140,10 @@ const Cards = ({ size }) => (
     />
     <Card
       image="/img/munch-learn-generic.jpg"
-      title="HPE Dev Munch & Learn - Redfish: Past, Present and Future"
-      desc="Join us to discuss how Redfish got started (did you know it is an HPE invention?), where it is now and where Redfish is going."
-      link="https://hpe.zoom.us/meeting/register/tJclcuugqD8rEtH4bVJeCI72Vn_6wnz9_g1z"
-      date="December 8, 2021"
+      title="Location, location, location! With data everywhere, location matters more than ever. Learn how succeed at the Edge with HPE Ezmeral and NVIDIA"
+      desc="Join HPE and NVIDIA to learn how best accelerate your success at the Edge."
+      link=" https://hpe.zoom.us/webinar/register/WN_JLPveMmYSOWd1Mn-7bU62Q"
+      date="January 19, 2022"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={
