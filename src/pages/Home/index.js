@@ -193,14 +193,6 @@ Cards.propTypes = {
 
 const Home = () => {
   const size = useContext(ResponsiveContext);
-  const optionsLarge = { width: '896px', height: '504px' };
-  const optionsSmall = {
-    maxWidth: '280px',
-    minWidth: '280px',
-    width: '280px',
-    maxHeight: '180px',
-    height: '180px',
-  };
   const [open, setOpen] = useState();
   const onClose = () => setOpen(undefined);
 
@@ -231,7 +223,8 @@ const Home = () => {
               <ReactPlayer
                 url="https://youtu.be/Urth22R5Iz4"
                 controls
-                style={size === 'small' ? optionsSmall : optionsLarge}
+                width="932px"
+                height="528px"
               />
             </Box>
           </StyledLayer>
