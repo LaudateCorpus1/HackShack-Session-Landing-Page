@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import ReactPlayer from 'react-player';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -8,7 +9,6 @@ import {
   Anchor,
   Button,
   Stack,
-  Video,
 } from 'grommet';
 import { Close } from 'grommet-icons';
 import { Layout, ButtonSplit, Card } from '../../components/index';
@@ -121,7 +121,7 @@ const Cards = ({ size }) => (
         desc="Watch this video!"
         background="rgba(0, 86, 122, 0.8);"
         label="Watch Now"
-        link="https://vimeo.com/539879968"
+        link="https://youtu.be/Urth22R5Iz4"
         margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
       />
     )}
@@ -193,6 +193,14 @@ Cards.propTypes = {
 
 const Home = () => {
   const size = useContext(ResponsiveContext);
+  const optionsLarge = { width: '896px', height: '504px' };
+  const optionsSmall = {
+    maxWidth: '280px',
+    minWidth: '280px',
+    width: '280px',
+    maxHeight: '180px',
+    height: '180px',
+  };
   const [open, setOpen] = useState();
   const onClose = () => setOpen(undefined);
 
@@ -220,21 +228,11 @@ const Home = () => {
               />
             </Box>
             <Box alignSelf="center">
-              <Video controls="over" autoPlay fit="cover">
-                <source
-                  key="video"
-                  src="https://player.vimeo.com/external/539879968.hd.mp4?s=1ff575d7f35468a09a8ad9ac86361989b4cb33e5&profile_id=174"
-                  type="video/mp4"
-                />
-                <track
-                  key="cc"
-                  label="English"
-                  kind="subtitles"
-                  srcLang="en"
-                  src="/assets/small-en.vtt"
-                  default
-                />
-              </Video>
+              <ReactPlayer
+                url="https://youtu.be/Urth22R5Iz4"
+                controls
+                style={size === 'small' ? optionsSmall : optionsLarge}
+              />
             </Box>
           </StyledLayer>
         )}
