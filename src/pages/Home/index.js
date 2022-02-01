@@ -139,7 +139,7 @@ const Cards = ({ size }) => (
       }
     />
     <Card
-      image="/img/munch-learn-generic.jpg"
+      image="/img/cap_ML.png"
       title="Golden Age of AI, Dark Ages of AI Infrastructure"
       desc="Neil Conway, senior director of Determined AI engineering at HPE, joins us to talk about why practical use of deep learning (DL) remains difficult. He’ll explore what problems DL infrastructure tools solve today, where they fall short, and how they can improve."
       link="https://hpe.zoom.us/webinar/register/2316433878218/WN_aU4wfaGQSzCZrnsoQctsFw"
