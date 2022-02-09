@@ -11,7 +11,7 @@
 
 [[redirects]]
 from = "https://deploy-preview-260--musing-kalam-f76e20.netlify.app"
-to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com"
+to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com/hackshack"
 status = 301
 force = true
 
@@ -19,4 +19,22 @@ force = true
 from = "/workshop/26"
 to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com/hackshack/workshop/26"
 status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/27"
+to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com/hackshack/workshop/27"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/28"
+to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com/hackshack/workshop/28"
+status = 301
+force = false
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
 force = false
