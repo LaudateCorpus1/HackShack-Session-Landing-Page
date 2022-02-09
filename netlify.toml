@@ -10,7 +10,13 @@
   REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT = "https://hackshackdevtest.hpedev.io"
 
 [[redirects]]
-from = "/workshop/26"
-to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com/hackshack/workshop/26"
+from = "https://hackshack.hpedev.io"
+to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com/hackshack"
 status = 301
+force = true
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
 force = false
