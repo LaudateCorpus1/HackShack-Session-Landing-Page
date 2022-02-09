@@ -10,6 +10,12 @@
   REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT = "https://hackshackdevtest.hpedev.io"
 
 [[redirects]]
+from = "https://deploy-preview-260--musing-kalam-f76e20.netlify.app"
+to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com"
+status = 301
+force = true
+
+[[redirects]]
 from = "/workshop/26"
 to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com/hackshack/workshop/26"
 status = 301
