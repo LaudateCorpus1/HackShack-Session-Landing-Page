@@ -10,28 +10,10 @@
   REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT = "https://hackshackdevtest.hpedev.io"
 
 [[redirects]]
-from = "https://deploy-preview-260--musing-kalam-f76e20.netlify.app"
+from = "https://hackshack.hpedev.io"
 to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com/hackshack"
 status = 301
 force = true
-
-[[redirects]]
-from = "/workshop/26"
-to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com/hackshack/workshop/26"
-status = 301
-force = false
-
-[[redirects]]
-from = "/workshop/27"
-to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com/hackshack/workshop/27"
-status = 301
-force = false
-
-[[redirects]]
-from = "/workshop/28"
-to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com/hackshack/workshop/28"
-status = 301
-force = false
 
 [[redirects]]
 from = "/*"
