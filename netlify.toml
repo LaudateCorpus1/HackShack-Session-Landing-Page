@@ -17,6 +17,12 @@ status = 301
 force = true
 
 [[redirects]]
+from = "/workshops"
+to = "https://developer.hpe.com/hackshack/workshops"
+status = 301
+force = false
+
+[[redirects]]
 from = "/workshop/0"
 to = "https://developer.hpe.com/hackshack/workshop/0"
 status = 301
@@ -203,8 +209,8 @@ status = 301
 force = false
 
 [[redirects]]
-from = "/workshop/32"
-to = "https://developer.hpe.com/hackshack/workshop/32"
+from = "/workshop/31"
+to = "https://developer.hpe.com/hackshack/workshop/31"
 status = 301
 force = false
 
@@ -241,12 +247,6 @@ force = false
 [[redirects]]
 from = "/hackshackattack"
 to = "https://developer.hpe.com/hackshack/hack-shack-attack"
-status = 301
-force = false
-
-[[redirects]]
-from = "/stickerwall"
-to = "https://developer.hpe.com/hackshack/stickerwall"
 status = 301
 force = false
 
@@ -379,12 +379,6 @@ force = false
 [[redirects]]
 from = "/replays/20"
 to = "https://developer.hpe.com/hackshack/replays/20"
-status = 301
-force = false
-
-[[redirects]]
-from = "/replays/21"
-to = "https://developer.hpe.com/hackshack/replays/21"
 status = 301
 force = false
 
