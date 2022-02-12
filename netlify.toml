@@ -9,11 +9,474 @@
 [context.testing.environment]
   REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT = "https://hackshackdevtest.hpedev.io"
 
+
 [[redirects]]
-from = "https://deploy-preview-260--musing-kalam-f76e20.netlify.app"
-to = "https://pr-927.d2wz01xj8bm9sl.amplifyapp.com/hackshack"
+from = "https://hackshack.hpedev.io"
+to = "https://developer.hpe.com/hackshack"
 status = 301
 force = true
+
+[[redirects]]
+from = "/workshops"
+to = "https://developer.hpe.com/hackshack/workshops"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/0"
+to = "https://developer.hpe.com/hackshack/workshop/0"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/1"
+to = "https://developer.hpe.com/hackshack/workshop/1"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/2"
+to = "https://developer.hpe.com/hackshack/workshop/2"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/3"
+to = "https://developer.hpe.com/hackshack/workshop/3"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/4"
+to = "https://developer.hpe.com/hackshack/workshop/4"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/5"
+to = "https://developer.hpe.com/hackshack/workshop/5"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/6"
+to = "https://developer.hpe.com/hackshack/workshop/6"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/7"
+to = "https://developer.hpe.com/hackshack/workshop/7"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/8"
+to = "https://developer.hpe.com/hackshack/workshop/8"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/9"
+to = "https://developer.hpe.com/hackshack/workshop/9"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/10"
+to = "https://developer.hpe.com/hackshack/workshop/10"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/11"
+to = "https://developer.hpe.com/hackshack/workshop/11"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/12"
+to = "https://developer.hpe.com/hackshack/workshop/12"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/13"
+to = "https://developer.hpe.com/hackshack/workshop/13"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/14"
+to = "https://developer.hpe.com/hackshack/workshop/14"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/15"
+to = "https://developer.hpe.com/hackshack/workshop/15"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/16"
+to = "https://developer.hpe.com/hackshack/workshop/16"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/17"
+to = "https://developer.hpe.com/hackshack/workshop/17"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/18"
+to = "https://developer.hpe.com/hackshack/workshop/18"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/19"
+to = "https://developer.hpe.com/hackshack/workshop/19"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/20"
+to = "https://developer.hpe.com/hackshack/workshop/20"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/21"
+to = "https://developer.hpe.com/hackshack/workshop/21"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/22"
+to = "https://developer.hpe.com/hackshack/workshop/22"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/23"
+to = "https://developer.hpe.com/hackshack/workshop/23"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/24"
+to = "https://developer.hpe.com/hackshack/workshop/24"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/25"
+to = "https://developer.hpe.com/hackshack/workshop/25"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/26"
+to = "https://developer.hpe.com/hackshack/workshop/26"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/27"
+to = "https://developer.hpe.com/hackshack/workshop/27"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/28"
+to = "https://developer.hpe.com/hackshack/workshop/28"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/29"
+to = "https://developer.hpe.com/hackshack/workshop/29"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/30"
+to = "https://developer.hpe.com/hackshack/workshop/30"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/31"
+to = "https://developer.hpe.com/hackshack/workshop/31"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshop/32"
+to = "https://developer.hpe.com/hackshack/workshop/32"
+status = 301
+force = false
+
+[[redirects]]
+from = "/challenges"
+to = "https://developer.hpe.com/hackshack/challenges"
+status = 301
+force = false
+
+[[redirects]]
+from = "/ezmeral"
+to = "https://developer.hpe.com/hackshack/ezmeral"
+status = 301
+force = false
+
+[[redirects]]
+from = "/community"
+to = "https://developer.hpe.com/community"
+status = 301
+force = false
+
+[[redirects]]
+from = "/arcade"
+to = "https://developer.hpe.com/hackshack/arcade"
+status = 301
+force = false
+
+[[redirects]]
+from = "/hackshackattack"
+to = "https://developer.hpe.com/hackshack/hack-shack-attack"
+status = 301
+force = false
+
+[[redirects]]
+from = "/stickerwall"
+to = "https://developer.hpe.com/hackshack/stickerwall"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/0"
+to = "https://developer.hpe.com/hackshack/replays/0"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/1"
+to = "https://developer.hpe.com/hackshack/replays/1"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/2"
+to = "https://developer.hpe.com/hackshack/replays/2"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/3"
+to = "https://developer.hpe.com/hackshack/replays/3"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/4"
+to = "https://developer.hpe.com/hackshack/replays/4"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/5"
+to = "https://developer.hpe.com/hackshack/replays/5"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/6"
+to = "https://developer.hpe.com/hackshack/replays/6"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/7"
+to = "https://developer.hpe.com/hackshack/replays/7"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/8"
+to = "https://developer.hpe.com/hackshack/replays/8"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/9"
+to = "https://developer.hpe.com/hackshack/replays/9"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/10"
+to = "https://developer.hpe.com/hackshack/replays/10"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/11"
+to = "https://developer.hpe.com/hackshack/replays/11"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/12"
+to = "https://developer.hpe.com/hackshack/replays/12"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/13"
+to = "https://developer.hpe.com/hackshack/replays/13"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/14"
+to = "https://developer.hpe.com/hackshack/replays/14"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/15"
+to = "https://developer.hpe.com/hackshack/replays/15"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/16"
+to = "https://developer.hpe.com/hackshack/replays/16"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/17"
+to = "https://developer.hpe.com/hackshack/replays/17"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/18"
+to = "https://developer.hpe.com/hackshack/replays/18"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/19"
+to = "https://developer.hpe.com/hackshack/replays/19"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/20"
+to = "https://developer.hpe.com/hackshack/replays/20"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/21"
+to = "https://developer.hpe.com/hackshack/replays/21"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/22"
+to = "https://developer.hpe.com/hackshack/replays/22"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/23"
+to = "https://developer.hpe.com/hackshack/replays/23"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/24"
+to = "https://developer.hpe.com/hackshack/replays/24"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/25"
+to = "https://developer.hpe.com/hackshack/replays/25"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/26"
+to = "https://developer.hpe.com/hackshack/replays/26"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/27"
+to = "https://developer.hpe.com/hackshack/replays/27"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/28"
+to = "https://developer.hpe.com/hackshack/replays/28"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/29"
+to = "https://developer.hpe.com/hackshack/replays/29"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/30"
+to = "https://developer.hpe.com/hackshack/replays/30"
+status = 301
+force = false
+
+[[redirects]]
+from = "/replays/31"
+to = "https://developer.hpe.com/hackshack/replays/31"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshops/0/special-badge"
+to = "https://developer.hpe.com/hackshack/workshops/0/special-badge"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshops/1/special-badge"
+to = "https://developer.hpe.com/hackshack/workshops/1/special-badge"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshops/2/special-badge"
+to = "https://developer.hpe.com/hackshack/workshops/2/special-badge"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshops/3/special-badge"
+to = "https://developer.hpe.com/hackshack/workshops/3/special-badge"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshops/4/special-badge"
+to = "https://developer.hpe.com/hackshack/workshops/4/special-badge"
+status = 301
+force = false
 
 [[redirects]]
 from = "/*"
