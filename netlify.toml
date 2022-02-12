@@ -449,6 +449,36 @@ status = 301
 force = false
 
 [[redirects]]
+from = "/workshops/0/special-badge"
+to = "https://developer.hpe.com/hackshack/workshops/0/special-badge"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshops/1/special-badge"
+to = "https://developer.hpe.com/hackshack/workshops/1/special-badge"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshops/2/special-badge"
+to = "https://developer.hpe.com/hackshack/workshops/2/special-badge"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshops/3/special-badge"
+to = "https://developer.hpe.com/hackshack/workshops/3/special-badge"
+status = 301
+force = false
+
+[[redirects]]
+from = "/workshops/4/special-badge"
+to = "https://developer.hpe.com/hackshack/workshops/4/special-badge"
+status = 301
+force = false
+
+[[redirects]]
 from = "/*"
 to = "/index.html"
 status = 200
