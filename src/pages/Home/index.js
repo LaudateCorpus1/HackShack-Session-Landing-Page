@@ -197,7 +197,7 @@ const Home = () => {
   const onClose = () => setOpen(undefined);
 
   return (
-    <Layout background="/img/BackgroundImages/hack-shack-home-background.png">
+    <Layout background="/img/BackgroundImages/hack-shack-home-background-min.png">
       <Box height="100%" width="100%">
         {open && (
           <StyledLayer
@@ -234,14 +234,14 @@ const Home = () => {
             <Image
               width="100%"
               fit="cover"
-              src="/img/hack-shack-dve-logo.png"
+              src="/img/BackgroundImages/hack-shack-logo.png"
               alt="Hack Shack"
             />
           </LogoWrapper>
           <Content />
           <ButtonWrapper>
             <ButtonSplit to="https://developer.hpe.com">
-              Visit HPE DEV Community Portal
+              Visit HPE Developer Community Portal
             </ButtonSplit>
           </ButtonWrapper>
         </MainWrapper>
