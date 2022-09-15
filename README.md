@@ -12,12 +12,15 @@ Hackshack landing site and leaderboard app to display event details and player h
   ```
 2. Install dependencies
   ```
-  yarn
+  cd HackShack-Session-Landing-Page
+  yarn install
+  ```
+3. Run application
+  ```
+  yarn start
   ```
   
 ### Development
-1. Ensure `workshops_on_demand_server` is running https://github.com/hpe-dev-incubator/workshops_on_demand_server
-2. Start dev server
- ```
- yarn start
- ```
+1. Ensure `workshops_on_demand_server` is running 
+clone the repo from https://github.com/hpe-dev-incubator/workshops_on_demand_server
+Follow readME document to configure and run the workshops on demand application and database.
