@@ -15,7 +15,13 @@ Hackshack landing site and leaderboard app to display event details and player h
   cd HackShack-Session-Landing-Page
   yarn install
   ```
-3. Run application
+3. rename .env.example to .env
+  Make sure you update below 3 variables for workshops to work
+  REACT_APP_WORKSHOPCHALLENGE_API_ENDPOINT=http://localhost:8082
+  REACT_APP_USERNAME="" //add a user in DB
+  REACT_APP_PASSWORD="" //base64 encoded password for the user in DB
+
+4. Run application
   ```
   yarn start
   ```
