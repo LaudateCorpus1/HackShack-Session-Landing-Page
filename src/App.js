@@ -7,7 +7,7 @@ import { throwError } from 'rxjs';
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 import {
-  Home,
+  // Home,
   Community,
   Arcade,
   StickerWall,
@@ -77,8 +77,8 @@ const App = () => {
       <Router history={history}>
         <ScrollToTop />
         <Switch>
-          <Route exact path="/">
-            <Home />
+          <Route exact path="/" render={props => <Workshops {...props} />}>
+            {/* <Home /> */}
           </Route>
           <Route path="/community">
             <Community />
@@ -124,20 +124,17 @@ const App = () => {
             exact
             path="/workshops"
             render={props => <Workshops {...props} />}
-          >
-          </Route>
+          ></Route>
           <Route
             exact
             path="/workshop/:replayId"
             render={props => <Replays {...props} />}
-          >
-          </Route>
+          ></Route>
           <Route
             exact
             path="/workshop/:replayId/finisher-badge"
             render={props => <FinisherBadge {...props} />}
-          >
-          </Route>
+          ></Route>
           <Route
             exact
             path="/workshops/:workshopId/special-badge"

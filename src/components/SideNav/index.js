@@ -53,17 +53,17 @@ NavButton.propTypes = {
 
 const SideNav = ({ location, history, size, match }) => (
   <SideNavContainer align="start" gap="xsmall" width={{ min: '250px' }}>
-    <NavButton
+    {/* <NavButton
       history={history}
       active={location.pathname === '/'}
       to="/"
       size={size}
     >
       HACK SHACK
-    </NavButton>
+    </NavButton> */}
     <NavButton
       history={history}
-      active={location.pathname === '/workshops'}
+      active={location.pathname === '/workshops' || location.pathname === '/'}
       to="/workshops"
       size={size}
     >
@@ -77,14 +77,14 @@ const SideNav = ({ location, history, size, match }) => (
     >
       CHALLENGES
     </NavButton>
-    <NavButton
+    {/* <NavButton
       history={history}
       active={location.pathname === '/ezmeral'}
       to="/ezmeral"
       size={size}
     >
       HPE EZMERAL
-    </NavButton>
+    </NavButton> */}
     <NavButton
       history={history}
       active={match.path === '/replays/:replayId'}
@@ -93,15 +93,15 @@ const SideNav = ({ location, history, size, match }) => (
     >
       REPLAYS
     </NavButton>{' '}
-    <NavButton
+    {/* <NavButton
       history={history}
       active={location.pathname === '/community'}
       href="https://developer.hpe.com/community"
       size={size}
     >
       COMMUNITY
-    </NavButton>
-    <NavButton
+    </NavButton> */}
+    {/* <NavButton
       history={history}
       active={
         location.pathname === '/arcade' ||
@@ -112,7 +112,7 @@ const SideNav = ({ location, history, size, match }) => (
       size={size}
     >
       ARCADE
-    </NavButton>
+    </NavButton> */}
   </SideNavContainer>
 );
 
